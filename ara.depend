@@ -1,6 +1,6 @@
 # depslib dependency file v1.0
-1547329000 source:c:\users\kivi\documents\ara\main.cpp
-	<SFML/Window.hpp>
+1547330236 source:c:\users\kivi\documents\ara\main.cpp
+	"lib/SFML-2.5.1/include/SFML/Window.hpp"
 
 1525808418 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\window.hpp
 	<SFML/System.hpp>
