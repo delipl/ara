@@ -15,9 +15,9 @@
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="lib/SFML-2.5.1/lib/libsfml-graphics-d.a" />
-					<Add library="lib/SFML-2.5.1/lib/libsfml-system-d.a" />
-					<Add library="lib/SFML-2.5.1/lib/libsfml-window-d.a" />
+					<Add library="lib/SFML-2.5.1/lib/libsfml-graphics-s-d.a" />
+					<Add library="lib/SFML-2.5.1/lib/libsfml-system-s-d.a" />
+					<Add library="lib/SFML-2.5.1/lib/libsfml-window-s-d.a" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -30,9 +30,9 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="lib/SFML-2.5.1/lib/libsfml-graphics.a" />
-					<Add library="lib/SFML-2.5.1/lib/libsfml-system.a" />
-					<Add library="lib/SFML-2.5.1/lib/libsfml-window.a" />
+					<Add library="lib/SFML-2.5.1/lib/libsfml-graphics-s.a" />
+					<Add library="lib/SFML-2.5.1/lib/libsfml-system-s.a" />
+					<Add library="lib/SFML-2.5.1/lib/libsfml-window-s.a" />
 				</Linker>
 			</Target>
 		</Build>
