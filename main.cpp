@@ -1,5 +1,4 @@
-#include <SFML/Window.hpp>
-
+#include "lib/SFML-2.5.1/include/SFML/Window.hpp"
 int main()
 {
     sf::Window window(sf::VideoMode(800, 600), "My window");
