@@ -1,6 +1,9 @@
+#include <stdio.h>
+#include "Board.cpp"
+
 int m = 10;
 int n = 10;
-#include <stdio.h>
+
 class Board{
 public:
 	int x;
@@ -20,9 +23,12 @@ public:
 class Figure : public Board{
 public:
 	bool owner;
-	Figure(){
-		printf("hello im figure\n");
-	}
-
 };
 
+class Ghost: public Figure{
+public:
+	Ghost(int a, int b){
+		this->x = a;
+		this->y = b;
+	};
+}
