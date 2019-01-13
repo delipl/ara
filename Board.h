@@ -3,13 +3,26 @@ int n = 10;
 #include <stdio.h>
 class Board{
 public:
-	int x = m;
-	int y = n;
-	//int cords [x][y];
+	int x;
+	int y;
+	char name;
+	/*~Board(){
+ 		printf("Umarlem\n");
+	}*/
 };
-class Empty: Board{
+class Empty: public Board{
 public:
 	Empty(){
-		printf("stworzono \n"); 
-	};
+		printf("hello im empty\n");
+	}
 };
+
+class Figure : public Board{
+public:
+	bool owner;
+	Figure(){
+		printf("hello im figure\n");
+	}
+
+};
+

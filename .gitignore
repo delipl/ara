@@ -29,5 +29,5 @@
 #*.exe
 *.out
 *.app
-test.cpp
+#test.cpp
 test
