@@ -5,7 +5,7 @@
 int main(){
 	Board *board[m][n];
     for(int i = 0; i < m; i++){
-    	for (int j = 0; j < n; j++)	board[i][j] = new Figure;
+    	for (int j = 0; j < n; j++) board[i][j] = new Figure;
     }
     
   	//*board[0][0] = Empty();

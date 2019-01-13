@@ -9,6 +9,8 @@ public:
 	int x;
 	int y;
 	char name;
+
+
 	/*~Board(){
  		printf("Umarlem\n");
 	}*/
@@ -23,12 +25,15 @@ public:
 class Figure : public Board{
 public:
 	bool owner;
+	char name;
 };
 
 class Ghost: public Figure{
 public:
-	Ghost(int a, int b){
+	name = "G";
+	Ghost(int a, int b, /*bool player*/){
 		this->x = a;
 		this->y = b;
+		//this->owner = player
 	};
 }
