@@ -21,5 +21,18 @@
 
 ~Duch:
 	-mo¿e sie ruszaæ jak na obrazku
+	-lata ponad innymi figurami i przepaœciami
 	-zabija figure staj¹c na jej miejscu
 	-patrze zdjêcie Duch.png
+
+~Szar¿a:
+	-mo¿e sie ruszyæ o 2 kolumny w bok albo zszar¿owaæ do przodu (zasiêg nieograniczony)
+	-mo¿e przelatywaæ przez swoje jednostki zabijaj¹c je
+	-zabija staj¹æ na polu figury któr¹ chce zabiæ
+
+
+~Wie¿a:
+	-rusza siê o jedno pole w ka¿dym kierunku
+	-niszczy inne figury strzelaj¹c
+	-nie mo¿e strzelaæ dalej ni¿ 5 pól od siebie i bli¿ej ni¿ 2 pola od siebie
+	-patrz Wie¿a.png
