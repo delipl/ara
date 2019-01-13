@@ -1,8 +1,5 @@
 # depslib dependency file v1.0
-<<<<<<< HEAD
-1547330236 source:c:\users\kivi\documents\ara\main.cpp
-	"lib/SFML-2.5.1/include/SFML/Window.hpp"
-=======
+
 1547334723 source:c:\users\kivi\desktop\dzia³aj chuju\ara\main.cpp
 	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 	<iostream>
@@ -861,6 +858,9 @@
 	<SFML/Graphics/VertexArray.hpp>
 	<SFML/Graphics/VertexBuffer.hpp>
 	<SFML/Graphics/View.hpp>
+<<<<<<< HEAD
+>>>>>>> base
+=======
 >>>>>>> base
 
 1525808418 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\window.hpp
@@ -1074,7 +1074,10 @@
 1525808418 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\window\windowstyle.hpp
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> base
 1525808418 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\graphics\blendmode.hpp
 	<SFML/Graphics/Export.hpp>
 
@@ -1245,4 +1248,4 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
->>>>>>> base
+
