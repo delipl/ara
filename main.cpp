@@ -1,22 +1,41 @@
-#include "lib/SFML-2.5.1/include/SFML/Window.hpp"
+#include "lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 #include <iostream>
 
 
 int main()
 {
-    sf::Window window(sf::VideoMode(800, 600), "My window");
+    sf::RenderWindow window(sf::VideoMode(1366, 720), "Gdzie jest widelec");
 
-    // run the program as long as the window is open
+    sf::Texture rudys;
+    if (!rudys.loadFromFile("rudy.png"))
+    {
+        // error...
+    }
+
     while (window.isOpen())
     {
-        // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
         while (window.pollEvent(event))
         {
-            // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+
+        sf::Sprite rudy;
+        rudy.setTexture(rudys);
+        rudy.setOrigin(250, 297);
+        rudy.setPosition(sf::Vector2f(1366/2.0f,720/2.0f));
+        sf::Vector2f scale = rudy.getScale();
+        rudy.setScale(sf::Vector2f(0.5f, 0.5f));
+        for(;;)
+        {
+            window.clear(sf::Color(0, 0, 0, 255));
+            rudy.rotate(0.1);
+            window.draw(rudy);
+            window.display();
+        }
+        window.clear();
+
     }
 
     return 0;
