@@ -1,4 +1,9 @@
-#include "header.h"
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include <Windows.h>
+
+using namespace std;
 
 int main()
 {
@@ -6,7 +11,7 @@ int main()
 
 //=================================T£O================================================//
     sf::Texture texture;
-    if (!texture.loadFromFile("dupa.png"))
+    if (!texture.loadFromFile("img/dupa.png"))
     {
 
     }
