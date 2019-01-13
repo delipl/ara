@@ -1,3 +1,0 @@
-# ara
-Project
-init
