@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-
+#.dll
 # Compiled Object files
 *.slo
 *.lo
@@ -26,6 +26,6 @@
 *.lib
 
 # Executables
-*.exe
+#*.exe
 *.out
 *.app
