@@ -1,10 +1,16 @@
+~Warunek wygranej:
+	-œmieræ króla (lub spowodowanie ¿e nie mo¿e siê ruszyæ)
+
 ~Plansza: 
-	-ma wymiary 17x33
+	-ma wymiary 17x17
 	-Wygl¹da jak na obrazie "Plansza .png"
 	
 	-co ture znikaj¹ z niej dwa pola
 		*pola znikaj¹ jak na obrazie "Znikanie mapy.png", czytaj najpierw znikaj¹ 
 		 najciemniejsze natêpnie coraz jaœniejsze, a¿ z mapy nic nie zostanie 
+
+~Figury:
+	-Rostawienie figur tak jak na obrazie "Rozstawienie mapy.png"
 
 ~Król:
 	-rusza siê o jedno pole w ka¿d¹ ze stron
@@ -36,3 +42,14 @@
 	-niszczy inne figury strzelaj¹c
 	-nie mo¿e strzelaæ dalej ni¿ 5 pól od siebie i bli¿ej ni¿ 2 pola od siebie
 	-patrz Wie¿a.png
+
+Pionek:
+	-rusza siê o jeden w przód lub po skosie w przód
+	-mo¿e atakowaæ figury o jeden oddalone w ka¿d¹ stronê poza ty³em
+	-atakuj¹c nie wchodzi na jej miejsce ale je niszczy
+	-patrz Pionek.png
+
+Zagadka:
+	-rusza siê o niegraniczon¹ liczbe pól w ka¿d¹ stronê
+	-zabija staj¹c w miejscu figury zabijanej
+	-patrz Zagadka.png
