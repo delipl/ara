@@ -5,13 +5,6 @@
 
 using namespace std;
 
-int dupa(int x)
-{
-    if(x>0) return x;
-    else return -x;
-}
-
-
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1366, 720), "Gdzie jest widelec");
