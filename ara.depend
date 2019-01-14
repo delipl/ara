@@ -1242,11 +1242,10 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1547482543 source:c:\users\adamw\documents\ara\main.cpp
+1547485161 source:c:\users\adamw\documents\ara\main.cpp
 	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 	"lib/SFML-2.5.1/include/SFML/Window.hpp"
 	<iostream>
-	<Windows.h>
 
 1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
