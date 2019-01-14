@@ -1,5 +1,5 @@
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
+#include "lib/SFML-2.5.1/include/SFML/Graphics.hpp"
+#include "lib/SFML-2.5.1/include/SFML/Window.hpp"
 #include <iostream>
 #include <Windows.h>
 
@@ -11,7 +11,7 @@ int main()
 
 //=================================T£O================================================//
     sf::Texture texture;
-    if (!texture.loadFromFile("img/dupa.png"))
+    if (!texture.loadFromFile("dupa.png"))
     {
 
     }
