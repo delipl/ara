@@ -1,0 +1,55 @@
+~Warunek wygranej:
+	-œmieræ króla (lub spowodowanie ¿e nie mo¿e siê ruszyæ)
+
+~Plansza: 
+	-ma wymiary 17x17
+	-Wygl¹da jak na obrazie "Plansza .png"
+	
+	-co ture znikaj¹ z niej dwa pola
+		*pola znikaj¹ jak na obrazie "Znikanie mapy.png", czytaj najpierw znikaj¹ 
+		 najciemniejsze natêpnie coraz jaœniejsze, a¿ z mapy nic nie zostanie 
+
+~Figury:
+	-Rostawienie figur tak jak na obrazie "Rozstawienie mapy.png"
+
+~Król:
+	-rusza siê o jedno pole w ka¿d¹ ze stron
+	-mo¿e zabiæ inn¹ figurê staj¹c tam gdzie on stoi
+	-patrz zdjêcie Król.png
+
+~Kawaleria: 
+	-rusza siê po skosach o nieograniczonym zasiêgu
+	-nie przelatuje nad przepaœciami
+	-je¿eli na drodze jego ruchu stoi inna fgura, nie mo¿e stan¹æ na jej miejscu ani wiêcej ni¿ jedno pole za nim
+	-aby zabiæ przeciwnika musi stan¹æ o jedno pole za nim
+		! sytuacja wyj¹tkowa jeœli dwóch przeciwników stoi w lini po skosie oddaleni o jedno pole mo¿na ich zabiæ staj¹c za drugim
+	-patrze zdjêcie Kawaleria.png
+
+~Duch:
+	-mo¿e sie ruszaæ jak na obrazku
+	-lata ponad innymi figurami i przepaœciami
+	-zabija figure staj¹c na jej miejscu
+	-patrze zdjêcie Duch.png
+
+~Szar¿a:
+	-mo¿e sie ruszyæ o 2 kolumny w bok albo zszar¿owaæ do przodu (zasiêg nieograniczony)
+	-mo¿e przelatywaæ przez swoje jednostki zabijaj¹c je
+	-zabija staj¹æ na polu figury któr¹ chce zabiæ
+
+
+~Wie¿a:
+	-rusza siê o jedno pole w ka¿dym kierunku
+	-niszczy inne figury strzelaj¹c
+	-nie mo¿e strzelaæ dalej ni¿ 5 pól od siebie i bli¿ej ni¿ 2 pola od siebie
+	-patrz Wie¿a.png
+
+Pionek:
+	-rusza siê o jeden w przód lub po skosie w przód
+	-mo¿e atakowaæ figury o jeden oddalone w ka¿d¹ stronê poza ty³em
+	-atakuj¹c nie wchodzi na jej miejsce ale je niszczy
+	-patrz Pionek.png
+
+Zagadka:
+	-rusza siê o niegraniczon¹ liczbe pól w ka¿d¹ stronê
+	-zabija staj¹c w miejscu figury zabijanej
+	-patrz Zagadka.png
