@@ -11,7 +11,7 @@
     polec puste     - empty
 */
 
-abs(int l){
+int abs(int l){
     return x > 0 ? x: -x;
 }
 
