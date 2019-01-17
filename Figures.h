@@ -1,3 +1,4 @@
+#include "pole.h"
 /*
     Pionek          - pawn
     Duch            - ghost
@@ -223,9 +224,9 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
                 for(int i = x; i < 17;i++){
                     for (int j = y; j >= 0; --j){
                         if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty") // kiedy zabija jednego
-                                return 1;   
+                                return 1;
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i+1][j-1].name == "empty" &&
-                                (board[i-2][j+2].name != "empty" && board[i][j].name != "notexist") && board[i-1][j+1].name == "empty" &&                        
+                                (board[i-2][j+2].name != "empty" && board[i][j].name != "notexist") && board[i-1][j+1].name == "empty" &&
                                                                                                     && i == targetX && j == targetY)// kiedy zabija dwoch
                                 return 1;
 
@@ -237,11 +238,11 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
                     for(int i = x; i < 17;i++){
                         for (int j = y; j < 33; ++j){
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty") // kiedy zabija jednego
-                                return 1;   
+                                return 1;
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i+1][j+1].name == "empty" &&
-                                (board[i-2][j-2].name != "empty" && board[i][j].name != "notexist") && board[i-1][j-1].name == "empty" &&                        
-                                                                                                    && i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1;  
+                                (board[i-2][j-2].name != "empty" && board[i][j].name != "notexist") && board[i-1][j-1].name == "empty" &&
+                                                                                                     i == targetX && j == targetY)// kiedy zabija dwoch
+                                return 1;
                         }
                     }
                     return 0;
@@ -251,11 +252,11 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
                     for(int i = x; i >= 0 ;i--){
                         for (int j = y; j < 33; ++j){
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i-1][j+1].name == "empty") // kiedy zabija jednego
-                                return 1;   
+                                return 1;
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i-1][j+1].name == "empty" &&
-                                (board[i-2][j-2].name != "empty" && board[i][j].name != "notexist") && board[i+1][j-1].name == "empty" &&                        
+                                (board[i-2][j-2].name != "empty" && board[i][j].name != "notexist") && board[i+1][j-1].name == "empty" &&
                                                                                                     && i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1; 
+                                return 1;
                         }
                     }
                     return 0;
@@ -265,11 +266,11 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
                     for(int i = x; i >= 0 ;i--){
                         for (int j = y; j >= 0; --j){
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i-1][j-1].name == "empty") // kiedy zabija jednego
-                                return 1;   
+                                return 1;
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i-1][j-1].name == "empty" &&
-                                (board[i+2][j+2].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty" &&                        
+                                (board[i+2][j+2].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty" &&
                                                                                                     && i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1; 
+                                return 1;
 
                         }
                     }
@@ -345,7 +346,7 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
             if(x < targetX && y > targetY){
                 for(int i = x; i >= 0; --i){
                     for (int j = y; j < 33; ++j)
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;                    
+                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
                 }
                 return 1;
             }
@@ -371,9 +372,9 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
                 }
                 return 1;
             }
-            
+
         }
-    } 
+    }
     else return 0;
 }
 
