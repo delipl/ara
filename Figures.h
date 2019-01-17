@@ -200,16 +200,14 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
         //kawaleria
         //=======================================[CAVALERY COMBAT ABILITY]=========================
         if(board[x][y].name == "cav"){
-                if(x > targetX && y < targetY){
-                    for(int i = x; i < 17;i++){
-                        for (int j = y; j >= 0; --j){
-                                if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i+1][j-1].name == "empty"){ // kiedy zabija jednego
-
-                                    if((board[i+2][j-2].name != "empty" && board[i+2][j-2].name != "notexist") && board[i+3][j-3].name == "empty" && i+2 == targetX && j-2 == targetY) // kiedy zabija dwoch
-                                        board[i][j].name = "empty";             //zabijam kogoś po drodze
-                                    return 1;
-                                }
-
+            if(x > targetX && y < targetY){
+                for(int i = x; i < 17;i++){
+                    for (int j = y; j >= 0; --j){
+                        if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i+1][j-1].name == "empty"){ // kiedy zabija jednego
+                            if((board[i+2][j-2].name != "empty" && board[i+2][j-2].name != "notexist") && board[i+3][j-3].name == "empty" && i+2 == targetX && j-2 == targetY){ // kiedy zabija dwoch
+                                board[i][j].name = "empty";             //zabijam kogoś po drodze
+                            }
+                            return 1;
                         }
 
                     }
@@ -219,14 +217,13 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
                 if(x > targetX && y < targetY){
                     for(int i = x; i < 17;i++){
                         for (int j = y; j < 33; ++j){
-                                if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty"){ // kiedy zabija jednego
-
-                                    if((board[i+2][j+2].name != "empty" && board[i+2][j+2].name != "notexist") && board[i+3][j+3].name == "empty" && i+2 == targetX && j+2 == targetY){ // kiedy zabija dwoch
-                                        board[i][j].name = "empty";             //zabijam kogoś po drodze
-                                        return 1;
-                                    }
+                            if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty"){ // kiedy zabija jednego
+                                if((board[i+2][j+2].name != "empty" && board[i+2][j+2].name != "notexist") && board[i+3][j+3].name == "empty" && i+2 == targetX && j+2 == targetY){ // kiedy zabija dwoch
+                                    board[i][j].name = "empty";             //zabijam kogoś po drodze
                                     return 1;
                                 }
+                                 return 1;
+                            }
 
                         }
                     }
@@ -236,14 +233,13 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
                 if(x > targetX && y < targetY){
                     for(int i = x; i >= 0 ;i--){
                         for (int j = y; j < 33; ++j){
-                                if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i-1][j+1].name == "empty"){ // kiedy zabija jednego
-
-                                    if((board[i-2][j+2].name != "empty" && board[i-2][j+2].name != "notexist") && board[i-3][j+3].name == "empty" && i-2 == targetX && j+2 == targetY){ // kiedy zabija dwoch
-                                        board[i][j].name = "empty";             //zabijam kogoś po drodze
-                                        return 1;
-                                    }
+                            if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i-1][j+1].name == "empty"){ // kiedy zabija jednego
+                                if((board[i-2][j+2].name != "empty" && board[i-2][j+2].name != "notexist") && board[i-3][j+3].name == "empty" && i-2 == targetX && j+2 == targetY){ // kiedy zabija dwoch
+                                    board[i][j].name = "empty";             //zabijam kogoś po drodze
                                     return 1;
                                 }
+                                return 1;
+                            }
 
                         }
                     }
@@ -253,20 +249,18 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
                 if(x > targetX && y < targetY){
                     for(int i = x; i >= 0 ;i--){
                         for (int j = y; j >= 0; --j){
-                                if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i-1][j-1].name == "empty"){ // kiedy zabija jednego
-
-                                    if((board[i-2][j-2].name != "empty" && board[i-2][j-2].name != "notexist") && board[i-3][j-3].name == "empty" && i-2 == targetX && j-2 == targetY){ // kiedy zabija dwoch
-                                        board[i][j].name = "empty";             //zabijam kogoś po drodze
-                                        return 1;
-                                    }
+                            if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i-1][j-1].name == "empty"){ // kiedy zabija jednego
+                                if((board[i-2][j-2].name != "empty" && board[i-2][j-2].name != "notexist") && board[i-3][j-3].name == "empty" && i-2 == targetX && j-2 == targetY){ // kiedy zabija dwoch
+                                    board[i][j].name = "empty";             //zabijam kogoś po drodze
                                     return 1;
                                 }
+                                return 1;
+                            }
 
                         }
                     }
                     return 0;
                 }
-
 
             }
             else return 0;
@@ -274,10 +268,34 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
         //================================================================
 
         //krol
-        if(board[x][y].name=="king"){
+        if(board[x][y].name == "king"){
             if((abs(targetX-x) == 1 && abs(targetY-y) == 1) || (targetX = x && abs(targetY-y) == 2)) return 1;
             else return 0;
         }
 
+        //szarza
+        if(board[x][y].name == "charge"){
+            if(targetY < y){
+                for (int j = y; j >= targetY; j--){
+                    //if(board[y][j].owner == board[x][y].owner) board[y][j].name = "empty"; //<- w attack()
+                    if(board[x][i].name != "empty" && board[x][i].name != "notexist" && i == targetY && targetX == x){
+                        return 1l
+                    }
+                }
+            return 0;
+            }
+            if(targetY > y){
+                for (int j = y; j <= targetY; j++){
+                    //if(board[y][j].owner == board[x][y].owner) board[y][j].name = "empty"; //<- w attack()
+                    if(board[x][i].name != "empty" && board[x][i].name != "notexist" && i == targetY && targetX == x){
+                        return 1;
+                    }
+                }
+            return 0;
+            }
+        }
+
+
+    } 
     else return 0;
 }
