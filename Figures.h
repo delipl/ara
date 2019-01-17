@@ -251,7 +251,7 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
                         for (int j = y; j >= 0; --j){
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i-1][j-1].name == "empty"){ // kiedy zabija jednego
                                 if((board[i-2][j-2].name != "empty" && board[i-2][j-2].name != "notexist") && board[i-3][j-3].name == "empty" && i-2 == targetX && j-2 == targetY){ // kiedy zabija dwoch
-                                    board[i][j].name = "empty";             //zabijam kogoś po drodze
+                                    //board[i][j].name = "empty";             //zabijam kogoś po drodze
                                     return 1;
                                 }
                                 return 1;
