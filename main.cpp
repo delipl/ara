@@ -2,6 +2,14 @@
 #include "lib/SFML-2.5.1/include/SFML/Window.hpp"
 #include <iostream>
 //#include <Windows.h>
+class Pole:public sf::Sprite{
+        public:
+            std::string objekt;
+            int owner;  //0-puste           1-gracz 1            2- gracz 2
+
+    };
+
+#include "Figures.h"
 
 using namespace std;
 
@@ -17,12 +25,7 @@ int main()
     }
 
 
-    class Pole:public sf::SpriteP{
-        public:
-            string objekt;
-            int owner;  //0-puste           1-gracz 1            2- gracz 2
 
-    };
 
 
     sf::Sprite fields[17][34];
@@ -96,7 +99,7 @@ int main()
 
         for (int i = 0; i<17; ++i)
         {
-            for (int j = 0; j<34; ++j)
+            for (int j = 0; j<33; ++j)
             {
                 window.draw(fields[i][j]);
             }
