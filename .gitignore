@@ -29,6 +29,9 @@
 #*.exe
 *.out
 *.app
-#test.cpp
-test
-main
+
+#caly shit z codeblocksa
+ara.cbp
+ara.depend
+ara.layout
+
