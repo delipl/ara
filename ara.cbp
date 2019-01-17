@@ -46,6 +46,7 @@
 			<Add directory="lib/SFML-2.5.1/lib" />
 		</Linker>
 		<Unit filename="Figures.h" />
+		<Unit filename="Load_From_File.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
