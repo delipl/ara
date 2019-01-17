@@ -278,6 +278,15 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
             if((abs(targetX-x) == 1 && abs(targetY-y) == 1) || (targetX = x && abs(targetY-y) == 2)) return 1;
             else return 0;
         }
+        if(board[x][y].name=="tower"){
+            if(x==targetX && abs(targetY-y)<6 && abs(targetY-y)>1) return 1;
+            if(abs(targetX-x)==2 && abs(y-targetY)==2) return 1;
+            if(abs(targetX-x)==3 && abs(y-targetY)==3) return 1;
+            if(abs(targetX-x)==4 && abs(y-targetY)==4) return 1;
+            if(abs(targetX-x)==5 && abs(y-targetY)==5) return 1;
+            return 0;
+        }
+
 
     else return 0;
 }
