@@ -1,4 +1,4 @@
-//#include "Figures.h"
+#include "Figures.h"
 
 #include "Load_From_File.h"
 
