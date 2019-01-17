@@ -7,10 +7,19 @@
     Szar¿a          - charge
     Zagadka         - mystery
 
+    pole przepaœci  - notexist
+    polec puste     - empty
 */
 
 
 
-void CanAttack(int player, std::string name, int player2, std::string name2, Pole board[17][34]){
+bool CanMove(int player, std::string name, int player2, std::string name2, Pole board[17][34]){
+    if(name=="charge"){
+        if(name2=="notexist") return 0;
+    }
+    if(name=="tower"){
+
+    }
+
 
 }
