@@ -4,7 +4,7 @@
 //#include <Windows.h>
 class Pole:public sf::Sprite{
         public:
-            std::string objekt;
+            std::string name;
             int owner;  //0-puste           1-gracz 1            2- gracz 2
 
     };
