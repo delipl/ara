@@ -19,12 +19,23 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
     if(board[x][y].name=="Pawn")
     {
         if(board[targetX][targetY].name=="empty")
+        {
+            if(board[x][y].owner==1)
             {
                 if(targetX == x && targetY == y + 1 ||
                    targetX == x + 2 && targetY == y + 1 ||
                    targetX == x - 2 && targetY == y + 1) return 1;
                 else return 0;
             }
+            else if(board[x][y].owner==2)
+            {
+                if(targetX == x && targetY == y - 1 ||
+                   targetX == x - 2 && targetY == y - 1 ||
+                   targetX == x + 2 && targetY == y - 1) return 1;
+                else return 0;
+            }
+
+        }
         else return 0;
     }
 

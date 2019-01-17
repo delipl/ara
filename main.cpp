@@ -1,17 +1,5 @@
-#include "lib/SFML-2.5.1/include/SFML/Graphics.hpp"
-#include "lib/SFML-2.5.1/include/SFML/Window.hpp"
-#include <iostream>
-//#include <Windows.h>
-class Pole:public sf::Sprite{
-        public:
-            std::string name;
-            int owner;  //0-puste           1-gracz 1            2- gracz 2
+#include "Header.h"
 
-    };
-
-#include "Figures.h"
-
-using namespace std;
 
 int main()
 {
@@ -108,7 +96,6 @@ int main()
         window.draw(rudy);
         window.display();
         window.clear();
-        std::cout << abs(-5) << std::endl;
     }
 
     return 0;
