@@ -269,8 +269,7 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
 
 
             }
-            else return 0;
-        }
+
         //================================================================
 
         //krol
@@ -286,7 +285,12 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
             if(abs(targetX-x)==5 && abs(y-targetY)==5) return 1;
             return 0;
         }
+        if(board[x][y].name=="pawn"){
+            int a;
+            board[x][y].owner==1 ? a=1: a=-1;
+            if( abs(targetX==x) && a*(targetY-y)==1 ) return 1;
+            if( abs(targetX-x==1) &&  abs(targetY-y==1)) return 1;
+        }
 
-
-    else return 0;
+        }else return 0;
 }
