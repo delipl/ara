@@ -163,7 +163,7 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
 bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
 
 
-    if(board[x][y].name != "empty" && board[x][y].name != "notexist" && board[x][y].owner != board[targetX][targetY]){ //wskazane pole jest figura przeciwnika
+    if(board[x][y].name != "empty" && board[x][y].name != "notexist" && board[x][y].owner != board[targetX][targetY].owner){ //wskazane pole jest figura przeciwnika
         
         //duch
         if(board[x][y].name == "ghost"){
