@@ -14,8 +14,18 @@ int abs(int x)
 {
     return x > 0 ? x: -x;
 }
-bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
+bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
+    Pole board[17][34];
+
+    for(int i = 0; i < 17; i ++)
+    {
+        for(int j = 0; j < 34; j ++)
+        {
+            board[i][j] = wsk_to_board[i * 34 + j];
+        }
+    }
+
     if(board[x][y].name=="charge"){
         if(board[targetX][targetY].name=="empty"){
             if( y==targetY && abs(targetX-x)==2 ) return 1;
@@ -177,11 +187,26 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
     }
 
 }
+//if(canAttack(fields, gsdfhgf);
 
 
-bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
 
- if(board[x][y].name != "empty" && board[x][y].name != "notexist" && board[x][y].owner != board[targetX][targetY].owner){ //wskazane pole jest figura przeciwnika
+//void Move(int x, int y, int targetX, int targetY,  Pole *board)
+
+
+bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
+
+    Pole board[17][34];
+
+    for(int i = 0; i < 17; i ++)
+    {
+        for(int j = 0; j < 34; j ++)
+        {
+            board[i][j] = wsk_to_board[i * 34 + j];
+        }
+    }
+
+    if(board[x][y].name != "empty" && board[x][y].name != "notexist" && board[x][y].owner != board[targetX][targetY].owner){ //wskazane pole jest figura przeciwnika
 
         //duch
         if(board[x][y].name == "ghost"){
@@ -339,4 +364,18 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
         }
 
         }else return 0;
+}
+void Move(int x, int y, int targetX, int targetY,  Pole *board){
+    sf::Texture Background;
+    if (!Background.loadFromFile("img/dupa.png"))
+    {
+
+    }
+
+    board[targetX * 34 + targetY].name = board[x * 34 + y].name;
+    board[targetX * 34 + targetY].owner = board[x * 34 + y].owner;
+    board[targetX * 34 + targetY].setTexture(board[x * 34 + y].getTexture());
+    board[x * 34 + y].setTexture(Background);
+    board[x * 34 + y].name = "empty";
+    board[x * 34 + y].owner = 0;
 }
