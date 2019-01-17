@@ -14,8 +14,19 @@ int abs(int x)
 {
     return x > 0 ? x: -x;
 }
-bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
+bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
+
+    Pole board[17][34];
+
+    for(int i = 0; i < 17; i ++)
+    {
+        for(int j = 0; j < 34; j ++)
+        {
+            board[i][j] = wsk_to_board[i * 34 + j];
+        }
+    }
+
     if(board[x][y].name=="charge"){
         if(board[targetX][targetY].name=="empty"){
             if( y==targetY && abs(targetX-x)==2 ) return 1;
@@ -178,11 +189,24 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
     }
 
 }
+//if(canAttack(fields, gsdfhgf);
 
 
-bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
 
- if(board[x][y].name != "empty" && board[x][y].name != "notexist" && board[x][y].owner != board[targetX][targetY].owner){ //wskazane pole jest figura przeciwnika
+
+
+bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
+
+    Pole board[17][34];
+
+    for(int i = 0; i < 17; i ++)
+    {
+        for(int j = 0; j < 34; j ++)
+        {
+            board[i][j] = wsk_to_board[i * 34 + j];
+        }
+    }
+    if(board[x][y].name != "empty" && board[x][y].name != "notexist" && board[x][y].owner != board[targetX][targetY].owner){ //wskazane pole jest figura przeciwnika
 
         //duch
         if(board[x][y].name == "ghost"){
@@ -253,8 +277,7 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
                 }
 
             }
-            else return 0;
-        }
+
         //================================================================
 
         //krol
@@ -285,7 +308,86 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
             }
         }
 
+        if(board[x][y].name=="tower"){
+                if(x==targetX && abs(targetY-y)<6 && abs(targetY-y)>1) return 1;
+                if(abs(targetX-x)==2 && abs(y-targetY)==2) return 1;
+                if(abs(targetX-x)==3 && abs(y-targetY)==3) return 1;
+                if(abs(targetX-x)==4 && abs(y-targetY)==4) return 1;
+                if(abs(targetX-x)==5 && abs(y-targetY)==5) return 1;
+                return 0;
+            }
+        if(board[x][y].name=="pawn"){
+            int a;
+            board[x][y].owner==1 ? a=1: a=-1;
+            if( abs(targetX==x) && a*(targetY-y)==1 ) return 1;
+            if( abs(targetX-x==1) &&  abs(targetY-y==1)) return 1;
+        }
+        if(board[x][y].name=="mystery"){
+            if(x > targetX && y < targetY){
+                for(int i = x; i < 17;i++){
+                    for (int j = y; j >= 0; --j){
+                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
 
+                    }
+                }
+                return 1;
+            }
+
+            if(x > targetX && y > targetY){
+                for(int i = x; i < 17;i++){
+                    for (int j = y; j < 33; ++j){
+                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
+                    }
+                }
+                return 1;
+            }
+
+            if(x < targetX && y > targetY){
+                for(int i = x; i >= 0; --i){
+                    for (int j = y; j < 33; ++j)
+                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;                    
+                }
+                return 1;
+            }
+
+            if(x < targetX && y < targetY){
+                for(int i = x; i >= 0;i--){
+                    for (int j = y; j >= 0; --j){
+                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
+                    }
+                }
+                return 1;
+            }
+
+            if((targetX-x) == 0 && targetY > y){
+                for (int j = y; j < 33; ++j){
+                       if (board[x][j].name != "empty" && board[x][j].name != "notexist") return 0;
+                    }
+                return 1;
+            }
+            if((targetX-x) == 0 && targetY < y){
+                for (int j = y; j >= 0; --j){
+                    if (board[x][j].name != "empty" && board[x][j].name != "notexist") return 0;
+                }
+                return 1;
+            }
+            
+        }
     } 
     else return 0;
+}
+
+void Move(int x, int y, int targetX, int targetY,  Pole *board){
+    sf::Texture Background;
+    if (!Background.loadFromFile("img/dupa.png"))
+    {
+
+    }
+
+    board[targetX * 34 + targetY].name = board[x * 34 + y].name;
+    board[targetX * 34 + targetY].owner = board[x * 34 + y].owner;
+    board[targetX * 34 + targetY].setTexture(board[x * 34 + y].getTexture());
+    board[x * 34 + y].setTexture(Background);
+    board[x * 34 + y].name = "empty";
+    board[x * 34 + y].owner = 0;
 }
