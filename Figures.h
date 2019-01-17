@@ -44,9 +44,8 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY){
                 for(int i = x; i < 17;i++){
                     for (int j = y; j >= 0; --j){
                         //przeskakiwanie przez wrogow zrobie w canAttack()
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist"){
-                            return 0;
-                        }
+                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
+
                     }
                 }
                 return 1;
