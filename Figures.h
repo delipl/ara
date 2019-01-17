@@ -24,10 +24,20 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
         if(board[targetX][targetY].name=="empty")
             {
                 if(targetX == x && targetY == y + 1 ||
-                   targetX == x + 1 && targetY == y + 1 ||
-                   targetX == x - 1 && targetY == y + 1) return 1;
+                   targetX == x + 2 && targetY == y + 1 ||
+                   targetX == x - 2 && targetY == y + 1) return 1;
                 else return 0;
             }
+        else return 0;
+    }
+
+    if(board[x][y].name=="King")
+    {
+        if(board[targetX][targetY].name=="empty")
+        {
+            if((abs(targetX-x)==1 || abs(targetY-y)==1) || (targetX = x || abs(targetY-y)==2)) return 1;
+            else return 0;
+        }
         else return 0;
     }
 }
