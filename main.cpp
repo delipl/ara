@@ -13,12 +13,6 @@ int main()
 
     while (window.isOpen())
     {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
 
         sf::Sprite rudy;
         rudy.setTexture(rudys);
@@ -32,6 +26,14 @@ int main()
             rudy.rotate(0.1);
             window.draw(rudy);
             window.display();
+
+            sf::Event event;
+            while (window.pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed)
+                    window.close();
+            }
+
         }
         window.clear();
     }
