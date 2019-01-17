@@ -2,6 +2,14 @@
 #include "lib/SFML-2.5.1/include/SFML/Window.hpp"
 #include <iostream>
 //#include <Windows.h>
+class Pole:public sf::Sprite{
+        public:
+            std::string name;
+            int owner;  //0-puste           1-gracz 1            2- gracz 2
+
+    };
+
+#include "Figures.h"
 
 using namespace std;
 
@@ -10,25 +18,63 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1366, 720), "Gdzie jest widelec");
 
 //=================================T£O================================================//
-    sf::Texture texture;
-    if (!texture.loadFromFile("dupa.png"))
+    sf::Texture Background;
+    if (!Background.loadFromFile("img/dupa.png"))
     {
 
     }
 
-    sf::Sprite background[34][9];
-    for (int i = 0; i<9;++i)
+
+
+
+
+    sf::Sprite fields[17][34];
+    for (int i = 0; i<17;++i)
     {
-        for (int j = 0; j<34; ++j)
+        for (int j = 0; j<33; ++j)
         {
-            background[i][j].setTexture(texture);
+            if(i%2==0)
+            {
+                if(j%2==0)
+                {
+                    fields[i][j].setTexture(Background);
+                    fields[i][j].setScale(sf::Vector2f(0.2f, 0.2f));
+                    fields[i][j].setPosition(sf::Vector2f(i*30.0f,j*20.0f));
+                }
+            }
+            else
+            {
+                if(j%2==1)
+                {
+                    fields[i][j].setTexture(Background);
+                    fields[i][j].setScale(sf::Vector2f(0.2f, 0.2f));
+                    fields[i][j].setPosition(sf::Vector2f(i*30.0f,j*20.0f));
+                }
+            }
         }
     }
+
+        for (int i = 0; i<8;++i)
+        {
+            for (int j = 0; j<8; ++j)
+            {
+                if((j-i)>=0)
+                {
+                    fields[i][j-i].setColor(sf::Color(0,0,0));
+                    fields[i][26+j].setColor(sf::Color(0,0,0));
+                }
+                else
+                {
+                    fields[9+i][j].setColor(sf::Color(0,0,0));
+                    fields[9+i][32-j].setColor(sf::Color(0,0,0));
+                }
+            }
+        }
 
 
 //=================================RUDY===============================================//
     sf::Texture rudys;
-    if (!rudys.loadFromFile("rudy.png"))
+    if (!rudys.loadFromFile("img/rudy.png"))
     {
         // error...
     }
@@ -51,29 +97,19 @@ int main()
 
 //=================================WYŒWIETLANIE==========================================//
 
-        for (int i = 0; i<9; ++i)
+        for (int i = 0; i<17; ++i)
         {
-            for (int j = 0; j<34; ++j)
+            for (int j = 0; j<33; ++j)
             {
-                if(j%2==0)
-                {
-                    background[i][j].setScale(sf::Vector2f(0.25f, 0.25f));
-                    background[i][j].setPosition(i*80, j*25);
-                    window.draw(background[i][j]);
-                }
-                else
-                {
-                    background[i][j].setScale(sf::Vector2f(0.25f, 0.25f));
-                    background[i][j].setPosition(40+(i*80), j*25);
-                    window.draw(background[i][j]);
-                }
-
+                window.draw(fields[i][j]);
             }
         }
 
-        //window.draw(rudy);
+        window.draw(rudy);
         window.display();
         window.clear();
+        std::cout << abs(-5) << std::endl;
     }
+
     return 0;
 }
