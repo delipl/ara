@@ -28,7 +28,7 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY){
     }
     if(board[x][y].name=="ghost"){
         if(board[targetX][targetY].name=="empty"){
-            return abs(targetY - x);
+            return abs(targetY - x) == 3 && abs(targetY - y) == 1? true: false ||
         }
 
         else return 0;
