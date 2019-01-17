@@ -32,7 +32,7 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
     {
         if(board[targetX][targetY].name=="empty")
         {
-            if((abs(targetX-x)==1 || abs(targetY-y)==1) || (targetX = x || abs(targetY-y)==2)) return 1;
+            if((abs(targetX-x)==1 && abs(targetY-y)==1) || (targetX = x && abs(targetY-y)==2)) return 1;
             else return 0;
         }
         else return 0;
@@ -185,5 +185,14 @@ bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
     }
     //================================================================
 
+    if(board[x][y].name=="king")
+    {
+        if(board[targetX][targetY].name != "empty" && board[x][y].name != "notexist")
+        {
+            if((abs(targetX-x) == 1 && abs(targetY-y) == 1) || (targetX = x && abs(targetY-y) == 2)) return 1;
+            else return 0;
+        }
+        else return 0;
+    }
 
 }
