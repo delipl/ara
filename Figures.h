@@ -11,7 +11,7 @@
     polec puste     - empty
 */
 
-int abs(int l){
+int abs(int x){
     return x > 0 ? x: -x;
 }
 
@@ -28,7 +28,7 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY){
     }
     if(board[x][y].name=="ghost"){
         if(board[targetX][targetY].name=="empty"){
-            return targetY - 
+            return abs(targetY - x);
         }
 
         else return 0;

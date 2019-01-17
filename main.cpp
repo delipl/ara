@@ -108,6 +108,8 @@ int main()
         window.draw(rudy);
         window.display();
         window.clear();
+        std::cout << abs(-5) << std::endl;
     }
+
     return 0;
 }
