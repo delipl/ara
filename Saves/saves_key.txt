@@ -8,6 +8,6 @@
 
 np:
 0
-King;10;5;
-Queen;15;6;
-Tower;1;7;
+king;10;5;0;
+pawn;15;6;0;
+tower;1;7;1;

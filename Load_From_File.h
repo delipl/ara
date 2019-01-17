@@ -9,6 +9,7 @@ void LoadSave(int save_number, Pole *fields)
 {
     int board_size_y = 34;
 
+    /*
     sf::Texture texture_pawn;
     sf::Texture texture_ghost;
     sf::Texture texture_cav;
@@ -57,6 +58,7 @@ void LoadSave(int save_number, Pole *fields)
         std::cout<<"NIE JEST DOBRZE!!!\n";
         system("PAUSE");
     }
+    */
 
     //Mam wszystkie textury
 
@@ -70,6 +72,10 @@ void LoadSave(int save_number, Pole *fields)
     else if(save_number == 1)
     {
         file.open("Saves/save1.txt", std::ios::in);
+    }
+    else if(save_number == 2)
+    {
+        file.open("Saves/save2.txt", std::ios::in);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
 
     if(file.good() == false)
@@ -127,6 +133,7 @@ void LoadSave(int save_number, Pole *fields)
         fields[figure_x * board_size_y + figure_y].name = figure_name;    // stawiam pionka
 
 
+        /*
         if(fields[figure_x * board_size_y + figure_y].name == "pawn")
         {
             fields[figure_x * board_size_y + figure_y].setTexture(texture_pawn);
@@ -160,6 +167,7 @@ void LoadSave(int save_number, Pole *fields)
             fields[figure_x * board_size_y + figure_y].setTexture(texture_notexist);
         }
         fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(0.2f, 0.2f));
+        */
 
         // Mam textury i pozycje i skale
     }
@@ -181,6 +189,10 @@ void SaveGame(int save_number, Pole *fields)
     else if(save_number == 1)
     {
         file.open("Saves/save1.txt", std::ios::out);
+    }
+    else if(save_number == 2)
+    {
+        file.open("Saves/save2.txt", std::ios::out);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
 
     // ###Tu trzeba dodac aktualnego gracza
