@@ -1,4 +1,4 @@
-#include "pole.h"
+#include "Load_From_File.h"
 /*
     Pionek          - pawn
     Duch            - ghost
@@ -11,7 +11,6 @@
     pole przepaœci  - notexist
     pole puste      - empty
 */
-#include "pole.h"
 
 int abs(int x)
 {
@@ -228,13 +227,8 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
                         if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty") // kiedy zabija jednego
                                 return 1;
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i+1][j-1].name == "empty" &&
-<<<<<<< HEAD
                                 (board[i-2][j+2].name != "empty" && board[i][j].name != "notexist") && board[i-1][j+1].name == "empty" &&
-                                                                                                    && i == targetX && j == targetY)// kiedy zabija dwoch
-=======
-                                (board[i-2][j+2].name != "empty" && board[i][j].name != "notexist") && board[i-1][j+1].name == "empty" &&                        
                                                                                                     i == targetX && j == targetY)// kiedy zabija dwoch
->>>>>>> 08a44eaeaad125fdbc5966425b07b9d4d14f8130
                                 return 1;
 
                     }
@@ -247,15 +241,9 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty") // kiedy zabija jednego
                                 return 1;
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i+1][j+1].name == "empty" &&
-<<<<<<< HEAD
                                 (board[i-2][j-2].name != "empty" && board[i][j].name != "notexist") && board[i-1][j-1].name == "empty" &&
-                                                                                                     i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1;
-=======
-                                (board[i-2][j-2].name != "empty" && board[i][j].name != "notexist") && board[i-1][j-1].name == "empty" &&                        
                                                                                                     i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1;  
->>>>>>> 08a44eaeaad125fdbc5966425b07b9d4d14f8130
+                                return 1;
                         }
                     }
                     return 0;
@@ -267,15 +255,9 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i-1][j+1].name == "empty") // kiedy zabija jednego
                                 return 1;
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i-1][j+1].name == "empty" &&
-<<<<<<< HEAD
                                 (board[i-2][j-2].name != "empty" && board[i][j].name != "notexist") && board[i+1][j-1].name == "empty" &&
-                                                                                                    && i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1;
-=======
-                                (board[i-2][j-2].name != "empty" && board[i][j].name != "notexist") && board[i+1][j-1].name == "empty" &&                        
                                                                                                     i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1; 
->>>>>>> 08a44eaeaad125fdbc5966425b07b9d4d14f8130
+                                return 1;
                         }
                     }
                     return 0;
@@ -287,15 +269,9 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i-1][j-1].name == "empty") // kiedy zabija jednego
                                 return 1;
                             if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i-1][j-1].name == "empty" &&
-<<<<<<< HEAD
                                 (board[i+2][j+2].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty" &&
-                                                                                                    && i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1;
-=======
-                                (board[i+2][j+2].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty" &&                        
                                                                                                     i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1; 
->>>>>>> 08a44eaeaad125fdbc5966425b07b9d4d14f8130
+                                return 1;
 
                         }
                     }
@@ -317,8 +293,8 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
             if(targetY < y){
                 for (int j = y; j >= targetY; j--){
                     //if(board[y][j].owner == board[x][y].owner) board[y][j].name = "empty"; //<- w attack()
-                    if(board[x][i].name != "empty" && board[x][i].name != "notexist" && i == targetY && targetX == x){
-                        return 1l
+                    if(board[x][j].name != "empty" && board[x][j].name != "notexist" && j == targetY && targetX == x){
+                        return 1;
                     }
                 }
             return 0;
@@ -326,7 +302,7 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
             if(targetY > y){
                 for (int j = y; j <= targetY; j++){
                     //if(board[y][j].owner == board[x][y].owner) board[y][j].name = "empty"; //<- w attack()
-                    if(board[x][i].name != "empty" && board[x][i].name != "notexist" && i == targetY && targetX == x){
+                    if(board[x][j].name != "empty" && board[x][j].name != "notexist" && j == targetY && targetX == x){
                         return 1;
                     }
                 }
@@ -402,8 +378,10 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
     }
     else return 0;
 }
+}
 
-void Move(int x, int y, int targetX, int targetY,  Pole *board){
+void Move(int x, int y, int targetX, int targetY,  Pole *board)
+{
     sf::Texture Background;
     if (!Background.loadFromFile("img/dupa.png"))
     {
@@ -412,8 +390,6 @@ void Move(int x, int y, int targetX, int targetY,  Pole *board){
 
     board[targetX * 34 + targetY].name = board[x * 34 + y].name;
     board[targetX * 34 + targetY].owner = board[x * 34 + y].owner;
-    board[targetX * 34 + targetY].setTexture(board[x * 34 + y].getTexture());
-    board[x * 34 + y].setTexture(Background);
     board[x * 34 + y].name = "empty";
     board[x * 34 + y].owner = 0;
 }
