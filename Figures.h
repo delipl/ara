@@ -16,7 +16,7 @@ int abs(int x)
 }
 bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
 {
-    if(board[x][y].name=="Pawn")
+    if(board[x][y].name=="pawn")
     {
         if(board[targetX][targetY].name=="empty")
             {
@@ -28,7 +28,7 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
         else return 0;
     }
 
-    if(board[x][y].name=="King")
+    if(board[x][y].name=="ping")
     {
         if(board[targetX][targetY].name=="empty")
         {
@@ -96,4 +96,8 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
         }
         else return 0;
     }
+}
+
+
+bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
 }
