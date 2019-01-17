@@ -100,4 +100,16 @@ bool CanMove(Pole board[17][34], int x, int y, int targetX, int targetY)
 
 
 bool canAttack(Pole board[17][34], int x, int y, int targetX, int targetY){
+    if(board[x][y].name=="ghost"){
+        if(board[targetX][targetY].name != "empty" && board[targetX][targetY] != "notexist"){
+            board[targetX][targetY].name = "ghost";
+            board[x][y].name             = "empty" 
+            return  (abs(targetY - x) == 3 && abs(targetY - y) == 1) ||
+                    (abs(targetY - x) == 1 && abs(targetY - y) == 3) ||
+                    (abs(targetY - x) == 2 && abs(targetY - y) == 0) ?
+                    true: false;
+        }
+        else return 0;
+    }
+
 }
