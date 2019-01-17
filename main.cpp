@@ -16,6 +16,10 @@ int main()
 
     }
 
+
+
+
+
     sf::Sprite fields[17][34];
     for (int i = 0; i<17;++i)
     {
