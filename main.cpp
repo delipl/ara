@@ -16,7 +16,12 @@ int main()
     }
 
 
+    class Pole:public sf::SpriteP{
+        public:
+            string objekt;
+            int owner;  //0-puste           1-gracz 1            2- gracz 2
 
+    };
 
 
     sf::Sprite fields[17][34];
