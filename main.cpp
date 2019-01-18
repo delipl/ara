@@ -265,13 +265,23 @@ int main()
         {
             for(int j = 0; j < 34; j ++)
             {
+                background_fields[i][j].setColor(sf::Color::White);
+
+                if((front_fields[i * board_size_y + j].name != "empty") && (front_fields[i * board_size_y + j].name != "notexist"))
+                {
+                    if(front_fields[i * board_size_y + j].owner == 1)
+                    {
+                        background_fields[i][j].setColor(sf::Color::Yellow);
+                    }
+                    else
+                    {
+                        background_fields[i][j].setColor(sf::Color::Blue);
+                    }
+                }
+
                 if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                 {
                     background_fields[i][j].setColor(sf::Color::Green);
-                }
-                else
-                {
-                    background_fields[i][j].setColor(sf::Color::White);
                 }
             }
         }
@@ -283,7 +293,22 @@ int main()
             mouse_pressed = 1;
         }
 
-        if((actual_mode == "edit") && mouse_pressed)
+        if((pow(mouse_position.x - 20 - klik.getPosition().x, 2) + pow(mouse_position.y - 20 - klik.getPosition().y, 2) < 400) && mouse_pressed)
+        {
+            if(actual_mode == "edit")
+            {
+                actual_mode = "play";
+                std::cout<<"Zmieniono tryb na \"play\"\n";
+            }
+            else
+            {
+                actual_mode = "edit";
+                std::cout<<"Zmieniono tryb na \"edit\"\n";
+                std::cin>>actual_name;
+                std::cin>>actual_owner;
+            }
+        }
+        else if((actual_mode == "edit") && mouse_pressed)
         {
             for(int i = 0; i < 17; i ++)
             {
@@ -336,70 +361,6 @@ int main()
                 }
             }
         }
-
-        /*
-
-        for(int i = 0; i < 17; i ++)
-        {
-            for(int j = 0; j < 34; j ++)
-            {
-                if(pow(localPosition.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(localPosition.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
-                {
-                    if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
-                    {
-                        if(actual_mode == "edit")
-                        {
-                            front_fields[i * board_size_y + j].name = actual_name;
-                            front_fields[i * board_size_y + j].owner = actual_owner;
-                        }
-                        else if(actual_mode == "play")
-                        {
-                            if((figure_x == figure_y) && (figure_x == 0))
-                            {
-                                std::cout<<"mam figure\n";
-                                figure_x = i;
-                                figure_y = j;
-                            }
-                            else
-                            {
-                                target_x = i;
-                                target_y = j;
-                                std::cout<<"mam target\n";
-                                if(CanMove(front_fields, figure_x, figure_y, target_x, target_y))
-                                {
-                                    std::cout<<"Ruszono figure z "<<figure_x<<" "<<figure_y<<" na "<<target_x<<" "<<target_y<<"\n";
-                                    Move(front_fields, figure_x, figure_y, target_x, target_y);
-                                }
-                                figure_x = 0;
-                                figure_y = 0;
-                            }
-
-                        }
-                    }
-                }
-                else
-                {
-                    background_fields[i][j].setColor(sf::Color::White);
-                }
-                if(pow(localPosition.x - 20 - klik.getPosition().x, 2) + pow(localPosition.y - 20 - klik.getPosition().y, 2) < 400)
-                {
-                    if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
-                    {
-                        actual_mode = "edit";
-                        std::cout<<"Zmieniono tryb na \"edit\"\n";
-                        std::cin>>actual_name;
-                        std::cin>>actual_owner;
-                    }
-                    if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
-                    {
-                        actual_mode = "play";
-                        std::cout<<"Zmieniono tryb na \"play\"\n";
-                    }
-                }
-            }
-        }
-
-        */
 
 //=================================WYŒWIETLANIE==========================================//
 
