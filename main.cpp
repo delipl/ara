@@ -1,5 +1,6 @@
 #include "Figures.h"
 #include <math.h>
+#include <windows.h>
 
 int main()
 {
@@ -180,10 +181,24 @@ int main()
         }
     }
 
-    // do edycji planszy
+    // Tryby pracy myszki
+
+    std::string actual_mode = "play"; //aktualny tryb dzialania myszki: "play", "edit"
+
+    sf::Vector2i mouse_position;
+    bool mouse_pressed = 0;
+
+    // Tryb edit
+
     std::string actual_name = "pawn";
     int actual_owner = 0;
 
+    // Tryb play
+
+    int figure_x = 0;
+    int figure_y = 0;
+    int target_x = 0;
+    int target_y = 0;
 
     while (window.isOpen())
     {
@@ -241,8 +256,88 @@ int main()
         }
 
 //==============================Zabawa z myszka==========================================//
+        mouse_pressed = 0;
 
-        sf::Vector2i localPosition = sf::Mouse::getPosition(window);
+
+        mouse_position = sf::Mouse::getPosition(window);
+
+        for(int i = 0; i < 17; i ++)
+        {
+            for(int j = 0; j < 34; j ++)
+            {
+                if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                {
+                    background_fields[i][j].setColor(sf::Color::Green);
+                }
+                else
+                {
+                    background_fields[i][j].setColor(sf::Color::White);
+                }
+            }
+        }
+
+
+        while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            mouse_position = sf::Mouse::getPosition(window);
+            mouse_pressed = 1;
+        }
+
+        if((actual_mode == "edit") && mouse_pressed)
+        {
+            for(int i = 0; i < 17; i ++)
+            {
+                for(int j = 0; j < 34; j ++)
+                {
+                    if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                    {
+                        front_fields[i * board_size_y + j].name = actual_name;
+                        front_fields[i * board_size_y + j].owner = actual_owner;
+                        i = 16;
+                        j = 33;
+                    }
+                }
+            }
+        }
+        else if((actual_mode == "play") && mouse_pressed)
+        {
+            if((figure_x == 0) && (figure_y == 0))
+            {
+                for(int i = 0; i < 17; i ++)
+                {
+                    for(int j = 0; j < 34; j ++)
+                    {
+                        if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                        {
+                            figure_x = i;
+                            figure_y = j;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for(int i = 0; i < 17; i ++)
+                {
+                    for(int j = 0; j < 34; j ++)
+                    {
+                        if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                        {
+                            target_x = i;
+                            target_y = j;
+                            if(CanMove(front_fields, figure_x, figure_y, target_x, target_y))
+                            {
+                                Move(front_fields, figure_x, figure_y, target_x, target_y);
+                            }
+                            figure_x = 0;
+                            figure_y = 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        /*
 
         for(int i = 0; i < 17; i ++)
         {
@@ -250,11 +345,36 @@ int main()
             {
                 if(pow(localPosition.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(localPosition.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                 {
-                    background_fields[i][j].setColor(sf::Color::Blue);
                     if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
                     {
-                        front_fields[i * board_size_y + j].name = actual_name;
-                        front_fields[i * board_size_y + j].owner = actual_owner;
+                        if(actual_mode == "edit")
+                        {
+                            front_fields[i * board_size_y + j].name = actual_name;
+                            front_fields[i * board_size_y + j].owner = actual_owner;
+                        }
+                        else if(actual_mode == "play")
+                        {
+                            if((figure_x == figure_y) && (figure_x == 0))
+                            {
+                                std::cout<<"mam figure\n";
+                                figure_x = i;
+                                figure_y = j;
+                            }
+                            else
+                            {
+                                target_x = i;
+                                target_y = j;
+                                std::cout<<"mam target\n";
+                                if(CanMove(front_fields, figure_x, figure_y, target_x, target_y))
+                                {
+                                    std::cout<<"Ruszono figure z "<<figure_x<<" "<<figure_y<<" na "<<target_x<<" "<<target_y<<"\n";
+                                    Move(front_fields, figure_x, figure_y, target_x, target_y);
+                                }
+                                figure_x = 0;
+                                figure_y = 0;
+                            }
+
+                        }
                     }
                 }
                 else
@@ -265,12 +385,21 @@ int main()
                 {
                     if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
                     {
-                    std::cin>>actual_name;
-                    std::cin>>actual_owner;
+                        actual_mode = "edit";
+                        std::cout<<"Zmieniono tryb na \"edit\"\n";
+                        std::cin>>actual_name;
+                        std::cin>>actual_owner;
+                    }
+                    if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
+                    {
+                        actual_mode = "play";
+                        std::cout<<"Zmieniono tryb na \"play\"\n";
                     }
                 }
             }
         }
+
+        */
 
 //=================================WYŒWIETLANIE==========================================//
 

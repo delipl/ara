@@ -39,7 +39,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                 }return 1;
             }
         }
-    }else return 0;
+    }
 
     if(board[x][y].name=="tower"){
          if(board[targetX][targetY].name=="empty"){
@@ -58,10 +58,18 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     {
         if(board[targetX][targetY].name=="empty")
             {
+                /*
                 if(targetX == x && targetY == y + 1     ||
                    targetX == x + 2 && targetY == y + 1 ||
                    targetX == x - 2 && targetY == y + 1) return 1;
                 else return 0;
+                */
+                int a = board[x][y].owner * 2 - 1;
+                if((targetX == x) && (targetY == y + 2 * a)) return 1;
+                else if((targetX == x + 1) && (targetY == y + a)) return 1;
+                else if((targetX == x - 1) && (targetY == y + a)) return 1;
+                else return 0;
+
             }
         else return 0;
     }
@@ -189,7 +197,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
             }
         }
     }
-
+    return 0;
 }
 //if(canAttack(fields, gsdfhgf);
 
@@ -380,7 +388,7 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
 }
 }
 
-void Move(int x, int y, int targetX, int targetY,  Pole *board)
+void Move(Pole *board, int x, int y, int targetX, int targetY)
 {
     sf::Texture Background;
     if (!Background.loadFromFile("img/dupa.png"))
