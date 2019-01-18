@@ -99,6 +99,7 @@ int main()
         for (int j = 0; j<33; ++j)
         {
             front_fields[i * board_size_y + j].name = "empty";
+            front_fields[i * board_size_y + j].owner = 0;
             if(i%2==j%2)
             {
                 background_fields[i][j].setTexture(Background);

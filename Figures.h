@@ -29,58 +29,68 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         }
     }
 
-    if(board[x][y].name=="charge"){
-        if(board[targetX][targetY].name=="empty"){
-            if( y==targetY && abs(targetX-x)==2 ) return 1;
-            if( x==targetX){
-                for(int i=y; i<targetY; )
-                for(int i=y; i<targetY; i++){
-                  if(!(board[x][i].name=="empty"||board[x][i].name=="notexist")) return 0;
-                }return 1;
+    if(board[x][y].name=="charge")
+    {
+        if(board[targetX][targetY].name=="empty")
+        {
+            if((y == targetY) && (abs(targetX - x) == 2)) return 1;
+            if(x == targetX)
+            {
+                if(y > targetY)
+                {
+                    for(int i = targetY; i <= y; i ++)
+                    {
+                        if((board[x][i].name == "empty") || (board[x][i].owner == board[x][y].owner))
+                        {
+                            continue;
+                        }
+                        return 0;
+                    }
+                    return 1;
+                }
+                else
+                {
+                    for(int i = y; i <= targetY; i ++)
+                    {
+                        if((board[x][i].name == "empty") || (board[x][i].owner == board[x][y].owner))
+                        {
+                            continue;
+                        }
+                        return 0;
+                    }
+                    return 1;
+                }
             }
         }
     }
 
-    if(board[x][y].name=="tower"){
-         if(board[targetX][targetY].name=="empty"){
-            if(targetX==x){
-                if(abs(targetY-y)==2) return 1;
-                if(targetY-y==4 && board[x][y+2].name=="empty") return 1;
-                if(targetY-y==-44 && board[x][y-2].name=="empty") return 1;
+    if(board[x][y].name=="tower")
+    {
+         if(board[targetX][targetY].name=="empty")
+         {
+            if(targetX==x)
+            {
+                if(abs(targetY-y) == 2) return 1;
+                if(abs(targetY-y) == 4) return 1;
             }
             if(abs(targetX-x)==1 && abs(targetY-y)==1) return 1;
             if(abs(targetX-x)==2 && abs(targetY-y)==2) return 1;
-
-         }else return 0;
+         }
+         else return 0;
 	}
 
     if(board[x][y].name=="pawn")
     {
         if(board[targetX][targetY].name=="empty")
         {
-            if(board[x][y].owner==1)
-            {
-                /*
-                if(targetX == x && targetY == y + 1     ||
-                   targetX == x + 2 && targetY == y + 1 ||
-                   targetX == x - 2 && targetY == y + 1) return 1;
-                else return 0;
-                */
-                int a = board[x][y].owner * 2 - 1;
-                if((targetX == x) && (targetY == y + 2 * a)) return 1;
-                else if((targetX == x + 1) && (targetY == y + a)) return 1;
-                else if((targetX == x - 1) && (targetY == y + a)) return 1;
-                else return 0;
+            int a;
+            if(board[x][y].owner==1) a = 1;
+            else a = -1;
 
-            }
-            else if(board[x][y].owner==2)
-            {
-                if(targetX == x && targetY == y - 1 ||
-                   targetX == x - 2 && targetY == y - 1 ||
-                   targetX == x + 2 && targetY == y - 1) return 1;
-                else return 0;
-            }
-
+            if((targetX == x) && (targetY == y + 2 * a)) return 1;
+            else if((targetX == x + 1) && (targetY == y + a)) return 1;
+            else if((targetX == x - 1) && (targetY == y + a)) return 1;
+            else return 0;
         }
         else return 0;
     }
@@ -89,124 +99,116 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     {
         if(board[targetX][targetY].name=="empty")
         {
-            if((abs(targetX-x)==1 && abs(targetY-y)==1) || (targetX = x && abs(targetY-y)==2)) return 1;
+            if(((abs(targetX - x) == 1) && (abs(targetY - y)==1)) || ((targetX = x) && (abs(targetY - y) == 2))) return 1;
             else return 0;
         }
         else return 0;
     }
 
-    if(board[x][y].name=="ghost"){
-        if(board[targetX][targetY].name=="empty"){
-            return  (abs(targetY - x) == 3 && abs(targetY - y) == 1) ||
-                    (abs(targetY - x) == 1 && abs(targetY - y) == 3) ||
-                    (abs(targetY - x) == 2 && abs(targetY - y) == 0) ?
-                    true: false;
+    if(board[x][y].name=="ghost")
+    {
+        if(board[targetX][targetY].name=="empty")
+        {
+            if((abs(targetX - x) == 1) && (abs(targetY - y) == 3)) return 1;
+            if((abs(targetX - x) == 2) && (abs(targetY - y) == 0)) return 1;
         }
         else return 0;
     }
 
     //kawaleria
-    if(board[x][y].name=="cav"){
-        if(board[targetX][targetY].name == "empty"){
-
-            if(x > targetX && y < targetY){
-                for(int i = x; i < 17;i++){
-                    for (int j = y; j >= 0; --j){
-                        //przeskakiwanie przez wrogow zrobie w canAttack()
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
-
-                    }
-                }
-                return 1;
-            }
-
-            if(x > targetX && y > targetY){
-                for(int i = x; i < 17;i++){
-                    for (int j = y; j < 33; ++j){
-                        //przeskakiwanie przez wrogow zrobie w canAttack()
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
-                    }
-                }
-                return 1;
-            }
-
-            if(x < targetX && y > targetY){
-                for(int i = x; i >= 0; --i){
-                    for (int j = y; j < 33; ++j){
-                        //przeskakiwanie przez wrogow zrobie w canAttack()
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
-                    }
-                }
-                return 1;
-            }
-
-            if(x < targetX && y < targetY){
-                for(int i = x; i >= 0;i--){
-                    for (int j = y; j >= 0; --j){
-                        //przeskakiwanie przez wrogow zrobie w canAttack()
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
-                    }
-                }
-                return 1;
-            }
-
+    if(board[x][y].name=="cav")
+    {
+        if(board[targetX][targetY].name != "empty")
+        {
+            return 0;
         }
-        else return 0;
+
+        int d_x;
+        int d_y;
+        if(targetX > x) d_x = 1;
+        else d_x = -1;
+        if(targetY > y) d_y = 1;
+        else d_y = -1;
+
+        if(abs(targetX - x) != abs(targetY - y))
+        {
+            return 0;
+        }
+
+        int opponent_owner;
+        if(board[x][y].owner == 1)
+        {
+            opponent_owner = 2;
+        }
+        else
+        {
+            opponent_owner = 1;
+        }
+
+        for(int i = 1; i < abs(targetX - x); i ++)
+        {
+            if(board[i * d_x + x][i * d_y + y].name == "notexist")
+            {
+                return 0;
+            }
+            if(board[i * d_x + x][i * d_y + y].name != "empty")
+            {
+                if((targetX == i * d_x + d_x + x) && (targetY == i * d_y + d_y + y))
+                {
+                    return 1;
+                }
+                if((board[i * d_x + x][i * d_y + y].owner == opponent_owner) &&
+                   (board[(i + 1) * d_x + x][(i + 1) * d_y + y].name == "empty") &&
+                   (board[(i + 2) * d_x + x][(i + 2) * d_y + y].owner == opponent_owner) &&
+                   (targetX == (i + 3) * d_x + x) && (targetY == (i + 3) * d_y + y))
+                {
+                    return 1;
+                }
+                else return 0;
+            }
+        }
+        return 1;
     }
 
     //zagadka
-    if(board[x][y].name=="mystery"){
-        if(board[targetX][targetY].name == "empty"){
-             if(x > targetX && y < targetY){
-                for(int i = x; i < 17;i++){
-                    for (int j = y; j >= 0; --j){
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
+    if(board[x][y].name=="mystery")
+    {
+        if(board[targetX][targetY].name != "empty")
+        {
+            return 0;
+        }
 
-                    }
-                }
-                return 1;
-            }
+        int d_x;
+        int d_y;
+        int changes;
 
-            if(x > targetX && y > targetY){
-                for(int i = x; i < 17;i++){
-                    for (int j = y; j < 33; ++j){
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
-                    }
-                }
-                return 1;
-            }
+        if(targetX - x == 0)
+        {
+            d_x = 0;
+            if(targetY > y) d_y = 2;
+            else d_y = -2;
 
-            if(x < targetX && y > targetY){
-                for(int i = x; i >= 0; --i){
-                    for (int j = y; j < 33; ++j){
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
-                    }
-                }
-                return 1;
-            }
+            changes = (targetY - y) / 2;
+        }
+        else
+        {
+            if(targetX > x) d_x = 1;
+            else d_x = - 1;
 
-            if(x < targetX && y < targetY){
-                for(int i = x; i >= 0;i--){
-                    for (int j = y; j >= 0; --j){
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
-                    }
-                }
-                return 1;
-            }
+            if(targetY > y) d_y = 1;
+            else d_y = -1;
 
-            if((targetX-x) == 0 && targetY > y){
-                for (int j = y; j < 33; ++j){
-                        if (board[x][j].name != "empty" && board[x][j].name != "notexist") return 0;
-                    }
-                return 1;
-            }
-            if((targetX-x) == 0 && targetY < y){
-                for (int j = y; j >= 0; --j){
-                        if (board[x][j].name != "empty" && board[x][j].name != "notexist") return 0;
-                    }
-                return 1;
+            changes = targetY - y;
+        }
+
+        for(int i = 1; i < changes; i ++)
+        {
+            if(board[i * d_x + x][i * d_y + y].owner == board[x][y].owner)
+            {
+                return 0;
             }
         }
+        return 1;
     }
     return 0;
 }
