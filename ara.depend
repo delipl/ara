@@ -825,11 +825,11 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1547755822 source:c:\users\kivi\documents\ara\main.cpp
-	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
-	"lib/SFML-2.5.1/include/SFML/Window.hpp"
-	<iostream>
+1547850172 source:c:\users\kivi\documents\ara\main.cpp
+	<windows.h>
 	"Figures.h"
+	"Header.h"
+	<math.h>
 
 1547383977 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -2073,7 +2073,8 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1547759601 c:\users\kivi\documents\ara\figures.h
+1547848484 c:\users\kivi\documents\ara\figures.h
+	"Load_From_File.h"
 
 1547829379 c:\users\adamw\documents\ara\figures.h
 	"Load_From_File.h"
@@ -2529,4 +2530,21 @@
 1547829378 c:\users\adamw\documents\ara\messages.h
 	<iostream>
 	<windows.h>
+
+1547848484 c:\users\kivi\documents\ara\load_from_file.h
+	"pole.h"
+	<fstream>
+	<cstdlib>
+	<string>
+
+1547848484 c:\users\kivi\documents\ara\pole.h
+	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
+	"lib/SFML-2.5.1/include/SFML/Window.hpp"
+	"messages.h"
+
+1547848484 c:\users\kivi\documents\ara\messages.h
+	<iostream>
+	<windows.h>
+
+1547850170 c:\users\kivi\documents\ara\header.h
 

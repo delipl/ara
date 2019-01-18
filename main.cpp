@@ -1,23 +1,16 @@
 #define _WIN32_WINNT 0x0500
 #include <windows.h>
 #include "Figures.h"
+#include "Header.h"
 #include <math.h>
-
-static const float VIEW_HEIGHT = 720.0f;
-
-void ResizeView(const sf::RenderWindow& window, sf::View& view)
-{
-    float aspectRatio = float(window.getSize().x/ float(window.getSize().y));
-    view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
-}
-
 
 int main()
 {
+    renderWindow();
     sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "Gdzie jest widelec");
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
 //=================================T£O================================================//
-    HWND hWnd = GetConsoleWindow();
+
 
 
     sf::Texture Background;
@@ -26,69 +19,11 @@ int main()
 
     }
 
-    sf::Texture texture_pawn;
-    sf::Texture texture_ghost;
-    sf::Texture texture_cav;
-    sf::Texture texture_king;
-    sf::Texture texture_tower;
-    sf::Texture texture_charge;
-    sf::Texture texture_mystery;
-    sf::Texture texture_notexist;
-    sf::Texture texture_nothing;
-
-    //wczytuje teksturki pionkow
-        if (!texture_pawn.loadFromFile("img/pawn.png"))
-        {
-            std::cout<<"NIE JEST DOBRZE!!!\n";
-            system("PAUSE");
-        }
-        if (!texture_ghost.loadFromFile("img/ghost.png"))
-        {
-            std::cout<<"NIE JEST DOBRZE!!!\n";
-            system("PAUSE");
-        }
-        if (!texture_cav.loadFromFile("img/cav.png"))
-        {
-            std::cout<<"NIE JEST DOBRZE!!!\n";
-            system("PAUSE");
-        }
-        if (!texture_king.loadFromFile("img/king.png"))
-        {
-            std::cout<<"NIE JEST DOBRZE!!!\n";
-            system("PAUSE");
-        }
-        if (!texture_tower.loadFromFile("img/tower.png"))
-        {
-            std::cout<<"NIE JEST DOBRZE!!!\n";
-            system("PAUSE");
-        }
-        if (!texture_charge.loadFromFile("img/charge.png"))
-        {
-            std::cout<<"NIE JEST DOBRZE!!!\n";
-            system("PAUSE");
-        }
-        if (!texture_mystery.loadFromFile("img/mystery.png"))
-        {
-            std::cout<<"NIE JEST DOBRZE!!!\n";
-            system("PAUSE");
-        }
-        if (!texture_notexist.loadFromFile("img/notexist.png"))
-        {
-            std::cout<<"NIE JEST DOBRZE!!!\n";
-            system("PAUSE");
-        }
-        if (!texture_nothing.loadFromFile("img/nothing.png"))
-        {
-            std::cout<<"NIE JEST DOBRZE!!!\n";
-            system("PAUSE");
-        }
-
+    loadTexture();
 
     int board_size_y = 34;
 
-    Pole background_fields[17][34];
-    Pole *front_fields;
-    front_fields = new Pole [578];
+
 
     Pole klik;
     klik.setPosition(sf::Vector2f(680, 350));
@@ -96,8 +31,7 @@ int main()
     klik.setTexture(Background);
     klik.setColor(sf::Color::Red);
 
-
-
+    front_fields = new Pole [578];
     // Przygotowanie tablic
 
     for (int i = 0; i<17;++i)
