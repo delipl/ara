@@ -1,11 +1,25 @@
+#define _WIN32_WINNT 0x0500
+#include <windows.h>
 #include "Figures.h"
 #include <math.h>
 
+static const float VIEW_HEIGHT = 720.0f;
+
+void ResizeView(const sf::RenderWindow& window, sf::View& view)
+{
+    float aspectRatio = float(window.getSize().x/ float(window.getSize().y));
+    view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
+}
+
+
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(720, 720), "Gdzie jest widelec");
-
+    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "Gdzie jest widelec");
+    sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
 //=================================T£O================================================//
+    HWND hWnd = GetConsoleWindow();
+
+
     sf::Texture Background;
     if (!Background.loadFromFile("img/dupa.png"))
     {
@@ -20,8 +34,9 @@ int main()
     sf::Texture texture_charge;
     sf::Texture texture_mystery;
     sf::Texture texture_notexist;
+    sf::Texture texture_nothing;
 
-    {   //wczytuje teksturki pionkow
+    //wczytuje teksturki pionkow
         if (!texture_pawn.loadFromFile("img/pawn.png"))
         {
             std::cout<<"NIE JEST DOBRZE!!!\n";
@@ -62,20 +77,28 @@ int main()
             std::cout<<"NIE JEST DOBRZE!!!\n";
             system("PAUSE");
         }
-    }
+        if (!texture_nothing.loadFromFile("img/nothing.png"))
+        {
+            std::cout<<"NIE JEST DOBRZE!!!\n";
+            system("PAUSE");
+        }
+
 
     int board_size_y = 34;
-
-    int field_size = 40;
 
     Pole background_fields[17][34];
     Pole *front_fields;
     front_fields = new Pole [578];
 
     Pole klik;
-    klik.setPosition(680, 680);
+    klik.setPosition(sf::Vector2f(680, 350));
+    klik.setScale(sf::Vector2f(0.2, 0.2));
     klik.setTexture(Background);
     klik.setColor(sf::Color::Red);
+
+
+
+    // Przygotowanie tablic
 
     for (int i = 0; i<17;++i)
     {
@@ -86,14 +109,18 @@ int main()
             {
                 background_fields[i][j].setTexture(Background);
                 background_fields[i][j].setScale(sf::Vector2f(0.2, 0.2));
+                background_fields[i][j].setOrigin(sf::Vector2f(0.1, 0.1));
                 background_fields[i][j].setPosition(sf::Vector2f(i*30,j*20));
                 front_fields[i * board_size_y + j].setScale(sf::Vector2f(0.2, 0.2));
+                front_fields[i * board_size_y + j].setOrigin(sf::Vector2f(0.1, 0.1));
                 front_fields[i * board_size_y + j].setPosition(sf::Vector2f(i*30,j*20));
             }
             else
             {
                 background_fields[i][j].setPosition(sf::Vector2f(10000, 10000));
+                background_fields[i][j].setOrigin(sf::Vector2f(0.1, 0.1));
                 front_fields[i * board_size_y + j].setPosition(sf::Vector2f(10000, 10000));
+                front_fields[i * board_size_y + j].setOrigin(sf::Vector2f(0.1, 0.1));
             }
         }
     }
@@ -118,6 +145,14 @@ int main()
             }
         }
     }
+
+    for(int i = 8; i < 17; i ++)
+    {
+        background_fields[i][33].setPosition(sf::Vector2f(10000, 10000));
+        front_fields[i * board_size_y + 33].setPosition(sf::Vector2f(10000, 10000));
+    }
+
+    // Koniec przygotowania
 
     LoadSave(0, front_fields);
 
@@ -157,22 +192,50 @@ int main()
             {
                 front_fields[i * board_size_y + j].setTexture(texture_notexist);
             }
+            else if(front_fields[i * board_size_y + j].name == "empty")
+            {
+                front_fields[i * board_size_y + j].setTexture(texture_nothing);
+            }
             background_fields[i][j].setTexture(Background);
         }
     }
 
-    // do edycji planszy
+
+
+    // Tryby pracy myszki
+
+    std::string actual_mode = "play"; //aktualny tryb dzialania myszki: "play", "edit"
+
+    sf::Vector2i mouse_position;
+    bool mouse_pressed = 0;
+
+    // Tryb edit
+
     std::string actual_name = "pawn";
     int actual_owner = 0;
 
+    // Tryb play
+
+    int figure_x = 0;
+    int figure_y = 0;
+    int target_x = 0;
+    int target_y = 0;
 
     while (window.isOpen())
     {
         sf::Event event;
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
-                window.close();
+            switch (event.type)
+            {
+                case sf::Event::Closed:
+                    window.close();
+                    break;
+                case sf::Event::Resized:
+                    ResizeView(window, view);
+                    break;
+            }
+
         }
 
 //==============================Aktualizacja tekstur=====================================//
@@ -213,45 +276,125 @@ int main()
                 {
                     front_fields[i * board_size_y + j].setTexture(texture_notexist);
                 }
+                else if(front_fields[i * board_size_y + j].name == "empty")
+                {
+                    front_fields[i * board_size_y + j].setTexture(texture_nothing);
+                }
                 background_fields[i][j].setTexture(Background);
             }
         }
 
 //==============================Zabawa z myszka==========================================//
+        mouse_pressed = 0;
 
-        sf::Vector2i localPosition = sf::Mouse::getPosition(window);
+        mouse_position = sf::Mouse::getPosition(window);
 
         for(int i = 0; i < 17; i ++)
         {
             for(int j = 0; j < 34; j ++)
             {
-                if(pow(localPosition.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(localPosition.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                background_fields[i][j].setColor(sf::Color::White);
+
+                if((front_fields[i * board_size_y + j].name != "empty") && (front_fields[i * board_size_y + j].name != "notexist"))
                 {
-                    background_fields[i][j].setColor(sf::Color::Blue);
-                    std::cout<<i<<" x "<<j<<"\n";
-                    if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                    if(front_fields[i * board_size_y + j].owner == 1)
+                    {
+                        background_fields[i][j].setColor(sf::Color::Yellow);
+                    }
+                    else
+                    {
+                        background_fields[i][j].setColor(sf::Color::Blue);
+                    }
+                }
+
+                if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                {
+                    background_fields[i][j].setColor(sf::Color::Green);
+                }
+            }
+        }
+
+
+        while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            mouse_position = sf::Mouse::getPosition(window);
+            mouse_pressed = 1;
+        }
+//===================================Chowanie Konsolki============================//
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+        {
+            ShowWindow( hWnd, SW_HIDE );
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+        {
+            ShowWindow( hWnd, SW_SHOW );
+        }
+//===============================================================================//
+        if((pow(mouse_position.x - 20 - klik.getPosition().x, 2) + pow(mouse_position.y - 20 - klik.getPosition().y, 2) < 400) && mouse_pressed)
+        {
+            if(actual_mode == "edit")
+            {
+                actual_mode = "play";
+                std::cout<<"Zmieniono tryb na \"play\"\n";
+            }
+            else
+            {
+                actual_mode = "edit";
+                std::cout<<"Zmieniono tryb na \"edit\"\n";
+                std::cin>>actual_name;
+                std::cin>>actual_owner;
+            }
+        }
+        else if((actual_mode == "edit") && mouse_pressed)
+        {
+            for(int i = 0; i < 17; i ++)
+            {
+                for(int j = 0; j < 34; j ++)
+                {
+                    if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                     {
                         front_fields[i * board_size_y + j].name = actual_name;
                         front_fields[i * board_size_y + j].owner = actual_owner;
+                        i = 16;
+                        j = 33;
                     }
                 }
-                else
+            }
+        }
+        else if((actual_mode == "play") && mouse_pressed)
+        {
+            if((figure_x == 0) && (figure_y == 0))
+            {
+                for(int i = 0; i < 17; i ++)
                 {
-                    background_fields[i][j].setColor(sf::Color::White);
-                }
-                if(pow(localPosition.x - 20 - klik.getPosition().x, 2) + pow(localPosition.y - 20 - klik.getPosition().y, 2) < 400)
-                {
-                    if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                    for(int j = 0; j < 34; j ++)
                     {
-                    std::cin>>actual_name;
-                    std::cin>>actual_owner;
+                        if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                        {
+                            figure_x = i;
+                            figure_y = j;
+                        }
                     }
                 }
-
-
-                if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            }
+            else
+            {
+                for(int i = 0; i < 17; i ++)
                 {
-
+                    for(int j = 0; j < 34; j ++)
+                    {
+                        if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                        {
+                            target_x = i;
+                            target_y = j;
+                            if(CanMove(front_fields, figure_x, figure_y, target_x, target_y))
+                            {
+                                Move(front_fields, figure_x, figure_y, target_x, target_y);
+                            }
+                            figure_x = 0;
+                            figure_y = 0;
+                        }
+                    }
                 }
             }
         }
@@ -266,8 +409,9 @@ int main()
                 window.draw(front_fields[i * board_size_y + j]);
             }
         }
+        view.setCenter(sf::Vector2f(360.0f, 360.0f));
         window.draw(klik);
-
+        window.setView(view);
         window.display();
         window.clear();
     }
