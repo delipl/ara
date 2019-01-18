@@ -233,7 +233,7 @@ int main()
             for (int j = 0; j<33; ++j)
             {
                 window.draw(background_fields[i][j]);
-                //window.draw(front_fields[i * board_size_y + j]);
+                window.draw(front_fields[i * board_size_y + j]);
             }
         }
 
