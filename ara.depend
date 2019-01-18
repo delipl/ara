@@ -2086,13 +2086,14 @@
 	<iostream>
 	"Figures.h"
 
-1547850659 source:c:\users\pawe許dane z pulpitu\programowanie\github\ara\main.cpp
+1547854145 source:c:\users\pawe許dane z pulpitu\programowanie\github\ara\main.cpp
 	<windows.h>
 	"Figures.h"
 	"Header.h"
+	"fields.h"
 	<math.h>
 
-1547854003 c:\users\pawe許dane z pulpitu\programowanie\github\ara\figures.h
+1547855107 c:\users\pawe許dane z pulpitu\programowanie\github\ara\figures.h
 	"Load_From_File.h"
 
 1547815620 c:\users\pawe許dane z pulpitu\programowanie\github\ara\load_from_file.h
@@ -2552,7 +2553,10 @@
 1547853884 c:\users\kivi\documents\ara\header.h
 	<math.h>
 
-1547850659 c:\users\pawe許dane z pulpitu\programowanie\github\ara\header.h
+1547854144 c:\users\pawe許dane z pulpitu\programowanie\github\ara\header.h
+	<math.h>
 
 1547853260 c:\users\kivi\documents\ara\fields.h
+
+1547854145 c:\users\pawe許dane z pulpitu\programowanie\github\ara\fields.h
 

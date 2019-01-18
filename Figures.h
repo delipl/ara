@@ -417,10 +417,11 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                 if(targetY > y) d_y = 1;
                 else d_y = -1;
 
-                for(int i = 1; i < (targetY - y); i ++)
+                for(int i = 1; i < abs(targetY - y); i ++)
                 {
-                    board[x][i * d_y + y].name = "empty";
-                    board[x][i * d_y + y].owner = 0;
+                    std::cout<<x<<" "<<i * d_y + y<<" "<<board[x][i * d_y + y].name<<"\n";
+                    wsk_to_board[x * 34 + (i * d_y) + y].name = "empty";
+                    wsk_to_board[x * 34 + (i * d_y) + y].owner = 0;
                     //board[x][i * d_y + y].setTexture(Background);
                 }
             }
@@ -439,18 +440,18 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
             if(board[targetX - d_x][targetY - d_y].owner == opponent_owner)
             {
-                    board[targetX - d_x][targetY - d_y].name = "empty";
-                    board[targetX - d_x][targetY - d_y].owner = 0;
-                    //board[targetX - d_x][targetY - d_y].setTexture(Background);
-                    if(board[targetX - (2 * d_x)][targetY - (2 * d_y)].name == "empty")
+                wsk_to_board[(targetX - d_x) * 34 + targetY - d_y].name = "empty";
+                wsk_to_board[(targetX - d_x) * 34 + targetY - d_y].owner = 0;
+                //board[targetX - d_x][targetY - d_y].setTexture(Background);
+                if(board[targetX - (2 * d_x)][targetY - (2 * d_y)].name == "empty")
+                {
+                    if(board[targetX - (3 * d_x)][targetY - (3 * d_y)].owner == opponent_owner)
                     {
-                        if(board[targetX - (3 * d_x)][targetY - (3 * d_y)].owner == opponent_owner)
-                        {
-                            board[targetX - (3 * d_x)][targetY - (3 * d_y)].name = "empty";
-                            board[targetX - (3 * d_x)][targetY - (3 * d_y)].owner = 0;
-                            //board[targetX - (3 * d_x)][targetY - (3 * d_y)].setTexture(Background);
-                        }
+                        wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].name = "empty";
+                        wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].owner = 0;
+                        //board[targetX - (3 * d_x)][targetY - (3 * d_y)].setTexture(Background);
                     }
+                }
             }
         }
     }

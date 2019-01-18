@@ -178,6 +178,11 @@ int main()
                         {
                             figure_x = i;
                             figure_y = j;
+                            if((front_fields[figure_x * 34 + figure_y].name == "empty") || (front_fields[figure_x * 34 + figure_y].name == "notexist"))
+                            {
+                                figure_x = 0;
+                                figure_y = 0;
+                            }
                         }
                     }
                 }
