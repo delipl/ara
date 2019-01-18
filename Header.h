@@ -32,6 +32,8 @@
     std::string actual_name = "pawn";
     int actual_owner = 0;
 
+    int tura =1;
+
 
 void loadTexture(){
 

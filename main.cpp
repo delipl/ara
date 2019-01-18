@@ -26,7 +26,6 @@ int main()
     klik.setScale(sf::Vector2f(0.2, 0.2));
     klik.setTexture(Background);
     klik.setColor(sf::Color::Red);
-    // Koniec przygotowania
 
     LoadSave(0, front_fields);
 
@@ -192,10 +191,13 @@ int main()
                         {
                             target_x = i;
                             target_y = j;
-                            if(CanMove(front_fields, figure_x, figure_y, target_x, target_y))
-                            {
-                                Move(front_fields, figure_x, figure_y, target_x, target_y);
-                            }
+                            if(front_fields[34*figure_x+figure_y].owner==tura){
+                                if(CanMove(front_fields, figure_x, figure_y, target_x, target_y))
+                                {
+                                    Move(front_fields, figure_x, figure_y, target_x, target_y);
+                                }
+                                tura==1?tura=2:tura=1;
+                            }else ms_message("to nie twoja tura dzbanie");
                             figure_x = 0;
                             figure_y = 0;
                         }
