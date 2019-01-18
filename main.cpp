@@ -212,11 +212,20 @@ int main()
 
 //==============================Zabawa z myszka==========================================//
 
-        sf::Vector2i localPosition = sf::Mouse::getPosition(window);
+        sf::Vector2i localPosition = sf::Mouse::getPosition();
 
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
-
+            for(int i = 0; i < 17; i ++)
+            {
+                for(int j = 0; j < 34; j ++)
+                {
+                    if(pow(localPosition.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(localPosition.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                    {
+                        std::cout<<i<<" x "<<j<<"\n";
+                    }
+                }
+            }
         }
 
 //=================================WYŒWIETLANIE==========================================//
@@ -231,7 +240,6 @@ int main()
         }
 
         window.display();
-        std::cout<<"draw\n";
         window.clear();
     }
 
