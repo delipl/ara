@@ -20,6 +20,7 @@ int main()
     sf::Texture texture_charge;
     sf::Texture texture_mystery;
     sf::Texture texture_notexist;
+    sf::Texture texture_nothing;
 
     {   //wczytuje teksturki pionkow
         if (!texture_pawn.loadFromFile("img/pawn.png"))
@@ -62,20 +63,26 @@ int main()
             std::cout<<"NIE JEST DOBRZE!!!\n";
             system("PAUSE");
         }
+        if (!texture_nothing.loadFromFile("img/nothing.png"))
+        {
+            std::cout<<"NIE JEST DOBRZE!!!\n";
+            system("PAUSE");
+        }
     }
 
     int board_size_y = 34;
-
-    int field_size = 40;
 
     Pole background_fields[17][34];
     Pole *front_fields;
     front_fields = new Pole [578];
 
     Pole klik;
-    klik.setPosition(680, 680);
+    klik.setPosition(sf::Vector2f(680, 350));
+    klik.setScale(sf::Vector2f(0.2, 0.2));
     klik.setTexture(Background);
     klik.setColor(sf::Color::Red);
+
+    // Przygotowanie tablic
 
     for (int i = 0; i<17;++i)
     {
@@ -119,6 +126,14 @@ int main()
         }
     }
 
+    for(int i = 8; i < 17; i ++)
+    {
+        background_fields[i][33].setPosition(sf::Vector2f(10000, 10000));
+        front_fields[i * board_size_y + 33].setPosition(sf::Vector2f(10000, 10000));
+    }
+
+    // Koniec przygotowania
+
     LoadSave(0, front_fields);
 
     for(int i = 0; i < 17; i ++)
@@ -156,6 +171,10 @@ int main()
             else if(front_fields[i * board_size_y + j].name == "notexist")
             {
                 front_fields[i * board_size_y + j].setTexture(texture_notexist);
+            }
+            else if(front_fields[i * board_size_y + j].name == "empty")
+            {
+                front_fields[i * board_size_y + j].setTexture(texture_nothing);
             }
             background_fields[i][j].setTexture(Background);
         }
@@ -213,6 +232,10 @@ int main()
                 {
                     front_fields[i * board_size_y + j].setTexture(texture_notexist);
                 }
+                else if(front_fields[i * board_size_y + j].name == "empty")
+                {
+                    front_fields[i * board_size_y + j].setTexture(texture_nothing);
+                }
                 background_fields[i][j].setTexture(Background);
             }
         }
@@ -228,7 +251,6 @@ int main()
                 if(pow(localPosition.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(localPosition.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                 {
                     background_fields[i][j].setColor(sf::Color::Blue);
-                    std::cout<<i<<" x "<<j<<"\n";
                     if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
                     {
                         front_fields[i * board_size_y + j].name = actual_name;
@@ -246,12 +268,6 @@ int main()
                     std::cin>>actual_name;
                     std::cin>>actual_owner;
                     }
-                }
-
-
-                if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
-                {
-
                 }
             }
         }
