@@ -71,10 +71,18 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
             if(targetX==x)
             {
                 if(abs(targetY-y) == 2) return 1;
-                if(abs(targetY-y) == 4) return 1;
+                if(abs(targetY-y) == 4)
+                {
+                    if(board[x][(targetY + y) / 2].name == "empty") return 1;
+                    else return 0;
+                }
             }
             if(abs(targetX-x)==1 && abs(targetY-y)==1) return 1;
-            if(abs(targetX-x)==2 && abs(targetY-y)==2) return 1;
+            if(abs(targetX-x)==2 && abs(targetY-y)==2)
+            {
+                if(board[(x + targetX) / 2][(y + targetY) / 2].name == "empty") return 1;
+                else return 0;
+            }
          }
          else return 0;
 	}
@@ -99,8 +107,9 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     {
         if(board[targetX][targetY].name=="empty")
         {
-            if(((abs(targetX - x) == 1) && (abs(targetY - y)==1)) || ((targetX = x) && (abs(targetY - y) == 2))) return 1;
-            else return 0;
+            if((abs(targetX - x) == 1) && (abs(targetY - y) == 1)) return 1;
+            if((targetX == x) && (abs(targetY - y) == 2)) return 1;
+            return 0;
         }
         else return 0;
     }
