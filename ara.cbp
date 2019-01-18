@@ -49,8 +49,10 @@
 		<Unit filename="Header.h" />
 		<Unit filename="Load_From_File.h" />
 		<Unit filename="Messages.h" />
+		<Unit filename="fields.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="pole.h" />
+		<Unit filename="windowOpen.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
