@@ -31,7 +31,6 @@ king;8;2;1
 ghost;8;4;1
 mystery;8;6;1
 pawn;8;8;1
-pawn;8;14;1
 pawn;8;24;0
 mystery;8;26;0
 ghost;8;28;0
@@ -43,12 +42,13 @@ pawn;9;25;0
 charge;9;27;0
 ghost;9;29;0
 charge;10;6;1
+pawn;10;8;1
 pawn;10;24;0
 charge;10;26;0
 pawn;11;7;1
-pawn;11;9;1
 pawn;11;25;0
 tower;12;6;1
+pawn;12;8;1
 pawn;12;24;0
 tower;12;26;0
 cav;13;7;1

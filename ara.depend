@@ -1244,7 +1244,8 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1547843626 source:c:\users\adamw\documents\ara\main.cpp
+1547846921 source:c:\users\adamw\documents\ara\main.cpp
+	<windows.h>
 	"Figures.h"
 	<math.h>
 

@@ -1,3 +1,5 @@
+#define _WIN32_WINNT 0x0500
+#include <windows.h>
 #include "Figures.h"
 #include <math.h>
 
@@ -9,11 +11,15 @@ void ResizeView(const sf::RenderWindow& window, sf::View& view)
     view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
 }
 
+
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "Gdzie jest widelec");
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
 //=================================T£O================================================//
+    HWND hWnd = GetConsoleWindow();
+
+
     sf::Texture Background;
     if (!Background.loadFromFile("img/dupa.png"))
     {
@@ -30,7 +36,7 @@ int main()
     sf::Texture texture_notexist;
     sf::Texture texture_nothing;
 
-    {   //wczytuje teksturki pionkow
+    //wczytuje teksturki pionkow
         if (!texture_pawn.loadFromFile("img/pawn.png"))
         {
             std::cout<<"NIE JEST DOBRZE!!!\n";
@@ -76,7 +82,7 @@ int main()
             std::cout<<"NIE JEST DOBRZE!!!\n";
             system("PAUSE");
         }
-    }
+
 
     int board_size_y = 34;
 
@@ -281,7 +287,6 @@ int main()
 //==============================Zabawa z myszka==========================================//
         mouse_pressed = 0;
 
-
         mouse_position = sf::Mouse::getPosition(window);
 
         for(int i = 0; i < 17; i ++)
@@ -315,7 +320,16 @@ int main()
             mouse_position = sf::Mouse::getPosition(window);
             mouse_pressed = 1;
         }
-
+//===================================Chowanie Konsolki============================//
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+        {
+            ShowWindow( hWnd, SW_HIDE );
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+        {
+            ShowWindow( hWnd, SW_SHOW );
+        }
+//===============================================================================//
         if((pow(mouse_position.x - 20 - klik.getPosition().x, 2) + pow(mouse_position.y - 20 - klik.getPosition().y, 2) < 400) && mouse_pressed)
         {
             if(actual_mode == "edit")
