@@ -5,9 +5,11 @@
 #include <string>
 // ###
 
-void LoadSave(int save_number, Pole *fields)
+int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad
 {
     int board_size_y = 34;
+    std::string names[8] = {"pawn", "ghost", "tower", "cav", "mystery", "charge", "king", "notexist"};
+    int returning = 0;
 
     /*
     sf::Texture texture_pawn;
@@ -57,8 +59,7 @@ void LoadSave(int save_number, Pole *fields)
     {
         std::cout<<"NIE JEST DOBRZE!!!\n";
         system("PAUSE");
-    }
-    */
+    }*/
 
     //Mam wszystkie textury
 
@@ -80,9 +81,9 @@ void LoadSave(int save_number, Pole *fields)
 
     if(file.good() == false)
     {
-        // ###Tu musi sie znalezc odpowiednie powiadomienie o tym, ze wystapil problem z plikiem
-        std::cout<<"cos jest nie tak z plikiem"<<"\n";
-        // ###
+        ms_error(84, "Load_From_File/LoadSave/file.good() == false", 1);
+        file.close();
+        return 1;
     }
 
     int length;
@@ -95,12 +96,22 @@ void LoadSave(int save_number, Pole *fields)
 
     // ###To jest pierwsza linia, trzeba ustawic aktualnego gracza
     getline(file, line);
+    if(line.length() == 0)
+    {
+        ms_error(101, "Load_From_File/LoadSave/file is broken!!!", 1);
+        file.close();
+        return 1;
+    }
     int actual_player = int(line[0]) - int('0');
     std::cout<<actual_player<<"\n";
     // ###
 
+    bool good = 0;
+    int i = 0;
+
     while(getline(file, line))
     {
+        i++;
         length = line.length();
 
         figure_name = "";
@@ -129,9 +140,36 @@ void LoadSave(int save_number, Pole *fields)
         j++;
         figure_owner = int(line[j]) - int('0');
 
-        fields[figure_x * board_size_y + figure_y].owner = figure_owner;  // stawiam pionka
-        fields[figure_x * board_size_y + figure_y].name = figure_name;    // stawiam pionka
+        // Sprawdzanie, czy w pliku sa dobre dane
 
+        good = 0;
+        for(int i = 0; i < 8; i ++)
+        {
+            if(figure_name == names[i])
+            {
+                good = 1;
+                break;
+            }
+        }
+        if((figure_x < 0) || (figure_x > 16) || (figure_y < 0) || (figure_y > 33))
+        {
+            good = 0;
+        }
+
+        if(!good)
+        {
+            char *intStr = itoa(i, intStr, 3);
+            std::string str = std::string(intStr);
+            std::string text = "Load_From_File/LoadSave/something wrong with " + str + " line of file";
+            ms_error(164, text);
+            returning = 2;
+        }
+        else
+        {
+            fields[figure_x * board_size_y + figure_y].owner = figure_owner;  // stawiam pionka
+            fields[figure_x * board_size_y + figure_y].name = figure_name;    // stawiam pionka
+
+        }
 
         /*
         if(fields[figure_x * board_size_y + figure_y].name == "pawn")
@@ -174,11 +212,13 @@ void LoadSave(int save_number, Pole *fields)
     //std::cout<<"jest ok!\n";
 
     file.close();
+    return returning;
 }
 
-void SaveGame(int save_number, Pole *fields)
+int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad
 {
     int board_size_y = 34;
+    int returning = 0;
 
     std::fstream file;  // plik
 
@@ -215,4 +255,5 @@ void SaveGame(int save_number, Pole *fields)
     }
 
     file.close();
+    return 0;
 }

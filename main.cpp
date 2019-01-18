@@ -1,6 +1,5 @@
 #include "Figures.h"
 #include <math.h>
-#include <windows.h>
 
 int main()
 {
