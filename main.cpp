@@ -3,7 +3,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1366, 720), "Gdzie jest widelec");
+    sf::RenderWindow window(sf::VideoMode(720, 720), "Gdzie jest widelec");
 
 //=================================T£O================================================//
     sf::Texture Background;
@@ -212,18 +212,16 @@ int main()
 
 //==============================Zabawa z myszka==========================================//
 
-        sf::Vector2i localPosition = sf::Mouse::getPosition();
+        sf::Vector2i localPosition = sf::Mouse::getPosition(window);
 
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        for(int i = 0; i < 17; i ++)
         {
-            for(int i = 0; i < 17; i ++)
+            for(int j = 0; j < 34; j ++)
             {
-                for(int j = 0; j < 34; j ++)
+                if(pow(localPosition.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(localPosition.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                 {
-                    if(pow(localPosition.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(localPosition.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
-                    {
-                        std::cout<<i<<" x "<<j<<"\n";
-                    }
+                    background_fields[i][j].setColor(sf::Color::Blue);
+                    std::cout<<i<<" x "<<j<<"\n";
                 }
             }
         }
@@ -235,7 +233,7 @@ int main()
             for (int j = 0; j<33; ++j)
             {
                 window.draw(background_fields[i][j]);
-                window.draw(front_fields[i * board_size_y + j]);
+                //window.draw(front_fields[i * board_size_y + j]);
             }
         }
 
