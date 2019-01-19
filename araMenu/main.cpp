@@ -2,6 +2,8 @@
 #include <iostream>
 #include "Messages.h"
 
+int a;
+
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1000, 720), "A.R.A");
@@ -26,9 +28,6 @@ int main()
         window.draw(tlo);
         window.display();
         window.clear();
-    }
-    while(true){
-        int a;
         std::cin>>a;
         if(a==1){
             window.close();
