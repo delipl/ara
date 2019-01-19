@@ -10,7 +10,7 @@ int main()
 
     sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
-//=================================T£O================================================//
+//=================================TÂ£O================================================//
     sf::Texture Background;
     if (!Background.loadFromFile("img/dupa.png"))
     {
@@ -211,7 +211,7 @@ int main()
             }
         }
 
-//=================================WYŒWIETLANIE==========================================//
+//=================================WYÅ’WIETLANIE==========================================//
         if(win==0){
             for (int i = 0; i<17; ++i)
             {
@@ -245,7 +245,14 @@ int main()
         window.setView(view);
         window.display();
         window.clear();
-        if(win==1)system("pause");
+        if(win==1){
+                if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
+                    //system("pause");
+                    window.close();
+                    system("..\\..\\araMenu\\bin\\Debug\\ara.exe");  //dziaÅ‚a tylko z execa
+                }
+        }
+
     }
 
     SaveGame(2, front_fields);
