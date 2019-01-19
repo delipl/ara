@@ -242,9 +242,10 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     {
         int a;
         board[x][y].owner==1 ? a=1: a=-1;
-        if((abs(targetX==x)) && (a*(targetY-y)==1)) return 1;
+        if((targetX==x) && (a*(targetY - y)==2)) return 1;
         if((abs(targetX - x) == 1) &&  (abs(targetY - y) == 1)) return 1;
         return 0;
+
     }
 }
 
@@ -355,7 +356,7 @@ void Attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     wsk_to_board[targetX * 34 + targetY].owner = 0;
 }
 
-void Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
+bool Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
     int opponent_owner;
     if(wsk_to_board[x * 34 + y].owner == 1) opponent_owner = 2;
@@ -366,7 +367,7 @@ void Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         if(CanMove(wsk_to_board, x, y, targetX, targetY))
         {
             Move(wsk_to_board, x, y, targetX, targetY);
-            return;
+            return 1;
         }
     }
     else if(wsk_to_board[targetX * 34 + targetY].owner == opponent_owner)
@@ -374,9 +375,10 @@ void Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         if(canAttack(wsk_to_board, x, y, targetX, targetY))
         {
             Attack(wsk_to_board, x, y, targetX, targetY);
-            return;
+            return 1;
         }
     }
 
     ms_message("Niepoprawne dane!!!");
+    return 0;
 }
