@@ -32,7 +32,8 @@
     std::string actual_name = "pawn";
     int actual_owner = 0;
 
-    int tura =1;
+    int tura =2;
+
 
 
 void loadTexture(){
@@ -104,3 +105,5 @@ void consoleHiding(){
             ShowWindow( hWnd, SW_SHOW );
         }
 }
+
+

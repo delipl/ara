@@ -10,22 +10,12 @@ int main()
 
     sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
-//=================================T£O================================================//
+//=================================TÂ£O================================================//
     sf::Texture Background;
     if (!Background.loadFromFile("img/dupa.png"))
     {
 
     }
-
-    sf::Font font;
-    if (!font.loadFromFile("arial.ttf"))
-    {
-        // error...
-    }
-    sf::Text text;
-    text.setFont(font);
-    text.setCharacterSize(24); // in pixels, not points!
-    text.setFillColor(sf::Color::Red);
 
     loadTexture();
     backgroundFields();
@@ -61,8 +51,6 @@ int main()
         consoleHiding();
 
 //==============================Aktualizacja tekstur=====================================//
-
-
 
         for(int i = 0; i < 17; i ++)
         {
@@ -150,21 +138,11 @@ int main()
             {
                 actual_mode = "play";
                 std::cout<<"Zmieniono tryb na \"play\"\n";
-                text.setString("Zmieniono tryb na \"play\"\n");
-                window.draw(text);
-                Sleep(1000);
-                text.setString("");
-                window.draw(text);
             }
             else
             {
                 actual_mode = "edit";
                 std::cout<<"Zmieniono tryb na \"edit\"\n";
-                text.setString("Zmieniono tryb na \"edit\"\n");
-                        window.draw(text);
-                Sleep(1000);
-                text.setString("");
-                        window.draw(text);
                 std::cin>>actual_name;
                 std::cin>>actual_owner;
             }
@@ -233,22 +211,48 @@ int main()
             }
         }
 
-//=================================WYŒWIETLANIE==========================================//
-
-        for (int i = 0; i<17; ++i)
-        {
-            for (int j = 0; j<33; ++j)
+//=================================WYÅ’WIETLANIE==========================================//
+        if(win==0){
+            for (int i = 0; i<17; ++i)
             {
-                window.draw(background_fields[i][j]);
-                window.draw(front_fields[i * board_size_y + j]);
+                for (int j = 0; j<33; ++j)
+                {
+                    window.draw(background_fields[i][j]);
+                    window.draw(front_fields[i * board_size_y + j]);
+                }
             }
+            //window.draw(klik);
+        }else{
+            // !!!!!!!!!!!!!!!!!Napisac ekran wygranej !!!!!!!!!!!!!!!!!!//
+            sf::Texture win;
+            if(tura==1){
+                if (!win.loadFromFile("img/winDolny.png")){
+                    ms_error(230, "main.cpp no file winDolny.png, 1");
+                }
+            }else{
+                if (!win.loadFromFile("img/winGornya.png")){
+                    ms_error(230, "main.cpp no file winGorny.png", true);
+                }
+
+            }
+
+            sf::Sprite Win;
+            Win.setTexture(win);
+            Win.setPosition(sf::Vector2f(0,0));
+            window.draw(Win);
         }
         view.setCenter(sf::Vector2f(360.0f, 360.0f));
-
-        window.draw(klik);
         window.setView(view);
         window.display();
         window.clear();
+        if(win==1){
+                if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
+                    //system("pause");
+                    window.close();
+                    system("ara.exe");  //dziaÅ‚a tylko z execa (wraca do menu
+                }
+        }
+
     }
 
     SaveGame(2, front_fields);

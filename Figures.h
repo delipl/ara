@@ -1,4 +1,5 @@
 #include "Load_From_File.h"
+bool win=0;
 /*
     Pionek          - pawn
     Duch            - ghost
@@ -374,6 +375,10 @@ bool Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     {
         if(canAttack(wsk_to_board, x, y, targetX, targetY))
         {
+            if(wsk_to_board[targetX * 34 + targetY].name=="king"){
+                Attack(wsk_to_board, x, y, targetX, targetY);
+                win=1;
+            }
             Attack(wsk_to_board, x, y, targetX, targetY);
             return 1;
         }
