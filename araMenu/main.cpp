@@ -82,7 +82,10 @@ int main()
                 window.close();
                 system("..\\..\\..\\bin\\Debug\\ara.exe");
 
+            }else if (mouse_position.x>=450&&mouse_position.x<487&&mouse_position.y>358&&mouse_position.y<393){
+                std::cout<<"tu bedzie kiedys przekierowanie do edytorMap.exe"<<std::endl;
             }
+
             if(mouse_position.x>=400&&mouse_position.x<560&&mouse_position.y>550&&mouse_position.y<630){
                 window.close();
                 return 0;
