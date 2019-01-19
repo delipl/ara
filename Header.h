@@ -105,3 +105,5 @@ void consoleHiding(){
             ShowWindow( hWnd, SW_SHOW );
         }
 }
+
+

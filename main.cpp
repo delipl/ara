@@ -224,14 +224,28 @@ int main()
             //window.draw(klik);
         }else{
             // !!!!!!!!!!!!!!!!!Napisac ekran wygranej !!!!!!!!!!!!!!!!!!//
-            std::cout<<"Wygral gracz: ";
-            tura==1?std::cout<<"dolny"<<std::endl:std::cout<<"gorny"<<std::endl;
-            system("pause");
+            sf::Texture win;
+            if(tura==1){
+                if (!win.loadFromFile("img/winDolny.png")){
+                    ms_error(230, "main.cpp no file winDolny.png, 1");
+                }
+            }else{
+                if (!win.loadFromFile("img/winGornya.png")){
+                    ms_error(230, "main.cpp no file winGorny.png", true);
+                }
+
+            }
+
+            sf::Sprite Win;
+            Win.setTexture(win);
+            Win.setPosition(sf::Vector2f(0,0));
+            window.draw(Win);
         }
         view.setCenter(sf::Vector2f(360.0f, 360.0f));
         window.setView(view);
         window.display();
         window.clear();
+        if(win==1)system("pause");
     }
 
     SaveGame(2, front_fields);
