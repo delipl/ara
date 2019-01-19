@@ -11,6 +11,9 @@
     sf::Texture texture_mystery;
     sf::Texture texture_notexist;
     sf::Texture texture_nothing;
+    sf::Texture menu;
+
+    sf::Sprite Menu;
 
     Pole background_fields[17][34];
     Pole *front_fields;
@@ -87,6 +90,15 @@ void loadTexture(){
             ms_error(666, "Header.h", 1);
             system("PAUSE");
         }
+
+            if (!menu.loadFromFile("img\\menu.png"))
+            {
+                ms_error(220, "nie zaladowano menu.png", true);
+            }
+
+            Menu.setTexture(menu);
+            Menu.setPosition(sf::Vector2f(0, 0));
+            Menu.setScale(sf::Vector2f(1, 1));
 
 }
 
