@@ -195,13 +195,29 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     }
     return 0;
 }
-//if(canAttack(fields, gsdfhgf);
 
-
-
-
-
-bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
+bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
+{
+    if(wsk_to_board[x * 34 + y].name == "king")
+    {
+        return CanMove(wsk_to_board, x, y, targetX, targetY);
+    }
+    if(wsk_to_board[x * 34 + y].name == "ghost")
+    {
+        return CanMove(wsk_to_board, x, y, targetX, targetY);
+    }
+    if(wsk_to_board[x * 34 + y].name == "charge")
+    {
+        return CanMove(wsk_to_board, x, y, targetX, targetY);
+    }
+    if(wsk_to_board[x * 34 + y].name == "mystery")
+    {
+        return CanMove(wsk_to_board, x, y, targetX, targetY);
+    }
+    if(wsk_to_board[x * 34 + y].name == "cav")
+    {
+        return 0;
+    }
 
     Pole board[17][34];
 
@@ -212,176 +228,24 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY){
             board[i][j] = wsk_to_board[i * 34 + j];
         }
     }
-    if(board[x][y].name != "empty" && board[x][y].name != "notexist" && board[x][y].owner != board[targetX][targetY].owner){ //wskazane pole jest figura przeciwnika
 
-        //duch
-        if(board[x][y].name == "ghost"){
-            return  (abs(targetY - x) == 3 && abs(targetY - y) == 1) ||
-                    (abs(targetY - x) == 1 && abs(targetY - y) == 3) ||
-                    (abs(targetY - x) == 2 && abs(targetY - y) == 0) ?
-                    true: false;
-        }
-
-        //kawaleria
-        //=======================================[CAVALERY COMBAT ABILITY]=========================
-        if(board[x][y].name == "cav"){
-            if(x > targetX && y < targetY){
-                for(int i = x; i < 17;i++){
-                    for (int j = y; j >= 0; --j){
-                        if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty") // kiedy zabija jednego
-                                return 1;
-                            if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i+1][j-1].name == "empty" &&
-                                (board[i-2][j+2].name != "empty" && board[i][j].name != "notexist") && board[i-1][j+1].name == "empty" &&
-                                                                                                    i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1;
-
-                    }
-                    return 0;
-                }
-
-                if(x > targetX && y < targetY){
-                    for(int i = x; i < 17;i++){
-                        for (int j = y; j < 33; ++j){
-                            if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty") // kiedy zabija jednego
-                                return 1;
-                            if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i+1][j+1].name == "empty" &&
-                                (board[i-2][j-2].name != "empty" && board[i][j].name != "notexist") && board[i-1][j-1].name == "empty" &&
-                                                                                                    i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1;
-                        }
-                    }
-                    return 0;
-                }
-
-                if(x > targetX && y < targetY){
-                    for(int i = x; i >= 0 ;i--){
-                        for (int j = y; j < 33; ++j){
-                            if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i-1][j+1].name == "empty") // kiedy zabija jednego
-                                return 1;
-                            if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i-1][j+1].name == "empty" &&
-                                (board[i-2][j-2].name != "empty" && board[i][j].name != "notexist") && board[i+1][j-1].name == "empty" &&
-                                                                                                    i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1;
-                        }
-                    }
-                    return 0;
-                }
-
-                if(x > targetX && y < targetY){
-                    for(int i = x; i >= 0 ;i--){
-                        for (int j = y; j >= 0; --j){
-                            if((board[i][j].name != "empty" && board[i][j].name != "notexist") && board[i-1][j-1].name == "empty") // kiedy zabija jednego
-                                return 1;
-                            if((board[i][j].name != "empty" && board[i][j].name != "notexist")      && board[i-1][j-1].name == "empty" &&
-                                (board[i+2][j+2].name != "empty" && board[i][j].name != "notexist") && board[i+1][j+1].name == "empty" &&
-                                                                                                    i == targetX && j == targetY)// kiedy zabija dwoch
-                                return 1;
-
-                        }
-                    }
-                    return 0;
-                }
-
-            }
-
-        //================================================================
-
-        //krol
-        if(board[x][y].name == "king"){
-            if((abs(targetX-x) == 1 && abs(targetY-y) == 1) || (targetX = x && abs(targetY-y) == 2)) return 1;
-            else return 0;
-        }
-
-        //szarza
-        if(board[x][y].name == "charge"){
-            if(targetY < y){
-                for (int j = y; j >= targetY; j--){
-                    //if(board[y][j].owner == board[x][y].owner) board[y][j].name = "empty"; //<- w attack()
-                    if(board[x][j].name != "empty" && board[x][j].name != "notexist" && j == targetY && targetX == x){
-                        return 1;
-                    }
-                }
-            return 0;
-            }
-            if(targetY > y){
-                for (int j = y; j <= targetY; j++){
-                    //if(board[y][j].owner == board[x][y].owner) board[y][j].name = "empty"; //<- w attack()
-                    if(board[x][j].name != "empty" && board[x][j].name != "notexist" && j == targetY && targetX == x){
-                        return 1;
-                    }
-                }
-            return 0;
-            }
-        }
-
-        if(board[x][y].name=="tower"){
-                if(x==targetX && abs(targetY-y)<6 && abs(targetY-y)>1) return 1;
-                if(abs(targetX-x)==2 && abs(y-targetY)==2) return 1;
-                if(abs(targetX-x)==3 && abs(y-targetY)==3) return 1;
-                if(abs(targetX-x)==4 && abs(y-targetY)==4) return 1;
-                if(abs(targetX-x)==5 && abs(y-targetY)==5) return 1;
-                return 0;
-            }
-        if(board[x][y].name=="pawn"){
-            int a;
-            board[x][y].owner==1 ? a=1: a=-1;
-            if( abs(targetX==x) && a*(targetY-y)==1 ) return 1;
-            if( abs(targetX-x==1) &&  abs(targetY-y==1)) return 1;
-        }
-        if(board[x][y].name=="mystery"){
-            if(x > targetX && y < targetY){
-                for(int i = x; i < 17;i++){
-                    for (int j = y; j >= 0; --j){
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
-
-                    }
-                }
-                return 1;
-            }
-
-            if(x > targetX && y > targetY){
-                for(int i = x; i < 17;i++){
-                    for (int j = y; j < 33; ++j){
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
-                    }
-                }
-                return 1;
-            }
-
-            if(x < targetX && y > targetY){
-                for(int i = x; i >= 0; --i){
-                    for (int j = y; j < 33; ++j)
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
-                }
-                return 1;
-            }
-
-            if(x < targetX && y < targetY){
-                for(int i = x; i >= 0;i--){
-                    for (int j = y; j >= 0; --j){
-                        if (board[i][j].name != "empty" && board[i][j].name != "notexist") return 0;
-                    }
-                }
-                return 1;
-            }
-
-            if((targetX-x) == 0 && targetY > y){
-                for (int j = y; j < 33; ++j){
-                       if (board[x][j].name != "empty" && board[x][j].name != "notexist") return 0;
-                    }
-                return 1;
-            }
-            if((targetX-x) == 0 && targetY < y){
-                for (int j = y; j >= 0; --j){
-                    if (board[x][j].name != "empty" && board[x][j].name != "notexist") return 0;
-                }
-                return 1;
-            }
-
-        }
+    if(board[x][y].name=="tower")
+    {
+        if((x==targetX) && (abs(targetY-y)<=10) && (abs(targetY-y)>=4)) return 1;
+        if((abs(targetX-x)==2) && (abs(y-targetY)==2)) return 1;
+        if((abs(targetX-x)==3) && (abs(y-targetY)==3)) return 1;
+        if((abs(targetX-x)==4) && (abs(y-targetY)==4)) return 1;
+        if((abs(targetX-x)==5) && (abs(y-targetY)==5)) return 1;
+        return 0;
     }
-    else return 0;
-}
+    if(board[x][y].name=="pawn")
+    {
+        int a;
+        board[x][y].owner==1 ? a=1: a=-1;
+        if((abs(targetX==x)) && (a*(targetY-y)==1)) return 1;
+        if((abs(targetX - x) == 1) &&  (abs(targetY - y) == 1)) return 1;
+        return 0;
+    }
 }
 
 void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
@@ -462,4 +326,57 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     //wsk_to_board[x * 34 + y].setTexture(Background);
     wsk_to_board[x * 34 + y].name = "empty";
     wsk_to_board[x * 34 + y].owner = 0;
+}
+
+void Attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
+{
+    if(wsk_to_board[x * 34 + y].name == "ghost")
+    {
+        Move(wsk_to_board, x, y, targetX, targetY);
+        return;
+    }
+    if(wsk_to_board[x * 34 + y].name == "king")
+    {
+        Move(wsk_to_board, x, y, targetX, targetY);
+        return;
+    }
+    if(wsk_to_board[x * 34 + y].name == "charge")
+    {
+        Move(wsk_to_board, x, y, targetX, targetY);
+        return;
+    }
+    if(wsk_to_board[x * 34 + y].name == "mystery")
+    {
+        Move(wsk_to_board, x, y, targetX, targetY);
+        return;
+    }
+
+    wsk_to_board[targetX * 34 + targetY].name = "empty";
+    wsk_to_board[targetX * 34 + targetY].owner = 0;
+}
+
+void Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
+{
+    int opponent_owner;
+    if(wsk_to_board[x * 34 + y].owner == 1) opponent_owner = 2;
+    else opponent_owner = 1;
+
+    if(wsk_to_board[targetX * 34 + targetY].name == "empty")
+    {
+        if(CanMove(wsk_to_board, x, y, targetX, targetY))
+        {
+            Move(wsk_to_board, x, y, targetX, targetY);
+            return;
+        }
+    }
+    else if(wsk_to_board[targetX * 34 + targetY].owner == opponent_owner)
+    {
+        if(canAttack(wsk_to_board, x, y, targetX, targetY))
+        {
+            Attack(wsk_to_board, x, y, targetX, targetY);
+            return;
+        }
+    }
+
+    ms_message("Niepoprawne dane!!!");
 }

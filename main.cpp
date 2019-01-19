@@ -196,13 +196,13 @@ int main()
                         {
                             target_x = i;
                             target_y = j;
-                            if(front_fields[34*figure_x+figure_y].owner==tura){
-                                if(CanMove(front_fields, figure_x, figure_y, target_x, target_y))
-                                {
-                                    Move(front_fields, figure_x, figure_y, target_x, target_y);
-                                }
-                                tura==1?tura=2:tura=1;
-                            }else ms_message("to nie twoja tura dzbanie");
+                            if(front_fields[34*figure_x+figure_y].owner == tura)
+                            {
+                                Action(front_fields, figure_x, figure_y, target_x, target_y);
+                                if(tura == 1) tura = 2;
+                                else tura = 1;
+                            }
+                            else ms_message("to nie twoja tura dzbanie");
                             figure_x = 0;
                             figure_y = 0;
                         }
