@@ -212,17 +212,23 @@ int main()
         }
 
 //=================================WYŒWIETLANIE==========================================//
-
-        for (int i = 0; i<17; ++i)
-        {
-            for (int j = 0; j<33; ++j)
+        if(win==0){
+            for (int i = 0; i<17; ++i)
             {
-                window.draw(background_fields[i][j]);
-                window.draw(front_fields[i * board_size_y + j]);
+                for (int j = 0; j<33; ++j)
+                {
+                    window.draw(background_fields[i][j]);
+                    window.draw(front_fields[i * board_size_y + j]);
+                }
             }
+            //window.draw(klik);
+        }else{
+            // !!!!!!!!!!!!!!!!!Napisac ekran wygranej !!!!!!!!!!!!!!!!!!//
+            std::cout<<"Wygral gracz: ";
+            tura==1?std::cout<<"dolny"<<std::endl:std::cout<<"gorny"<<std::endl;
+            system("pause");
         }
         view.setCenter(sf::Vector2f(360.0f, 360.0f));
-        window.draw(klik);
         window.setView(view);
         window.display();
         window.clear();
