@@ -34,6 +34,8 @@
 
     int tura =2;
 
+    bool isMenu=0;
+
 
 
 void loadTexture(){

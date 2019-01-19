@@ -17,7 +17,17 @@ int main()
 
     }
 
+
     loadTexture();
+    sf::Texture menu;
+            if (!menu.loadFromFile("img\\menu.png"))
+            {
+                ms_error(220, "nie zaladowano menu.png", true);
+            }
+            sf::Sprite Menu;
+            Menu.setTexture(menu);
+            Menu.setPosition(sf::Vector2f(0, 0));
+            Menu.setScale(sf::Vector2f(1, 1));
     backgroundFields();
 
 
@@ -45,9 +55,21 @@ int main()
                 case sf::Event::Resized:
                     ResizeView(window, view);
                     break;
+                case sf::Event::KeyPressed:
+                    if (event.key.code == sf::Keyboard::Escape&&isMenu){
+                        isMenu=0;
+                        std::cout<<"menuunie"<<std::endl;
+                    }else{
+                        isMenu=1;
+                        std::cout<<"menuutak"<<std::endl;
+                    }
+                break;
             }
 
         }
+
+
+
         consoleHiding();
 
 //==============================Aktualizacja tekstur=====================================//
@@ -210,7 +232,6 @@ int main()
                 }
             }
         }
-
 //=================================WYŒWIETLANIE==========================================//
         if(win==0){
             for (int i = 0; i<17; ++i)
@@ -243,8 +264,10 @@ int main()
         }
         view.setCenter(sf::Vector2f(360.0f, 360.0f));
         window.setView(view);
+        if(isMenu==1)window.draw(Menu);
         window.display();
         window.clear();
+
         if(win==1){
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
                     //system("pause");
@@ -252,6 +275,7 @@ int main()
                     system("ara.exe");  //działa tylko z execa (wraca do menu
                 }
         }
+
 
     }
 
