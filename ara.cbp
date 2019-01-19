@@ -48,6 +48,7 @@
 		<Unit filename="Figures.h" />
 		<Unit filename="Header.h" />
 		<Unit filename="Load_From_File.h" />
+		<Unit filename="Load_Textures.h" />
 		<Unit filename="Messages.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="pole.h" />
