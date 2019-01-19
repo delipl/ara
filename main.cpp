@@ -48,6 +48,7 @@ int main()
             }
 
         }
+        consoleHiding();
 
 //==============================Aktualizacja tekstur=====================================//
 
@@ -131,9 +132,6 @@ int main()
             mouse_position = sf::Mouse::getPosition(window);
             mouse_pressed = 1;
         }
-//===================================Chowanie Konsolki============================//
-        consoleHiding();
-//===============================================================================//
         if((pow(mouse_position.x - 20 - klik.getPosition().x, 2) + pow(mouse_position.y - 20 - klik.getPosition().y, 2) < 400) && mouse_pressed)
         {
             if(actual_mode == "edit")
