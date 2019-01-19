@@ -1,4 +1,4 @@
-<który gracz zaczyna (0/1)>
+<który gracz zaczyna (1/2)>
 <nazwa figury>;<wspó³rzêdna x figury>;<wspó³rzêdna y figury>;<w³aœciciel>;
 <nazwa figury>;<wspó³rzêdna x figury>;<wspó³rzêdna y figury>;<w³aœciciel>;
 <nazwa figury>;<wspó³rzêdna x figury>;<wspó³rzêdna y figury>;<w³aœciciel>;
@@ -8,6 +8,6 @@
 
 np:
 0
-king;10;5;0;
-pawn;15;6;0;
+king;10;5;2;
+pawn;15;6;2;
 tower;1;7;1;
