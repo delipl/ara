@@ -1,5 +1,5 @@
 // ###Te biblioteki trzeb bedzie dolaczyc do ostatecznej wersji
-#include "pole.h"
+#include "Header.h"
 #include <fstream>
 #include <cstdlib>
 #include <string>
@@ -7,61 +7,8 @@
 
 int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad
 {
-    int board_size_y = 34;
     std::string names[8] = {"pawn", "ghost", "tower", "cav", "mystery", "charge", "king", "notexist"};
     int returning = 0;
-
-    /*
-    sf::Texture texture_pawn;
-    sf::Texture texture_ghost;
-    sf::Texture texture_cav;
-    sf::Texture texture_king;
-    sf::Texture texture_tower;
-    sf::Texture texture_charge;
-    sf::Texture texture_mystery;
-    sf::Texture texture_notexist;
-    if (!texture_pawn.loadFromFile("img/pawn.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_ghost.loadFromFile("img/ghost.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_cav.loadFromFile("img/cav.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_king.loadFromFile("img/king.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_tower.loadFromFile("img/tower.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_charge.loadFromFile("img/charge.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_mystery.loadFromFile("img/mystery.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_notexist.loadFromFile("img/notexist.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }*/
-
-    //Mam wszystkie textury
 
     std::fstream file;  // plik
     std::string line;
@@ -103,8 +50,7 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         return 1;
     }
     int actual_player = int(line[0]) - int('0');
-    std::cout<<actual_player<<"\n";
-    // ###
+    tura = actual_player;
 
     bool good = 0;
     int i = 0;
@@ -170,46 +116,9 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
             fields[figure_x * board_size_y + figure_y].name = figure_name;    // stawiam pionka
 
         }
-
-        /*
-        if(fields[figure_x * board_size_y + figure_y].name == "pawn")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_pawn);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "tower")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_tower);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "ghost")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_ghost);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "cav")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_cav);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "king")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_king);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "mystery")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_mystery);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "charge")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_charge);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "notexist")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_notexist);
-        }
-        fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(0.2f, 0.2f));
-        */
-
-        // Mam textury i pozycje i skale
+		
+		set_figure_texture(&fields[figure_x * board_size_y + figure_y]);
     }
-    //std::cout<<"jest ok!\n";
 
     file.close();
     return returning;
@@ -217,7 +126,6 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
 
 int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad
 {
-    int board_size_y = 34;
     int returning = 0;
 
     std::fstream file;  // plik
@@ -236,7 +144,7 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
 
     // ###Tu trzeba dodac aktualnego gracza
-    file<<"0\n";
+    file<<tura<<"\n";
     // ###
 
     for (int i = 0; i<17;++i)
