@@ -825,11 +825,12 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1547755822 source:c:\users\kivi\documents\ara\main.cpp
-	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
-	"lib/SFML-2.5.1/include/SFML/Window.hpp"
-	<iostream>
+1547859459 source:c:\users\kivi\documents\ara\main.cpp
+	<windows.h>
 	"Figures.h"
+	"Header.h"
+	"fields.h"
+	<math.h>
 
 1547383977 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -2073,7 +2074,8 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1547759601 c:\users\kivi\documents\ara\figures.h
+1547859683 c:\users\kivi\documents\ara\figures.h
+	"Load_From_File.h"
 
 1547829379 c:\users\adamw\documents\ara\figures.h
 	"Load_From_File.h"
@@ -2084,11 +2086,14 @@
 	<iostream>
 	"Figures.h"
 
-1547813927 source:c:\users\pawe許dane z pulpitu\programowanie\github\ara\main.cpp
+1547860151 source:c:\users\pawe許dane z pulpitu\programowanie\github\ara\main.cpp
+	<windows.h>
 	"Figures.h"
+	"Header.h"
+	"fields.h"
 	<math.h>
 
-1547806327 c:\users\pawe許dane z pulpitu\programowanie\github\ara\figures.h
+1547873028 c:\users\pawe許dane z pulpitu\programowanie\github\ara\figures.h
 	"Load_From_File.h"
 
 1547815620 c:\users\pawe許dane z pulpitu\programowanie\github\ara\load_from_file.h
@@ -2529,4 +2534,29 @@
 1547829378 c:\users\adamw\documents\ara\messages.h
 	<iostream>
 	<windows.h>
+
+1547848484 c:\users\kivi\documents\ara\load_from_file.h
+	"pole.h"
+	<fstream>
+	<cstdlib>
+	<string>
+
+1547848484 c:\users\kivi\documents\ara\pole.h
+	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
+	"lib/SFML-2.5.1/include/SFML/Window.hpp"
+	"messages.h"
+
+1547848484 c:\users\kivi\documents\ara\messages.h
+	<iostream>
+	<windows.h>
+
+1547855559 c:\users\kivi\documents\ara\header.h
+	<math.h>
+
+1547855847 c:\users\pawe許dane z pulpitu\programowanie\github\ara\header.h
+	<math.h>
+
+1547853260 c:\users\kivi\documents\ara\fields.h
+
+1547854145 c:\users\pawe許dane z pulpitu\programowanie\github\ara\fields.h
 
