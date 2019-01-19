@@ -30,7 +30,7 @@ ghost;7;29;0
 king;8;2;1
 ghost;8;4;1
 mystery;8;6;1
-pawn;8;8;1
+pawn;8;10;1
 pawn;8;24;0
 mystery;8;26;0
 ghost;8;28;0
