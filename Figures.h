@@ -37,7 +37,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         {
             if(y > targetY)
             {
-                for(int i = targetY; i <= y; i ++)
+                for(int i = targetY - 1; i < y; i ++)
                 {
                     if((board[x][i].name == "empty") || (board[x][i].owner == board[x][y].owner))
                     {
@@ -49,7 +49,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
             }
             else
             {
-                for(int i = y; i <= targetY; i ++)
+                for(int i = y - 1; i < targetY; i ++)
                 {
                     if((board[x][i].name == "empty") || (board[x][i].owner == board[x][y].owner))
                     {
