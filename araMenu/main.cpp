@@ -4,8 +4,8 @@
 
 int main()
 {
-    /*sf::RenderWindow window(sf::VideoMode(1366, 720), "Gdzie jest widelec");
-
+    sf::RenderWindow window(sf::VideoMode(1366, 720), "A.R.A");
+    /*
     sf::Texture rudys;
     if (!rudys.loadFromFile("rudy.png"))
     {
@@ -42,7 +42,9 @@ int main()
         int a;
         std::cin>>a;
         if(a==1){
+            window.close();
             system("..\\..\\..\\bin\\Debug\\ara.exe");
+
         }
     }
 }
