@@ -1,15 +1,15 @@
 #include "../lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 #include <iostream>
-#include <windows.h>
+#include "Messages.h"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1366, 720), "A.R.A");
-    /*
-    sf::Texture rudys;
-    if (!rudys.loadFromFile("rudy.png"))
+    sf::RenderWindow window(sf::VideoMode(1000, 720), "A.R.A");
+
+    sf::Texture Tlo;
+    if (!Tlo.loadFromFile("img\\backgroundImage.png"))
     {
-        // error...
+        ms_error(12, "nie zaladowano menuBackground", true);
     }
 
     while (window.isOpen())
@@ -21,23 +21,12 @@ int main()
                 window.close();
         }
 
-        sf::Sprite rudy;
-        rudy.setTexture(rudys);
-        rudy.setOrigin(250, 297);
-        rudy.setPosition(sf::Vector2f(1366/2.0f,720/2.0f));
-        sf::Vector2f scale = rudy.getScale();
-        rudy.setScale(sf::Vector2f(0.5f, 0.5f));
-        for(;;)
-        {
-            window.clear(sf::Color(0, 0, 0, 255));
-            rudy.rotate(0.1);
-            window.draw(rudy);
-            window.display();
-        }
+        sf::Sprite tlo;
+        tlo.setTexture(Tlo);
+        window.draw(tlo);
+        window.display();
         window.clear();
     }
-    return 0;
-    */
     while(true){
         int a;
         std::cin>>a;

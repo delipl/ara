@@ -249,7 +249,7 @@ int main()
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
                     //system("pause");
                     window.close();
-                    system("..\\..\\araMenu\\bin\\Debug\\ara.exe");  //działa tylko z execa
+                    system("..\\..\\araMenu\\bin\\Debug\\ara.exe");  //działa tylko z execa (wraca do menu
                 }
         }
 
