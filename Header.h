@@ -1,6 +1,7 @@
     #include <math.h>
 
     #define board_size_y 34
+    #define coIleTurMaSieZapadac 4
 
     sf::Texture texture_pawn;
     sf::Texture texture_ghost;
@@ -12,8 +13,10 @@
     sf::Texture texture_notexist;
     sf::Texture texture_nothing;
     sf::Texture menu;
+    sf::Texture save;
 
     sf::Sprite Menu;
+    sf::Sprite Save;
 
     Pole background_fields[17][34];
     Pole *front_fields;
@@ -47,7 +50,7 @@
     int basey=16;
 
     bool isMenu=0;
-
+    bool isSaving=0;
 
 
 void loadTexture(){
@@ -102,12 +105,21 @@ void loadTexture(){
 
             if (!menu.loadFromFile("img\\menu.png"))
             {
-                ms_error(220, "nie zaladowano menu.png", true);
+                ms_error(106, "nie zaladowano menu.png", true);
             }
 
             Menu.setTexture(menu);
             Menu.setPosition(sf::Vector2f(0, 0));
             Menu.setScale(sf::Vector2f(1, 1));
+
+            if (!save.loadFromFile("img\\save.png"))
+            {
+                ms_error(114, "nie zaladowano save.png", true);
+            }
+
+            Save.setTexture(save);
+            Save.setPosition(sf::Vector2f(0, 0));
+            Save.setScale(sf::Vector2f(1, 1));
 
 }
 

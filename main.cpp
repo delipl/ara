@@ -55,11 +55,11 @@ int main()
                     ResizeView(window, view);
                     break;
                 case sf::Event::KeyPressed:
-                    if (event.key.code == sf::Keyboard::Escape&&isMenu){
-                        isMenu=0;
-                    }else if(event.key.code == sf::Keyboard::Escape){
+                    if (event.key.code == sf::Keyboard::Escape&&isMenu)isMenu=0;
+                    else if(event.key.code == sf::Keyboard::Escape&&isSaving){
                         isMenu=1;
-                    }else if (event.key.code == sf::Keyboard::LControl)tura++;
+                        isSaving=0;
+                    }else if(event.key.code == sf::Keyboard::Escape)isMenu=1;
 
                 break;
             }
@@ -73,7 +73,7 @@ int main()
 
 //=========================Znikanie mapy=====================================//
 
-        if(oldTura+3<nrTura){
+        if(oldTura+coIleTurMaSieZapadac-1<nrTura){
 
 
             background_fields[baseX][baseY].setPosition(1000,1000);
@@ -140,7 +140,7 @@ int main()
         mouse_pressed = 0;
 
         mouse_position = sf::Mouse::getPosition(window);
-        if(!isMenu){
+        if(!isMenu&!isSaving){
             for(int i = 0; i < 17; i ++)
             {
                 for(int j = 0; j < 34; j ++)
@@ -254,9 +254,12 @@ int main()
         }
 //=======================Plansza menu==========================//
 
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
             if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>110&&mouse_position.y<180){
                 isMenu=0;
+            }else if(mouse_position.x>=230&mouse_position.x<=510&&mouse_position.y>215&&mouse_position.y<290){
+                isMenu=0;
+                isSaving=1;
             }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>320&&mouse_position.y<380){  //działa tylko z execa (wraca do menu){
                 window.close();
                 system("ara.exe");  //działa tylko z execa (wraca do menu
@@ -265,6 +268,7 @@ int main()
             }
 
         }
+
 
 
 
@@ -304,7 +308,8 @@ int main()
 
         view.setCenter(sf::Vector2f(360.0f, 360.0f));
         window.setView(view);
-        if(isMenu==1)window.draw(Menu);
+        if(isMenu)window.draw(Menu);
+        if(isSaving)window.draw(Save);
         window.display();
         window.clear();
 
