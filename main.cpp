@@ -73,7 +73,7 @@ int main()
 
 //=========================Znikanie mapy=====================================//
 
-        if(oldTura!=tura){
+        if(oldTura+3<nrTura){
 
 
             background_fields[baseX][baseY].setPosition(1000,1000);
@@ -85,7 +85,7 @@ int main()
             algorytmBase();
 
 
-            oldTura==1?oldTura=2:oldTura=1;
+            oldTura=nrTura;
 
             nrZmiany++;
             //std::cout<<nrZmiany-2<<std::endl;
@@ -240,6 +240,7 @@ int main()
                                     {
                                         if(tura == 1) tura = 2;
                                         else tura = 1;
+                                        nrTura++;
                                     }
                                 }
                                 else ms_message("to nie twoja tura dzbanie");
