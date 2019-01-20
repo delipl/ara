@@ -1,14 +1,12 @@
 #define _WIN32_WINNT 0x0500
 #include "../lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 #include <iostream>
-#include <windows.h>
 #include <fstream>
 #include <cstdlib>
 #include <string>
 #include "Messages.h"
 #include "wczytaj.h"
 
-HWND hWnd = GetConsoleWindow();
 
 int a;
 sf::Vector2i mouse_position;
@@ -28,7 +26,6 @@ int main()
     }
     sf::Sprite Tlo;
     Tlo.setTexture(tlo);
-    window.draw(Tlo);
 
     sf::Texture loading;
     if (!loading.loadFromFile("img\\loadingSave.png"))
@@ -37,7 +34,7 @@ int main()
     }
     sf::Sprite Loading;
     Loading.setTexture(loading);
-    window.draw(Loading);
+    //window.draw(Loading);
 
     sf::Texture play;
     if (!play.loadFromFile("img\\play.png"))
@@ -48,7 +45,6 @@ int main()
     Play.setTexture(play);
     Play.setPosition(sf::Vector2f(300, 150));
     Play.setScale(sf::Vector2f(1.5, 1.5));
-    window.draw(Play);
 
 
     sf::Texture exit;
@@ -60,7 +56,6 @@ int main()
     Exit.setTexture(exit);
     Exit.setPosition(sf::Vector2f(400, 550));
     Exit.setScale(sf::Vector2f(0.6, 0.6));
-    window.draw(Exit);
 
     sf::Texture wczytaj;
     if (!wczytaj.loadFromFile("img\\wczytaj.png"))
@@ -71,7 +66,6 @@ int main()
     Wczytaj.setTexture(wczytaj);
     Wczytaj.setPosition(sf::Vector2f(300, 350));
     Wczytaj.setScale(sf::Vector2f(1.2, 1.2));
-    window.draw(Wczytaj);
 
     window.display();
     while (window.isOpen())
@@ -90,24 +84,43 @@ int main()
             mouse_position = sf::Mouse::getPosition(window);
             mouse_pressed = 1;
         }
-        if(mouse_pressed){
-            std::cout<<mouse_position.x<<" "<<mouse_position.y<<std::endl;
+        if(mouse_pressed&&!isLoadingSave){
             if(mouse_position.x>=300&&mouse_position.x<680&&mouse_position.y>150&&mouse_position.y<280){
+                saveToFile(0);
                 window.close();
                 system("..\\..\\..\\bin\\Debug\\ara.exe");
 
             }else if (mouse_position.x>=300&&mouse_position.x<707&&mouse_position.y>358&&mouse_position.y<473){
                 isLoadingSave=1;
-            }
-
-            if(mouse_position.x>=400&&mouse_position.x<560&&mouse_position.y>550&&mouse_position.y<630){
+            }else if(mouse_position.x>=400&&mouse_position.x<560&&mouse_position.y>550&&mouse_position.y<630){
                 window.close();
                 return 0;
             }
+
         }
         if(isLoadingSave){
 
+            if(mouse_pressed){
+                std::cout<<mouse_position.x<<" "<<mouse_position.y<<std::endl;
+                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>550&&mouse_position.y<630){
+                    saveToFile(1);
+                    window.close();
+                    system("..\\..\\..\\bin\\Debug\\ara.exe");
+                }
+            }
         }
+
+
+
+
+
+
+        window.draw(Tlo);
+        window.draw(Wczytaj);
+        window.draw(Play);
+        window.draw(Exit);
+        if(isLoadingSave)window.draw(Loading);
+        window.display();
 
 
         //window.clear();
