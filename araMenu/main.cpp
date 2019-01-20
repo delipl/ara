@@ -102,10 +102,30 @@ int main()
 
             if(mouse_pressed){
                 std::cout<<mouse_position.x<<" "<<mouse_position.y<<std::endl;
-                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>550&&mouse_position.y<630){
-                    saveToFile(1);
-                    window.close();
-                    system("..\\..\\..\\bin\\Debug\\ara.exe");
+                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>30&&mouse_position.y<130){
+                    //saveToFile(1);
+                    //window.close();
+                    //system("..\\..\\..\\bin\\Debug\\ara.exe");
+                }
+                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>170&&mouse_position.y<290){
+                    //saveToFile(2);
+                    //window.close();
+                    //system("..\\..\\..\\bin\\Debug\\ara.exe");
+                }
+                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>320&&mouse_position.y<430){
+                    //saveToFile(3);
+                    //window.close();
+                    //system("..\\..\\..\\bin\\Debug\\ara.exe");
+                }
+                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>470&&mouse_position.y<570){
+                   // saveToFile(4);
+                   // window.close();
+                   // system("..\\..\\..\\bin\\Debug\\ara.exe");
+                }
+                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>610&&mouse_position.y<710){
+                   // saveToFile(5);
+                   // window.close();
+                   // system("..\\..\\..\\bin\\Debug\\ara.exe");
                 }
             }
         }
