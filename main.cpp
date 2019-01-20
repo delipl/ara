@@ -1,5 +1,5 @@
 #define _WIN32_WINNT 0x0500
-#include <windows.h>
+
 #include "Figures.h"
 #include "Header.h"
 #include "fields.h"
@@ -55,7 +55,7 @@ int main()
                     window.close();
                     break;
                 case sf::Event::Resized:
-                    ResizeView(window, view);
+                    //ResizeView(window, view);
                     break;
                 case sf::Event::KeyPressed:
                     if (event.key.code == sf::Keyboard::Escape&&isMenu)isMenu=0;
@@ -71,7 +71,7 @@ int main()
 
 
 
-        consoleHiding();
+        //consoleHiding();
 
 
 //=========================Znikanie mapy=====================================//
@@ -138,6 +138,8 @@ int main()
                 background_fields[i][j].setTexture(Background);
             }
         }
+
+
 
 //==============================Zabawa z myszka==========================================//
         mouse_pressed = 0;
