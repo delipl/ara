@@ -166,13 +166,13 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         int d_y;
         int changes;
 
-        if(targetX - x == 0)
+        if(targetX  == x)
         {
             d_x = 0;
             if(targetY > y) d_y = 2;
             else d_y = -2;
 
-            changes = (targetY - y) / 2;
+            changes = abs((targetY - y) / 2);        //
         }
         else
         {
@@ -182,12 +182,13 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
             if(targetY > y) d_y = 1;
             else d_y = -1;
 
-            changes = targetY - y;
+            changes = abs(targetY - y);
         }
 
         for(int i = 1; i < changes; i ++)
         {
-            if(board[i * d_x + x][i * d_y + y].owner == board[x][y].owner)
+            //kiedy jest figura
+            if(board[i * d_x + x][i * d_y + y].name != "empty")
             {
                 return 0;
             }

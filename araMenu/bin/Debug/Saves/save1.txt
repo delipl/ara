@@ -1,7 +1,7 @@
-0
+2
 pawn;0;12;1
 pawn;0;20;2
-pawn;1;11;1
+pawn;1;19;1
 pawn;1;21;2
 cav;2;8;1
 pawn;2;10;1
@@ -9,7 +9,7 @@ pawn;2;22;2
 cav;2;24;2
 cav;3;7;1
 pawn;3;9;1
-pawn;3;23;2
+pawn;3;11;2
 cav;3;25;2
 tower;4;6;1
 pawn;4;8;1
