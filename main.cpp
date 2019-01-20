@@ -9,8 +9,11 @@
 int main()
 {
 
+
     sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
+
+
 //=================================T£O================================================//
     sf::Texture Background;
     if (!Background.loadFromFile("img/dupa.png"))
@@ -29,7 +32,7 @@ int main()
     klik.setTexture(Background);
     klik.setColor(sf::Color::Red);
 
-    LoadSave(0, front_fields);
+    LoadSave(1, front_fields);
 
     frontFields();
 

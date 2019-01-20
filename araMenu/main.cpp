@@ -2,7 +2,11 @@
 #include "../lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 #include <iostream>
 #include <windows.h>
+#include <fstream>
+#include <cstdlib>
+#include <string>
 #include "Messages.h"
+#include "wczytaj.h"
 
 HWND hWnd = GetConsoleWindow();
 
@@ -12,7 +16,7 @@ bool mouse_pressed = 0;
 
 int main()
 {
-
+    wczytaj(1);
     ShowWindow( hWnd, SW_HIDE );
     sf::RenderWindow window(sf::VideoMode(1000, 720), "A.R.A");
 

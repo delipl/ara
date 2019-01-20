@@ -5,6 +5,13 @@
 #include <string>
 // ###
 
+    int tura =1;
+    int nrTura=1;
+    int oldTura =1;
+    int nrZmiany=1;
+    int nrZmiany2=1;
+
+
 int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad
 {
     int board_size_y = 34;
@@ -102,7 +109,7 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         file.close();
         return 1;
     }
-    int actual_player = int(line[0]) - int('0');
+    int tura = int(line[0]);
     // ###
 
     bool good = 0;
@@ -243,9 +250,8 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         file.open("Saves/save5.txt", std::ios::out);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
 
-    // ###Tu trzeba dodac aktualnego gracza
-    file<<"0\n";
-    // ###
+        file<<tura<<"\n";
+
 
     for (int i = 0; i<17;++i)
     {

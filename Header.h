@@ -38,11 +38,6 @@
     std::string actual_name = "pawn";
     int actual_owner = 0;
 
-    int tura =2;
-    int nrTura=1;
-    int oldTura =1;
-    int nrZmiany=1;
-    int nrZmiany2=1;
     int baseX=8;
     int baseY=16;
 
