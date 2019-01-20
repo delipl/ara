@@ -232,6 +232,15 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     else if(save_number == 2)
     {
         file.open("Saves/save2.txt", std::ios::out);
+    }else if(save_number == 3)
+    {
+        file.open("Saves/save3.txt", std::ios::out);
+    }else if(save_number == 4)
+    {
+        file.open("Saves/save4.txt", std::ios::out);
+    }else if(save_number == 5)
+    {
+        file.open("Saves/save5.txt", std::ios::out);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
 
     // ###Tu trzeba dodac aktualnego gracza

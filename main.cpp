@@ -269,6 +269,35 @@ int main()
 
         }
 
+        if(isSaving){
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+                if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>50&&mouse_position.y<120){
+                    SaveGame(1, front_fields);
+                    isSaving=0;
+                    isMenu=1;
+                }
+                else if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>150&&mouse_position.y<230){
+                    SaveGame(2, front_fields);
+                    isSaving=0;
+                    isMenu=1;
+                }
+                else if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>270&&mouse_position.y<360){
+                    SaveGame(3, front_fields);
+                    isSaving=0;
+                    isMenu=1;
+                }
+                if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>380&&mouse_position.y<450){
+                    SaveGame(4, front_fields);
+                    isSaving=0;
+                    isMenu=1;
+                }
+                if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>480&&mouse_position.y<560){
+                    SaveGame(5, front_fields);
+                    isSaving=0;
+                    isMenu=1;
+                }
+            }
+        }
 
 
 
@@ -322,8 +351,6 @@ int main()
 
 
     }
-
-    SaveGame(2, front_fields);
 
     return 0;
 }
