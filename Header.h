@@ -23,7 +23,7 @@
 
     static const float VIEW_HEIGHT = 720.0f;
 
-    HWND hWnd = GetConsoleWindow();
+    //HWND hWnd = GetConsoleWindow();
 
     int figure_x = 0;
     int figure_y = 0;
@@ -38,11 +38,6 @@
     std::string actual_name = "pawn";
     int actual_owner = 0;
 
-    int tura =2;
-    int nrTura=1;
-    int oldTura =1;
-    int nrZmiany=1;
-    int nrZmiany2=1;
     int baseX=8;
     int baseY=16;
 
@@ -123,7 +118,7 @@ void loadTexture(){
 
 }
 
-void ResizeView(const sf::RenderWindow& window, sf::View& view)
+/*void ResizeView(const sf::RenderWindow& window, sf::View& view)
 {
     float aspectRatio = float(window.getSize().x/ float(window.getSize().y));
     view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
@@ -140,5 +135,5 @@ void consoleHiding(){
             ShowWindow( hWnd, SW_SHOW );
         }
 }
-
+*/
 

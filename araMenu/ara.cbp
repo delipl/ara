@@ -47,6 +47,7 @@
 		</Linker>
 		<Unit filename="Messages.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="wczytaj.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

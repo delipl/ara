@@ -1,5 +1,5 @@
 #define _WIN32_WINNT 0x0500
-#include <windows.h>
+
 #include "Figures.h"
 #include "Header.h"
 #include "fields.h"
@@ -9,8 +9,11 @@
 int main()
 {
 
+
     sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
+
+
 //=================================T£O================================================//
     sf::Texture Background;
     if (!Background.loadFromFile("img/dupa.png"))
@@ -29,8 +32,8 @@ int main()
     klik.setTexture(Background);
     klik.setColor(sf::Color::Red);
 
-    LoadSave(0, front_fields);
-
+    LoadSave(saveChosing(), front_fields);
+    //std::cout<<tura<<"\n";
     frontFields();
 
     background_fields[baseX][baseY].setPosition(1000,1000);
@@ -52,7 +55,7 @@ int main()
                     window.close();
                     break;
                 case sf::Event::Resized:
-                    ResizeView(window, view);
+                    //ResizeView(window, view);
                     break;
                 case sf::Event::KeyPressed:
                     if (event.key.code == sf::Keyboard::Escape&&isMenu)isMenu=0;
@@ -68,7 +71,7 @@ int main()
 
 
 
-        consoleHiding();
+        //consoleHiding();
 
 
 //=========================Znikanie mapy=====================================//
@@ -135,6 +138,8 @@ int main()
                 background_fields[i][j].setTexture(Background);
             }
         }
+
+
 
 //==============================Zabawa z myszka==========================================//
         mouse_pressed = 0;

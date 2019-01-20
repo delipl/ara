@@ -2,7 +2,11 @@
 #include "../lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 #include <iostream>
 #include <windows.h>
+#include <fstream>
+#include <cstdlib>
+#include <string>
 #include "Messages.h"
+#include "wczytaj.h"
 
 HWND hWnd = GetConsoleWindow();
 
@@ -10,10 +14,11 @@ int a;
 sf::Vector2i mouse_position;
 bool mouse_pressed = 0;
 
+bool isLoadingSave=0;
+
 int main()
 {
-
-    ShowWindow( hWnd, SW_HIDE );
+    //ShowWindow( hWnd, SW_HIDE );
     sf::RenderWindow window(sf::VideoMode(1000, 720), "A.R.A");
 
     sf::Texture tlo;
@@ -24,6 +29,15 @@ int main()
     sf::Sprite Tlo;
     Tlo.setTexture(tlo);
     window.draw(Tlo);
+
+    sf::Texture loading;
+    if (!loading.loadFromFile("img\\loadingSave.png"))
+    {
+        ms_error(12, "nie zaladowano loadingSave", true);
+    }
+    sf::Sprite Loading;
+    Loading.setTexture(loading);
+    window.draw(Loading);
 
     sf::Texture play;
     if (!play.loadFromFile("img\\play.png"))
@@ -48,16 +62,16 @@ int main()
     Exit.setScale(sf::Vector2f(0.6, 0.6));
     window.draw(Exit);
 
-    sf::Texture edit;
-    if (!edit.loadFromFile("img\\edit.png"))
+    sf::Texture wczytaj;
+    if (!wczytaj.loadFromFile("img\\wczytaj.png"))
     {
         ms_error(30, "nie zaladowano edit", true);
     }
-    sf::Sprite Edit;
-    Edit.setTexture(edit);
-    Edit.setPosition(sf::Vector2f(450, 350));
-    Edit.setScale(sf::Vector2f(0.2, 0.2));
-    window.draw(Edit);
+    sf::Sprite Wczytaj;
+    Wczytaj.setTexture(wczytaj);
+    Wczytaj.setPosition(sf::Vector2f(300, 350));
+    Wczytaj.setScale(sf::Vector2f(1.2, 1.2));
+    window.draw(Wczytaj);
 
     window.display();
     while (window.isOpen())
@@ -82,14 +96,17 @@ int main()
                 window.close();
                 system("..\\..\\..\\bin\\Debug\\ara.exe");
 
-            }else if (mouse_position.x>=450&&mouse_position.x<487&&mouse_position.y>358&&mouse_position.y<393){
-                std::cout<<"tu bedzie kiedys przekierowanie do edytorMap.exe"<<std::endl;
+            }else if (mouse_position.x>=300&&mouse_position.x<707&&mouse_position.y>358&&mouse_position.y<473){
+                isLoadingSave=1;
             }
 
             if(mouse_position.x>=400&&mouse_position.x<560&&mouse_position.y>550&&mouse_position.y<630){
                 window.close();
                 return 0;
             }
+        }
+        if(isLoadingSave){
+
         }
 
 
