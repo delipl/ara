@@ -188,7 +188,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         for(int i = 1; i < changes; i ++)
         {
             //kiedy jest figura
-            if(board[i * d_x + x][i * d_y + y].name != "notexist" && board[i * d_x + x][i * d_y + y].name != "empty")
+            if(board[i * d_x + x][i * d_y + y].name != "empty")
             {
                 return 0;
             }
