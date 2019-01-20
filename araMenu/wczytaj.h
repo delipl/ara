@@ -11,7 +11,6 @@ int saveToFile(int nrSave){
         return 0;
 
     }
-    std::cout<<"1"<<std::endl;
     file<<nrSave<<"\n";
     return 1;
 }

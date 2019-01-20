@@ -6,6 +6,8 @@
 #include <string>
 #include "Messages.h"
 #include "wczytaj.h"
+#include <unistd.h>
+
 
 
 int a;
@@ -92,6 +94,7 @@ int main()
 
             }else if (mouse_position.x>=300&&mouse_position.x<707&&mouse_position.y>358&&mouse_position.y<473){
                 isLoadingSave=1;
+                //usleep(microseconds);
             }else if(mouse_position.x>=400&&mouse_position.x<560&&mouse_position.y>550&&mouse_position.y<630){
                 window.close();
                 return 0;
@@ -99,33 +102,42 @@ int main()
 
         }
         if(isLoadingSave){
-
-            if(mouse_pressed){
-                std::cout<<mouse_position.x<<" "<<mouse_position.y<<std::endl;
-                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>30&&mouse_position.y<130){
-                    //saveToFile(1);
-                    //window.close();
-                    //system("..\\..\\..\\bin\\Debug\\ara.exe");
+            mouse_pressed=0;
+            while(true){
+                mouse_pressed = 0;
+                if(isLoadingSave)window.draw(Loading);
+                window.display();
+                while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                {
+                    mouse_position = sf::Mouse::getPosition(window);
+                    mouse_pressed = 1;
                 }
-                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>170&&mouse_position.y<290){
-                    //saveToFile(2);
-                    //window.close();
-                    //system("..\\..\\..\\bin\\Debug\\ara.exe");
-                }
-                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>320&&mouse_position.y<430){
-                    //saveToFile(3);
-                    //window.close();
-                    //system("..\\..\\..\\bin\\Debug\\ara.exe");
-                }
-                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>470&&mouse_position.y<570){
-                   // saveToFile(4);
-                   // window.close();
-                   // system("..\\..\\..\\bin\\Debug\\ara.exe");
-                }
-                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>610&&mouse_position.y<710){
-                   // saveToFile(5);
-                   // window.close();
-                   // system("..\\..\\..\\bin\\Debug\\ara.exe");
+                if(mouse_pressed){
+                    if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>30&&mouse_position.y<130){
+                        saveToFile(1);
+                        window.close();
+                        system("..\\..\\..\\bin\\Debug\\ara.exe");
+                    }
+                    if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>170&&mouse_position.y<290){
+                        saveToFile(2);
+                        window.close();
+                        system("..\\..\\..\\bin\\Debug\\ara.exe");
+                    }
+                    if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>320&&mouse_position.y<430){
+                        saveToFile(3);
+                        window.close();
+                        system("..\\..\\..\\bin\\Debug\\ara.exe");
+                    }
+                    if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>470&&mouse_position.y<570){
+                        saveToFile(4);
+                        window.close();
+                        system("..\\..\\..\\bin\\Debug\\ara.exe");
+                    }
+                    if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>610&&mouse_position.y<710){
+                       saveToFile(5);
+                       window.close();
+                       system("..\\..\\..\\bin\\Debug\\ara.exe");
+                    }
                 }
             }
         }
