@@ -22,7 +22,6 @@ int main()
 
     backgroundFields();
 
-
     Pole klik;
     klik.setPosition(sf::Vector2f(680, 350));
     klik.setScale(sf::Vector2f(0.2, 0.2));
@@ -33,6 +32,13 @@ int main()
 
     frontFields();
 
+    background_fields[baseX][baseY].setPosition(1000,1000);
+    front_fields[baseX*34+baseY].name="notexist";
+    front_fields[baseX*34+baseY].owner=0;
+    baseX+=1;
+    baseY-=1;
+    basex-=1;
+    basey+=1;
 
     while (window.isOpen())
     {
@@ -62,7 +68,25 @@ int main()
 
         consoleHiding();
 
+
+
 //==============================Aktualizacja tekstur=====================================//
+        if(oldTura!=tura){
+
+
+            background_fields[baseX][baseY].setPosition(1000,1000);
+            front_fields[baseX*34+baseY].name="notexist";
+            front_fields[baseX*34+baseY].owner=0;
+            background_fields[basex][basey].setPosition(1000,1000);
+            front_fields[basex*34+basey].name="notexist";
+            front_fields[basex*34+basey].owner=0;
+            algorytmBase();
+
+
+            oldTura==1?oldTura=2:oldTura=1;
+            nrZmiany++;
+
+        }
 
         for(int i = 0; i < 17; i ++)
         {
@@ -187,7 +211,7 @@ int main()
                             {
                                 figure_x = i;
                                 figure_y = j;
-                                if((front_fields[figure_x * 34 + figure_y].name == "empty") || (front_fields[figure_x * 34 + figure_y].name == "notexist"))
+                                if((front_fields[figure_x * 34 + figure_y].name == "empty"))
                                 {
                                     figure_x = 0;
                                     figure_y = 0;
@@ -224,23 +248,22 @@ int main()
             }
         }
 //=======================Plansza menu==========================//
-        if(isMenu){
-            if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
-                if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>110&&mouse_position.y<180){
-                    isMenu=0;
-                }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>320&&mouse_position.y<380){  //działa tylko z execa (wraca do menu){
-                    window.close();
-                    system("ara.exe");  //działa tylko z execa (wraca do menu
-                }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>430&&mouse_position.y<490){
-                    window.close();
-                }
 
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
+            if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>110&&mouse_position.y<180){
+                isMenu=0;
+            }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>320&&mouse_position.y<380){  //działa tylko z execa (wraca do menu){
+                window.close();
+                system("ara.exe");  //działa tylko z execa (wraca do menu
+            }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>430&&mouse_position.y<490){
+                window.close();
             }
 
         }
 
 
-        if(win==0){
+
+
             for (int i = 0; i<17; ++i)
             {
                 for (int j = 0; j<33; ++j)
@@ -250,25 +273,28 @@ int main()
                 }
             }
             //window.draw(klik);
-        }else{
+            sf::Texture winTexture;
             // !!!!!!!!!!!!!!!!!Napisac ekran wygranej !!!!!!!!!!!!!!!!!!//
-            sf::Texture win;
-            if(tura==1){
-                if (!win.loadFromFile("img/winDolny.png")){
+            if(win){
+
+                if(tura==1){
+                    if (!winTexture.loadFromFile("img/winDolny.png"))
+                    {
                     ms_error(230, "main.cpp no file winDolny.png, 1");
-                }
+                    }
             }else{
-                if (!win.loadFromFile("img/winGornya.png")){
+                if (!winTexture.loadFromFile("img/winGorny.png"))
+                {
                     ms_error(230, "main.cpp no file winGorny.png", true);
                 }
 
             }
+            }
+        sf::Sprite Win;
+        Win.setTexture(winTexture);
+        Win.setPosition(sf::Vector2f(0,0));
+        window.draw(Win);
 
-            sf::Sprite Win;
-            Win.setTexture(win);
-            Win.setPosition(sf::Vector2f(0,0));
-            window.draw(Win);
-        }
 
 
         view.setCenter(sf::Vector2f(360.0f, 360.0f));

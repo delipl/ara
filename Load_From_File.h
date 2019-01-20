@@ -103,7 +103,6 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         return 1;
     }
     int actual_player = int(line[0]) - int('0');
-    std::cout<<actual_player<<"\n";
     // ###
 
     bool good = 0;

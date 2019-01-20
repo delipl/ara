@@ -285,7 +285,6 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
                 for(int i = 1; i < abs(targetY - y); i ++)
                 {
-                    std::cout<<x<<" "<<i * d_y + y<<" "<<board[x][i * d_y + y].name<<"\n";
                     wsk_to_board[x * 34 + (i * d_y) + y].name = "empty";
                     wsk_to_board[x * 34 + (i * d_y) + y].owner = 0;
                     //board[x][i * d_y + y].setTexture(Background);
