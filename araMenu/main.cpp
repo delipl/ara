@@ -30,6 +30,15 @@ int main()
     Tlo.setTexture(tlo);
     window.draw(Tlo);
 
+    sf::Texture loading;
+    if (!loading.loadFromFile("img\\loadingSave.png"))
+    {
+        ms_error(12, "nie zaladowano loadingSave", true);
+    }
+    sf::Sprite Loading;
+    Loading.setTexture(loading);
+    window.draw(Loading);
+
     sf::Texture play;
     if (!play.loadFromFile("img\\play.png"))
     {
@@ -95,6 +104,9 @@ int main()
                 window.close();
                 return 0;
             }
+        }
+        if(isLoadingSave){
+
         }
 
 
