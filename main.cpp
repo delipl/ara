@@ -32,8 +32,8 @@ int main()
     klik.setTexture(Background);
     klik.setColor(sf::Color::Red);
 
-    LoadSave(1, front_fields);
-
+    LoadSave(saveChosing(), front_fields);
+    //std::cout<<tura<<"\n";
     frontFields();
 
     background_fields[baseX][baseY].setPosition(1000,1000);

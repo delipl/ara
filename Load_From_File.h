@@ -5,12 +5,23 @@
 #include <string>
 // ###
 
-    int tura =1;
+    int tura;
     int nrTura=1;
     int oldTura =1;
     int nrZmiany=1;
     int nrZmiany2=1;
 
+int saveChosing(){
+    std::fstream file;  // plik
+    std::string line;
+
+    file.open("Saves/a.txt");
+    getline(file, line);
+    int returning = int(line[0])-('0');
+    file.close();
+    return returning;
+
+}
 
 int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad
 {
@@ -84,6 +95,18 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     else if(save_number == 2)
     {
         file.open("Saves/save2.txt", std::ios::in);
+    }
+    else if(save_number == 3)
+    {
+        file.open("Saves/save3.txt", std::ios::in);
+    }
+    else if(save_number == 4)
+    {
+        file.open("Saves/save4.txt", std::ios::in);
+    }
+    else if(save_number == 5)
+    {
+        file.open("Saves/save5.txt", std::ios::in);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
 
     if(file.good() == false)
@@ -109,8 +132,10 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         file.close();
         return 1;
     }
-    int tura = int(line[0]);
-    // ###
+
+    int tura = int(line[0])-('0');
+    std::cout<<tura<<"\n";
+    // ###tu nie dzia³a zapisywanie tury
 
     bool good = 0;
     int i = 0;
@@ -249,7 +274,7 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     {
         file.open("Saves/save5.txt", std::ios::out);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
-
+    int tura =1;
         file<<tura<<"\n";
 
 
