@@ -47,28 +47,6 @@
 
     bool isMenu=0;
 
-void algorytmBase(){
-    if(nrZmiany%(3*nrZmiany2)==0){
-        baseX=baseX+3*nrZmiany2;
-        basex=basex-3*nrZmiany2;
-        baseY+=1;
-        basey-=1;
-        nrZmiany2++;
-        nrZmiany=1;
-    }else{
-        if(nrZmiany==1){
-            baseX-=1;
-            baseY-=1;
-            basex+=1;
-            basey+=1;
-        }else if(nrZmiany==2){
-            baseX-=1;
-            baseY+=1;
-            basex+=1;
-            basey-=1;
-        }
-    }
-}
 
 
 void loadTexture(){

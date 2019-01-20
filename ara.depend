@@ -825,11 +825,12 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1547945703 source:c:\users\kivi\documents\ara\main.cpp
+1547994734 source:c:\users\kivi\documents\ara\main.cpp
 	<windows.h>
 	"Figures.h"
 	"Header.h"
 	"fields.h"
+	"mapRemoving.h"
 	<math.h>
 
 1547891916 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\graphics.hpp
@@ -2550,7 +2551,7 @@
 	<iostream>
 	<windows.h>
 
-1547945736 c:\users\kivi\documents\ara\header.h
+1547993368 c:\users\kivi\documents\ara\header.h
 	<math.h>
 
 1547855847 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\header.h
@@ -2559,4 +2560,6 @@
 1547937366 c:\users\kivi\documents\ara\fields.h
 
 1547854145 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\fields.h
+
+1547996534 c:\users\kivi\documents\ara\mapremoving.h
 

@@ -3,6 +3,7 @@
 #include "Figures.h"
 #include "Header.h"
 #include "fields.h"
+#include "mapRemoving.h"
 #include <math.h>
 
 int main()
@@ -56,9 +57,10 @@ int main()
                 case sf::Event::KeyPressed:
                     if (event.key.code == sf::Keyboard::Escape&&isMenu){
                         isMenu=0;
-                    }else{
+                    }else if(event.key.code == sf::Keyboard::Escape){
                         isMenu=1;
-                    }
+                    }else if (event.key.code == sf::Keyboard::LControl)tura++;
+
                 break;
             }
 
@@ -69,8 +71,8 @@ int main()
         consoleHiding();
 
 
+//=========================Znikanie mapy=====================================//
 
-//==============================Aktualizacja tekstur=====================================//
         if(oldTura!=tura){
 
 
@@ -84,10 +86,12 @@ int main()
 
 
             oldTura==1?oldTura=2:oldTura=1;
+
             nrZmiany++;
+            //std::cout<<nrZmiany-2<<std::endl;
 
         }
-
+//==============================Aktualizacja tekstur=====================================//
         for(int i = 0; i < 17; i ++)
         {
             for(int j = 0; j < 34; j ++)
