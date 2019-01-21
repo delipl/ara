@@ -38,6 +38,9 @@
     std::string actual_name = "pawn";
     int actual_owner = 0;
 
+    sf::SoundBuffer buffer;
+    sf::Sound sound;
+
     int baseX=8;
     int baseY=16;
 

@@ -9,9 +9,15 @@
 int main()
 {
 
-
     sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
+
+    sf::Music music;
+    if (!music.openFromFile("sounds\\music.wav"))
+    return -1; // error
+    music.setVolume(10.f);
+    music.play();
+
 
 
 //=================================T£O================================================//
@@ -20,6 +26,9 @@ int main()
     {
 
     }
+
+    if(!buffer.loadFromFile("sounds\\sound.wav"))ms_error(25, "main nie zaladowano sounds.wav");
+    sound.setBuffer(buffer);
 
 
     loadTexture();
@@ -243,6 +252,7 @@ int main()
                                 {
                                     if(Action(front_fields, figure_x, figure_y, target_x, target_y))
                                     {
+                                        sound.play();
                                         if(tura == 1) tura = 2;
                                         else tura = 1;
                                         nrTura++;
@@ -257,22 +267,28 @@ int main()
                 }
             }
         }
+        if(isMenu){
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+                if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>110&&mouse_position.y<180){
+                    isMenu=0;
+                    sound.play();
+                }else if(mouse_position.x>=230&mouse_position.x<=510&&mouse_position.y>215&&mouse_position.y<290){
+                    isMenu=0;
+                    isSaving=1;
+                    sound.play();
+                }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>320&&mouse_position.y<380){  //działa tylko z execa (wraca do menu){
+                    sound.play();
+                    music.stop();
+                    window.close();
+                    system("ara.exe");  //działa tylko z execa (wraca do menu
+                }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>430&&mouse_position.y<490){
+                    sound.play();
+                    music.stop();
+                    window.close();
+                }
 
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-            if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>110&&mouse_position.y<180){
-                isMenu=0;
-            }else if(mouse_position.x>=230&mouse_position.x<=510&&mouse_position.y>215&&mouse_position.y<290){
-                isMenu=0;
-                isSaving=1;
-            }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>320&&mouse_position.y<380){  //działa tylko z execa (wraca do menu){
-                window.close();
-                system("ara.exe");  //działa tylko z execa (wraca do menu
-            }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>430&&mouse_position.y<490){
-                window.close();
             }
-
-        }
-
+            }
         if(isSaving){
             if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
                 if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>50&&mouse_position.y<120){
@@ -282,7 +298,7 @@ int main()
                 }
                 else if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>150&&mouse_position.y<230){
                     SaveGame(2, front_fields);
-                    isSaving=0; \\huuuuuuuuuuuuuujh
+                    isSaving=0;
                     isMenu=1;
                 }
                 else if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>270&&mouse_position.y<360){
