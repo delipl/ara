@@ -1,3 +1,12 @@
 *skalowanie rozwala gierke
 
-*Do zapisywania trzeba dodaæ zmienn¹ "nrTura"
+*Do loadFromFile i Save Game trzeba dodaæ zmienne
+nrTura
+oldTura
+nrZmiany
+nrZmiany2
+baseX
+basex
+naseY
+basey
+

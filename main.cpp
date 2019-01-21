@@ -1,12 +1,14 @@
 #define _WIN32_WINNT 0x0500
 
+bool click=0;
+
 #include "Figures.h"
 #include "Header.h"
 #include "fields.h"
 #include "mapRemoving.h"
 #include <math.h>
 
-bool click=0;
+
 
 int main()
 {
@@ -48,18 +50,22 @@ int main()
     //std::cout<<tura<<"\n";
     frontFields();
 
-    background_fields[baseX][baseY].setPosition(1000,1000);
-    front_fields[baseX*34+baseY].name="notexist";
-    front_fields[baseX*34+baseY].owner=0;
-    baseX+=1;
-    baseY-=1;
-    basex-=1;
-    basey+=1;
+    if(nrTura==1){
+        background_fields[baseX][baseY].setPosition(1000,1000);
+        front_fields[baseX*34+baseY].name="notexist";
+        front_fields[baseX*34+baseY].owner=0;
+        baseX+=1;
+        baseY-=1;
+        basex-=1;
+        basey+=1;
+    }
+
     for(int i = 0; i < 17; i ++)
         {
             for(int j = 0; j < 34; j ++)
             {
-                background_fields[i][j].setTexture(Background);
+                if(front_fields[i*34+j].name!="notexist")background_fields[i][j].setTexture(Background);
+                else background_fields[i][j].setTexture(texture_notexist);
             }
         }
     while (window.isOpen())
@@ -96,7 +102,8 @@ int main()
 //=========================Znikanie mapy=====================================//
 
         if(oldTura+coIleTurMaSieZapadac-1<nrTura){
-
+            //std::cout<<nrZmiany<<"\n";
+            //std::cout<<nrZmiany2<<"\n";
 
             background_fields[baseX][baseY].setPosition(1000,1000);
             front_fields[baseX*34+baseY].name="notexist";
@@ -294,6 +301,7 @@ int main()
                                     }
                                 }
                                 else ms_message("to nie twoja tura dzbanie");
+                                 click=0;
                                 figure_x = 0;
                                 figure_y = 0;
                             }
@@ -408,7 +416,7 @@ int main()
 
         if(win==1){
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
-                    sound.play();
+                    music.stop();
                     window.close();
                     system("ara.exe");  //działa tylko z execa (wraca do menu)
                 }

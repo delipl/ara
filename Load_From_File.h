@@ -5,11 +5,16 @@
 #include <string>
 // ###
 
-    int tura=0;
+
+    int tura=2;
     int nrTura=1;
     int oldTura =1;
     int nrZmiany=1;
     int nrZmiany2=1;
+    int baseX=8;
+    int baseY=16;
+    int basex=8;
+    int basey=16;
 
 int saveChosing(){
     std::fstream file;  // plik
@@ -134,8 +139,8 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     }
 
     tura = int(line[0])-('0');
-    //nrZmiany= int(line[2])-('0');
-    //nrZmiany2= int(line[4])-('0');
+    nrZmiany= int(line[2])-('0');
+    nrZmiany2= int(line[4])-('0');
 
     bool good = 0;
     int i = 0;

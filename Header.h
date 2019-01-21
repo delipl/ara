@@ -41,11 +41,6 @@
     sf::SoundBuffer buffer;
     sf::Sound sound;
 
-    int baseX=8;
-    int baseY=16;
-
-    int basex=8;
-    int basey=16;
 
     bool isMenu=0;
     bool isSaving=0;

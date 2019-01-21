@@ -234,11 +234,11 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
     if(board[x][y].name=="tower")
     {
-        if((x==targetX) && (abs(targetY-y)<=10) && (abs(targetY-y)>=4)) return 1;
+        if((x==targetX) && (abs(targetY-y)<=8) && (abs(targetY-y)>=6)) return 1;
         if((abs(targetX-x)==2) && (abs(y-targetY)==2)) return 1;
         if((abs(targetX-x)==3) && (abs(y-targetY)==3)) return 1;
         if((abs(targetX-x)==4) && (abs(y-targetY)==4)) return 1;
-        if((abs(targetX-x)==5) && (abs(y-targetY)==5)) return 1;
+        //if((abs(targetX-x)==5) && (abs(y-targetY)==5)) return 1;
         return 0;
     }
     if(board[x][y].name=="pawn")
@@ -284,9 +284,11 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                 for(int i = 1; i < abs(targetY - y); i ++)
                 {
                     if( wsk_to_board[x * 34 + (i * d_y) + y].name  == "king"    &&
-                        wsk_to_board[x * 34 + (i * d_y) + y].owner == wsk_to_board[x * 34 + y].owner)
+                        wsk_to_board[x * 34 + (i * d_y) + y].owner == wsk_to_board[x * 34 + y].owner){
+                        tura==2?tura=1:tura=2;
                         win = 1;
 
+                        }
 
                     wsk_to_board[x * 34 + (i * d_y) + y].name = "empty";
                     wsk_to_board[x * 34 + (i * d_y) + y].owner = 0;
@@ -369,8 +371,7 @@ void Attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 bool Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
     int opponent_owner;
-    if(wsk_to_board[x * 34 + y].owner == 1) opponent_owner = 2;
-    else opponent_owner = 1;
+    (wsk_to_board[x * 34 + y].owner == 1)?opponent_owner = 2:opponent_owner = 1;
 
     if(wsk_to_board[targetX * 34 + targetY].name == "empty")
     {
@@ -379,6 +380,11 @@ bool Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
             Move(wsk_to_board, x, y, targetX, targetY);
             return 1;
         }
+    }
+    if(wsk_to_board[targetX * 34 + targetY].owner == wsk_to_board[x * 34 + y].owner)
+    {
+        click=0;
+        return 0;
     }
     else if(wsk_to_board[targetX * 34 + targetY].owner == opponent_owner)
     {
@@ -395,5 +401,6 @@ bool Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     }
 
     ms_message("Niepoprawne dane!!!");
+     click=0;
     return 0;
 }
