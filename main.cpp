@@ -229,15 +229,17 @@ int main()
 
                                     for(int k = 0; k < 17; k++){
                                         for (int l = 0; < 34; l++){
-                                            if(front_fields[figure_x * 34 + figure_y].name != "notexist"){
-                                                //front_fields[34*figure_x+figure_y].owner
-                                                if(CanMove(front_fields, figure_x, figure_y, k, l))     background_fields[k][l].setColor(sf::Color::Green);
-                                                if(canAttack(front_fields, figure_x, figure_y, k, l) && front_fields[34*figure_x+figure_y].owner != front_fields[k * 34 + l].owner)   background_fields[k][l].setColor(sf::Color::Red);
-                                                
-                                            }
-                                            
+                                            //pokoloruj canMove na pustym polu
+                                            if(CanMove(front_fields, figure_x, figure_y, k, l)   
+                                                && front_fields[k* 34 + l].name == "empty")     
+                                                background_fields[k][l].setColor(sf::Color::Green);
+                                            //pokoloruj czerwonym na polu przeciwnika
+                                            if(canAttack(front_fields, figure_x, figure_y, k, l) 
+                                                && front_fields[34*figure_x+figure_y].owner != front_fields[k * 34 + l].owner)   
+                                                background_fields[k][l].setColor(sf::Color::Red);  
                                         }
                                     }//highlight
+
                                     //=================================================================================================
                                 }
                             }
