@@ -19,6 +19,16 @@ bool isLoadingSave=0;
 
 int main()
 {
+    sf::Texture kursor;
+    if (!kursor.loadFromFile("img/kursor.png"))
+    {
+        ms_error(26, "no kursor found", 1);
+    }
+
+    sf::Sprite Kursor;
+    Kursor.setTexture(kursor);
+    Kursor.setScale(0.1f, 0.1f);
+
 
     sf::Music music;
     if (!music.openFromFile("sounds\\music.wav"))ms_error(24, "nie zaladowano music.wav");
@@ -36,7 +46,7 @@ int main()
 
     //ShowWindow( hWnd, SW_HIDE );
     sf::RenderWindow window(sf::VideoMode(1000, 720), "A.R.A");
-
+    window.setMouseCursorVisible(false);
     sf::Texture tlo;
     if (!tlo.loadFromFile("img\\backgroundImage.png"))
     {
@@ -189,7 +199,10 @@ int main()
         window.draw(Play);
         window.draw(Exit);
         if(isLoadingSave)window.draw(Loading);
+        Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
+        window.draw(Kursor);
         window.display();
+        window.clear();
 
 
         //window.clear();

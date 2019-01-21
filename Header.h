@@ -1,7 +1,7 @@
     #include <math.h>
 
     #define board_size_y 34
-    #define coIleTurMaSieZapadac 4
+    #define coIleTurMaSieZapadac 5
 
     sf::Texture texture_pawn;
     sf::Texture texture_ghost;

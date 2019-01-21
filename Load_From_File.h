@@ -5,8 +5,7 @@
 #include <string>
 // ###
 
-
-    int tura=2;
+    int tura;
     int nrTura=1;
     int oldTura =1;
     int nrZmiany=1;
@@ -139,8 +138,7 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     }
 
     tura = int(line[0])-('0');
-    nrZmiany= int(line[2])-('0');
-    nrZmiany2= int(line[4])-('0');
+    // ###tu nie dzia³a zapisywanie tury
 
     bool good = 0;
     int i = 0;
@@ -280,8 +278,7 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         file.open("Saves/save5.txt", std::ios::out);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
     file<<tura<<"\n";
-    file<<nrZmiany<<"\n";
-    file<<nrZmiany2<<"\n";
+
 
     for (int i = 0; i<17;++i)
     {

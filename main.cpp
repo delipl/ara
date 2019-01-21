@@ -16,6 +16,7 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
+    window.setMouseCursorVisible(false);
     sf::Clock minutes;
     sf::Clock seconds;
     sf::Music music;
@@ -41,10 +42,6 @@ int main()
 
 
 
-    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
-    window.setMouseCursorVisible(false);
-    sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
-
 
 //=================================T£O================================================//
     sf::Texture Background;
@@ -53,9 +50,9 @@ int main()
 
     }
     sf::Font font;
-    if (!font.loadFromFile("arial.ttf"))
+    if (!font.loadFromFile("fonts/arial.ttf"))
     {
-        // error...
+        ms_error(54, "nie zaladowano czcionki");
     }
 
 
@@ -87,7 +84,9 @@ int main()
         {
             for(int j = 0; j < 34; j ++)
             {
+                background_fields[i][j].setScale(0.222f, 0.222f);
                 if(front_fields[i*34+j].name!="notexist")background_fields[i][j].setTexture(Background);
+
                 else background_fields[i][j].setTexture(texture_notexist);
             }
         }
@@ -350,15 +349,7 @@ int main()
                 music.stop();
                 window.close();
 
-        std::ostringstream ss1;
-        ss1<<" Tura: "<<nrTura<<std::endl<<"Gracz: "<<tura;
 
-        sf::Text turn;
-        turn.setPosition(sf::Vector2f(635, 275));
-        turn.setFont(font);
-        turn.setCharacterSize(20);
-        turn.setStyle(sf::Text::Regular);
-        turn.setString(ss1.str());
 
 
             }
@@ -411,7 +402,7 @@ int main()
                     window.draw(front_fields[i * board_size_y + j]);
                 }
             }
-            //window.draw(klik);
+            window.draw(klik);
             sf::Texture winTexture;
             // !!!!!!!!!!!!!!!!!Napisac ekran wygranej !!!!!!!!!!!!!!!!!!//
             if(win){
@@ -432,25 +423,39 @@ int main()
 
 
 
-        float time = seconds.getElapsedTime().asSeconds();
-        float minute = minutes.getElapsedTime().asSeconds()/60;
+        int time = seconds.getElapsedTime().asSeconds();
+        int minute = minutes.getElapsedTime().asSeconds()/60;
+
+
         std::ostringstream ss;
         ss.clear();
-        ss <<int(minute)<<":"<<int(time);
+        ss << "Czas: " <<minute<<":"<<time;
 
 
 
         sf::Text clock;
-        clock.setPosition(sf::Vector2f(655, 325));
+        clock.setPosition(sf::Vector2f(625, 325));
         clock.setFont(font);
         clock.setCharacterSize(20);
         clock.setStyle(sf::Text::Regular);
         clock.setString(ss.str());
 
+        std::ostringstream ss1;
+        ss1<<" Tura: "<<nrTura<<std::endl<<"Gracz: "<<tura;
+
+        sf::Text turn;
+        turn.setPosition(sf::Vector2f(635, 275));
+        turn.setFont(font);
+        turn.setCharacterSize(20);
+        turn.setStyle(sf::Text::Regular);
+        turn.setString(ss1.str());
+
          if(int(time)>59)
         {
             seconds.restart();
         }
+        if(minute%3==0&&time%34==0)music.play();
+
         window.draw(clock);
         window.draw(turn);
         sf::Sprite Win;
