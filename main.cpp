@@ -285,6 +285,7 @@ int main()
                     sound.play();
                     music.stop();
                     window.close();
+                    return 0;
                 }
 
             }

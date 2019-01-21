@@ -21,8 +21,7 @@ int main()
 {
 
     sf::Music music;
-    if (!music.openFromFile("sounds\\music.wav"))
-    return -1; // error
+    if (!music.openFromFile("sounds\\music.wav"))ms_error(24, "nie zaladowano music.wav");
     music.setVolume(10.f);
     music.play();
 
@@ -92,8 +91,14 @@ int main()
         sf::Event event;
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed){
                 window.close();
+                return 0;
+            }
+            if(event.type==sf::Event::KeyPressed){
+
+                    if (event.key.code == sf::Keyboard::Escape&&isLoadingSave)isLoadingSave=0;;
+            }
         }
         mouse_pressed = 0;
 

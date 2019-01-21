@@ -125,21 +125,11 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         }
 
         int opponent_owner;
-        if(board[x][y].owner == 1)
-        {
-            opponent_owner = 2;
-        }
-        else
-        {
-            opponent_owner = 1;
-        }
+        (board[x][y].owner == 1)?opponent_owner = 2:opponent_owner = 1;
+
 
         for(int i = 1; i < abs(targetX - x); i ++)
         {
-            if(board[i * d_x + x][i * d_y + y].name == "notexist")
-            {
-                return 0;
-            }
             if(board[i * d_x + x][i * d_y + y].name != "empty")
             {
                 if((targetX == i * d_x + d_x + x) && (targetY == i * d_y + d_y + y))
@@ -155,6 +145,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                 }
                 else return 0;
             }
+            //return 1;
         }
         return 1;
     }
@@ -310,6 +301,7 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                     {
                         wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].name = "empty";
                         wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].owner = 0;
+
                         //board[targetX - (3 * d_x)][targetY - (3 * d_y)].setTexture(Background);
                     }
                 }
