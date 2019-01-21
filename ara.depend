@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1548093406 source:c:\users\kivi\documents\ara\main.cpp
+1548095005 source:c:\users\kivi\documents\ara\main.cpp
 	"Figures.h"
 	"Header.h"
 	"fields.h"
@@ -2534,7 +2534,7 @@
 1548090569 c:\users\adamw\documents\ara\messages.h
 	<iostream>
 
-1548094128 c:\users\kivi\documents\ara\load_from_file.h
+1548094963 c:\users\kivi\documents\ara\load_from_file.h
 	"pole.h"
 	<fstream>
 	<cstdlib>

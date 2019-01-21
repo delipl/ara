@@ -134,8 +134,8 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     }
 
     tura = int(line[0])-('0');
-    int a= int(line[1])-('0');
-    std::cout<<a<<std::endl;
+    nrZmiany= int(line[2])-('0');
+    nrZmiany2= int(line[4])-('0');
 
     bool good = 0;
     int i = 0;
@@ -276,7 +276,7 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
     file<<tura<<"\n";
     file<<nrZmiany<<"\n";
-
+    file<<nrZmiany2<<"\n";
 
     for (int i = 0; i<17;++i)
     {
