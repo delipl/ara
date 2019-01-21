@@ -134,7 +134,8 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     }
 
     tura = int(line[0])-('0');
-    // ###tu nie dzia³a zapisywanie tury
+    int a= int(line[1])-('0');
+    std::cout<<a<<std::endl;
 
     bool good = 0;
     int i = 0;
