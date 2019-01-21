@@ -1,4 +1,8 @@
-mystery lata nad przeciwnikami
-mystery gracza gornego nie moze sie ruszac
-skalowanie rozwala gierke
-szar¿a mo¿e zabijaæ w bok
+*skalowanie rozwala gierke
+
+*Zabicie króla przez zapadniêcie siê pod nim pod³ogi nie koñczy gry
+
+*Do zapisywania trzeba dodaæ pola notExist
+*Do zapisywania trzeba dodaæ zmienn¹ "nrTura"
+
+*trzeba zbuofowaæ kawaleria a ja nie widze jak ona dzia³a(niech lata nad przepaœciami

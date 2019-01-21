@@ -1,6 +1,7 @@
     #include <math.h>
 
     #define board_size_y 34
+    #define coIleTurMaSieZapadac 4
 
     sf::Texture texture_pawn;
     sf::Texture texture_ghost;
@@ -11,13 +12,18 @@
     sf::Texture texture_mystery;
     sf::Texture texture_notexist;
     sf::Texture texture_nothing;
+    sf::Texture menu;
+    sf::Texture save;
+
+    sf::Sprite Menu;
+    sf::Sprite Save;
 
     Pole background_fields[17][34];
     Pole *front_fields;
 
     static const float VIEW_HEIGHT = 720.0f;
 
-    HWND hWnd = GetConsoleWindow();
+    //HWND hWnd = GetConsoleWindow();
 
     int figure_x = 0;
     int figure_y = 0;
@@ -32,8 +38,17 @@
     std::string actual_name = "pawn";
     int actual_owner = 0;
 
-    int tura =2;
+    sf::SoundBuffer buffer;
+    sf::Sound sound;
 
+    int baseX=8;
+    int baseY=16;
+
+    int basex=8;
+    int basey=16;
+
+    bool isMenu=0;
+    bool isSaving=0;
 
 
 void loadTexture(){
@@ -86,9 +101,27 @@ void loadTexture(){
             system("PAUSE");
         }
 
+            if (!menu.loadFromFile("img\\menu.png"))
+            {
+                ms_error(106, "nie zaladowano menu.png", true);
+            }
+
+            Menu.setTexture(menu);
+            Menu.setPosition(sf::Vector2f(0, 0));
+            Menu.setScale(sf::Vector2f(1, 1));
+
+            if (!save.loadFromFile("img\\save.png"))
+            {
+                ms_error(114, "nie zaladowano save.png", true);
+            }
+
+            Save.setTexture(save);
+            Save.setPosition(sf::Vector2f(0, 0));
+            Save.setScale(sf::Vector2f(1, 1));
+
 }
 
-void ResizeView(const sf::RenderWindow& window, sf::View& view)
+/*void ResizeView(const sf::RenderWindow& window, sf::View& view)
 {
     float aspectRatio = float(window.getSize().x/ float(window.getSize().y));
     view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
@@ -105,5 +138,5 @@ void consoleHiding(){
             ShowWindow( hWnd, SW_SHOW );
         }
 }
-
+*/
 

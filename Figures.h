@@ -166,13 +166,13 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         int d_y;
         int changes;
 
-        if(targetX - x == 0)
+        if(targetX  == x)
         {
             d_x = 0;
             if(targetY > y) d_y = 2;
             else d_y = -2;
 
-            changes = (targetY - y) / 2;
+            changes = abs((targetY - y) / 2);        //
         }
         else
         {
@@ -182,12 +182,13 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
             if(targetY > y) d_y = 1;
             else d_y = -1;
 
-            changes = targetY - y;
+            changes = abs(targetY - y);
         }
 
         for(int i = 1; i < changes; i ++)
         {
-            if(board[i * d_x + x][i * d_y + y].owner == board[x][y].owner)
+            //kiedy jest figura
+            if(board[i * d_x + x][i * d_y + y].name != "empty")
             {
                 return 0;
             }
@@ -207,7 +208,7 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     {
         return CanMove(wsk_to_board, x, y, targetX, targetY);
     }
-    if(wsk_to_board[x * 34 + y].name == "charge")
+    if(wsk_to_board[x * 34 + y].name == "charge" && targetX-x == 0)
     {
         return CanMove(wsk_to_board, x, y, targetX, targetY);
     }
@@ -285,7 +286,11 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
                 for(int i = 1; i < abs(targetY - y); i ++)
                 {
-                    std::cout<<x<<" "<<i * d_y + y<<" "<<board[x][i * d_y + y].name<<"\n";
+                    if( wsk_to_board[x * 34 + (i * d_y) + y].name  == "king"    &&
+                        wsk_to_board[x * 34 + (i * d_y) + y].owner == wsk_to_board[x * 34 + y].owner)
+                        win = 1;
+
+
                     wsk_to_board[x * 34 + (i * d_y) + y].name = "empty";
                     wsk_to_board[x * 34 + (i * d_y) + y].owner = 0;
                     //board[x][i * d_y + y].setTexture(Background);
@@ -306,6 +311,7 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
             if(board[targetX - d_x][targetY - d_y].owner == opponent_owner)
             {
+                if(board[targetX - d_x][targetY - d_y].name == "king") win = 1;
                 wsk_to_board[(targetX - d_x) * 34 + targetY - d_y].name = "empty";
                 wsk_to_board[(targetX - d_x) * 34 + targetY - d_y].owner = 0;
                 //board[targetX - d_x][targetY - d_y].setTexture(Background);
@@ -313,8 +319,9 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                 {
                     if(board[targetX - (3 * d_x)][targetY - (3 * d_y)].owner == opponent_owner)
                     {
-                        wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].name = "empty";
-                        wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].owner = 0;
+                        if(board[targetX - d_x][targetY - d_y].name == "king")         win      = 1;
+                        wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].name     = "empty";
+                        wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].owner    = 0;
                         //board[targetX - (3 * d_x)][targetY - (3 * d_y)].setTexture(Background);
                     }
                 }
@@ -339,7 +346,7 @@ void Attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     }
     if(wsk_to_board[x * 34 + y].name == "king")
     {
-        Move(wsk_to_board, x, y, targetX, targetY);
+        wsk_to_board[targetX*34+targetY].name="empty";
         return;
     }
     if(wsk_to_board[x * 34 + y].name == "charge")
@@ -379,6 +386,7 @@ bool Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                 Attack(wsk_to_board, x, y, targetX, targetY);
                 win=1;
             }
+
             Attack(wsk_to_board, x, y, targetX, targetY);
             return 1;
         }
