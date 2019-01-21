@@ -233,11 +233,11 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
     if(board[x][y].name=="tower")
     {
-        if((x==targetX) && (abs(targetY-y)<=10) && (abs(targetY-y)>=4)) return 1;
-        if((abs(targetX-x)==2) && (abs(y-targetY)==2)) return 1;
+        if((x==targetX) && (abs(targetY-y)<=8) && (abs(targetY-y)>=6)) return 1;
+        //if((abs(targetX-x)==2) && (abs(y-targetY)==2)) return 1;
         if((abs(targetX-x)==3) && (abs(y-targetY)==3)) return 1;
         if((abs(targetX-x)==4) && (abs(y-targetY)==4)) return 1;
-        if((abs(targetX-x)==5) && (abs(y-targetY)==5)) return 1;
+        //if((abs(targetX-x)==5) && (abs(y-targetY)==5)) return 1;
         return 0;
     }
     if(board[x][y].name=="pawn")
