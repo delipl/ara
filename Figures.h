@@ -306,7 +306,7 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
             if(board[targetX - d_x][targetY - d_y].owner == opponent_owner)
             {
-                if(wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].name) win == 1;
+                if(wsk_to_board[(targetX - d_x) * 34 + targetY - d_y].name) win = 1;
                 wsk_to_board[(targetX - d_x) * 34 + targetY - d_y].name = "empty";
                 wsk_to_board[(targetX - d_x) * 34 + targetY - d_y].owner = 0;
                 //board[targetX - d_x][targetY - d_y].setTexture(Background);
@@ -314,7 +314,7 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                 {
                     if(board[targetX - (3 * d_x)][targetY - (3 * d_y)].owner == opponent_owner)
                     {
-                        if(wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].name) win == 1;
+                        if(wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].name) win = 1;
                         wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].name = "empty";
                         wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].owner = 0;
                         //board[targetX - (3 * d_x)][targetY - (3 * d_y)].setTexture(Background);
