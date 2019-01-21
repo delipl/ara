@@ -121,13 +121,13 @@ void loadTexture(){
 
 }
 
-/*void ResizeView(const sf::RenderWindow& window, sf::View& view)
+void ResizeView(const sf::RenderWindow& window, sf::View& view)
 {
     float aspectRatio = float(window.getSize().x/ float(window.getSize().y));
     view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
 }
 
-
+/*
 void consoleHiding(){
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
         {

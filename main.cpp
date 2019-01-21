@@ -64,8 +64,12 @@ int main()
                     window.close();
                     break;
                 case sf::Event::Resized:
-                    //ResizeView(window, view);
-                    break;
+                    {
+                        sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
+                        window.setView(sf::View(visibleArea));
+                        break;
+                    }
+
                 case sf::Event::KeyPressed:
                     if (event.key.code == sf::Keyboard::Escape&&isMenu)isMenu=0;
                     else if(event.key.code == sf::Keyboard::Escape&&isSaving){
@@ -374,7 +378,7 @@ int main()
 
 
         view.setCenter(sf::Vector2f(360.0f, 360.0f));
-        window.setView(view);
+        //window.setView(view);
         if(isMenu)window.draw(Menu);
         if(isSaving)window.draw(Save);
         window.display();
