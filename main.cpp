@@ -292,7 +292,7 @@ int main()
                 }
 
             }
-            }
+        }
         if(isSaving){
             if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
                 if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>50&&mouse_position.y<120){
@@ -355,7 +355,7 @@ int main()
         sf::Sprite Win;
         Win.setTexture(winTexture);
         Win.setPosition(sf::Vector2f(0,0));
-        window.draw(Win);
+        if(win)window.draw(Win);
 
 
 
@@ -368,6 +368,7 @@ int main()
 
         if(win==1){
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
+                    music.stop();
                     window.close();
                     system("ara.exe");  //działa tylko z execa (wraca do menu)
                 }
