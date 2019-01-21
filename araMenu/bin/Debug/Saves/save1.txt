@@ -1,4 +1,4 @@
-2
+1
 pawn;0;12;1
 pawn;0;20;2
 ghost;1;9;1
@@ -32,7 +32,7 @@ mystery;8;4;1
 ghost;8;6;1
 pawn;8;8;1
 notexist;8;16;0
-pawn;8;24;2
+pawn;8;22;2
 ghost;8;26;2
 mystery;8;28;2
 king;8;30;2

@@ -1245,9 +1245,11 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1547848537 source:c:\users\adamw\documents\ara\main.cpp
-	<windows.h>
+1548091909 source:c:\users\adamw\documents\ara\main.cpp
 	"Figures.h"
+	"Header.h"
+	"fields.h"
+	"mapRemoving.h"
 	<math.h>
 
 1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\graphics.hpp
@@ -2077,14 +2079,11 @@
 1548088931 c:\users\kivi\documents\ara\figures.h
 	"Load_From_File.h"
 
-1547829379 c:\users\adamw\documents\ara\figures.h
+1548090551 c:\users\adamw\documents\ara\figures.h
 	"Load_From_File.h"
 
-1547742131 c:\users\adamw\documents\ara\header.h
-	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
-	"lib/SFML-2.5.1/include/SFML/Window.hpp"
-	<iostream>
-	"Figures.h"
+1548092032 c:\users\adamw\documents\ara\header.h
+	<math.h>
 
 1547860151 source:c:\users\pawe³\dane z pulpitu\programowanie\github\ara\main.cpp
 	<windows.h>
@@ -2520,20 +2519,20 @@
 	<iostream>
 	<windows.h>
 
-1547829378 c:\users\adamw\documents\ara\load_from_file.h
+1548090551 c:\users\adamw\documents\ara\load_from_file.h
 	"pole.h"
 	<fstream>
 	<cstdlib>
 	<string>
 
-1547829378 c:\users\adamw\documents\ara\pole.h
+1548090552 c:\users\adamw\documents\ara\pole.h
 	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 	"lib/SFML-2.5.1/include/SFML/Window.hpp"
+	"lib/SFML-2.5.1/include/SFML/Audio.hpp"
 	"messages.h"
 
-1547829378 c:\users\adamw\documents\ara\messages.h
+1548090569 c:\users\adamw\documents\ara\messages.h
 	<iostream>
-	<windows.h>
 
 1548018541 c:\users\kivi\documents\ara\load_from_file.h
 	"pole.h"
@@ -2665,4 +2664,112 @@
 1547891924 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilewriter.hpp
 	<SFML/Audio/Export.hpp>
 	<string>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/OutputSoundFile.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundFileFactory.hpp>
+	<SFML/Audio/SoundFileReader.hpp>
+	<SFML/Audio/SoundFileWriter.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\inputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<algorithm>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\export.hpp
+	<SFML/Config.hpp>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\listener.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\soundstream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Mutex.hpp>
+	<cstdlib>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\soundsource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Vector3.hpp>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\alresource.hpp
+	<SFML/Audio/Export.hpp>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\outputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\soundbuffer.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\soundbufferrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\soundrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<vector>
+	<string>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilefactory.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+	<vector>
+	<SFML/Audio/SoundFileFactory.inl>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilefactory.inl
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilereader.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1547382637 c:\users\adamw\documents\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilewriter.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1548090547 c:\users\adamw\documents\ara\fields.h
+
+1548090552 c:\users\adamw\documents\ara\mapremoving.h
 
