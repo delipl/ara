@@ -23,8 +23,20 @@ int main()
     sound.setBuffer(buffer);
     sound.setVolume(250.f);
 
+    sf::Texture kursor;
+    if (!kursor.loadFromFile("img/kursor.png"))
+    {
+        ms_error(26, "no kursor found", 1);
+    }
+
+    sf::Sprite Kursor;
+    Kursor.setTexture(kursor);
+    Kursor.setScale(0.1f, 0.1f);
+
+
 
     sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
+    window.setMouseCursorVisible(false);
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
 
 
@@ -192,7 +204,7 @@ int main()
 
                     if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                     {
-                        if(!click)background_fields[i][j].setColor(sf::Color::Green);
+                        if(!click)background_fields[i][j].setColor(sf::Color::Magenta);
                     }
                 }
             }
@@ -270,6 +282,7 @@ int main()
                                                 background_fields[k][l].setColor(sf::Color::Red);
                                         }
                                     }
+
 
                                     //highlight*/
 
@@ -411,6 +424,8 @@ int main()
         window.setView(view);
         if(isMenu)window.draw(Menu);
         if(isSaving)window.draw(Save);
+        Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
+        window.draw(Kursor);
         window.display();
         window.clear();
 
