@@ -21,10 +21,10 @@ void backgroundFields()
                 background_fields[i][j].setTexture(Background);
                 background_fields[i][j].setScale(sf::Vector2f(0.2, 0.2));
                 background_fields[i][j].setOrigin(sf::Vector2f(0.1, 0.1));
-                background_fields[i][j].setPosition(sf::Vector2f(i*30,j*20));
+                background_fields[i][j].setPosition(sf::Vector2f(i*35,j*20));
                 front_fields[i * board_size_y + j].setScale(sf::Vector2f(0.2, 0.2));
                 front_fields[i * board_size_y + j].setOrigin(sf::Vector2f(0.1, 0.1));
-                front_fields[i * board_size_y + j].setPosition(sf::Vector2f(i*30,j*20));
+                front_fields[i * board_size_y + j].setPosition(sf::Vector2f(i*35,j*20));
             }
             else
             {
