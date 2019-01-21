@@ -286,8 +286,8 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
                 for(int i = 1; i < abs(targetY - y); i ++)
                 {
-                    if( wsk_to_board[x * 34 + (i * d_y) + y].name   = "king"    &&
-                        wsk_to_board[x * 34 + (i * d_y) + y].owner != wsk_to_board[x * 34 + y].owner)
+                    if( wsk_to_board[x * 34 + (i * d_y) + y].name  == "king"    &&
+                        wsk_to_board[x * 34 + (i * d_y) + y].owner == wsk_to_board[x * 34 + y].owner)
                         win = 1;
 
 
