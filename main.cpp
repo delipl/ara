@@ -231,8 +231,8 @@ int main()
                                         for (int l = 0; < 34; l++){
                                             if(front_fields[figure_x * 34 + figure_y].name != "notexist"){
                                                 //front_fields[34*figure_x+figure_y].owner
-                                                if(CanMove(front_fields, figure_x, figure_y, k, l)) front_fields[k * 34 + l].setColor(sf::Color::Green);
-                                                if(CanAttack(front_fields, figure_x, figure_y, k, l)) front_fields[k * 34 + l].setColor(sf::Color::Red);
+                                                if(CanMove(front_fields, figure_x, figure_y, k, l))     background_fields[k][l].setColor(sf::Color::Green);
+                                                if(canAttack(front_fields, figure_x, figure_y, k, l) && front_fields[34*figure_x+figure_y].owner != front_fields[k * 34 + l].owner)   background_fields[k][l].setColor(sf::Color::Red);
                                                 
                                             }
                                             
