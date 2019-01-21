@@ -89,9 +89,12 @@ int main()
 
 
             background_fields[baseX][baseY].setPosition(1000,1000);
+            if(front_fields[baseX*34+baseY].name=="king")win=1;
+            front_fields[baseX*34+baseY].owner=0;
             front_fields[baseX*34+baseY].name="notexist";
             front_fields[baseX*34+baseY].owner=0;
             background_fields[basex][basey].setPosition(1000,1000);
+            if(front_fields[basex*34+basey].name=="king")win=1;
             front_fields[basex*34+basey].name="notexist";
             front_fields[basex*34+basey].owner=0;
             algorytmBase();

@@ -1,8 +1,6 @@
 *skalowanie rozwala gierke
 
-*Zabicie króla w³asña szar¿¹ nie koñczy gry
 *Zabicie króla przez zapadniêcie siê pod nim pod³ogi nie koñczy gry
-*zabicie króla kawaleria nie koñczy gry
 
 *Do zapisywania trzeba dodaæ pola notExist
 *Do zapisywania trzeba dodaæ zmienn¹ "nrTura"
