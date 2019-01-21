@@ -331,7 +331,7 @@ int main()
                     window.draw(front_fields[i * board_size_y + j]);
                 }
             }
-            //window.draw(klik);
+            window.draw(klik);
             sf::Texture winTexture;
             // !!!!!!!!!!!!!!!!!Napisac ekran wygranej !!!!!!!!!!!!!!!!!!//
             if(win){
