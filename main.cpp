@@ -1,5 +1,5 @@
 #define _WIN32_WINNT 0x0500
-
+#include <sstream>
 #include "Figures.h"
 #include "Header.h"
 #include "fields.h"
@@ -11,7 +11,8 @@ int main()
 
     sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
-
+    sf::Clock minutes;
+    sf::Clock seconds;
     sf::Music music;
     if (!music.openFromFile("sounds\\music.wav"))
     return -1; // error
@@ -26,6 +27,11 @@ int main()
     {
 
     }
+    sf::Font font;
+    if (!font.loadFromFile("arial.ttf"))
+    {
+        // error...
+    }
 
     if(!buffer.loadFromFile("sounds\\sound.wav"))ms_error(25, "main nie zaladowano sounds.wav");
     sound.setBuffer(buffer);
@@ -36,7 +42,7 @@ int main()
     backgroundFields();
 
     Pole klik;
-    klik.setPosition(sf::Vector2f(680, 350));
+    klik.setPosition(sf::Vector2f(650, 350));
     klik.setScale(sf::Vector2f(0.2, 0.2));
     klik.setTexture(Background);
     klik.setColor(sf::Color::Red);
@@ -274,6 +280,18 @@ int main()
                 }
             }
         }
+        std::ostringstream ss1;
+        ss1<<" Tura: "<<nrTura<<std::endl<<"Gracz: "<<tura;
+
+        sf::Text turn;
+        turn.setPosition(sf::Vector2f(635, 275));
+        turn.setFont(font);
+        turn.setCharacterSize(20);
+        turn.setStyle(sf::Text::Regular);
+        turn.setString(ss1.str());
+
+
+
         if(isMenu){
             if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
                 if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>110&&mouse_position.y<180){
@@ -356,6 +374,30 @@ int main()
 
             }
             }
+
+
+
+        float time = seconds.getElapsedTime().asSeconds();
+        float minute = minutes.getElapsedTime().asSeconds()/60;
+        std::ostringstream ss;
+        ss.clear();
+        ss <<int(minute)<<":"<<int(time);
+
+
+
+        sf::Text clock;
+        clock.setPosition(sf::Vector2f(655, 325));
+        clock.setFont(font);
+        clock.setCharacterSize(20);
+        clock.setStyle(sf::Text::Regular);
+        clock.setString(ss.str());
+
+         if(int(time)>59)
+        {
+            seconds.restart();
+        }
+        window.draw(clock);
+        window.draw(turn);
         sf::Sprite Win;
         Win.setTexture(winTexture);
         Win.setPosition(sf::Vector2f(0,0));
