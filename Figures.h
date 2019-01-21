@@ -346,7 +346,7 @@ void Attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     }
     if(wsk_to_board[x * 34 + y].name == "king")
     {
-        Move(wsk_to_board, x, y, targetX, targetY);
+        wsk_to_board[targetX*34+targetY].name="empty";
         return;
     }
     if(wsk_to_board[x * 34 + y].name == "charge")
