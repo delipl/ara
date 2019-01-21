@@ -1,5 +1,6 @@
 #define _WIN32_WINNT 0x0500
 #include "../lib/SFML-2.5.1/include/SFML/Graphics.hpp"
+#include "../lib/SFML-2.5.1/include/SFML/Audio.hpp"
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -18,6 +19,21 @@ bool isLoadingSave=0;
 
 int main()
 {
+
+    sf::Music music;
+    if (!music.openFromFile("sounds\\music.wav"))ms_error(24, "nie zaladowano music.wav");
+    music.setVolume(10.f);
+    music.play();
+
+
+    sf::SoundBuffer buffer;
+    if (!buffer.loadFromFile("sounds\\sound.wav"))
+        ms_error(22, "nie zaladowano dzwieku");
+    sf::Sound sound;
+    sound.setBuffer(buffer);
+    sound.setVolume(250.f);
+
+
     //ShowWindow( hWnd, SW_HIDE );
     sf::RenderWindow window(sf::VideoMode(1000, 720), "A.R.A");
 
@@ -75,8 +91,14 @@ int main()
         sf::Event event;
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed){
                 window.close();
+                return 0;
+            }
+            if(event.type==sf::Event::KeyPressed){
+
+                    if (event.key.code == sf::Keyboard::Escape&&isLoadingSave)isLoadingSave=0;;
+            }
         }
         mouse_pressed = 0;
 
@@ -88,14 +110,19 @@ int main()
         }
         if(mouse_pressed&&!isLoadingSave){
             if(mouse_position.x>=300&&mouse_position.x<680&&mouse_position.y>150&&mouse_position.y<280){
+                sound.play();
+                music.stop();
                 saveToFile(0);
                 window.close();
                 system("..\\..\\..\\bin\\Debug\\ara.exe");
 
             }else if (mouse_position.x>=300&&mouse_position.x<707&&mouse_position.y>358&&mouse_position.y<473){
+                sound.play();
                 isLoadingSave=1;
                 //usleep(microseconds);
             }else if(mouse_position.x>=400&&mouse_position.x<560&&mouse_position.y>550&&mouse_position.y<630){
+                sound.play();
+                music.stop();
                 window.close();
                 return 0;
             }
@@ -114,27 +141,37 @@ int main()
                 }
                 if(mouse_pressed){
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>30&&mouse_position.y<130){
+                        sound.play();
                         saveToFile(1);
+                        music.stop();
                         window.close();
                         system("..\\..\\..\\bin\\Debug\\ara.exe");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>170&&mouse_position.y<290){
+                        sound.play();
                         saveToFile(2);
+                        music.stop();
                         window.close();
                         system("..\\..\\..\\bin\\Debug\\ara.exe");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>320&&mouse_position.y<430){
+                        sound.play();
                         saveToFile(3);
+                        music.stop();
                         window.close();
                         system("..\\..\\..\\bin\\Debug\\ara.exe");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>470&&mouse_position.y<570){
+                        sound.play();
                         saveToFile(4);
+                        music.stop();
                         window.close();
                         system("..\\..\\..\\bin\\Debug\\ara.exe");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>610&&mouse_position.y<710){
+                       sound.play();
                        saveToFile(5);
+                       music.stop();
                        window.close();
                        system("..\\..\\..\\bin\\Debug\\ara.exe");
                     }

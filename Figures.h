@@ -211,7 +211,8 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     if(wsk_to_board[x * 34 + y].name == "charge" && targetX-x == 0)
     {
         return CanMove(wsk_to_board, x, y, targetX, targetY);
-    }
+    }else if (wsk_to_board[x * 34 + y].name == "charge") return 0;
+
     if(wsk_to_board[x * 34 + y].name == "mystery")
     {
         return CanMove(wsk_to_board, x, y, targetX, targetY);
@@ -242,11 +243,7 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     }
     if(board[x][y].name=="pawn")
     {
-        int a;
-        board[x][y].owner==1 ? a=1: a=-1;
-        if((targetX==x) && (a*(targetY - y)==2)) return 1;
-        if((abs(targetX - x) == 1) &&  (abs(targetY - y) == 1)) return 1;
-        return 0;
+        return CanMove(wsk_to_board, x, y, targetX, targetY);
 
     }
 }
@@ -346,7 +343,7 @@ void Attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     }
     if(wsk_to_board[x * 34 + y].name == "king")
     {
-        Move(wsk_to_board, x, y, targetX, targetY);
+        wsk_to_board[targetX*34+targetY].name="empty";
         return;
     }
     if(wsk_to_board[x * 34 + y].name == "charge")
@@ -355,6 +352,11 @@ void Attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         return;
     }
     if(wsk_to_board[x * 34 + y].name == "mystery")
+    {
+        Move(wsk_to_board, x, y, targetX, targetY);
+        return;
+    }
+    if(wsk_to_board[x * 34 + y].name == "pawn")
     {
         Move(wsk_to_board, x, y, targetX, targetY);
         return;
@@ -386,7 +388,7 @@ bool Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                 Attack(wsk_to_board, x, y, targetX, targetY);
                 win=1;
             }
-            
+
             Attack(wsk_to_board, x, y, targetX, targetY);
             return 1;
         }
