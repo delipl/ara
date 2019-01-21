@@ -1,4 +1,4 @@
-0
+2
 pawn;0;12;1
 pawn;0;20;2
 pawn;1;11;1
@@ -12,8 +12,8 @@ pawn;3;9;1
 pawn;3;23;2
 cav;3;25;2
 tower;4;6;1
-pawn;4;8;1
-pawn;4;24;2
+pawn;4;10;1
+pawn;4;22;2
 tower;4;26;2
 pawn;5;7;1
 pawn;5;25;2
@@ -43,14 +43,14 @@ pawn;9;25;2
 charge;9;27;2
 ghost;9;29;2
 charge;10;6;1
-pawn;10;8;1
+pawn;10;10;1
 pawn;10;24;2
 charge;10;26;2
 pawn;11;7;1
 pawn;11;25;2
 tower;12;6;1
 pawn;12;8;1
-pawn;12;24;2
+pawn;12;22;2
 tower;12;26;2
 cav;13;7;1
 pawn;13;9;1

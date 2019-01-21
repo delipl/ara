@@ -257,7 +257,6 @@ int main()
                 }
             }
         }
-//=======================Plansza menu==========================//
 
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
             if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>110&&mouse_position.y<180){
@@ -283,7 +282,7 @@ int main()
                 }
                 else if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>150&&mouse_position.y<230){
                     SaveGame(2, front_fields);
-                    isSaving=0;
+                    isSaving=0; \\huuuuuuuuuuuuuujh
                     isMenu=1;
                 }
                 else if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>270&&mouse_position.y<360){
