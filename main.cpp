@@ -6,6 +6,8 @@
 #include "mapRemoving.h"
 #include <math.h>
 
+bool click=0;
+
 int main()
 {
 
@@ -43,7 +45,13 @@ int main()
     baseY-=1;
     basex-=1;
     basey+=1;
-
+    for(int i = 0; i < 17; i ++)
+        {
+            for(int j = 0; j < 34; j ++)
+            {
+                background_fields[i][j].setTexture(Background);
+            }
+        }
     while (window.isOpen())
     {
         sf::Event event;
@@ -135,7 +143,7 @@ int main()
                 {
                     front_fields[i * board_size_y + j].setTexture(texture_nothing);
                 }
-                background_fields[i][j].setTexture(Background);
+
             }
         }
 
@@ -150,23 +158,23 @@ int main()
             {
                 for(int j = 0; j < 34; j ++)
                 {
-                    background_fields[i][j].setColor(sf::Color::White);
+
 
                     if((front_fields[i * board_size_y + j].name != "empty") && (front_fields[i * board_size_y + j].name != "notexist"))
                     {
                         if(front_fields[i * board_size_y + j].owner == 1)
                         {
-                            background_fields[i][j].setColor(sf::Color::Yellow);
+                            if(!click)background_fields[i][j].setColor(sf::Color::Yellow);
                         }
                         else
                         {
-                            background_fields[i][j].setColor(sf::Color::Blue);
+                            if(!click)background_fields[i][j].setColor(sf::Color::Blue);
                         }
                     }
 
                     if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                     {
-                        background_fields[i][j].setColor(sf::Color::Green);
+                        if(!click)background_fields[i][j].setColor(sf::Color::Green);
                     }
                 }
             }
@@ -218,27 +226,34 @@ int main()
                         {
                             if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                             {
+                                figure_x = i;
+                                figure_y = j;
                                 if(front_fields[figure_x * 34 + figure_y].name == "empty")
                                 {
                                     figure_x = 0;
                                     figure_y = 0;
                                 }else{
-                                    figure_x = i;
-                                    figure_y = j;
+                                    click=1;
+
                                     //======================================================[highLight]================================
 
                                     for(int k = 0; k < 17; k++){
-                                        for (int l = 0; < 34; l++){
+                                        for (int l = 0; l< 34; l++){
+
+                                             //background_fields[k][l].setColor(sf::Color::White);
                                             //pokoloruj canMove na pustym polu
-                                            if(CanMove(front_fields, figure_x, figure_y, k, l)   
-                                                && front_fields[k* 34 + l].name == "empty")     
+                                            if(CanMove(front_fields, figure_x, figure_y, k, l)
+                                                && front_fields[k* 34 + l].name == "empty")
                                                 background_fields[k][l].setColor(sf::Color::Green);
                                             //pokoloruj czerwonym na polu przeciwnika
-                                            if(canAttack(front_fields, figure_x, figure_y, k, l) 
-                                                && front_fields[34*figure_x+figure_y].owner != front_fields[k * 34 + l].owner)   
-                                                background_fields[k][l].setColor(sf::Color::Red);  
+                                            if(canAttack(front_fields, figure_x, figure_y, k, l)
+                                                && front_fields[34*figure_x+figure_y].owner !=  front_fields[k * 34 + l].owner
+                                                && front_fields[k * 34 + l].owner != 0)
+                                                background_fields[k][l].setColor(sf::Color::Red);
                                         }
-                                    }//highlight
+                                    }
+
+                                    //highlight*/
 
                                     //=================================================================================================
                                 }
@@ -263,6 +278,8 @@ int main()
                                         if(tura == 1) tura = 2;
                                         else tura = 1;
                                         nrTura++;
+
+                                        click=0;
                                     }
                                 }
                                 else ms_message("to nie twoja tura dzbanie");
@@ -355,8 +372,15 @@ int main()
         Win.setPosition(sf::Vector2f(0,0));
         window.draw(Win);
 
-
-
+        if(!click){
+                for(int i = 0; i < 17; i ++)
+                {
+                    for(int j = 0; j < 34; j ++)
+                    {
+                        background_fields[i][j].setColor(sf::Color::White);
+                    }
+                }
+        }
         view.setCenter(sf::Vector2f(360.0f, 360.0f));
         window.setView(view);
         if(isMenu)window.draw(Menu);

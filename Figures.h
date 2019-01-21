@@ -211,7 +211,8 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     if(wsk_to_board[x * 34 + y].name == "charge" && targetX-x == 0)
     {
         return CanMove(wsk_to_board, x, y, targetX, targetY);
-    }
+    }else if (wsk_to_board[x * 34 + y].name == "charge") return 0;
+
     if(wsk_to_board[x * 34 + y].name == "mystery")
     {
         return CanMove(wsk_to_board, x, y, targetX, targetY);

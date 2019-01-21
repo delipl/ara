@@ -5,7 +5,7 @@
 #include <string>
 // ###
 
-    int tura;
+    int tura=0;
     int nrTura=1;
     int oldTura =1;
     int nrZmiany=1;
@@ -134,8 +134,8 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     }
 
     tura = int(line[0])-('0');
-    nrZmiany= int(line[2])-('0');
-    nrZmiany2= int(line[4])-('0');
+    //nrZmiany= int(line[2])-('0');
+    //nrZmiany2= int(line[4])-('0');
 
     bool good = 0;
     int i = 0;
