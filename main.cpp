@@ -90,7 +90,6 @@ int main()
 
             background_fields[baseX][baseY].setPosition(1000,1000);
             if(front_fields[baseX*34+baseY].name=="king")win=1;
-            front_fields[baseX*34+baseY].owner=0;
             front_fields[baseX*34+baseY].name="notexist";
             front_fields[baseX*34+baseY].owner=0;
             background_fields[basex][basey].setPosition(1000,1000);
@@ -105,6 +104,14 @@ int main()
             nrZmiany++;
             //std::cout<<nrZmiany-2<<std::endl;
 
+        }
+        for(int i=0; i<17; i++){
+            for (int j=0; j<34; j++){
+            background_fields.setTexture(texture_notexist);
+
+            //front_fields[i*34+j].name="notexist";
+
+            }
         }
 //==============================Aktualizacja tekstur=====================================//
         for(int i = 0; i < 17; i ++)
@@ -152,7 +159,14 @@ int main()
         }
 
 
+        for(int i=0; i<17; i++){
+            for (int j=0; j<34; j++){
+            background_fields.setTexture(texure_notexist);
 
+            //front_fields[i*34+j].name="notexist";
+
+            }
+        }
 //==============================Zabawa z myszka==========================================//
         mouse_pressed = 0;
 
@@ -334,7 +348,7 @@ int main()
                     window.draw(front_fields[i * board_size_y + j]);
                 }
             }
-            window.draw(klik);
+            //window.draw(klik);
             sf::Texture winTexture;
             // !!!!!!!!!!!!!!!!!Napisac ekran wygranej !!!!!!!!!!!!!!!!!!//
             if(win){
