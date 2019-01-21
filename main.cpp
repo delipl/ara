@@ -268,11 +268,11 @@ int main()
                             {
                                 figure_x = i;
                                 figure_y = j;
-                                if(front_fields[figure_x * 34 + figure_y].name == "empty")
+                                if(front_fields[figure_x * 34 + figure_y].name == "empty"||front_fields[figure_x * 34 + figure_y].owner != tura)
                                 {
                                     figure_x = 0;
                                     figure_y = 0;
-                                }else{
+                                }else if(front_fields[figure_x*34+figure_y].owner==tura){
                                     click=1;
 
                                     //======================================================[highLight]================================
