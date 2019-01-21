@@ -228,8 +228,8 @@ int main()
                     {
                         if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                         {
-                            front_fields[i * board_size_y + j].name = actual_name;
-                            front_fields[i * board_size_y + j].owner = actual_owner;
+                            front_fields[i * board_size_y + j].name     = actual_name;
+                            front_fields[i * board_size_y + j].owner    = actual_owner;
                             i = 16;
                             j = 33;
                         }
@@ -246,12 +246,27 @@ int main()
                         {
                             if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                             {
-                                figure_x = i;
-                                figure_y = j;
-                                if((front_fields[figure_x * 34 + figure_y].name == "empty"))
+                                if(front_fields[figure_x * 34 + figure_y].name == "empty")
                                 {
                                     figure_x = 0;
                                     figure_y = 0;
+                                }else{
+                                    figure_x = i;
+                                    figure_y = j;
+                                    //======================================================[highLight]================================
+
+                                    for(int k = 0; k < 17; k++){
+                                        for (int l = 0; < 34; l++){
+                                            if(front_fields[figure_x * 34 + figure_y].name != "notexist"){
+                                                //front_fields[34*figure_x+figure_y].owner
+                                                if(CanMove(front_fields, figure_x, figure_y, k, l)) front_fields[k * 34 + l].setColor(sf::Color::Green);
+                                                if(CanAttack(front_fields, figure_x, figure_y, k, l)) front_fields[k * 34 + l].setColor(sf::Color::Red);
+                                                
+                                            }
+                                            
+                                        }
+                                    }//highlight
+                                    //=================================================================================================
                                 }
                             }
                         }
