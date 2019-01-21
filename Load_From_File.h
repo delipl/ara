@@ -274,6 +274,7 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         file.open("Saves/save5.txt", std::ios::out);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
     file<<tura<<"\n";
+    file<<nrZmiany<<"\n";
 
 
     for (int i = 0; i<17;++i)

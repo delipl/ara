@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1548091911 source:c:\users\kivi\documents\ara\main.cpp
+1548093406 source:c:\users\kivi\documents\ara\main.cpp
 	"Figures.h"
 	"Header.h"
 	"fields.h"
@@ -2076,7 +2076,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1548088931 c:\users\kivi\documents\ara\figures.h
+1548093570 c:\users\kivi\documents\ara\figures.h
 	"Load_From_File.h"
 
 1548090551 c:\users\adamw\documents\ara\figures.h
@@ -2534,7 +2534,7 @@
 1548090569 c:\users\adamw\documents\ara\messages.h
 	<iostream>
 
-1548018541 c:\users\kivi\documents\ara\load_from_file.h
+1548093050 c:\users\kivi\documents\ara\load_from_file.h
 	"pole.h"
 	<fstream>
 	<cstdlib>
@@ -2549,7 +2549,7 @@
 1548018813 c:\users\kivi\documents\ara\messages.h
 	<iostream>
 
-1548079164 c:\users\kivi\documents\ara\header.h
+1548092358 c:\users\kivi\documents\ara\header.h
 	<math.h>
 
 1547855847 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\header.h

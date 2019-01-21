@@ -45,9 +45,7 @@ int main()
     //std::cout<<tura<<"\n";
     frontFields();
 
-    background_fields[baseX][baseY].setPosition(1000,1000);
-    front_fields[baseX*34+baseY].name="notexist";
-    front_fields[baseX*34+baseY].owner=0;
+    background_fields[baseX][baseY].setPosition(10000,10000);
     baseX+=1;
     baseY-=1;
     basex-=1;
@@ -92,11 +90,11 @@ int main()
         if(oldTura+coIleTurMaSieZapadac-1<nrTura){
 
 
-            background_fields[baseX][baseY].setPosition(1000,1000);
+            background_fields[baseX][baseY].setPosition(10000,10000);
             if(front_fields[baseX*34+baseY].name=="king")win=1;
             front_fields[baseX*34+baseY].name="notexist";
             front_fields[baseX*34+baseY].owner=0;
-            background_fields[basex][basey].setPosition(1000,1000);
+            background_fields[basex][basey].setPosition(10000,10000);
             if(front_fields[basex*34+basey].name=="king")win=1;
             front_fields[basex*34+basey].name="notexist";
             front_fields[basex*34+basey].owner=0;
@@ -109,14 +107,14 @@ int main()
             //std::cout<<nrZmiany-2<<std::endl;
 
         }
-        for(int i=0; i<17; i++){
+        /*for(int i=0; i<17; i++){
             for (int j=0; j<34; j++){
-            background_fields.setTexture(texture_notexist);
+            //background_fields.setTexture(texture_notexist);
 
             //front_fields[i*34+j].name="notexist";
 
             }
-        }
+        }*/
 //==============================Aktualizacja tekstur=====================================//
         for(int i = 0; i < 17; i ++)
         {
@@ -163,14 +161,14 @@ int main()
         }
 
 
-        for(int i=0; i<17; i++){
+        /*for(int i=0; i<17; i++){
             for (int j=0; j<34; j++){
             background_fields.setTexture(texure_notexist);
 
             //front_fields[i*34+j].name="notexist";
 
             }
-        }
+        }*/
 //==============================Zabawa z myszka==========================================//
         mouse_pressed = 0;
 
