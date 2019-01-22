@@ -15,3 +15,5 @@ basey
 *z planszy load save nie da siê cofn¹æ
 
 *przejscia pomiedzy menu w grze a wybieraniem save sa czasem zbugowane, jak sie zle kliknie
+
+*W highlightach cavalerii nie widac ze moze zabijac(ale w sumie to nie wiem jak to pokazac)

@@ -126,14 +126,8 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         }
 
         int opponent_owner;
-        if(board[x][y].owner == 1)
-        {
-            opponent_owner = 2;
-        }
-        else
-        {
-            opponent_owner = 1;
-        }
+        (board[x][y].owner == 1)?opponent_owner = 2:opponent_owner = 1;
+
 
         for(int i = 1; i < abs(targetX - x); i ++)
         {
@@ -173,28 +167,39 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
             if(targetY > y) d_y = 2;
             else d_y = -2;
 
-            changes = abs((targetY - y) / 2);        //
+            changes = abs((targetY - y) / 2);
+            for(int i = 1; i < changes; i ++)
+            {
+            //kiedy jest figura
+                if(board[i * d_x + x][i * d_y + y].name != "empty")
+                {
+                    return 0;
+                }
+            }
+            return 1;        //
         }
-        else
+        else if(abs(targetX - x) != abs(targetY - y))
         {
+            return 0;
+        }else {
             if(targetX > x) d_x = 1;
-            else d_x = - 1;
-
+            else d_x = -1;
             if(targetY > y) d_y = 1;
             else d_y = -1;
-
-            changes = abs(targetY - y);
-        }
-
-        for(int i = 1; i < changes; i ++)
-        {
-            //kiedy jest figura
-            if(board[i * d_x + x][i * d_y + y].name != "empty")
+            for(int i = 1; i < abs(targetX - x); i ++)
             {
-                return 0;
+                int opponent_owner;
+                (board[x][y].owner == 1)?opponent_owner = 2:opponent_owner = 1;
+                if(board[i * d_x + x][i * d_y + y].name == "notexist"||board[i * d_x + x][i * d_y + y].owner==board[x][y].owner||board[i * d_x + x][i * d_y + y].owner==opponent_owner)
+                {
+                    return 0;
+                }
             }
+            return 1;
         }
-        return 1;
+
+
+
 
     }
     return 0;
