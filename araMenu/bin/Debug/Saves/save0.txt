@@ -17,13 +17,13 @@ charge;7;3;1
 pawn;7;5;1
 pawn;7;27;2
 charge;7;29;2
-king;8;2;1
+king;8;0;1
 mystery;8;4;1
 pawn;8;6;1
 notexist;8;16;0
 pawn;8;26;2
 mystery;8;28;2
-king;8;30;2
+king;8;32;2
 charge;9;3;1
 pawn;9;5;1
 pawn;9;27;2

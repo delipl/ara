@@ -436,7 +436,7 @@ int main()
             seconds.restart();
         }
         if(minute!=0&&minute%3==0&&time%34==0)music.play();
-        window.draw(klik);
+        //window.draw(klik);
         window.draw(clock);
         window.draw(turn);
         sf::Sprite Win;
