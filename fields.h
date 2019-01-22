@@ -67,7 +67,7 @@ void backgroundFields()
 
 }
 
-frontFields(){
+void frontFields(){
     sf::Texture Background;
     if (!Background.loadFromFile("img/dupa.png"))
     {
