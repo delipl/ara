@@ -14,7 +14,7 @@ bool click=0;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
+    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.", sf::Style::Fullscreen);
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
     window.setMouseCursorVisible(false);
     sf::Clock minutes;
@@ -102,7 +102,7 @@ int main()
                     music.stop();
                     break;
                 case sf::Event::Resized:
-                    //ResizeView(window, view);
+                    ResizeView(window, view);
                     break;
                 case sf::Event::KeyPressed:
                     if (event.key.code == sf::Keyboard::Escape&&isMenu)isMenu=0;
@@ -429,7 +429,8 @@ int main()
 
         std::ostringstream ss;
         ss.clear();
-        ss << "Czas: " <<minute<<":"<<time;
+        if (time<10)ss << "Czas: " <<minute<<":0"<<time;
+        else ss << "Czas: " <<minute<<":"<<time;
 
 
 
@@ -441,7 +442,8 @@ int main()
         clock.setString(ss.str());
 
         std::ostringstream ss1;
-        ss1<<" Tura: "<<nrTura<<std::endl<<"Gracz: "<<tura;
+        if(tura==2)ss1<<" Tura: "<<nrTura<<std::endl<<"Gracz: Dolny";
+        else ss1<<" Tura: "<<nrTura<<std::endl<<"Gracz: Górny";
 
         sf::Text turn;
         turn.setPosition(sf::Vector2f(635, 275));

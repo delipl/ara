@@ -21,7 +21,7 @@
     Pole background_fields[17][34];
     Pole *front_fields;
 
-    static const float VIEW_HEIGHT = 720.0f;
+    static const float VIEW_HEIGHT = 1000.0f;
 
     //HWND hWnd = GetConsoleWindow();
 

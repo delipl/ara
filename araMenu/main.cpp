@@ -5,6 +5,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <string>
+#include <windows.h>
 #include "Messages.h"
 #include "wczytaj.h"
 #include <unistd.h>
@@ -44,7 +45,7 @@ int main()
     sound.setVolume(250.f);
 
 
-    //ShowWindow( hWnd, SW_HIDE );
+    ShowWindow(GetConsoleWindow(), SW_HIDE);
     sf::RenderWindow window(sf::VideoMode(1000, 720), "A.R.A");
     window.setMouseCursorVisible(false);
     sf::Texture tlo;
