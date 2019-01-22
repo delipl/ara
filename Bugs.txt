@@ -1,6 +1,4 @@
-*skalowanie rozwala gierke
-
-*mystery nie dziala
+*skalowanie nie dzia³a tak ³adnie jakby mog³o
 
 *Do loadFromFile i Save Game trzeba dodaæ zmienne
 nrTura
