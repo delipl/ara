@@ -41,3 +41,7 @@ lib/
 Saves/
 obj/
 bin/
+
+araMenu/bin
+araMenu/Saves
+araMenu/lib
