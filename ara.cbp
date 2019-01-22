@@ -52,6 +52,7 @@
 		<Unit filename="Load_From_File.h" />
 		<Unit filename="Messages.h" />
 		<Unit filename="fields.h" />
+		<Unit filename="highlight.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="mapRemoving.h" />
 		<Unit filename="pole.h" />

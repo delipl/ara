@@ -286,7 +286,7 @@ int main()
 
                                     if (!kursor.loadFromFile("img/kursorF.png"))
                                     {
-                                        ms_error(26, "no kursor found2", 1);
+                                        ms_error(26, "no kursor foundF", 1);
                                     }
 
                                     //========================================highlight=========================================================
@@ -299,7 +299,7 @@ int main()
                 {
                     if (!kursor.loadFromFile("img/kursor.png"))
                     {
-                        ms_error(26, "no kursor found2", 1);
+                        ms_error(26, "no kursor found", 1);
                     }
                     for(int i = 0; i < 17; i ++)
                     {
@@ -320,7 +320,7 @@ int main()
                                         click=0;
                                     }
                                 }
-                                else ms_message("to nie twoja tura dzbanie");
+                                else //ms_message("to nie twoja tura dzbanie");
                                  click=0;
                                 figure_x = 0;
                                 figure_y = 0;
