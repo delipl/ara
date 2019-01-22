@@ -105,6 +105,7 @@ int main()
                 case sf::Event::Closed:
                     window.close();
                     music.stop();
+                    return 0;
                     break;
                 case sf::Event::Resized:
                     ResizeView(window, view);
