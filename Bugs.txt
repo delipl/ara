@@ -14,4 +14,6 @@ basey
 
 *przejscia pomiedzy menu w grze a wybieraniem save sa czasem zbugowane, jak sie zle kliknie
 
-*W highlightach cavalerii nie widac ze moze zabijac(ale w sumie to nie wiem jak to pokazac)
+~W highlightach cavalerii nie widac ze moze zabijac(ale w sumie to nie wiem jak to pokazac)
+
+~czas liczy sie takze na pauzie(ale nie wiem czy to zle)

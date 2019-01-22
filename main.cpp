@@ -403,10 +403,8 @@ int main()
             }
 
 
-
-        int time = seconds.getElapsedTime().asSeconds();
-        int minute = minutes.getElapsedTime().asSeconds()/60;
-
+            int time = seconds.getElapsedTime().asSeconds();
+            int minute = minutes.getElapsedTime().asSeconds()/60;
 
         std::ostringstream ss;
         ss.clear();
@@ -438,7 +436,7 @@ int main()
             seconds.restart();
         }
         if(minute!=0&&minute%3==0&&time%34==0)music.play();
-        //window.draw(klik);
+        window.draw(klik);
         window.draw(clock);
         window.draw(turn);
         sf::Sprite Win;

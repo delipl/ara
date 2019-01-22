@@ -99,14 +99,15 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     if(board[x][y].name=="king")
     {
         if((abs(targetX - x) == 1) && (abs(targetY - y) == 1)) return 1;
-        if((targetX == x) && (abs(targetY - y) == 2)) return 1;
+        else if((targetX == x) && (abs(targetY - y) == 2)) return 1;
         return 0;
     }
 
     if(board[x][y].name=="ghost")
     {
         if((abs(targetX - x) == 1) && (abs(targetY - y) == 3)) return 1;
-        if((abs(targetX - x) == 2) && (abs(targetY - y) == 0)) return 1;
+        else if((abs(targetX - x) == 2) && ((abs(targetY - y) == 0)||(abs(targetY - y) == 2))) return 1;
+        else if((targetX == x) && (abs(targetY-y) ==  4)) return 1;
         else return 0;
     }
 
@@ -117,8 +118,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         int d_y;
         if(targetX > x) d_x = 1;
         else d_x = -1;
-        if(targetY > y) d_y = 1;
-        else d_y = -1;
+        (targetY > y)?d_y = 1:d_y = -1;
 
         if(abs(targetX - x) != abs(targetY - y))
         {
