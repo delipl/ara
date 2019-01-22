@@ -260,6 +260,7 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         else return 0;
 
     }
+    return 0;
 }
 
 void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
