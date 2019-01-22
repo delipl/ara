@@ -283,11 +283,12 @@ int main()
 
                                     //======================================================[highLight]================================
                                     if(!highlight(figure_x, figure_y))ms_error(279, "cos poszlo nie tak z highlightem");
+
                                     if (!kursor.loadFromFile("img/kursorF.png"))
                                     {
                                         ms_error(26, "no kursor found2", 1);
                                     }
-                                    Kursor.setScale(0.2f, 0.2f);
+
                                     //========================================highlight=========================================================
                                 }
                             }
@@ -300,7 +301,6 @@ int main()
                     {
                         ms_error(26, "no kursor found2", 1);
                     }
-                    Kursor.setScale(0.1f, 0.1f);
                     for(int i = 0; i < 17; i ++)
                     {
                         for(int j = 0; j < 34; j ++)
