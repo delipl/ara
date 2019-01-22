@@ -90,7 +90,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         else a = -1;
 
         if((targetX == x) && (targetY == y + 2 * a)) return 1;
-        else if((targetX == x) && (targetY == y + 4 * a)) return 1;
+        else if((targetX == x) && (targetY == y + 4 * a)&&(board[targetX][targetY-(2*a)].name=="empty")) return 1;
         else if((targetX == x + 1) && (targetY == y + a)) return 1;
         else if((targetX == x - 1) && (targetY == y + a)) return 1;
         else return 0;

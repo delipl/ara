@@ -8,6 +8,7 @@ bool click=0;
 #include "fields.h"
 #include "mapRemoving.h"
 #include <math.h>
+#include "highlight.h""
 
 
 
@@ -276,27 +277,8 @@ int main()
                                     click=1;
 
                                     //======================================================[highLight]================================
-
-                                    for(int k = 0; k < 17; k++){
-                                        for (int l = 0; l< 34; l++){
-
-                                             //background_fields[k][l].setColor(sf::Color::White);
-                                            //pokoloruj canMove na pustym polu
-                                            if(CanMove(front_fields, figure_x, figure_y, k, l)
-                                                && front_fields[k* 34 + l].name == "empty")
-                                                background_fields[k][l].setColor(sf::Color::Green);
-                                            //pokoloruj czerwonym na polu przeciwnika
-                                            if(canAttack(front_fields, figure_x, figure_y, k, l)
-                                                && front_fields[34*figure_x+figure_y].owner !=  front_fields[k * 34 + l].owner
-                                                && front_fields[k * 34 + l].owner != 0)
-                                                background_fields[k][l].setColor(sf::Color::Red);
-                                        }
-                                    }
-
-
-                                    //highlight*/
-
-                                    //=================================================================================================
+                                    if(!highlight(figure_x, figure_y))ms_error(279, "cos poszlo nie tak z highlightem");
+                                    //========================================highlight=========================================================
                                 }
                             }
                         }
