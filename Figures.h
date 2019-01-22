@@ -90,6 +90,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         else a = -1;
 
         if((targetX == x) && (targetY == y + 2 * a)) return 1;
+        else if((targetX == x) && (targetY == y + 4 * a)) return 1;
         else if((targetX == x + 1) && (targetY == y + a)) return 1;
         else if((targetX == x - 1) && (targetY == y + a)) return 1;
         else return 0;
@@ -194,6 +195,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
             }
         }
         return 1;
+
     }
     return 0;
 }
@@ -243,7 +245,14 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     }
     if(board[x][y].name=="pawn")
     {
-        return CanMove(wsk_to_board, x, y, targetX, targetY);
+        int a;
+        if(board[x][y].owner==1) a = 1;
+        else a = -1;
+
+        if((targetX == x) && (targetY == y + 2 * a)) return 1;
+        else if((targetX == x + 1) && (targetY == y + a)) return 1;
+        else if((targetX == x - 1) && (targetY == y + a)) return 1;
+        else return 0;
 
     }
 }

@@ -142,8 +142,11 @@ int main()
             mouse_pressed=0;
             while(true){
                 mouse_pressed = 0;
-                if(isLoadingSave)window.draw(Loading);
+                window.draw(Loading);
+                Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
+                window.draw(Kursor);
                 window.display();
+                window.clear();
                 while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
                 {
                     mouse_position = sf::Mouse::getPosition(window);
@@ -198,7 +201,6 @@ int main()
         window.draw(Wczytaj);
         window.draw(Play);
         window.draw(Exit);
-        if(isLoadingSave)window.draw(Loading);
         Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
         window.draw(Kursor);
         window.display();

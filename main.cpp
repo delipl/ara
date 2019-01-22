@@ -454,7 +454,7 @@ int main()
         {
             seconds.restart();
         }
-        if(minute%3==0&&time%34==0)music.play();
+        if(minute!=0&&minute%3==0&&time%34==0)music.play();
 
         window.draw(clock);
         window.draw(turn);
