@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-#.dll
+*.dll
 # Compiled Object files
 *.slo
 *.lo
@@ -22,16 +22,26 @@
 # Compiled Static libraries
 *.lai
 *.la
-#*.a
+*.a
 *.lib
 
 # Executables
-#*.exe
+*.exe
 *.out
 *.app
 
-#caly shit z codeblocksa
-#ara.cbp
-ara.depend
-ara.layout
+# CodeBlocks files
+*.cpb
+*.layout
+*.depend
 
+
+# Folders 
+lib/
+Saves/
+obj/
+bin/
+
+araMenu/bin
+araMenu/Saves
+araMenu/lib
