@@ -1,7 +1,7 @@
     #include <math.h>
 
     #define board_size_y 34
-    #define coIleTurMaSieZapadac 4
+    #define coIleTurMaSieZapadac 5
 
     sf::Texture texture_pawn;
     sf::Texture texture_ghost;
@@ -21,7 +21,7 @@
     Pole background_fields[17][34];
     Pole *front_fields;
 
-    static const float VIEW_HEIGHT = 720.0f;
+    static const float VIEW_HEIGHT = 1000.0f;
 
     //HWND hWnd = GetConsoleWindow();
 
@@ -38,14 +38,13 @@
     std::string actual_name = "pawn";
     int actual_owner = 0;
 
-    int baseX=8;
-    int baseY=16;
+    sf::SoundBuffer buffer;
+    sf::Sound sound;
 
-    int basex=8;
-    int basey=16;
 
     bool isMenu=0;
     bool isSaving=0;
+
 
 
 void loadTexture(){
@@ -118,13 +117,13 @@ void loadTexture(){
 
 }
 
-/*void ResizeView(const sf::RenderWindow& window, sf::View& view)
+void ResizeView(const sf::RenderWindow& window, sf::View& view)
 {
     float aspectRatio = float(window.getSize().x/ float(window.getSize().y));
     view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
 }
 
-
+/*
 void consoleHiding(){
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
         {

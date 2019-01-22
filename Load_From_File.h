@@ -10,6 +10,10 @@
     int oldTura =1;
     int nrZmiany=1;
     int nrZmiany2=1;
+    int baseX=8;
+    int baseY=16;
+    int basex=8;
+    int basey=16;
 
 int saveChosing(){
     std::fstream file;  // plik
@@ -134,7 +138,7 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     }
 
     tura = int(line[0])-('0');
-    // ###tu nie dzia³a zapisywanie tury
+    // ###tu nie dziaÂ³a zapisywanie tury
 
     bool good = 0;
     int i = 0;

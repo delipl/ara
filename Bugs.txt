@@ -1,14 +1,19 @@
-/*mystery lata nad przeciwnikami
-mystery gracza gornego nie moze sie ruszac*/
+*skalowanie nie dzia³a tak ³adnie jakby mog³o
 
-**********MYSTERY ODPIERDALA TAKIE AKCJE ¯E HOHO**********
+*Do loadFromFile i Save Game trzeba dodaæ zmienne
+nrTura
+oldTura
+nrZmiany
+nrZmiany2
+baseX
+basex
+naseY
+basey
 
-*skalowanie rozwala gierke
+*z planszy load save nie da siê cofn¹æ
 
-*szar¿a mo¿e zabijaæ w bok
+*przejscia pomiedzy menu w grze a wybieraniem save sa czasem zbugowane, jak sie zle kliknie
 
-*Zabicie króla w³asña szar¿¹ nie koñczy gry
-*Zabicie króla przez zapadniêcie siê pod nim pod³ogi nie koñczy gry
+~W highlightach cavalerii nie widac ze moze zabijac(ale w sumie to nie wiem jak to pokazac)
 
-*Do zapisywania trzeba dodaæ pola notExist
-*Do zapisywania trzeba dodaæ zmienn¹ "nrTura"
+~czas liczy sie takze na pauzie(ale nie wiem czy to zle)
