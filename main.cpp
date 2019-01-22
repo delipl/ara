@@ -14,7 +14,7 @@ bool click=0;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.", sf::Style::Fullscreen);
+    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
     window.setMouseCursorVisible(false);
     sf::Clock minutes;
@@ -402,7 +402,6 @@ int main()
                     window.draw(front_fields[i * board_size_y + j]);
                 }
             }
-            window.draw(klik);
             sf::Texture winTexture;
             // !!!!!!!!!!!!!!!!!Napisac ekran wygranej !!!!!!!!!!!!!!!!!!//
             if(win){
@@ -443,7 +442,7 @@ int main()
 
         std::ostringstream ss1;
         if(tura==2)ss1<<" Tura: "<<nrTura<<std::endl<<"Gracz: Dolny";
-        else ss1<<" Tura: "<<nrTura<<std::endl<<"Gracz: Górny";
+        else ss1<<" Tura: "<<nrTura<<std::endl<<"Gracz: Gorny";
 
         sf::Text turn;
         turn.setPosition(sf::Vector2f(635, 275));
@@ -457,7 +456,7 @@ int main()
             seconds.restart();
         }
         if(minute!=0&&minute%3==0&&time%34==0)music.play();
-
+        //window.draw(klik);
         window.draw(clock);
         window.draw(turn);
         sf::Sprite Win;
