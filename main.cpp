@@ -22,7 +22,7 @@ int main()
     sf::Clock seconds;
     sf::Music music;
     if (!music.openFromFile("sounds\\music.wav"))ms_error(24, "nie zaladowano music.wav");
-    music.setVolume(10.f);
+    music.setVolume(20.f);
     music.play();
     sf::SoundBuffer buffer;
     if (!buffer.loadFromFile("sounds\\sound.wav"))
@@ -36,10 +36,12 @@ int main()
     {
         ms_error(26, "no kursor found", 1);
     }
-
     sf::Sprite Kursor;
     Kursor.setTexture(kursor);
     Kursor.setScale(0.1f, 0.1f);
+
+
+
 
 
 
@@ -93,6 +95,8 @@ int main()
         }
     while (window.isOpen())
     {
+        Kursor.setTexture(kursor);
+        Kursor.setScale(0.1f, 0.1f);
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -273,11 +277,17 @@ int main()
                                 {
                                     figure_x = 0;
                                     figure_y = 0;
+
                                 }else if(front_fields[figure_x*34+figure_y].owner==tura){
                                     click=1;
 
                                     //======================================================[highLight]================================
                                     if(!highlight(figure_x, figure_y))ms_error(279, "cos poszlo nie tak z highlightem");
+                                    if (!kursor.loadFromFile("img/kursorF.png"))
+                                    {
+                                        ms_error(26, "no kursor found2", 1);
+                                    }
+                                    Kursor.setScale(0.2f, 0.2f);
                                     //========================================highlight=========================================================
                                 }
                             }
@@ -286,6 +296,11 @@ int main()
                 }
                 else
                 {
+                    if (!kursor.loadFromFile("img/kursor.png"))
+                    {
+                        ms_error(26, "no kursor found2", 1);
+                    }
+                    Kursor.setScale(0.1f, 0.1f);
                     for(int i = 0; i < 17; i ++)
                     {
                         for(int j = 0; j < 34; j ++)
@@ -408,8 +423,7 @@ int main()
 
         std::ostringstream ss;
         ss.clear();
-        if (time<10)ss << "Czas: " <<minute<<":0"<<time;
-        else ss << "Czas: " <<minute<<":"<<time;
+        (time<10)?ss << "Czas: " <<minute<<":0"<<time:ss << "Czas: " <<minute<<":"<<time;
 
 
 
@@ -435,7 +449,7 @@ int main()
         {
             seconds.restart();
         }
-        if(minute!=0&&minute%3==0&&time%34==0)music.play();
+        if(minute!=0&&minute%3==0&&time%34==0&&time!=0)music.play();
         //window.draw(klik);
         window.draw(clock);
         window.draw(turn);
