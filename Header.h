@@ -1,7 +1,7 @@
     #include <math.h>
 
     #define board_size_y 34
-    #define coIleTurMaSieZapadac 4
+    #define coIleTurMaSieZapadac 5
 
     sf::Texture texture_pawn;
     sf::Texture texture_ghost;
@@ -21,7 +21,7 @@
     Pole background_fields[17][34];
     Pole *front_fields;
 
-    static const float VIEW_HEIGHT = 720.0f;
+    static const float VIEW_HEIGHT = 1000.0f;
 
     //HWND hWnd = GetConsoleWindow();
 
@@ -41,14 +41,10 @@
     sf::SoundBuffer buffer;
     sf::Sound sound;
 
-    int baseX=8;
-    int baseY=16;
-
-    int basex=8;
-    int basey=16;
 
     bool isMenu=0;
     bool isSaving=0;
+
 
 
 void loadTexture(){

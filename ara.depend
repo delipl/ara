@@ -825,12 +825,14 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1548097704 source:c:\users\kivi\documents\ara\main.cpp
+1548172081 source:c:\users\kivi\documents\ara\main.cpp
+	<sstream>
 	"Figures.h"
 	"Header.h"
 	"fields.h"
 	"mapRemoving.h"
 	<math.h>
+	"highlight.h"
 
 1547891916 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1245,7 +1247,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1548091909 source:c:\users\adamw\documents\ara\main.cpp
+1548093050 source:c:\users\adamw\documents\ara\main.cpp
 	"Figures.h"
 	"Header.h"
 	"fields.h"
@@ -2076,7 +2078,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1548097324 c:\users\kivi\documents\ara\figures.h
+1548173855 c:\users\kivi\documents\ara\figures.h
 	"Load_From_File.h"
 
 1548090551 c:\users\adamw\documents\ara\figures.h
@@ -2534,13 +2536,13 @@
 1548090569 c:\users\adamw\documents\ara\messages.h
 	<iostream>
 
-1548096761 c:\users\kivi\documents\ara\load_from_file.h
+1548111226 c:\users\kivi\documents\ara\load_from_file.h
 	"pole.h"
 	<fstream>
 	<cstdlib>
 	<string>
 
-1548078954 c:\users\kivi\documents\ara\pole.h
+1548113093 c:\users\kivi\documents\ara\pole.h
 	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 	"lib/SFML-2.5.1/include/SFML/Window.hpp"
 	"lib/SFML-2.5.1/include/SFML/Audio.hpp"
@@ -2549,17 +2551,17 @@
 1548018813 c:\users\kivi\documents\ara\messages.h
 	<iostream>
 
-1548092358 c:\users\kivi\documents\ara\header.h
+1548167148 c:\users\kivi\documents\ara\header.h
 	<math.h>
 
 1547855847 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\header.h
 	<math.h>
 
-1548025096 c:\users\kivi\documents\ara\fields.h
+1548106746 c:\users\kivi\documents\ara\fields.h
 
 1547854145 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\fields.h
 
-1548018468 c:\users\kivi\documents\ara\mapremoving.h
+1548165701 c:\users\kivi\documents\ara\mapremoving.h
 
 1547891914 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\audio.hpp
 	<SFML/System.hpp>
@@ -2769,7 +2771,9 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1548090547 c:\users\adamw\documents\ara\fields.h
+1548093076 c:\users\adamw\documents\ara\fields.h
 
 1548090552 c:\users\adamw\documents\ara\mapremoving.h
+
+1548166577 c:\users\kivi\documents\ara\highlight.h
 
