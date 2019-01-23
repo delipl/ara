@@ -81,6 +81,8 @@ int main()
         baseY-=1;
         basex-=1;
         basey+=1;
+        background_fields[baseX][baseY].setColor(sf::Color::Cyan);
+        background_fields[basex][basey].setColor(sf::Color::Cyan);
     }
 
     for(int i = 0; i < 17; i ++)
@@ -146,6 +148,9 @@ int main()
             front_fields[basex*34+basey].name="notexist";
             front_fields[basex*34+basey].owner=0;
             algorytmBase();
+            background_fields[baseX][baseY].setColor(sf::Color::Cyan);
+            background_fields[basex][basey].setColor(sf::Color::Cyan);
+
 
 
             oldTura=nrTura;
@@ -238,7 +243,8 @@ int main()
                         }
 
                     }else if(!click){
-                        background_fields[i][j].setColor(sf::Color::White);
+                        sf::Color a= background_fields[i][j].getColor();
+                        if(a!=sf::Color::Cyan)background_fields[i][j].setColor(sf::Color::White);
                     }
                 }
             }
