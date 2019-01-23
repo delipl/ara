@@ -204,26 +204,43 @@ int main()
             {
                 for(int j = 0; j < 34; j ++)
                 {
-
-
-                    if((front_fields[i * board_size_y + j].name != "empty") && (front_fields[i * board_size_y + j].name != "notexist"))
-                    {
-                        if(front_fields[i * board_size_y + j].owner == 1)
-                        {
-                            if(!click)background_fields[i][j].setColor(sf::Color::Yellow);
-                        }
-                        else
-                        {
-                            if(!click)background_fields[i][j].setColor(sf::Color::Blue);
-                        }
-                    }
-
                     if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                     {
                         if(!click)background_fields[i][j].setColor(sf::Color::Magenta);
+                        else{
+
+                            if(front_fields[i*34+j].owner==opponentOwner){
+                               if (!kursor.loadFromFile("img/kursorF.png"))ms_error(216, "no kursor found", 1);
+                            }else{
+                                if (!kursor.loadFromFile("img/kursor.png"))
+                                    {
+                                    ms_error(26, "no kursor found", 1);
+                                    }
+                            }
+
+
+                        }
                     }
+                    else if((front_fields[i * board_size_y + j].name != "empty"))
+                    {
+                        if(front_fields[i * board_size_y + j].owner == 1)
+                        {
+                            background_fields[i][j].setColor(sf::Color::Yellow);
+                        }
+                        else
+                        {
+                            background_fields[i][j].setColor(sf::Color::Blue);
+                        }
+
+                    }else if(!click){
+                        background_fields[i][j].setColor(sf::Color::White);
+                    }
+
+
+
                 }
             }
+        }
 
 
             while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -282,14 +299,11 @@ int main()
                                 }else if(front_fields[figure_x*34+figure_y].owner==tura){
                                     click=1;
 
+                                    mouse_position = sf::Mouse::getPosition(window);
+                                    if(front_fields[figure_x*34+figure_y].owner==2)opponentOwner=1;
+                                    else if(front_fields[figure_x*34+figure_y].owner==1)opponentOwner=2;
                                     //======================================================[highLight]================================
                                     if(!highlight(figure_x, figure_y))ms_error(279, "cos poszlo nie tak z highlightem");
-
-                                    if (!kursor.loadFromFile("img/kursorF.png"))
-                                    {
-                                        ms_error(26, "no kursor foundF", 1);
-                                    }
-
                                     //========================================highlight=========================================================
                                 }
                             }
@@ -330,7 +344,7 @@ int main()
                     }
                 }
             }
-        }
+
 //=======================Plansza menu==========================//
 
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){

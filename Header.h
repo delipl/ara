@@ -44,6 +44,7 @@
 
     bool isMenu=0;
     bool isSaving=0;
+    int opponentOwner;
 
 
 
