@@ -116,7 +116,13 @@ int main()
                         isMenu=1;
                         isSaving=0;
                     }else if(event.key.code == sf::Keyboard::Escape)isMenu=1;
-
+                    else if(event.key.code == sf::Keyboard::S&&isSaving){
+                        isMenu=1;
+                        isSaving=0;
+                    }else if(event.key.code == sf::Keyboard::S&&!isSaving){
+                        isSaving=1;
+                        isMenu=0;
+                    }
                 break;
             }
 
@@ -347,6 +353,7 @@ int main()
 //=======================Plansza menu==========================//
 
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+
             if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>110&&mouse_position.y<180){
                 isMenu=0;
             }else if(mouse_position.x>=230&mouse_position.x<=510&&mouse_position.y>215&&mouse_position.y<290){
@@ -371,6 +378,7 @@ int main()
             if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
                 if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>50&&mouse_position.y<120){
                     SaveGame(1, front_fields);
+                    std::cout<<"lolo\n";
                     isSaving=0;
                     isMenu=1;
                     sound.play();
