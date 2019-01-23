@@ -210,12 +210,11 @@ int main()
                         else{
 
                             if(front_fields[i*34+j].owner==opponentOwner){
-                               if (!kursor.loadFromFile("img/kursorF.png"))ms_error(216, "no kursor found", 1);
+                                if(front_fields[figure_x*34+figure_y].name=="tower"){ if(!kursor.loadFromFile("img/kursorC.png")) ms_error(26, "no kursor found", 1);}
+                                else{ if (!kursor.loadFromFile("img/kursorF.png"))ms_error(216, "no kursor found", 1);}
                             }else{
-                                if (!kursor.loadFromFile("img/kursor.png"))
-                                    {
-                                    ms_error(26, "no kursor found", 1);
-                                    }
+
+                                if (!kursor.loadFromFile("img/kursor.png")) ms_error(26, "no kursor found", 1);
                             }
 
 
@@ -225,11 +224,11 @@ int main()
                     {
                         if(front_fields[i * board_size_y + j].owner == 1)
                         {
-                            background_fields[i][j].setColor(sf::Color::Yellow);
+                            if(!click)background_fields[i][j].setColor(sf::Color::Yellow);
                         }
                         else
                         {
-                            background_fields[i][j].setColor(sf::Color::Blue);
+                            if(!click)background_fields[i][j].setColor(sf::Color::Blue);
                         }
 
                     }else if(!click){
@@ -473,15 +472,16 @@ int main()
         Win.setPosition(sf::Vector2f(0,0));
         window.draw(Win);
 
-        if(!click){
-                for(int i = 0; i < 17; i ++)
+
+                /*for(int i = 0; i < 17; i ++)
                 {
                     for(int j = 0; j < 34; j ++)
                     {
-                        background_fields[i][j].setColor(sf::Color::White);
+                        sf::Color a=background_fields[i][j].getColor();
+                        if(a!=sf::Color::Green||a!=sf::Color::Red)background_fields[i][j].setColor(sf::Color::White);
                     }
-                }
-        }
+                }*/
+
         view.setCenter(sf::Vector2f(360.0f, 360.0f));
         window.setView(view);
         if(isMenu)window.draw(Menu);
