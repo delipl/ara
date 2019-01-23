@@ -81,6 +81,8 @@ int main()
         baseY-=1;
         basex-=1;
         basey+=1;
+        background_fields[basex][basey].setTexture(Background);
+        background_fields[baseX][baseY].setTexture(Background);
         background_fields[baseX][baseY].setColor(sf::Color::Cyan);
         background_fields[basex][basey].setColor(sf::Color::Cyan);
     }
@@ -90,9 +92,10 @@ int main()
             for(int j = 0; j < 34; j ++)
             {
                 background_fields[i][j].setScale(0.222f, 0.222f);
-                if(front_fields[i*34+j].name!="notexist")background_fields[i][j].setTexture(Background);
+                sf::Color a= background_fields[i][j].getColor();
+                if(front_fields[i*34+j].name!="notexist"&&a!=sf::Color::Cyan)background_fields[i][j].setTexture(Background);
 
-                else background_fields[i][j].setTexture(texture_notexist);
+                //else background_fields[i][j].setTexture(texture_notexist);
             }
         }
     while (window.isOpen())
@@ -148,8 +151,6 @@ int main()
             front_fields[basex*34+basey].name="notexist";
             front_fields[basex*34+basey].owner=0;
             algorytmBase();
-            background_fields[baseX][baseY].setColor(sf::Color::Cyan);
-            background_fields[basex][basey].setColor(sf::Color::Cyan);
 
 
 
@@ -245,6 +246,12 @@ int main()
                     }else if(!click){
                         sf::Color a= background_fields[i][j].getColor();
                         if(a!=sf::Color::Cyan)background_fields[i][j].setColor(sf::Color::White);
+
+
+
+                    background_fields[baseX][baseY].setColor(sf::Color::Cyan);
+                    background_fields[basex][basey].setColor(sf::Color::Cyan);
+
                     }
                 }
             }
@@ -311,6 +318,10 @@ int main()
                                     //======================================================[highLight]================================
                                     if(!highlight(figure_x, figure_y))ms_error(279, "cos poszlo nie tak z highlightem");
                                     //========================================highlight=========================================================
+                                }
+                                else{
+                                    figure_x=0;
+                                    figure_y=0;
                                 }
                             }
                         }
@@ -473,7 +484,7 @@ int main()
         {
             seconds.restart();
         }
-        if(minute!=0&&minute%3==0&&time%34==0&&time!=0)music.play();
+        if(minute!=0&&minute%3==0)music.play();
         //window.draw(klik);
         window.draw(clock);
         window.draw(turn);
@@ -481,17 +492,6 @@ int main()
         Win.setTexture(winTexture);
         Win.setPosition(sf::Vector2f(0,0));
         window.draw(Win);
-
-
-                /*for(int i = 0; i < 17; i ++)
-                {
-                    for(int j = 0; j < 34; j ++)
-                    {
-                        sf::Color a=background_fields[i][j].getColor();
-                        if(a!=sf::Color::Green||a!=sf::Color::Red)background_fields[i][j].setColor(sf::Color::White);
-                    }
-                }*/
-
         view.setCenter(sf::Vector2f(360.0f, 360.0f));
         window.setView(view);
         if(isMenu)window.draw(Menu);
