@@ -97,7 +97,7 @@ void loadTexture(){
             system("PAUSE");
         }
 
-            if (!menu.loadFromFile("img\\menu.png"))
+            if (!menu.loadFromFile("img/menu.png"))
             {
                 ms_error(106, "nie zaladowano menu.png", true);
             }
@@ -106,7 +106,7 @@ void loadTexture(){
             Menu.setPosition(sf::Vector2f(0, 0));
             Menu.setScale(sf::Vector2f(1, 1));
 
-            if (!save.loadFromFile("img\\save.png"))
+            if (!save.loadFromFile("img/save.png"))
             {
                 ms_error(114, "nie zaladowano save.png", true);
             }

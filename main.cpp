@@ -48,7 +48,7 @@ int main()
     sf::Texture Background;
     if (!Background.loadFromFile("img/dupa.png"))
     {
-
+        ms_error(54, "nie zaladowano img/dupa.png pola");
     }
     sf::Font font;
     if (!font.loadFromFile("fonts/arial.ttf"))

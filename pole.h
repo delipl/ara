@@ -1,7 +1,7 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
 #include "SFML/Audio.hpp"
-#include "Messages.h"
+#include "messages.h"
 
 class Pole:public sf::Sprite{
         public:
