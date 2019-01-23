@@ -1,12 +1,12 @@
 #define _WIN32_WINNT 0x0500
-#include "../lib/SFML-2.5.1/include/SFML/Graphics.hpp"
-#include "../lib/SFML-2.5.1/include/SFML/Audio.hpp"
+#include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
 #include <string>
 //#include <windows.h>
-#include "Messages.h"
+#include "messages.h"
 #include "wczytaj.h"
 #include <unistd.h>
 
@@ -32,13 +32,13 @@ int main()
 
 
     sf::Music music;
-    if (!music.openFromFile("sounds\\music.wav"))ms_error(24, "nie zaladowano music.wav");
+    if (!music.openFromFile("sounds/music.wav"))ms_error(24, "nie zaladowano music.wav");
     music.setVolume(10.f);
     music.play();
 
 
     sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("sounds\\sound.wav"))
+    if (!buffer.loadFromFile("sounds/sound.wav"))
         ms_error(22, "nie zaladowano dzwieku");
     sf::Sound sound;
     sound.setBuffer(buffer);
@@ -49,7 +49,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1000, 720), "A.R.A");
     window.setMouseCursorVisible(false);
     sf::Texture tlo;
-    if (!tlo.loadFromFile("img\\backgroundImage.png"))
+    if (!tlo.loadFromFile("img/backgroundImage.png"))
     {
         ms_error(12, "nie zaladowano menuBackground", true);
     }
@@ -57,7 +57,7 @@ int main()
     Tlo.setTexture(tlo);
 
     sf::Texture loading;
-    if (!loading.loadFromFile("img\\loadingSave.png"))
+    if (!loading.loadFromFile("img/loadingSave.png"))
     {
         ms_error(12, "nie zaladowano loadingSave", true);
     }
@@ -66,7 +66,7 @@ int main()
     //window.draw(Loading);
 
     sf::Texture play;
-    if (!play.loadFromFile("img\\play.png"))
+    if (!play.loadFromFile("img/play.png"))
     {
         ms_error(19, "nie zaladowano play", true);
     }
@@ -77,7 +77,7 @@ int main()
 
 
     sf::Texture exit;
-    if (!exit.loadFromFile("img\\exit.png"))
+    if (!exit.loadFromFile("img/exit.png"))
     {
         ms_error(24, "exit", true);
     }
@@ -87,7 +87,7 @@ int main()
     Exit.setScale(sf::Vector2f(0.6, 0.6));
 
     sf::Texture wczytaj;
-    if (!wczytaj.loadFromFile("img\\wczytaj.png"))
+    if (!wczytaj.loadFromFile("img/wczytaj.png"))
     {
         ms_error(30, "nie zaladowano edit", true);
     }
@@ -125,7 +125,7 @@ int main()
                 music.stop();
                 saveToFile(0);
                 window.close();
-                system("..\\..\\..\\bin\\Debug\\ara.exe");
+                system("../../../bin/Debug/ara.exe");
 
             }else if (mouse_position.x>=300&&mouse_position.x<707&&mouse_position.y>358&&mouse_position.y<473){
                 sound.play();
