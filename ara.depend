@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1548263870 source:c:\users\kivi\documents\ara\main.cpp
+1548270680 source:c:\users\kivi\documents\ara\main.cpp
 	<sstream>
 	"Figures.h"
 	"Header.h"
@@ -2078,7 +2078,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1548263328 c:\users\kivi\documents\ara\figures.h
+1548269419 c:\users\kivi\documents\ara\figures.h
 	"Load_From_File.h"
 
 1548090551 c:\users\adamw\documents\ara\figures.h
@@ -2536,13 +2536,13 @@
 1548090569 c:\users\adamw\documents\ara\messages.h
 	<iostream>
 
-1548263328 c:\users\kivi\documents\ara\load_from_file.h
+1548264810 c:\users\kivi\documents\ara\load_from_file.h
 	"pole.h"
 	<fstream>
 	<cstdlib>
 	<string>
 
-1548263329 c:\users\kivi\documents\ara\pole.h
+1548264811 c:\users\kivi\documents\ara\pole.h
 	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 	"lib/SFML-2.5.1/include/SFML/Window.hpp"
 	"lib/SFML-2.5.1/include/SFML/Audio.hpp"
@@ -2551,13 +2551,13 @@
 1548263328 c:\users\kivi\documents\ara\messages.h
 	<iostream>
 
-1548263328 c:\users\kivi\documents\ara\header.h
+1548270843 c:\users\kivi\documents\ara\header.h
 	<math.h>
 
 1547855847 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\header.h
 	<math.h>
 
-1548263329 c:\users\kivi\documents\ara\fields.h
+1548264811 c:\users\kivi\documents\ara\fields.h
 
 1547854145 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\fields.h
 
@@ -2775,5 +2775,5 @@
 
 1548090552 c:\users\adamw\documents\ara\mapremoving.h
 
-1548263329 c:\users\kivi\documents\ara\highlight.h
+1548264811 c:\users\kivi\documents\ara\highlight.h
 

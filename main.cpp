@@ -202,7 +202,7 @@ int main()
 
 
 //==============================Zabawa z myszka==========================================//
-        mouse_pressed = 0;
+       mouse_pressed = 0;
 
         mouse_position = sf::Mouse::getPosition(window);
         if(!isMenu&!isSaving){
@@ -240,12 +240,8 @@ int main()
                     }else if(!click){
                         background_fields[i][j].setColor(sf::Color::White);
                     }
-
-
-
                 }
             }
-        }
 
 
             while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -276,8 +272,8 @@ int main()
                     {
                         if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                         {
-                            front_fields[i * board_size_y + j].name     = actual_name;
-                            front_fields[i * board_size_y + j].owner    = actual_owner;
+                            front_fields[i * board_size_y + j].name = actual_name;
+                            front_fields[i * board_size_y + j].owner = actual_owner;
                             i = 16;
                             j = 33;
                         }
@@ -296,11 +292,10 @@ int main()
                             {
                                 figure_x = i;
                                 figure_y = j;
-                                if(front_fields[figure_x * 34 + figure_y].name == "empty"||front_fields[figure_x * 34 + figure_y].owner != tura)
+                                if((front_fields[figure_x * 34 + figure_y].name == "empty"))
                                 {
                                     figure_x = 0;
                                     figure_y = 0;
-
                                 }else if(front_fields[figure_x*34+figure_y].owner==tura){
                                     click=1;
 
@@ -317,10 +312,6 @@ int main()
                 }
                 else
                 {
-                    if (!kursor.loadFromFile("img/kursor.png"))
-                    {
-                        ms_error(26, "no kursor found", 1);
-                    }
                     for(int i = 0; i < 17; i ++)
                     {
                         for(int j = 0; j < 34; j ++)
@@ -338,10 +329,14 @@ int main()
                                         nrTura++;
                                         sound.play();
                                         click=0;
+
+                                    }
+                                    if (!kursor.loadFromFile("img/kursor.png"))
+                                    {
+                                        ms_error(26, "no kursor found", 1);
                                     }
                                 }
-                                else //ms_message("to nie twoja tura dzbanie");
-                                 click=0;
+                                else ms_message("to nie twoja tura dzbanie");
                                 figure_x = 0;
                                 figure_y = 0;
                             }
@@ -349,6 +344,7 @@ int main()
                     }
                 }
             }
+        }
 
 //=======================Plansza menu==========================//
 
