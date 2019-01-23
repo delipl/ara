@@ -21,11 +21,11 @@ int main()
     sf::Clock minutes;
     sf::Clock seconds;
     sf::Music music;
-    if (!music.openFromFile("sounds\\music.wav"))ms_error(24, "nie zaladowano music.wav");
+    if (!music.openFromFile("sounds/music.wav"))ms_error(24, "nie zaladowano music.wav");
     music.setVolume(10.f);
     music.play();
     sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("sounds\\sound.wav"))
+    if (!buffer.loadFromFile("sounds/sound.wav"))
         ms_error(22, "nie zaladowano dzwieku");
     sf::Sound sound;
     sound.setBuffer(buffer);
