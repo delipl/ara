@@ -21,7 +21,7 @@ bool isLoadingSave=0;
 int main()
 {
     sf::Texture kursor;
-    if (!kursor.loadFromFile("../img/kursor.png"))
+    if (!kursor.loadFromFile("img/kursor.png"))
     {
         ms_error(26, "no kursor found", 1);
     }
@@ -32,13 +32,13 @@ int main()
 
 
     sf::Music music;
-    if (!music.openFromFile("../sounds/music.wav"))ms_error(24, "nie zaladowano music.wav");
+    if (!music.openFromFile("sounds/music.wav"))ms_error(24, "nie zaladowano music.wav");
     music.setVolume(10.f);
     music.play();
 
 
     sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("../sounds/sound.wav"))
+    if (!buffer.loadFromFile("sounds/sound.wav"))
         ms_error(22, "nie zaladowano dzwieku");
     sf::Sound sound;
     sound.setBuffer(buffer);
@@ -49,7 +49,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1000, 720), "A.R.A");
     window.setMouseCursorVisible(false);
     sf::Texture tlo;
-    if (!tlo.loadFromFile("../img/backgroundImage.png"))
+    if (!tlo.loadFromFile("img/backgroundImage.png"))
     {
         ms_error(12, "nie zaladowano menuBackground", true);
     }
@@ -57,7 +57,7 @@ int main()
     Tlo.setTexture(tlo);
 
     sf::Texture loading;
-    if (!loading.loadFromFile("../img/loadingSave.png"))
+    if (!loading.loadFromFile("img/loadingSave.png"))
     {
         ms_error(12, "nie zaladowano loadingSave", true);
     }
@@ -66,7 +66,7 @@ int main()
     //window.draw(Loading);
 
     sf::Texture play;
-    if (!play.loadFromFile("../img/play.png"))
+    if (!play.loadFromFile("img/play.png"))
     {
         ms_error(19, "nie zaladowano play", true);
     }
@@ -77,7 +77,7 @@ int main()
 
 
     sf::Texture exit;
-    if (!exit.loadFromFile("../img/exit.png"))
+    if (!exit.loadFromFile("img/exit.png"))
     {
         ms_error(24, "exit", true);
     }
@@ -87,7 +87,7 @@ int main()
     Exit.setScale(sf::Vector2f(0.6, 0.6));
 
     sf::Texture wczytaj;
-    if (!wczytaj.loadFromFile("../img/wczytaj.png"))
+    if (!wczytaj.loadFromFile("img/wczytaj.png"))
     {
         ms_error(30, "nie zaladowano edit", true);
     }
@@ -125,7 +125,7 @@ int main()
                 music.stop();
                 saveToFile(0);
                 window.close();
-                system("../compile.sh");
+                system("./../sfml-app.o");
 
             }else if (mouse_position.x>=300&&mouse_position.x<707&&mouse_position.y>358&&mouse_position.y<473){
                 sound.play();

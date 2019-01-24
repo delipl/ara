@@ -46,7 +46,7 @@ int main()
 
 //=================================T£O================================================//
     sf::Texture Background;
-    if (!Background.loadFromFile("img/GIFPaint.gif"))
+    if (!Background.loadFromFile("img/dupa.png"))
     {
         ms_error(54, "nie zaladowano img/dupa.png pola");
     }
@@ -326,7 +326,7 @@ int main()
             }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>320&&mouse_position.y<380){  //działa tylko z execa (wraca do menu){
                 window.close();
                 music.stop();
-                system("./compile.sh");  //działa tylko z execa (wraca do menu
+                system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu
             }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>430&&mouse_position.y<490){
                 music.stop();
                 window.close();
