@@ -366,7 +366,7 @@ int main()
                     }
                 }else{
                     AI(front_fields);
-                    Action(front_fields, aiFX, aiFY, aiTX, aiTY);
+                    if(!Action(front_fields, aiFX, aiFY, aiTX, aiTY))ms_error(2345375, "lol");
                     mouse_pressed=0;
                     if(tura == 1) tura = 2;
                     else tura = 1;

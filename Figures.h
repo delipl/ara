@@ -456,7 +456,6 @@ bool Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
             return 1;
         }
     }
-
     //ms_message("Niepoprawne dane!!!");
      click=0;
     return 0;

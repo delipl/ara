@@ -12,7 +12,19 @@ int Wartosc(std::string a){
 
 }
 
-int zliczWartosciP(){
+int zliczWartosciP(Pole *wsk_to_board){
+
+    Pole board[17*34+34];
+
+    for(int i = 0; i < 17; i ++)
+    {
+        for(int j = 0; j < 34; j ++)
+        {
+            if((i%2==0&&j%2==0)||i%2==1&&j%2==1)
+            board[i*34+j] = wsk_to_board[i * 34 + j];
+        }
+    }
+
     aiW=0;
     for(int k = 0; k < 17; k++){
         for (int l = 0; l< 34; l++){
@@ -23,7 +35,18 @@ int zliczWartosciP(){
         }
     }
 }
-int zliczWartosciAI(){
+int zliczWartosciAI(Pole *wsk_to_board){
+    Pole board[17*34+34];
+
+    for(int i = 0; i < 17; i ++)
+    {
+        for(int j = 0; j < 34; j ++)
+        {
+            if((i%2==0&&j%2==0)||i%2==1&&j%2==1)
+            board[i*34+j] = wsk_to_board[i * 34 + j];
+        }
+    }
+
     aiW=0;
     for(int k = 0; k < 17; k++){
         for (int l = 0; l< 34; l++){
@@ -38,46 +61,56 @@ int zliczWartosciAI(){
 
 int AI(Pole *wsk_to_board){
 
-    Pole board[17][34];
+    Pole board[17*34+34];
 
     for(int i = 0; i < 17; i ++)
     {
         for(int j = 0; j < 34; j ++)
         {
             if((i%2==0&&j%2==0)||i%2==1&&j%2==1)
-            board[i][j] = wsk_to_board[i * 34 + j];
+            board[i*34+j] = wsk_to_board[i * 34 + j];
         }
     }
-    int actualWartoscP=zliczWartosciP();
-    int actualWartoscAI=zliczWartosciAI();
+    int actualWartoscP=zliczWartosciP(board);
+    int actualWartoscAI=zliczWartosciAI(board);
+    int newWartoscP;
 
         std::cout<<"teraz ruszam sie ja!!!\n";
         for(int k = 0; k < 17; k++){
             for (int l = 0; l< 34; l++){
-                if((k%2==l%2)&&board[k][l].name!="notexist"){
-                    if(board[k][l].owner==1){
+                if((k%2==l%2)&&board[k*34+l].name!="notexist"){
+                    if(board[k*34+l].owner==1){
 
 
                         for(int i = 0; i < 17; i++){
                             for (int j = 0; j< 34; j++){
-                                if((i%2==j%2)&&board[i][j].name!="notexist"){
-                                    if (canAttack(front_fields, k, l ,i, j)){
-                                        aiFX=k;
-                                        aiFY=l;
-                                        aiTX=i;
-                                        aiTY=j;
-                                        std::cout<<k<<" "<<l<<" "<<i<<" "<<j<<" \n";
-                                        std::cout<<"bilem!!!\n";
-                                        return 1;
+                                if((i%2==j%2)&&board[i*34+j].name!="notexist"){
+                                    if (canAttack(board, k, l ,i, j)){
+                                        //std::cout<<"bilem u siebie!!!\n";
 
+                                        Action(board, k, l, i, j);
+                                        newWartoscP=zliczWartosciP(board);
+                                        if(newWartoscP>=actualWartoscP){
+                                            aiFX=k;
+                                            aiFY=l;
+                                            aiTX=i;
+                                            aiTY=j;
+                                            std::cout<<k<<" "<<l<<" "<<i<<" "<<j<<" \n";
+                                            return 0;
+                                        }
                                     }
-                                    else if (CanMove(front_fields, k, l ,i, j)){
-                                        aiFX=k;
-                                        aiFY=l;
-                                        aiTX=i;
-                                        aiTY=j;
-                                        std::cout<<"ruszaalem!!!\n";
-                                        return 1;
+                                    else if (CanMove(board, k, l ,i, j)){
+                                        //std::cout<<"ruszaalem u siebie!!!\n";
+                                        Action(board, k, l, i, j);
+                                        newWartoscP=zliczWartosciP(board);
+                                        if(newWartoscP>=actualWartoscP){
+                                            aiFX=k;
+                                            aiFY=l;
+                                            aiTX=i;
+                                            aiTY=j;
+                                            std::cout<<k<<" "<<l<<" "<<i<<" "<<j<<" \n";
+                                            return 0;
+                                        }
                                     }
 
                                 }
