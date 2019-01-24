@@ -221,7 +221,7 @@ int main()
                         if(!click)background_fields[i][j].setColor(sf::Color::Magenta);
                         else{
 
-                            if(front_fields[i*34+j].owner==opponentOwner){
+                            if(front_fields[i*34+j].owner==opponentOwner&&canAttack(front_fields,figure_x,figure_y, i, j)){
                                 if(front_fields[figure_x*34+figure_y].name=="tower"){ if(!kursor.loadFromFile("img/kursorC.png")) ms_error(26, "no kursor found", 1);}
                                 else{ if (!kursor.loadFromFile("img/kursorF.png"))ms_error(216, "no kursor found", 1);}
                             }else{

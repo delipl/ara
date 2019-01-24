@@ -38,7 +38,7 @@ bool highlight(int x, int y){
                  for(int k = 0; k < 17; k++){
                     for (int l = 0; l< 34; l++){
                         //pokoloruj canMove na pustym polu
-                        if((k%2==0&&l%2==0)||k%2==1&&l%2==1){
+                        if(((k%2==0&&l%2==0)||k%2==1&&l%2==1)&&front_fields[k*34+l].name!="notexist"){
                             if(CanMove(front_fields, x, y, k, l)
                                 && front_fields[k* 34 + l].name == "empty")
                                 background_fields[k][l].setColor(sf::Color::Green);
