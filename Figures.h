@@ -33,10 +33,10 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     }
 
     //============================trzeba bo AI klika gdzie chce xD========//
-
+/*
     int opponentOwner;
     tura==2?opponentOwner=1:opponentOwner=2;
-    if(board[targetX][targetY].owner==opponentOwner)return 0;
+    if(board[targetX][targetY].owner==opponentOwner)return 0;*/
 
     for (int i = 0; i<8;++i)
     {

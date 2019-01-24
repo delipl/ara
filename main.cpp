@@ -365,8 +365,8 @@ int main()
                         }
                     }
                 }else{
-                    AI(front_fields);
-                    if(!Action(front_fields, aiFX, aiFY, aiTX, aiTY))ms_error(2345375, "lol");
+                    if(!AI(front_fields))ms_error(12, "nie zrobilem AI");
+                    if(!Action(front_fields, aiFX, aiFY, aiTX, aiTY))ms_error(11, "nie wykonalem akcji");
                     mouse_pressed=0;
                     if(tura == 1) tura = 2;
                     else tura = 1;
