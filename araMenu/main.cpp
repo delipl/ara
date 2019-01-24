@@ -125,7 +125,7 @@ int main()
                 music.stop();
                 saveToFile(0);
                 window.close();
-                system("./../sfml-app.o");
+                system("./sfml-app.o");
 
             }else if (mouse_position.x>=300&&mouse_position.x<707&&mouse_position.y>358&&mouse_position.y<473){
                 sound.play();
@@ -161,35 +161,35 @@ int main()
                         saveToFile(1);
                         music.stop();
                         window.close();
-                        system("./../compile.sh");
+                        system("./sfml-app.o");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>170&&mouse_position.y<290){
                         sound.play();
                         saveToFile(2);
                         music.stop();
                         window.close();
-                        system("./../compile.sh");
+                        system("./sfml-app.o");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>320&&mouse_position.y<430){
                         sound.play();
                         saveToFile(3);
                         music.stop();
                         window.close();
-                        system("./../compile.sh");
+                        system("./sfml-app.o");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>470&&mouse_position.y<570){
                         sound.play();
                         saveToFile(4);
                         music.stop();
                         window.close();
-                        system("./../compile.sh");
+                        system("./sfml-app.o");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>610&&mouse_position.y<710){
                        sound.play();
                        saveToFile(5);
                        music.stop();
                        window.close();
-                       system("./../compile.sh");
+                       system("./sfml-app.o");
                     }
                 }
             }

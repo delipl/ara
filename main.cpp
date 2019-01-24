@@ -327,9 +327,12 @@ int main()
                 window.close();
                 music.stop();
                 system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu
+                return 0;
             }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>430&&mouse_position.y<490){
                 music.stop();
+
                 window.close();
+                return 0;
 
 
 
@@ -466,7 +469,7 @@ int main()
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
                     music.stop();
                     window.close();
-                    system("./araMenu/compile");  //działa tylko z execa (wraca do menu)
+                    system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu)
                 }
         }
 
