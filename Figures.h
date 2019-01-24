@@ -27,6 +27,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     {
         for(int j = 0; j < 34; j ++)
         {
+            if((i%2==0&&j%2==0)||i%2==1&&j%2==1)
             board[i][j] = wsk_to_board[i * 34 + j];
         }
     }
@@ -235,6 +236,7 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     {
         for(int j = 0; j < 34; j ++)
         {
+            if((i%2==0&&j%2==0)||i%2==1&&j%2==1)
             board[i][j] = wsk_to_board[i * 34 + j];
         }
     }
@@ -415,7 +417,7 @@ bool Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         }
     }
 
-    ms_message("Niepoprawne dane!!!");
+    //ms_message("Niepoprawne dane!!!");
      click=0;
     return 0;
 }

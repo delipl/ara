@@ -1,3 +1,7 @@
+//===========troche nieaktualne, pytaj developerow============//
+
+
+
 ~Warunek wygranej:
 	-œmieræ króla (lub spowodowanie ¿e nie mo¿e siê ruszyæ)
 
