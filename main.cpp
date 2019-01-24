@@ -9,6 +9,9 @@ bool click=0;
 #include "mapRemoving.h"
 #include <math.h>
 #include "highlight.h"
+#include "AI.h"
+
+bool ai=1;
 
 
 
@@ -293,72 +296,83 @@ int main()
                     }
                 }
             }
-            else if((actual_mode == "play") && mouse_pressed)
+            else if((actual_mode == "play") && (mouse_pressed||(ai&&tura==1)))
             {
-                if((figure_x == 0) && (figure_y == 0))
-                {
-                    for(int i = 0; i < 17; i ++)
+                if(!ai||tura==2){
+                    if((figure_x == 0) && (figure_y == 0))
                     {
-                        for(int j = 0; j < 34; j ++)
+                        for(int i = 0; i < 17; i ++)
                         {
-                            if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                            for(int j = 0; j < 34; j ++)
                             {
-                                figure_x = i;
-                                figure_y = j;
-                                if((front_fields[figure_x * 34 + figure_y].name == "empty"))
+                                if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                                 {
+                                    figure_x = i;
+                                    figure_y = j;
+                                    if((front_fields[figure_x * 34 + figure_y].name == "empty"))
+                                    {
+                                        figure_x = 0;
+                                        figure_y = 0;
+                                    }else if(front_fields[figure_x*34+figure_y].owner==tura){
+                                        click=1;
+
+                                        mouse_position = sf::Mouse::getPosition(window);
+                                        if(front_fields[figure_x*34+figure_y].owner==2)opponentOwner=1;
+                                        else if(front_fields[figure_x*34+figure_y].owner==1)opponentOwner=2;
+                                        //======================================================[highLight]================================
+                                        if(!highlight(figure_x, figure_y))ms_error(279, "cos poszlo nie tak z highlightem");
+                                        //========================================highlight=========================================================
+                                    }
+                                    else{
+                                        figure_x=0;
+                                        figure_y=0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for(int i = 0; i < 17; i ++)
+                        {
+                            for(int j = 0; j < 34; j ++)
+                            {
+                                if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                                {
+                                    target_x = i;
+                                    target_y = j;
+                                    if(front_fields[34*figure_x+figure_y].owner == tura)
+                                    {
+                                        if(Action(front_fields, figure_x, figure_y, target_x, target_y))
+                                        {
+                                            if(tura == 1) tura = 2;
+                                            else tura = 1;
+                                            nrTura++;
+                                            sound.play();
+                                            click=0;
+
+                                        }
+                                        if (!kursor.loadFromFile("img/kursor.png"))
+                                        {
+                                            ms_error(26, "no kursor found", 1);
+                                        }
+                                    }
+                                    else ms_message("to nie twoja tura dzbanie");
                                     figure_x = 0;
                                     figure_y = 0;
-                                }else if(front_fields[figure_x*34+figure_y].owner==tura){
-                                    click=1;
-
-                                    mouse_position = sf::Mouse::getPosition(window);
-                                    if(front_fields[figure_x*34+figure_y].owner==2)opponentOwner=1;
-                                    else if(front_fields[figure_x*34+figure_y].owner==1)opponentOwner=2;
-                                    //======================================================[highLight]================================
-                                    if(!highlight(figure_x, figure_y))ms_error(279, "cos poszlo nie tak z highlightem");
-                                    //========================================highlight=========================================================
-                                }
-                                else{
-                                    figure_x=0;
-                                    figure_y=0;
                                 }
                             }
                         }
                     }
-                }
-                else
-                {
-                    for(int i = 0; i < 17; i ++)
-                    {
-                        for(int j = 0; j < 34; j ++)
-                        {
-                            if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
-                            {
-                                target_x = i;
-                                target_y = j;
-                                if(front_fields[34*figure_x+figure_y].owner == tura)
-                                {
-                                    if(Action(front_fields, figure_x, figure_y, target_x, target_y))
-                                    {
-                                        if(tura == 1) tura = 2;
-                                        else tura = 1;
-                                        nrTura++;
-                                        sound.play();
-                                        click=0;
-
-                                    }
-                                    if (!kursor.loadFromFile("img/kursor.png"))
-                                    {
-                                        ms_error(26, "no kursor found", 1);
-                                    }
-                                }
-                                else ms_message("to nie twoja tura dzbanie");
-                                figure_x = 0;
-                                figure_y = 0;
-                            }
-                        }
-                    }
+                }else{
+                    AI(front_fields);
+                    Action(front_fields, aiFX, aiFY, aiTX, aiTY);
+                    mouse_pressed=0;
+                    if(tura == 1) tura = 2;
+                    else tura = 1;
+                    nrTura++;
+                    sound.play();
+                    click=0;
                 }
             }
         }

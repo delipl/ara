@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1548284611 source:c:\users\kivi\documents\ara\main.cpp
+1548342772 source:c:\users\kivi\documents\ara\main.cpp
 	<sstream>
 	"Figures.h"
 	"Header.h"
@@ -833,6 +833,7 @@
 	"mapRemoving.h"
 	<math.h>
 	"highlight.h"
+	"AI.h"
 
 1547891916 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -2078,7 +2079,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1548338016 c:\users\kivi\documents\ara\figures.h
+1548342920 c:\users\kivi\documents\ara\figures.h
 	"Load_From_File.h"
 
 1548090551 c:\users\adamw\documents\ara\figures.h
@@ -2551,7 +2552,7 @@
 1548263328 c:\users\kivi\documents\ara\messages.h
 	<iostream>
 
-1548284611 c:\users\kivi\documents\ara\header.h
+1548341523 c:\users\kivi\documents\ara\header.h
 	<math.h>
 	<windows.h>
 
@@ -2777,4 +2778,6 @@
 1548090552 c:\users\adamw\documents\ara\mapremoving.h
 
 1548337814 c:\users\kivi\documents\ara\highlight.h
+
+1548343030 c:\users\kivi\documents\ara\ai.h
 

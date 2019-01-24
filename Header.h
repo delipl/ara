@@ -47,6 +47,10 @@
     bool isSaving=0;
     int opponentOwner;
 
+    int aiFX;
+    int aiFY;
+    int aiTX;
+    int aiTY;
 
 
 void loadTexture(){

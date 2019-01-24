@@ -32,6 +32,39 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         }
     }
 
+    //============================trzeba bo AI klika gdzie chce xD========//
+
+    int opponentOwner;
+    tura==2?opponentOwner=1:opponentOwner=2;
+    if(board[targetX][targetY].owner==opponentOwner)return 0;
+
+    for (int i = 0; i<8;++i)
+    {
+        for (int j = 0; j<8; ++j)
+        {
+            if((j-i)>=0)
+            {
+                if(targetX==i&&targetY==(j-i))return 0;
+                if(targetX==i&&targetY==(26+j))return 0;
+            }
+            else
+            {
+                if(targetX==(i+9)&&targetY==j)return 0;
+                if(targetX==(i+9)&&targetY==32-j)return 0;
+            }
+        }
+    }
+
+    for(int i = 8; i < 17; i ++)
+    {
+        if(targetX==i&&targetY==33)return 0;
+    }
+
+
+    //========================================//
+
+
+
     if(board[x][y].name=="charge")
     {
         if((y == targetY) && (abs(targetX - x) == 2)) return 1;
@@ -208,6 +241,23 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
 bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
+
+
+    Pole board[17][34];
+
+    for(int i = 0; i < 17; i ++)
+    {
+        for(int j = 0; j < 34; j ++)
+        {
+            if((i%2==0&&j%2==0)||i%2==1&&j%2==1)
+            board[i][j] = wsk_to_board[i * 34 + j];
+        }
+    }
+
+    int opponentOwner;
+    tura==2?opponentOwner=1:opponentOwner=2;
+    if(board[targetX][targetY].owner!=opponentOwner)return 0;
+
     if(wsk_to_board[x * 34 + y].name == "king")
     {
         return CanMove(wsk_to_board, x, y, targetX, targetY);
@@ -228,17 +278,6 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     if(wsk_to_board[x * 34 + y].name == "cav")
     {
         return 0;
-    }
-
-    Pole board[17][34];
-
-    for(int i = 0; i < 17; i ++)
-    {
-        for(int j = 0; j < 34; j ++)
-        {
-            if((i%2==0&&j%2==0)||i%2==1&&j%2==1)
-            board[i][j] = wsk_to_board[i * 34 + j];
-        }
     }
 
     if(board[x][y].name=="tower")
