@@ -2,7 +2,7 @@ int saveToFile(int nrSave){
     std::fstream file;
     std::string line;
 
-    file.open("Saves\\a.txt", std::ios::out);
+    file.open("Saves/a.txt", std::ios::out);
 
     if(file.good() == false)
     {

@@ -69,10 +69,10 @@ void backgroundFields()
 
 void frontFields(){
     sf::Texture Background;
-    if (!Background.loadFromFile("img/dupa.png"))
+    /*if (!Background.loadFromFile("img//dupa.png"))
     {
 
-    }
+    }*/
 
     for(int i = 0; i < 17; i ++)
     {

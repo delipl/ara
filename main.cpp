@@ -21,11 +21,13 @@ int main()
     sf::Clock minutes;
     sf::Clock seconds;
     sf::Music music;
-    if (!music.openFromFile("sounds\\music.wav"))ms_error(24, "nie zaladowano music.wav");
-    music.setVolume(10.f);
+
+    if (!music.openFromFile("sounds/music.wav"))ms_error(24, "nie zaladowano music.wav");
+    music.setVolume(20.f);
+
     music.play();
     sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("sounds\\sound.wav"))
+    if (!buffer.loadFromFile("sounds/sound.wav"))
         ms_error(22, "nie zaladowano dzwieku");
     sf::Sound sound;
     sound.setBuffer(buffer);
@@ -36,10 +38,12 @@ int main()
     {
         ms_error(26, "no kursor found", 1);
     }
-
     sf::Sprite Kursor;
     Kursor.setTexture(kursor);
     Kursor.setScale(0.1f, 0.1f);
+
+
+
 
 
 
@@ -48,7 +52,7 @@ int main()
     sf::Texture Background;
     if (!Background.loadFromFile("img/dupa.png"))
     {
-
+        ms_error(54, "nie zaladowano img/dupa.png pola");
     }
     sf::Font font;
     if (!font.loadFromFile("fonts/arial.ttf"))
@@ -79,6 +83,10 @@ int main()
         baseY-=1;
         basex-=1;
         basey+=1;
+        background_fields[basex][basey].setTexture(Background);
+        background_fields[baseX][baseY].setTexture(Background);
+        background_fields[baseX][baseY].setColor(sf::Color::Cyan);
+        background_fields[basex][basey].setColor(sf::Color::Cyan);
     }
 
     for(int i = 0; i < 17; i ++)
@@ -86,13 +94,16 @@ int main()
             for(int j = 0; j < 34; j ++)
             {
                 background_fields[i][j].setScale(0.222f, 0.222f);
-                if(front_fields[i*34+j].name!="notexist")background_fields[i][j].setTexture(Background);
+                sf::Color a= background_fields[i][j].getColor();
+                if(front_fields[i*34+j].name!="notexist"&&a!=sf::Color::Cyan)background_fields[i][j].setTexture(Background);
 
-                else background_fields[i][j].setTexture(texture_notexist);
+                //else background_fields[i][j].setTexture(texture_notexist);
             }
         }
     while (window.isOpen())
     {
+        Kursor.setTexture(kursor);
+        Kursor.setScale(0.1f, 0.1f);
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -101,6 +112,7 @@ int main()
                 case sf::Event::Closed:
                     window.close();
                     music.stop();
+                    return 0;
                     break;
                 case sf::Event::Resized:
                     ResizeView(window, view);
@@ -111,7 +123,13 @@ int main()
                         isMenu=1;
                         isSaving=0;
                     }else if(event.key.code == sf::Keyboard::Escape)isMenu=1;
-
+                    else if(event.key.code == sf::Keyboard::S&&isSaving){
+                        isMenu=1;
+                        isSaving=0;
+                    }else if(event.key.code == sf::Keyboard::S&&!isSaving){
+                        isSaving=1;
+                        isMenu=0;
+                    }
                 break;
             }
 
@@ -135,6 +153,7 @@ int main()
             front_fields[basex*34+basey].name="notexist";
             front_fields[basex*34+basey].owner=0;
             algorytmBase();
+
 
 
             oldTura=nrTura;
@@ -191,7 +210,7 @@ int main()
 
 
 //==============================Zabawa z myszka==========================================//
-        mouse_pressed = 0;
+       mouse_pressed = 0;
 
         mouse_position = sf::Mouse::getPosition(window);
         if(!isMenu&!isSaving){
@@ -199,9 +218,23 @@ int main()
             {
                 for(int j = 0; j < 34; j ++)
                 {
+                    if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                    {
+                        if(!click)background_fields[i][j].setColor(sf::Color::Magenta);
+                        else{
+
+                            if(front_fields[i*34+j].owner==opponentOwner&&canAttack(front_fields,figure_x,figure_y, i, j)){
+                                if(front_fields[figure_x*34+figure_y].name=="tower"){ if(!kursor.loadFromFile("img/kursorC.png")) ms_error(26, "no kursor found", 1);}
+                                else{ if (!kursor.loadFromFile("img/kursorF.png"))ms_error(216, "no kursor found", 1);}
+                            }else{
+
+                                if (!kursor.loadFromFile("img/kursor.png")) ms_error(26, "no kursor found", 1);
+                            }
 
 
-                    if((front_fields[i * board_size_y + j].name != "empty") && (front_fields[i * board_size_y + j].name != "notexist"))
+                        }
+                    }
+                    else if((front_fields[i * board_size_y + j].name != "empty"))
                     {
                         if(front_fields[i * board_size_y + j].owner == 1)
                         {
@@ -211,11 +244,16 @@ int main()
                         {
                             if(!click)background_fields[i][j].setColor(sf::Color::Blue);
                         }
-                    }
 
-                    if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
-                    {
-                        if(!click)background_fields[i][j].setColor(sf::Color::Magenta);
+                    }else if(!click){
+                        sf::Color a= background_fields[i][j].getColor();
+                        if(a!=sf::Color::Cyan)background_fields[i][j].setColor(sf::Color::White);
+
+
+
+                    background_fields[baseX][baseY].setColor(sf::Color::Cyan);
+                    background_fields[basex][basey].setColor(sf::Color::Cyan);
+
                     }
                 }
             }
@@ -249,8 +287,8 @@ int main()
                     {
                         if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                         {
-                            front_fields[i * board_size_y + j].name     = actual_name;
-                            front_fields[i * board_size_y + j].owner    = actual_owner;
+                            front_fields[i * board_size_y + j].name = actual_name;
+                            front_fields[i * board_size_y + j].owner = actual_owner;
                             i = 16;
                             j = 33;
                         }
@@ -269,16 +307,23 @@ int main()
                             {
                                 figure_x = i;
                                 figure_y = j;
-                                if(front_fields[figure_x * 34 + figure_y].name == "empty"||front_fields[figure_x * 34 + figure_y].owner != tura)
+                                if((front_fields[figure_x * 34 + figure_y].name == "empty"))
                                 {
                                     figure_x = 0;
                                     figure_y = 0;
                                 }else if(front_fields[figure_x*34+figure_y].owner==tura){
                                     click=1;
 
+                                    mouse_position = sf::Mouse::getPosition(window);
+                                    if(front_fields[figure_x*34+figure_y].owner==2)opponentOwner=1;
+                                    else if(front_fields[figure_x*34+figure_y].owner==1)opponentOwner=2;
                                     //======================================================[highLight]================================
                                     if(!highlight(figure_x, figure_y))ms_error(279, "cos poszlo nie tak z highlightem");
                                     //========================================highlight=========================================================
+                                }
+                                else{
+                                    figure_x=0;
+                                    figure_y=0;
                                 }
                             }
                         }
@@ -303,10 +348,14 @@ int main()
                                         nrTura++;
                                         sound.play();
                                         click=0;
+
+                                    }
+                                    if (!kursor.loadFromFile("img/kursor.png"))
+                                    {
+                                        ms_error(26, "no kursor found", 1);
                                     }
                                 }
                                 else ms_message("to nie twoja tura dzbanie");
-                                 click=0;
                                 figure_x = 0;
                                 figure_y = 0;
                             }
@@ -315,9 +364,11 @@ int main()
                 }
             }
         }
+
 //=======================Plansza menu==========================//
 
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+
             if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>110&&mouse_position.y<180){
                 isMenu=0;
             }else if(mouse_position.x>=230&mouse_position.x<=510&&mouse_position.y>215&&mouse_position.y<290){
@@ -326,10 +377,13 @@ int main()
             }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>320&&mouse_position.y<380){  //działa tylko z execa (wraca do menu){
                 window.close();
                 music.stop();
-                system("ara.exe");  //działa tylko z execa (wraca do menu
+                system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu
+                return 0;
             }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>430&&mouse_position.y<490){
                 music.stop();
+
                 window.close();
+                return 0;
 
 
 
@@ -342,6 +396,7 @@ int main()
             if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
                 if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>50&&mouse_position.y<120){
                     SaveGame(1, front_fields);
+                    std::cout<<"lolo\n";
                     isSaving=0;
                     isMenu=1;
                     sound.play();
@@ -408,8 +463,7 @@ int main()
 
         std::ostringstream ss;
         ss.clear();
-        if (time<10)ss << "Czas: " <<minute<<":0"<<time;
-        else ss << "Czas: " <<minute<<":"<<time;
+        (time<10)?ss << "Czas: " <<minute<<":0"<<time:ss << "Czas: " <<minute<<":"<<time;
 
 
 
@@ -435,7 +489,7 @@ int main()
         {
             seconds.restart();
         }
-        if(minute!=0&&minute%3==0&&time%34==0)music.play();
+        if(minute!=0&&minute%3==0)music.play();
         //window.draw(klik);
         window.draw(clock);
         window.draw(turn);
@@ -443,16 +497,6 @@ int main()
         Win.setTexture(winTexture);
         Win.setPosition(sf::Vector2f(0,0));
         window.draw(Win);
-
-        if(!click){
-                for(int i = 0; i < 17; i ++)
-                {
-                    for(int j = 0; j < 34; j ++)
-                    {
-                        background_fields[i][j].setColor(sf::Color::White);
-                    }
-                }
-        }
         view.setCenter(sf::Vector2f(360.0f, 360.0f));
         window.setView(view);
         if(isMenu)window.draw(Menu);
@@ -466,7 +510,7 @@ int main()
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
                     music.stop();
                     window.close();
-                    system("ara.exe");  //działa tylko z execa (wraca do menu)
+                    system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu)
                 }
         }
 

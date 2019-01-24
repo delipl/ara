@@ -1,4 +1,5 @@
     #include <math.h>
+    //#include <windows.h>
 
     #define board_size_y 34
     #define coIleTurMaSieZapadac 5
@@ -44,6 +45,7 @@
 
     bool isMenu=0;
     bool isSaving=0;
+    int opponentOwner;
 
 
 
@@ -97,7 +99,7 @@ void loadTexture(){
             system("PAUSE");
         }
 
-            if (!menu.loadFromFile("img\\menu.png"))
+            if (!menu.loadFromFile("img/menu.png"))
             {
                 ms_error(106, "nie zaladowano menu.png", true);
             }
@@ -106,7 +108,7 @@ void loadTexture(){
             Menu.setPosition(sf::Vector2f(0, 0));
             Menu.setScale(sf::Vector2f(1, 1));
 
-            if (!save.loadFromFile("img\\save.png"))
+            if (!save.loadFromFile("img/save.png"))
             {
                 ms_error(114, "nie zaladowano save.png", true);
             }
@@ -116,12 +118,12 @@ void loadTexture(){
             Save.setScale(sf::Vector2f(1, 1));
 
 }
-
 void ResizeView(const sf::RenderWindow& window, sf::View& view)
 {
     float aspectRatio = float(window.getSize().x/ float(window.getSize().y));
     view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
 }
+
 
 /*
 void consoleHiding(){
