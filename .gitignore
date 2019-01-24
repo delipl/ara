@@ -39,6 +39,7 @@ araMenu/ara.cpb
 # Folders 
 lib/
 Saves/
+saves/
 obj/
 bin/
 
