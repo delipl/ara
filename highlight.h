@@ -38,15 +38,16 @@ bool highlight(int x, int y){
                  for(int k = 0; k < 17; k++){
                     for (int l = 0; l< 34; l++){
                         //pokoloruj canMove na pustym polu
-                        if(CanMove(front_fields, x, y, k, l)
-                            && front_fields[k* 34 + l].name == "empty")
-                            background_fields[k][l].setColor(sf::Color::Green);
-                        //pokoloruj czerwonym na polu przeciwnika
-                        if(canAttack(front_fields, x, y, k, l)
-                            && front_fields[34*figure_x+y].owner !=  front_fields[k * 34 + l].owner
-                            && front_fields[k * 34 + l].owner != 0)
-                            background_fields[k][l].setColor(sf::Color::Red);
-
+                        if((k%2==0&&l%2==0)||k%2==1&&l%2==1){
+                            if(CanMove(front_fields, x, y, k, l)
+                                && front_fields[k* 34 + l].name == "empty")
+                                background_fields[k][l].setColor(sf::Color::Green);
+                            //pokoloruj czerwonym na polu przeciwnika
+                            if(canAttack(front_fields, x, y, k, l)
+                                && front_fields[34*figure_x+y].owner !=  front_fields[k * 34 + l].owner
+                                && front_fields[k * 34 + l].owner != 0)
+                                background_fields[k][l].setColor(sf::Color::Red);
+                        }
                     }
                 }
             //}

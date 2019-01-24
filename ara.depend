@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1548282369 source:c:\users\kivi\documents\ara\main.cpp
+1548284611 source:c:\users\kivi\documents\ara\main.cpp
 	<sstream>
 	"Figures.h"
 	"Header.h"
@@ -2542,7 +2542,7 @@
 	<cstdlib>
 	<string>
 
-1548272965 c:\users\kivi\documents\ara\pole.h
+1548284611 c:\users\kivi\documents\ara\pole.h
 	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 	"lib/SFML-2.5.1/include/SFML/Window.hpp"
 	"lib/SFML-2.5.1/include/SFML/Audio.hpp"
@@ -2551,7 +2551,7 @@
 1548263328 c:\users\kivi\documents\ara\messages.h
 	<iostream>
 
-1548282700 c:\users\kivi\documents\ara\header.h
+1548284611 c:\users\kivi\documents\ara\header.h
 	<math.h>
 	<windows.h>
 
@@ -2776,5 +2776,5 @@
 
 1548090552 c:\users\adamw\documents\ara\mapremoving.h
 
-1548264811 c:\users\kivi\documents\ara\highlight.h
+1548337698 c:\users\kivi\documents\ara\highlight.h
 
