@@ -47,6 +47,7 @@
 		<Linker>
 			<Add directory="lib/SFML-2.5.1/lib" />
 		</Linker>
+		<Unit filename="AI.h" />
 		<Unit filename="Figures.h" />
 		<Unit filename="Header.h" />
 		<Unit filename="Load_From_File.h" />
