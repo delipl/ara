@@ -19,7 +19,7 @@ void loadTexture()
 		ms_error(666, "Header.h", 1);
 		system("PAUSE");
 	}
-	if (!texture_pawn.loadFromFile("img/pawn.png"))
+	if (!texture_pawn.loadFromFile("img/GIFPaint.gif"))
 	{
 		ms_error(666, "Header.h", 1);
 		system("PAUSE");
