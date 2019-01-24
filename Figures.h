@@ -188,7 +188,6 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         return 1;
     }
 
-    //zagadka
     if(board[x][y].name=="mystery")
     {
         int d_x;
@@ -242,6 +241,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
 
+//============================trzeba bo AI klika gdzie chce xD========\\
 
     Pole board[17][34];
 
@@ -257,6 +257,8 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     int opponentOwner;
     tura==2?opponentOwner=1:opponentOwner=2;
     if(board[targetX][targetY].owner!=opponentOwner)return 0;
+
+//======================================================================\\
 
     if(wsk_to_board[x * 34 + y].name == "king")
     {

@@ -47,10 +47,16 @@
     bool isSaving=0;
     int opponentOwner;
 
+    //======do AI========\\
+
     int aiFX;
     int aiFY;
     int aiTX;
     int aiTY;
+
+    int pW;
+    int aiW;
+    //==================\\
 
 
 void loadTexture(){
