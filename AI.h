@@ -31,7 +31,6 @@ int zliczWartosciP(Pole *wsk_to_board){
     pW=0;
     for(int k = 0; k < 17; k++){
         for (int l = 0; l< 34; l++){
-            //pokoloruj canMove na pustym polu
             if(((k%2==0&&l%2==0)||k%2==1&&l%2==1)&&board[k*34+l].name!="notexist"){
                     if(board[k*34+l].owner==2) pW+=Wartosc(board[k*34+l].name);
             }
@@ -54,7 +53,6 @@ int zliczWartosciAI(Pole *wsk_to_board){
     aiW=0;
     for(int k = 0; k < 17; k++){
         for (int l = 0; l< 34; l++){
-            //pokoloruj canMove na pustym polu
             if(((k%2==0&&l%2==0)||k%2==1&&l%2==1)&&front_fields[k*34+l].name!="notexist"){
                     if(front_fields[k*34+l].owner==1) aiW+=Wartosc(front_fields[k*34+l].name);
             }
@@ -90,7 +88,6 @@ int AI(Pole *wsk_to_board){
 
                     if(board[k*34+l].owner==1){
 
-                        //dalej lec¹ tylko jedynki i guess
                         for(int i = 0; i < 17; i++){
 
                             for (int j = 0; j< 34; j++){
@@ -140,7 +137,6 @@ int AI(Pole *wsk_to_board){
 
                     if(board[k*34+l].owner==1){
 
-                        //dalej lec¹ tylko jedynki i guess
                         for(int i = 0; i < 17; i++){
 
                             for (int j = 0; j< 34; j++){
