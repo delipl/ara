@@ -359,6 +359,9 @@ int main()
                                             for(int i = 0; i < 17; i++){
 
                                                 for (int j = 0; j< 34; j++){
+                                                    frontFields();
+                                                    window.draw(front_fields[i*34+j]);
+                                                    window.draw(front_fields[i*34+j]);
 
                                                     if((front_fields[i * board_size_y + j].name != "empty"))
                                                     {
