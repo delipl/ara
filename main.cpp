@@ -350,8 +350,36 @@ int main()
                                             nrTura++;
                                             sound.play();
                                             click=0;
-                                            //std::cout<<"Dolny: "<<zliczWartosciP(front_fields)<<"\n";
-                                            //std::cout<<"Gorny: "<<zliczWartosciAI(front_fields)<<"\n\n";
+
+                                            front_fields[target_x*34+target_y].setTexture(*front_fields[figure_x*34+figure_y].getTexture());
+                                            front_fields[figure_x*34+figure_y].setTexture(texture_nothing);
+
+                                            window.draw(front_fields[target_x*34+target_y]);
+                                            window.draw(front_fields[figure_x*34+figure_y]);
+                                            for(int i = 0; i < 17; i++){
+
+                                                for (int j = 0; j< 34; j++){
+
+                                                    if((front_fields[i * board_size_y + j].name != "empty"))
+                                                    {
+                                                        if(front_fields[i * board_size_y + j].owner == 1)
+                                                        {
+                                                            background_fields[i][j].setColor(sf::Color::Yellow);
+                                                        }
+                                                        else
+                                                        {
+                                                            background_fields[i][j].setColor(sf::Color::Blue);
+                                                        }
+
+                                                    }else{
+                                                        sf::Color a= background_fields[i][j].getColor();
+                                                        if(a!=sf::Color::Cyan)background_fields[i][j].setColor(sf::Color::White);
+                                                    }
+
+
+
+                                                }
+                                            }
 
                                         }
                                         if (!kursor.loadFromFile("img/kursor.png"))
