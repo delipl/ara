@@ -104,18 +104,45 @@ bool highlight(int x, int y){
                     else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
                 }
 
-            }
-
-            else{// Tu dzia³a ale wolmo!!!!!!!!!!
-                 for(int k = 0; k < 17; k++){
-                    for (int l = 0; l< 34; l++){
-                        //pokoloruj canMove na pustym polu
-                        if(((k%2==0&&l%2==0)||k%2==1&&l%2==1)&&front_fields[k*34+l].name!="notexist"){
-                            if(canAttack(front_fields, x, y, k, l))background_fields[k][l].setColor(sf::Color::Red);
-                            else if(CanMove(front_fields, x, y, k, l))background_fields[k][l].setColor(sf::Color::Green);
-                        }
-                    }
+            }else if(front_fields[x* 34 + y].name == "mystery"){
+                int nx=x;
+                int ny=y;
+                while(nx<17&&ny<34){
+                    nx++;
+                    ny++;
+                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
+                    else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
                 }
+                nx=x;
+                ny=y;
+                while(nx>0&&ny>0){
+                    nx--;
+                    ny--;
+                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
+                    else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
+                }
+                nx=x;
+                ny=y;
+                while(nx<17&&ny>0){
+                    nx++;
+                    ny--;
+                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
+                    else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
+                }
+                nx=x;
+                ny=y;
+                while(nx>0&&ny<34){
+                    nx--;
+                    ny++;
+                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
+                    else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
+                }
+                for(int i=0; i<34; i++){
+                    if(canAttack(front_fields, x, y, x, i))background_fields[x][i].setColor(sf::Color::Red);
+                    else if(CanMove(front_fields, x, y,x, i))background_fields[x][i].setColor(sf::Color::Green);
+                }
+
+
             }
     return 1;
 }
