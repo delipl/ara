@@ -61,6 +61,17 @@ int zliczWartosciAI(Pole *wsk_to_board){
     return aiW;
 }
 
+void wroc(Pole *wsk_to_board){
+    for(int i = 0; i < 17; i ++)
+    {
+        for(int j = 0; j < 34; j ++)
+        {
+            if((i%2==0&&j%2==0)||i%2==1&&j%2==1)
+            front_fields[i*34+j] = wsk_to_board[i * 34 + j];
+        }
+    }
+}
+
 
 int AI(Pole *wsk_to_board){
 
@@ -76,9 +87,11 @@ int AI(Pole *wsk_to_board){
     }
     int actualWartoscP=zliczWartosciP(front_fields);
     std::cout<<"WartoscP: "<<actualWartoscP<<"\n";
-    int actualWartoscAI=zliczWartosciAI(board);
+    int actualWartoscAI=zliczWartosciAI(front_fields);
     int newWartoscP;
     int newWartoscAI;
+    int bestWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
+    int nBestWartosc;
     bool a=0;
 
 
@@ -100,32 +113,29 @@ int AI(Pole *wsk_to_board){
                                 if((i%2==j%2)&&board[i*34+j].name!="notexist"){
 
 
-                                    if(canAttack(board, k, l, i, j)){
-
-                                        actualWartoscP=zliczWartosciP(front_fields);
-                                        std::cout<<"WartoscP: "<<actualWartoscP<<"\n";
+                                    if(canAttack(board, k, l, i, j)||CanMove(board, k, l, i, j)){
 
                                         newWartoscP=actualWartoscP;
-                                        std::cout<<"NewWartoscP1: "<<newWartoscP<<"\n";
+                                        newWartoscAI=actualWartoscAI;
 
-
-                                        if(!Action(front_fields, k, l, i, j))ms_error(32, "co ewidentnie zle-pojscie");
+                                        nBestWartosc=newWartoscP-newWartoscAI;
+                                        //std::cout<<"Newbest1: "<<nBestWartosc<<"\n";
+                                        if(!Action(front_fields, k, l, i, j)){
+                                                ms_error(32, "co ewidentnie zle(pojscie w myslach)");
+                                                std::cout<<"Z: "<<k<<"x"<<l<<" na: "<<i<<"x"<<j<<"\n";
+                                        }
                                         newWartoscP=zliczWartosciP(front_fields);
                                         newWartoscAI=zliczWartosciAI(front_fields);
+                                        nBestWartosc=newWartoscAI-newWartoscP;
+                                        std::cout<<" Newbest: "<<nBestWartosc<<"\n";
+                                        std::cout<<" best: "<<bestWartosc<<"\n";
 
-                                        for(int i = 0; i < 17; i ++)
-                                        {
-                                            for(int j = 0; j < 34; j ++)
-                                            {
-                                                if((i%2==0&&j%2==0)||i%2==1&&j%2==1)
-                                                front_fields[i*34+j] = board[i * 34 + j];
-                                            }
-                                        }
+                                        wroc(board);
 
 
 
-                                        if(newWartoscP-newWartoscAI<actualWartoscP-newWartoscAI){
-
+                                        if(nBestWartosc>bestWartosc){
+                                            bestWartosc=nBestWartosc;
                                             newWartoscP=actualWartoscP;
                                             newWartoscAI=zliczWartosciAI(front_fields);
 
@@ -142,6 +152,7 @@ int AI(Pole *wsk_to_board){
 
 
 
+
                                 }
                             }
                         }
@@ -153,7 +164,8 @@ int AI(Pole *wsk_to_board){
 
             }
 
-        }if(!a){
+        }
+        if(!a){
             for(int k = 0; k < 17; k++){
 
                 for (int l = 0; l< 34; l++){
@@ -162,21 +174,50 @@ int AI(Pole *wsk_to_board){
 
                         if(board[k*34+l].owner==1){
 
+
                             for(int i = 0; i < 17; i++){
 
                                 for (int j = 0; j< 34; j++){
 
+
                                     if((i%2==j%2)&&board[i*34+j].name!="notexist"){
 
 
-                                        if(CanMove(board, k, l, i, j)){
+                                        if(canAttack(board, k, l, i, j)||CanMove(board, k, l, i, j)){
 
-                                            aiFX=k;
-                                            aiFY=l;
-                                            aiTX=i;
-                                            aiTY=j;
-                                            return 1;
+                                            newWartoscP=actualWartoscP;
+                                            newWartoscAI=actualWartoscAI;
+
+                                            nBestWartosc=newWartoscP-newWartoscAI;
+                                            //std::cout<<"Newbest1: "<<nBestWartosc<<"\n";
+                                            if(!Action(front_fields, k, l, i, j))ms_error(32, "co ewidentnie zle(pojscie w myslach)");
+                                            newWartoscP=zliczWartosciP(front_fields);
+                                            newWartoscAI=zliczWartosciAI(front_fields);
+                                            nBestWartosc=newWartoscAI-newWartoscP;
+                                            std::cout<<" Newbest: "<<nBestWartosc<<"\n";
+                                            std::cout<<" best: "<<bestWartosc<<"\n";
+
+                                            wroc(board);
+
+
+
+                                            if(nBestWartosc>=bestWartosc){
+                                                bestWartosc=nBestWartosc;
+                                                newWartoscP=actualWartoscP;
+                                                newWartoscAI=zliczWartosciAI(front_fields);
+
+                                                std::cout<<"jeste\n";
+                                                aiFX=k;
+                                                aiFY=l;
+                                                aiTX=i;
+                                                aiTY=j;
+                                                a=1;
+                                                return 1;
+
+                                            }
+
                                         }
+
 
 
 
@@ -192,7 +233,7 @@ int AI(Pole *wsk_to_board){
                 }
 
             }
-        }else return 1;
+        }
         std::cout<<"Poleglem!!!\n";
         return 0;
 

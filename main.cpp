@@ -398,8 +398,8 @@ int main()
                         }
                     }
                 }else{
-                    if(!AI(front_fields))ms_error(12, "nie zrobilem AI");
-                    if(!Action(front_fields, aiFX, aiFY, aiTX, aiTY))ms_error(11, "nie wykonalem akcji");
+                    if(!AI(front_fields));
+                    if(!Action(front_fields, aiFX, aiFY, aiTX, aiTY));
                     mouse_pressed=0;
                     if(tura == 1) tura = 2;
                     else tura = 1;
