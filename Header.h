@@ -55,9 +55,10 @@
     int aiTX;
     int aiTY;
 
-    int pW;
-    int aiW;
     //==================\\
+
+    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
+    sf::Sprite Kursor;
 
 
 

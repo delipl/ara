@@ -11,14 +11,13 @@ bool click=0;
 #include "highlight.h"
 #include "AI.h"
 
-bool ai=1;
+bool ai=0;
 
 
 
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
     window.setMouseCursorVisible(false);
     sf::Clock minutes;
@@ -39,7 +38,7 @@ int main()
     {
         ms_error(26, "no kursor found", 1);
     }
-    sf::Sprite Kursor;
+
     Kursor.setTexture(kursor);
     Kursor.setScale(0.1f, 0.1f);
 

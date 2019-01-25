@@ -396,6 +396,9 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
 void Attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
+
+
+
     if(wsk_to_board[x * 34 + y].name == "ghost")
     {
         Move(wsk_to_board, x, y, targetX, targetY);
@@ -428,6 +431,9 @@ void Attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
 bool Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
+    if(x==0&&y==0&&targetX==0&&targetY==0){
+        std::cout<<"nie podales wsp\n";
+    }
     int opponent_owner;
     (wsk_to_board[x * 34 + y].owner == 1)?opponent_owner = 2:opponent_owner = 1;
 

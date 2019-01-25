@@ -10,8 +10,19 @@
 
 bool highlight(int x, int y){
             //Pionek
-            /*
+
             if (front_fields[x* 34 + y].name == "pawn"){
+                 if(x==0){
+                    for(int k = x; k <= x+1; k++){
+                        for (int l = y-4; l<= y+4; l++){
+                            if(canAttack(front_fields, x, y, k, l))background_fields[k][l].setColor(sf::Color::Red);
+                            else if(CanMove(front_fields, x, y, k, l))background_fields[k][l].setColor(sf::Color::Green);
+
+                        }
+                    }
+                 }
+
+
                     int a;
                     int b;
                     if(x<4||x>16){
@@ -23,15 +34,10 @@ bool highlight(int x, int y){
                     for(int k = x-1; k <= x+1; k++){
                         for (int l = y-4; l<= y+4; l++){
 
-                            if(CanMove(front_fields, x, y, k, l)
-                            && front_fields[k* 34 + l].name == "empty")
-                            background_fields[k][l].setColor(sf::Color::Green);
-                             if(canAttack(front_fields, x, y, k, l)
-                                && front_fields[34*figure_x+y].owner !=  front_fields[k * 34 + l].owner
-                                && front_fields[k * 34 + l].owner != 0)
-                                background_fields[k][l].setColor(sf::Color::Red);
+                            if(canAttack(front_fields, x, y, k, l))background_fields[k][l].setColor(sf::Color::Red);
+                            else if(CanMove(front_fields, x, y, k, l))background_fields[k][l].setColor(sf::Color::Green);
                         }
-                }
+                    }
             }
 
             else{// Tu dzia³a ale wolmo!!!!!!!!!!*/
@@ -39,17 +45,11 @@ bool highlight(int x, int y){
                     for (int l = 0; l< 34; l++){
                         //pokoloruj canMove na pustym polu
                         if(((k%2==0&&l%2==0)||k%2==1&&l%2==1)&&front_fields[k*34+l].name!="notexist"){
-                            if(CanMove(front_fields, x, y, k, l)
-                                && front_fields[k* 34 + l].name == "empty")
-                                background_fields[k][l].setColor(sf::Color::Green);
-                            //pokoloruj czerwonym na polu przeciwnika
-                            if(canAttack(front_fields, x, y, k, l)
-                                && front_fields[34*figure_x+y].owner !=  front_fields[k * 34 + l].owner
-                                && front_fields[k * 34 + l].owner != 0)
-                                background_fields[k][l].setColor(sf::Color::Red);
+                            if(canAttack(front_fields, x, y, k, l))background_fields[k][l].setColor(sf::Color::Red);
+                            else if(CanMove(front_fields, x, y, k, l))background_fields[k][l].setColor(sf::Color::Green);
                         }
                     }
                 }
-            //}
+            }
     return 1;
 }
