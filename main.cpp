@@ -397,7 +397,7 @@ int main()
                             }
                         }
                     }
-                }else{
+                }else if(!win){
                     if(!AI(front_fields));
                     if(!Action(front_fields, aiFX, aiFY, aiTX, aiTY));
                     mouse_pressed=0;

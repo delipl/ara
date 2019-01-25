@@ -102,7 +102,7 @@ int AI(Pole *wsk_to_board){
 
                 if((k%2==l%2)&&board[k*34+l].name!="notexist"){
 
-                    if(board[k*34+l].owner==1){
+                    if(front_fields[k*34+l].owner==1){
 
 
                         for(int i = 0; i < 17; i++){
@@ -110,7 +110,7 @@ int AI(Pole *wsk_to_board){
                             for (int j = 0; j< 34; j++){
 
 
-                                if((i%2==j%2)&&board[i*34+j].name!="notexist"){
+                                if((i%2==j%2)&&front_fields[i*34+j].name!="notexist"){
 
 
                                     if(canAttack(board, k, l, i, j)||CanMove(board, k, l, i, j)){
@@ -124,6 +124,24 @@ int AI(Pole *wsk_to_board){
                                                 ms_error(32, "co ewidentnie zle(pojscie w myslach)");
                                                 std::cout<<"Z: "<<k<<"x"<<l<<" na: "<<i<<"x"<<j<<"\n";
                                         }
+                                        for(int m = 0; m < 17; m++){
+                                            for (int n = 0; n< 34; n++){
+
+                                                if((m%2==n%2)&&board[m*34+n].name!="notexist"){
+
+                                                    if(front_fields[m*34+n].owner==2){
+                                                            //std::cout<<"Znalazlem pionka przeciwnika w tym wypadku: "<<front_fields[m*34+n].name<<"\n";
+                                                            if(front_fields[m*34+n].name!="cav"){
+                                                                if(canAttack(front_fields, m, n, i, j)||CanMove(front_fields, m, n, i, j)){
+                                                                   if(!Action(front_fields, m, n, i, j))ms_message("lolo");
+                                                                }
+                                                            }
+                                                    }
+                                                }
+                                             }
+                                        }
+
+
                                         newWartoscP=zliczWartosciP(front_fields);
                                         newWartoscAI=zliczWartosciAI(front_fields);
                                         nBestWartosc=newWartoscAI-newWartoscP;

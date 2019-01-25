@@ -148,6 +148,7 @@ bool CanMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     //kawaleria
     if(board[x][y].name=="cav")
     {
+        if(board[targetX][targetY].name!="empty")return 0;
         int d_x;
         int d_y;
         if(targetX > x) d_x = 1;
