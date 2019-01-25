@@ -78,6 +78,8 @@ int AI(Pole *wsk_to_board){
     std::cout<<"WartoscP: "<<actualWartoscP<<"\n";
     int actualWartoscAI=zliczWartosciAI(board);
     int newWartoscP;
+    bool a=0;
+
 
         std::cout<<"teraz ruszam sie ja!!!\n";
         for(int k = 0; k < 17; k++){
@@ -88,6 +90,7 @@ int AI(Pole *wsk_to_board){
 
                     if(board[k*34+l].owner==1){
 
+
                         for(int i = 0; i < 17; i++){
 
                             for (int j = 0; j< 34; j++){
@@ -96,23 +99,40 @@ int AI(Pole *wsk_to_board){
 
 
                                     if(canAttack(board, k, l, i, j)){
+                                        actualWartoscP=zliczWartosciP(front_fields);
+                                        std::cout<<"WartoscP: "<<actualWartoscP<<"\n";
+
                                         newWartoscP=actualWartoscP;
-                                        Action(board, k, l, i, j);
-                                        newWartoscP=zliczWartosciP(board);
-                                        std::cout<<"ActalWartoscP: "<<actualWartoscP<<"\n";
-                                        std::cout<<"NewWartoscP: "<<newWartoscP<<"\n\n";
+                                        std::cout<<"NewWartoscP1: "<<newWartoscP<<"\n";
+
+
+                                        if(!Action(front_fields, k, l, i, j))ms_error(32, "co ewidentnie zle-pojscie");
+                                        newWartoscP=zliczWartosciP(front_fields);
+
+                                        for(int i = 0; i < 17; i ++)
+                                        {
+                                            for(int j = 0; j < 34; j ++)
+                                            {
+                                                if((i%2==0&&j%2==0)||i%2==1&&j%2==1)
+                                                front_fields[i*34+j] = board[i * 34 + j];
+                                            }
+                                        }
+
+
 
                                         if(newWartoscP<actualWartoscP){
+
+                                            newWartoscP=actualWartoscP;
+
                                             std::cout<<"jeste\n";
                                             aiFX=k;
                                             aiFY=l;
                                             aiTX=i;
                                             aiTY=j;
-                                            return 1;
+                                            a=1;
 
-                                        }else{
-                                            Action(board, i, j, k, l);
                                         }
+
                                     }
 
 
@@ -128,46 +148,46 @@ int AI(Pole *wsk_to_board){
 
             }
 
-        }
-        for(int k = 0; k < 17; k++){
+        }if(!a){
+            for(int k = 0; k < 17; k++){
 
-            for (int l = 0; l< 34; l++){
+                for (int l = 0; l< 34; l++){
 
-                if((k%2==l%2)&&board[k*34+l].name!="notexist"){
+                    if((k%2==l%2)&&board[k*34+l].name!="notexist"){
 
-                    if(board[k*34+l].owner==1){
+                        if(board[k*34+l].owner==1){
 
-                        for(int i = 0; i < 17; i++){
+                            for(int i = 0; i < 17; i++){
 
-                            for (int j = 0; j< 34; j++){
+                                for (int j = 0; j< 34; j++){
 
-                                if((i%2==j%2)&&board[i*34+j].name!="notexist"){
+                                    if((i%2==j%2)&&board[i*34+j].name!="notexist"){
 
 
-                                    if(CanMove(board, k, l, i, j)){
+                                        if(CanMove(board, k, l, i, j)){
 
-                                        aiFX=k;
-                                        aiFY=l;
-                                        aiTX=i;
-                                        aiTY=j;
-                                        return 1;
+                                            aiFX=k;
+                                            aiFY=l;
+                                            aiTX=i;
+                                            aiTY=j;
+                                            return 1;
+                                        }
+
+
+
                                     }
-
-
-
                                 }
                             }
-                        }
 
+
+                        }
 
                     }
 
                 }
 
             }
-
         }
-
         std::cout<<"Poleglem!!!\n";
         return 0;
 

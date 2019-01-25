@@ -350,6 +350,8 @@ int main()
                                             nrTura++;
                                             sound.play();
                                             click=0;
+                                            //std::cout<<"Dolny: "<<zliczWartosciP(front_fields)<<"\n";
+                                            //std::cout<<"Gorny: "<<zliczWartosciAI(front_fields)<<"\n\n";
 
                                         }
                                         if (!kursor.loadFromFile("img/kursor.png"))
