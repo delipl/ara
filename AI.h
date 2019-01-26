@@ -1,3 +1,9 @@
+struct ruch{
+        int x;
+        int y;
+        int tx;
+        int ty;
+};
 
 
 int Wartosc(std::string a){
@@ -72,9 +78,8 @@ void wroc(Pole *wsk_to_board){
     }
 }
 
-
-int AI(Pole *wsk_to_board){
-
+ruch znajdzRuch(Pole *wsk_to_board, int player){
+    ruch Ruch;
     Pole board[17*34+34];
 
     for(int i = 0; i < 17; i ++)
@@ -92,13 +97,11 @@ int AI(Pole *wsk_to_board){
     int actualWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
     int bestWartosc=0;
     int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
-
-    std::cout<<"teraz ruszam sie ja!!!\n";
     for(int x = 0; x < 17; x++){
 
         for (int y = 0; y< 34; y++){
 
-            if((x%2==y%2)&&board[x*34+y].name!="notexist"){
+            if((x%2==y%2)&&front_fields[x*34+y].name!="notexist"){
 
                 if(front_fields[x*34+y].owner==1){
 
@@ -109,6 +112,17 @@ int AI(Pole *wsk_to_board){
 
                                                 if(canAttack(front_fields, x, y, x, l)||(CanMove(front_fields, x, y, x, l)))
                                                     Action(front_fields, x, y, x, l);
+                                                    int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
+                                                    if(newWartosc>=bestWartosc){
+                                                        bestWartosc=newWartosc;
+                                                        Ruch.x=x;
+                                                        Ruch.y=y;
+                                                        Ruch.tx=x;
+                                                        Ruch.ty=l;
+                                                        r=1;
+
+                                                    }
+                                                    wroc(board);
 
                                         }
                                     }
@@ -287,11 +301,23 @@ int AI(Pole *wsk_to_board){
         }
     }
     if(!r){
-        aiFX=0;
-        aiFY=0;
-        aiTX=0;
-        aiTY=0;
+        Ruch.x=0;
+        Ruch.y=0;
+        Ruch.tx=0;
+        Ruch.ty=0;
     }
+    return Ruch;
+}
 
+
+int AI(Pole *wsk_to_board){
+
+    std::cout<<"teraz ruszam sie ja!!!\n";
+    ruch bestRuch=znajdzRuch(front_fields, 1);
+
+    aiFX=bestRuch.x;
+    aiFY=bestRuch.y;
+    aiTX=bestRuch.tx;
+    aiTY=bestRuch.ty;
 }
 
