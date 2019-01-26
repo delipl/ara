@@ -398,6 +398,7 @@ int main()
                     }
                 }else if(!win){
                     if(!AI(front_fields));
+                    std::cout<<"doszlem\n";
                     if(!Action(front_fields, aiFX, aiFY, aiTX, aiTY));
                     mouse_pressed=0;
                     if(tura == 1) tura = 2;

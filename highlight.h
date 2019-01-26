@@ -118,6 +118,36 @@ bool highlight(int x, int y){
                 int nx=x+1;
                 int ny=y+1;
                 while(nx<=16&&ny<=33){
+                    if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
+                    nx++;
+                    ny++;
+                }
+                nx=x-1;
+                ny=y-1;
+                while(nx>=0&&ny>=0){
+                    if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
+                    nx--;
+                    ny--;
+                }
+                nx=x+1;
+                ny=y-1;
+                while(nx<=16&&ny>=0){
+                    if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
+                    nx++;
+                    ny--;
+                }
+                nx=x-1;
+                ny=y+1;
+                while(nx>=0&&ny<=33){
+                    if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
+                    nx--;
+                    ny++;
+                }
+
+            }else if(front_fields[x* 34 + y].name == "mystery"){
+                int nx=x+1;
+                int ny=y+1;
+                while(nx<17&&ny<34){
                     if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
                     else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
                     nx++;
@@ -133,7 +163,7 @@ bool highlight(int x, int y){
                 }
                 nx=x+1;
                 ny=y-1;
-                while(nx<=16&&ny>=0){
+                while(nx<17&&ny>=0){
                     if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
                     else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
                     nx++;
@@ -141,45 +171,11 @@ bool highlight(int x, int y){
                 }
                 nx=x-1;
                 ny=y+1;
-                while(nx>=0&&ny<=33){
+                while(nx>=0&&ny<34){
                     if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
                     else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
                     nx--;
                     ny++;
-                }
-
-            }else if(front_fields[x* 34 + y].name == "mystery"){
-                int nx=x;
-                int ny=y;
-                while(nx<17&&ny<34){
-                    nx++;
-                    ny++;
-                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
-                    else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
-                }
-                nx=x;
-                ny=y;
-                while(nx>0&&ny>0){
-                    nx--;
-                    ny--;
-                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
-                    else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
-                }
-                nx=x;
-                ny=y;
-                while(nx<17&&ny>0){
-                    nx++;
-                    ny--;
-                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
-                    else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
-                }
-                nx=x;
-                ny=y;
-                while(nx>0&&ny<34){
-                    nx--;
-                    ny++;
-                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
-                    else if(CanMove(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Green);
                 }
                 for(int i=0; i<34; i++){
                     if(canAttack(front_fields, x, y, x, i))background_fields[x][i].setColor(sf::Color::Red);
