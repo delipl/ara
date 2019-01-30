@@ -3,8 +3,8 @@
 bool click=0;
 
 #include <sstream>
-#include "Figures.h"
-#include "Header.h"
+#include "figures.h"
+#include "header.h"
 #include "fields.h"
 #include "mapRemoving.h"
 #include <math.h>
