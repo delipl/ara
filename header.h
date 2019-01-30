@@ -26,6 +26,12 @@
 
     //HWND hWnd = GetConsoleWindow();
 
+    //----------[super zmienne]---------------
+        std::string empty = "empty";
+
+
+    //----------------------------------------
+
     int figure_x = 0;
     int figure_y = 0;
     int target_x = 0;

@@ -220,7 +220,7 @@ int main()
                 {
                     if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                     {
-                        if(!click)background_fields[i][j].setColor(sf::Color::Magenta);
+                        if(!click)background_fields[i][j].setColor(sf::Color(255, 255, 255, 255));
                         else{
 
                             if(front_fields[i*34+j].owner==opponentOwner&&canAttack(front_fields,figure_x,figure_y, i, j)){
@@ -247,7 +247,7 @@ int main()
 
                     }else if(!click){
                         sf::Color a= background_fields[i][j].getColor();
-                        if(a!=sf::Color::Cyan)background_fields[i][j].setColor(sf::Color::White);
+                        if(a!=sf::Color::Cyan)background_fields[i][j].setColor(sf::Color(200, 200, 200));
 
 
 
@@ -315,8 +315,7 @@ int main()
                                     click=1;
 
                                     mouse_position = sf::Mouse::getPosition(window);
-                                    if(front_fields[figure_x*34+figure_y].owner==2)opponentOwner=1;
-                                    else if(front_fields[figure_x*34+figure_y].owner==1)opponentOwner=2;
+                                    (front_fields[figure_x* 34 + figure_y].owner == 1)?opponentOwner = 2:opponentOwner = 1;
                                     //======================================================[highLight]================================
                                     if(!highlight(figure_x, figure_y))ms_error(279, "cos poszlo nie tak z highlightem");
                                     //========================================highlight=========================================================
@@ -341,7 +340,7 @@ int main()
                                 target_y = j;
                                 if(front_fields[34*figure_x+figure_y].owner == tura)
                                 {
-                                    if(Action(front_fields, figure_x, figure_y, target_x, target_y))
+                                    if(action(front_fields, figure_x, figure_y, target_x, target_y))
                                     {
                                         if(tura == 1) tura = 2;
                                         else tura = 1;
@@ -365,7 +364,7 @@ int main()
             }
         }
 
-//=======================Plansza menu==========================//
+        //=======================Plansza menu==========================//
 
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
 
