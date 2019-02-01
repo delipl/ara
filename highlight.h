@@ -82,7 +82,7 @@ bool highlight(int x, int y){
         }
     }
 
-    //wieza
+    /*//wieza
     else if(front_fields[x* 34 + y].name == "tower"){
         for(int k = x-2; k <= x+2; k++){
             for (int l = y-4; l <= y+4; l++){
@@ -140,7 +140,52 @@ bool highlight(int x, int y){
                         background_fields[x][i].setColor(sf::Color::Red);
             }
         }
-    }
+    }*/
+
+    //wieza
+            else if(front_fields[x* 34 + y].name == "tower"){
+                for(int k = x-2; k <= x+2; k++){
+                    for (int l = y-4; l <= y+4; l++){
+                        if(k>-1&&k<17&&l>=0&&l<34){
+                            if(canMove(front_fields, x, y, k, l))background_fields[k][l].setColor(sf::Color::Green);
+                        }
+                    }
+                int nx=x+2;
+                int ny=y+2;
+                while(nx<17&&ny<34&&nx<x+4){
+                    nx++;
+                    ny++;
+                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
+                }
+                nx=x-2;
+                ny=y-2;
+                while(nx>0&&ny>0&&nx>x-4){
+                    nx--;
+                    ny--;
+                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
+                }
+                nx=x+2;
+                ny=y-2;
+                while(nx<17&&ny>0&&nx<x+4){
+                    nx++;
+                    ny--;
+                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
+                }
+                nx=x-2;
+                ny=y+2;
+                while(nx>0&&ny<34&&nx>x-4){
+                    nx--;
+                    ny++;
+                    if(canAttack(front_fields, x, y, nx, ny))background_fields[nx][ny].setColor(sf::Color::Red);
+                }
+                for(int i=y+6; i<=y+8; i+=2){
+                    if(canAttack(front_fields, x, y, x, i))background_fields[x][i].setColor(sf::Color::Red);
+                }
+                for(int i=y-8; i<=y-6; i+=2){
+                    if(canAttack(front_fields, x, y, x, i))background_fields[x][i].setColor(sf::Color::Red);
+                }
+                }
+            }
 
     //szarza
     else if(front_fields[x* 34 + y].name == "charge"){
