@@ -105,4 +105,42 @@ void loadMenuTexture(){
     Save.setScale(sf::Vector2f(1, 1));
 }
 
-void setFigureTexture()
+void setFigureTexture(Pole *field){ // cos tu jest nie tak...
+
+    if(*field.name == "pawn")
+    {
+        *field.setTexture(texture_pawn);
+    }
+    else if(*field.name == "tower")
+    {
+        *field.setTexture(texture_tower);
+    }
+    else if(*field.name == "ghost")
+    {
+        *field.setTexture(texture_ghost);
+    }
+    else if(*field.name == "cav")
+    {
+        *field.setTexture(texture_cav);
+    }
+    else if(*field.name == "king")
+    {
+        *field.setTexture(texture_king);
+    }
+    else if(*field.name == "mystery")
+    {
+        *field.setTexture(texture_mystery);
+    }
+    else if(*field.name == "charge")
+    {
+        *field.setTexture(texture_charge);
+    }
+    else if(*field.name == "notexist")
+    {
+        *field.setTexture(texture_notexist);
+    }
+    else if(*field.name == "empty")
+    {
+        *field.setTexture(texture_nothing);
+    }
+}

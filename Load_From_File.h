@@ -150,48 +150,10 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         {
             fields[figure_x * board_size_y + figure_y].owner = figure_owner;  // stawiam pionka
             fields[figure_x * board_size_y + figure_y].name = figure_name;    // stawiam pionka
-
+            setFigureTexture(&fields[figure_x * board_size_y + figure_y]);
+            fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(0.2f, 0.2f));
         }
-
-        /*
-        if(fields[figure_x * board_size_y + figure_y].name == "pawn")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_pawn);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "tower")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_tower);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "ghost")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_ghost);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "cav")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_cav);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "king")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_king);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "mystery")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_mystery);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "charge")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_charge);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "notexist")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_notexist);
-        }
-        fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(0.2f, 0.2f));
-        */
-
-        // Mam textury i pozycje i skale
     }
-    //std::cout<<"jest ok!\n";
 
     file.close();
     return returning;

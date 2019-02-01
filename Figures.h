@@ -308,15 +308,6 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
 void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
-    /*
-    sf::Texture Background;
-    if (!Background.loadFromFile("img/dupa.png"))
-    {
-        ms_error(392, "Figures/Move/something wrong with file dupa.png");
-        return;
-    }
-    */
-
     if((wsk_to_board[x * 34 + y].name == "cav") || (wsk_to_board[x * 34 + y].name == "charge"))
     {
         Pole board[17][34];
@@ -396,9 +387,6 @@ void Move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
 void Attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
-
-
-
     if(wsk_to_board[x * 34 + y].name == "ghost")
     {
         Move(wsk_to_board, x, y, targetX, targetY);
