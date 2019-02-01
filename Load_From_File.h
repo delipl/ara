@@ -1,5 +1,5 @@
 // ###Te biblioteki trzeb bedzie dolaczyc do ostatecznej wersji
-#include "pole.h"
+#include "textures.h"
 #include <fstream>
 #include <cstdlib>
 #include <string>
@@ -32,58 +32,6 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     int board_size_y = 34;
     std::string names[8] = {"pawn", "ghost", "tower", "cav", "mystery", "charge", "king", "notexist"};
     int returning = 0;
-
-    /*
-    sf::Texture texture_pawn;
-    sf::Texture texture_ghost;
-    sf::Texture texture_cav;
-    sf::Texture texture_king;
-    sf::Texture texture_tower;
-    sf::Texture texture_charge;
-    sf::Texture texture_mystery;
-    sf::Texture texture_notexist;
-    if (!texture_pawn.loadFromFile("img/pawn.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_ghost.loadFromFile("img/ghost.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_cav.loadFromFile("img/cav.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_king.loadFromFile("img/king.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_tower.loadFromFile("img/tower.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_charge.loadFromFile("img/charge.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_mystery.loadFromFile("img/mystery.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_notexist.loadFromFile("img/notexist.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }*/
-
-    //Mam wszystkie textury
 
     std::fstream file;  // plik
     std::string line;

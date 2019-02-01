@@ -13,9 +13,6 @@ bool click=0;
 
 bool ai=0;
 
-
-
-
 int main()
 {
     sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
@@ -49,19 +46,9 @@ int main()
 
 
 //=================================T£O================================================//
-    sf::Texture Background;
-    if (!Background.loadFromFile("img/dupa.png"))
-    {
 
-    }
-    sf::Font font;
-    if (!font.loadFromFile("fonts/arial.ttf"))
-    {
-        ms_error(54, "nie zaladowano czcionki");
-    }
-
-
-    loadTexture();
+    loadFigureTexture();
+    loadMenuTexture();
 
     backgroundFields();
 

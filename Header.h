@@ -4,22 +4,6 @@
     #define board_size_y 34
     #define coIleTurMaSieZapadac 5
 
-    sf::Texture Background;
-    sf::Texture texture_pawn;
-    sf::Texture texture_ghost;
-    sf::Texture texture_cav;
-    sf::Texture texture_king;
-    sf::Texture texture_tower;
-    sf::Texture texture_charge;
-    sf::Texture texture_mystery;
-    sf::Texture texture_notexist;
-    sf::Texture texture_nothing;
-    sf::Texture menu;
-    sf::Texture save;
-
-    sf::Sprite Menu;
-    sf::Sprite Save;
-
     Pole background_fields[17][34];
     Pole *front_fields;
 
