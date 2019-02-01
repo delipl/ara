@@ -241,8 +241,6 @@ bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
 bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
-<<<<<<< HEAD:Figures.h
-
 //============================trzeba bo AI klika gdzie chce xD========\\
 
     Pole board[17][34];
@@ -264,7 +262,7 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 =======
     //sprawdz w ogole czy jest przeciwnik xD
     //if(wsk_to_board[x * 34 + y].owner == wsk_to_board[targetX * 34 + targetY].owner && wsk_to_board[targetX * 34 + targetY].owner != 0) return 0;
->>>>>>> toKivi:figures.h
+
 
     if(wsk_to_board[x * 34 + y].name == "king")
     {

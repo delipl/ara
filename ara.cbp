@@ -48,10 +48,10 @@
 			<Add directory="lib/SFML-2.5.1/lib" />
 		</Linker>
 		<Unit filename="AI.h" />
-		<Unit filename="Figures.h" />
-		<Unit filename="Header.h" />
-		<Unit filename="Load_From_File.h" />
-		<Unit filename="Messages.h" />
+		<Unit filename="figures.h" />
+		<Unit filename="header.h" />
+		<Unit filename="loadFromFile.h" />
+		<Unit filename="messages.h" />
 		<Unit filename="fields.h" />
 		<Unit filename="highlight.h" />
 		<Unit filename="main.cpp" />
