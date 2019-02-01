@@ -125,8 +125,8 @@ int main()
                 music.stop();
                 saveToFile(0);
                 window.close();
-                //system("..\\..\\..\\bin\\Debug\\ara.exe");
-                system("./sfml-app.o");
+                system("..\\..\\..\\bin\\Debug\\ara.exe");
+                //system("./sfml-app.o");
 
             }else if (mouse_position.x>=300&&mouse_position.x<707&&mouse_position.y>358&&mouse_position.y<473){
                 sound.play();
@@ -192,8 +192,8 @@ int main()
                        saveToFile(5);
                        music.stop();
                        window.close();
-                       //system("..\\..\\..\\bin\\Debug\\ara.exe");
-                       system("./sfml-app.o");
+                       system("..\\..\\..\\bin\\Debug\\ara.exe");
+                       //system("./sfml-app.o");
                     }
                 }
             }

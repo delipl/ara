@@ -426,8 +426,8 @@ int main()
             }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>320&&mouse_position.y<380){  //działa tylko z execa (wraca do menu){
                 window.close();
                 music.stop();
-                system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu
-                //system("ara.exe");  //działa tylko z execa (wraca do menu
+                //system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu
+                system("ara.exe");  //działa tylko z execa (wraca do menu
                 return 0;
             }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>430&&mouse_position.y<490){
                 music.stop();
@@ -560,8 +560,8 @@ int main()
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
                     music.stop();
                     window.close();
-                    //system("ara.exe");  //działa tylko z execa (wraca do menu
-                    system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu)
+                    system("ara.exe");  //działa tylko z execa (wraca do menu
+                    //system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu)
                 }
         }
 
