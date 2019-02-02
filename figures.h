@@ -120,6 +120,7 @@ bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
     if(board[x][y].name=="pawn")
     {
+        if(board[targetX][targetY].name!="empty")return 0;
         int a;
         if(board[x][y].owner==1) a = 1;
         else a = -1;
