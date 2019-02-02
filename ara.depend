@@ -2088,21 +2088,21 @@
 1548092032 c:\users\adamw\documents\ara\header.h
 	<math.h>
 
-1549061666 source:c:\users\pawe許dane z pulpitu\programowanie\github\ara\main.cpp
+1549112055 source:c:\users\pawe許dane z pulpitu\programowanie\github\ara\main.cpp
 	<sstream>
-	"Figures.h"
-	"Header.h"
+	"figures.h"
+	"header.h"
 	"fields.h"
 	"mapRemoving.h"
 	<math.h>
 	"highlight.h"
 	"AI.h"
 
-1549060292 c:\users\pawe許dane z pulpitu\programowanie\github\ara\figures.h
-	"Load_From_File.h"
+1549106513 c:\users\pawe許dane z pulpitu\programowanie\github\ara\figures.h
+	"loadFromFile.h"
 
-1549061831 c:\users\pawe許dane z pulpitu\programowanie\github\ara\load_from_file.h
-	"textures.h"
+1547815620 c:\users\pawe許dane z pulpitu\programowanie\github\ara\load_from_file.h
+	"pole.h"
 	<fstream>
 	<cstdlib>
 	<string>
@@ -2522,7 +2522,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1549060292 c:\users\pawe許dane z pulpitu\programowanie\github\ara\messages.h
+1549104388 c:\users\pawe許dane z pulpitu\programowanie\github\ara\messages.h
 	<iostream>
 
 1548090551 c:\users\adamw\documents\ara\load_from_file.h
@@ -2559,13 +2559,12 @@
 	<math.h>
 	<windows.h>
 
-1549061707 c:\users\pawe許dane z pulpitu\programowanie\github\ara\header.h
+1549111571 c:\users\pawe許dane z pulpitu\programowanie\github\ara\header.h
 	<math.h>
-	<windows.h>
 
 1548378739 c:\users\kivi\documents\ara\fields.h
 
-1549061760 c:\users\pawe許dane z pulpitu\programowanie\github\ara\fields.h
+1549105879 c:\users\pawe許dane z pulpitu\programowanie\github\ara\fields.h
 
 1548165701 c:\users\kivi\documents\ara\mapremoving.h
 
@@ -2791,6 +2790,15 @@
 
 1548546081 c:\users\kivi\documents\ara\znajdzruchp.h
 
+1549106030 c:\users\pawe許dane z pulpitu\programowanie\github\ara\loadfromfile.h
+	"textures.h"
+	<fstream>
+	<cstdlib>
+	<string>
+
+1549105468 c:\users\pawe許dane z pulpitu\programowanie\github\ara\textures.h
+	"pole.h"
+
 1549060295 c:\users\pawe許dane z pulpitu\programowanie\github\ara\lib\sfml-2.5.1\include\sfml\audio.hpp
 	<SFML/System.hpp>
 	<SFML/Audio/InputSoundFile.hpp>
@@ -2897,16 +2905,13 @@
 
 1549053284 c:\users\pawe許dane z pulpitu\programowanie\github\ara\mapremoving.h
 
-1549053394 c:\users\pawe許dane z pulpitu\programowanie\github\ara\highlight.h
+1549103016 c:\users\pawe許dane z pulpitu\programowanie\github\ara\highlight.h
 
 1549053384 c:\users\pawe許dane z pulpitu\programowanie\github\ara\ai.h
 	"znajdzRuchP.h"
 	"znajdzRuchAI.h"
 
-1549053384 c:\users\pawe許dane z pulpitu\programowanie\github\ara\znajdzruchp.h
+1549103016 c:\users\pawe許dane z pulpitu\programowanie\github\ara\znajdzruchp.h
 
-1549053384 c:\users\pawe許dane z pulpitu\programowanie\github\ara\znajdzruchai.h
-
-1549061830 c:\users\pawe許dane z pulpitu\programowanie\github\ara\textures.h
-	"pole.h"
+1549103016 c:\users\pawe許dane z pulpitu\programowanie\github\ara\znajdzruchai.h
 

@@ -26,6 +26,13 @@
 
     sf::Vector2i mouse_position;
     bool mouse_pressed = 0;
+    int mouseX;
+    int mouseY;
+    int mouseDX;
+    int mouseDY;
+    int mouseFieldX;
+    int mouseFieldY;
+    bool mousePointing;
 
     std::string actual_name = "pawn";
     int actual_owner = 0;
