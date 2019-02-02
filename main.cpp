@@ -149,8 +149,8 @@ int main()
 
         mouseFieldX = mouse_position.x / 35;
         mouseDX = mouse_position.x % 35;
-        mouseFieldY = 2 * (mouse_position.y / 40) - (mouse_x % 2);
-        mouseDY = mouse_position.y - (mouse_y * 20);
+        mouseFieldY = 2 * (mouse_position.y / 40) - (mouseFieldX % 2);
+        mouseDY = mouse_position.y - (mouseFieldY * 20);
         if(mouseDY < 0)
         {
             mouseFieldY -= 2;
@@ -192,9 +192,6 @@ int main()
                     {
                         if(!click){
                             background_fields[i][j].setColor(sf::Color(255, 255, 255, 255));
-                        system("cls");
-                            std::cout<<i<<" "<<j<<"\n";
-                            std::cout<<background_fields[i][j].getPosition().x<<" "<<background_fields[i][j].getPosition().y<<"\n";
                         }
                         else{
 
