@@ -63,7 +63,7 @@ frontFields(){
     {
         for(int j = 0; j < 34; j ++)
         {
-            setFigureTexture(&front_fields[i * board_size_y + j])
+            setFigureTexture(&front_fields[i * board_size_y + j]);
             background_fields[i][j].setTexture(Background);
         }
     }
