@@ -6,7 +6,6 @@ bool click=0;
 #include "figures.h"
 #include "header.h"
 #include "fields.h"
-#include "mapRemoving.h"
 #include <math.h>
 #include "highlight.h"
 #include "AI.h"
@@ -78,9 +77,10 @@ int main()
             {
                 background_fields[i][j].setScale(0.222f, 0.222f);
                 sf::Color a= background_fields[i][j].getColor();
-                if(front_fields[i*34+j].name!="notexist"&&a!=sf::Color::Cyan)background_fields[i][j].setTexture(Background);
-
-                //else background_fields[i][j].setTexture(texture_notexist);
+                if(front_fields[i*34+j].name!="notexist"){
+                    if(a!=sf::Color::Cyan)background_fields[i][j].setTexture(Background);
+                }
+                else background_fields[i][j].setTexture(texture_notexist);
             }
         }
     while (window.isOpen())
@@ -91,6 +91,7 @@ int main()
             switch (event.type)
             {
                 case sf::Event::Closed:
+
                     window.close();
                     music.stop();
                     return 0;
@@ -121,7 +122,7 @@ int main()
 
 //=========================Znikanie mapy=====================================//
 
-        if(oldTura+coIleTurMaSieZapadac-1<nrTura){
+        if(oldTura+coIleTurMaSieZapadac<=nrTura){
             //std::cout<<nrZmiany<<"\n";
             //std::cout<<nrZmiany2<<"\n";
 
@@ -189,42 +190,51 @@ int main()
             {
                 for(int j = 0; j < 34; j ++)
                 {
-                    if(!click)
+                    if((front_fields[i * board_size_y + j].name != "empty"))
                     {
-                        background_fields[i][j].setColor(sf::Color::White);
-                        if((front_fields[i * board_size_y + j].name != "empty")){
-                            if(front_fields[i * board_size_y + j].owner == 1)
-                            {
-                                background_fields[i][j].setColor(sf::Color::Yellow);
-                            }
-                            else if(front_fields[i * board_size_y + j].owner == 2)
-                            {
-                                background_fields[i][j].setColor(sf::Color::Blue);
-                            }
-
+                        if(front_fields[i * board_size_y + j].owner == 1)
+                        {
+                            if(!click)background_fields[i][j].setColor(sf::Color::Yellow);
                         }
-                        background_fields[baseX][baseY].setColor(sf::Color::Cyan);
+                        else if(front_fields[i * board_size_y + j].owner == 2)
+                        {
+                            if(!click)background_fields[i][j].setColor(sf::Color::Blue);
+                        }else if(front_fields[i * board_size_y + j].name == "notexist"){
+                            if(!click)background_fields[i][j].setTexture(texture_notexist);
+                        }
+
+                    }else if(!click){
+                        sf::Color a= background_fields[i][j].getColor();
+                        if(a!=sf::Color::Cyan)background_fields[i][j].setColor(sf::Color(200, 200, 200));
+
+
+
+                    background_fields[baseX][baseY].setColor(sf::Color::Cyan);
                     background_fields[basex][basey].setColor(sf::Color::Cyan);
+
                     }
                 }
             }
 
-            if(mousePointing){
-                if(!click){ //podswietlenie pola
-                    background_fields[mouseFieldX][mouseFieldY].setColor(sf::Color::Magenta);
-                }
-                else{ //zmiana tekstury kursora
-                    if(front_fields[mouseFieldX*34+mouseFieldY].owner==opponentOwner&&canAttack(front_fields,figure_x,figure_y, mouseFieldX, mouseFieldY)){
-                        if(front_fields[figure_x*34+figure_y].name=="tower"){
-                            if(!kursor.loadFromFile("img/kursorC.png")) ms_error(26, "no kursor found", 1);
-                        }
-                        else{
-                            if (!kursor.loadFromFile("img/kursorF.png"))ms_error(216, "no kursor found", 1);
-                        }
-                    }
-                }
+            /*if(!click){
+                background_fields[mouseDX][mouseDY].setColor(sf::Color(255, 255, 255, 255));
             }
+            else{
 
+                if(front_fields[i*34+j].owner==opponentOwner&&canAttack(front_fields,figure_x,figure_y, i, j)){
+                    if(front_fields[figure_x*34+figure_y].name=="tower"){
+                        if(!kursor.loadFromFile("img/kursorC.png")) ms_error(26, "no kursor found", 1);
+                    }
+                    else{
+                        if (!kursor.loadFromFile("img/kursorF.png"))ms_error(216, "no kursor found", 1);
+                    }
+                }else{
+
+                    if (!kursor.loadFromFile("img/kursor.png")) ms_error(26, "no kursor found", 1);
+                }
+
+
+            }*/
 
             while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {

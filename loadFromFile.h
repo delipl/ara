@@ -5,6 +5,8 @@
 #include <string>
 // ###
 
+
+    #define coIleTurMaSieZapadac 5
     int tura;
     int nrTura=1;
     int oldTura =1;
@@ -15,11 +17,13 @@
     int basex=8;
     int basey=16;
 
+    #include "mapRemoving.h"
+
 int saveChosing(){
     std::fstream file;  // plik
     std::string line;
 
-    file.open("saves/a.txt");
+    file.open("Saves/a.txt");
     getline(file, line);
     int returning = int(line[0])-('0');
     file.close();
@@ -38,23 +42,23 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
 
     if(save_number == 0)
     {
-        file.open("saves/save0.txt", std::ios::in);
+        file.open("Saves/save0.txt", std::ios::in);
     }
     else if(save_number == 1)
     {
-        file.open("saves/save1.txt", std::ios::in);
+        file.open("Saves/save1.txt", std::ios::in);
     }
     else if(save_number == 2)
     {
-        file.open("saves/save2.txt", std::ios::in);
+        file.open("Saves/save2.txt", std::ios::in);
     }
     else if(save_number == 3)
     {
-        file.open("saves/save3.txt", std::ios::in);
+        file.open("Saves/save3.txt", std::ios::in);
     }
     else if(save_number == 4)
     {
-        file.open("saves/save4.txt", std::ios::in);
+        file.open("Saves/save4.txt", std::ios::in);
     }
     else if(save_number == 5)
     {
@@ -85,7 +89,47 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         return 1;
     }
 
-    tura = int(line[0]) - int('0');
+    nrTura = 0;
+
+    for(int i = 0; i < line.length(); i ++)
+    {
+        nrTura = nrTura * 10 + int(line[i]) - int('0');
+    }
+    tura = nrTura % 2+1;
+    //std::cout<<nrTura<<"\n";
+
+    for(int i = 1; i < nrTura; i ++)
+    {
+        if(i==1){
+            fields[baseX*34+baseY].name="notexist";
+            fields[baseX*34+baseY].owner=0;
+            baseX+=1;
+            baseY-=1;
+            basex-=1;
+            basey+=1;
+        }
+        if(oldTura+coIleTurMaSieZapadac<=i){
+            //std::cout<<nrZmiany<<"\n";
+            //std::cout<<nrZmiany2<<"\n";
+
+            //background_fields[baseX][baseY].setPosition(1000,1000);
+            fields[baseX*34+baseY].name="notexist";
+            fields[baseX*34+baseY].owner=0;
+            //background_fields[basex][basey].setPosition(1000,1000);
+            fields[basex*34+basey].name="notexist";
+            fields[basex*34+basey].owner=0;
+            algorytmBase();
+
+
+
+            oldTura=i;
+
+            nrZmiany++;
+            //std::cout<<nrZmiany-2<<std::endl;
+
+        }
+    }
+
     // ###tu nie dzia³a zapisywanie tury
 
     bool good = 0;
@@ -151,6 +195,7 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
             fields[figure_x * board_size_y + figure_y].owner = figure_owner;  // stawiam pionka
             fields[figure_x * board_size_y + figure_y].name = figure_name;    // stawiam pionka
             setFigureTexture(&fields[figure_x * board_size_y + figure_y]);
+            fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(0.2f, 0.2f));
         }
     }
 
@@ -167,27 +212,26 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
 
     if(save_number == 0)
     {
-        file.open("saves/save0.txt", std::ios::out);
+        file.open("Saves/save0.txt", std::ios::out);
     }
     else if(save_number == 1)
     {
-        file.open("saves/save1.txt", std::ios::out);
+        file.open("Saves/save1.txt", std::ios::out);
     }
     else if(save_number == 2)
     {
-        file.open("saves/save2.txt", std::ios::out);
+        file.open("Saves/save2.txt", std::ios::out);
     }else if(save_number == 3)
     {
-        file.open("saves/save3.txt", std::ios::out);
+        file.open("Saves/save3.txt", std::ios::out);
     }else if(save_number == 4)
     {
-        file.open("saves/save4.txt", std::ios::out);
+        file.open("Saves/save4.txt", std::ios::out);
     }else if(save_number == 5)
     {
-        file.open("saves/save5.txt", std::ios::out);
+        file.open("Saves/save5.txt", std::ios::out);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
-    file<<tura<<"\n";
-
+    file<<nrTura<<"\n";
 
     for (int i = 0; i<17;++i)
     {
