@@ -141,8 +141,11 @@ int main()
             //std::cout<<nrZmiany-2<<std::endl;
 
         }
-//==============================Aktualizacja tekstur=====================================//
+//==============================troche zmian w zmiennych=================================//
+
         Kursor.setTexture(kursor);
+        mousePointing = 0;
+        mouse_pressed = 0;
 
 //==============================Zabawa z myszka==========================================//
         //zabawa ze wzorami na mysz
@@ -180,33 +183,13 @@ int main()
 
         //koniec zabawy
 
-        mouse_pressed = 0;
-
         mouse_position = sf::Mouse::getPosition(window);
         if(!isMenu&!isSaving){
             for(int i = 0; i < 17; i ++)
             {
                 for(int j = 0; j < 34; j ++)
                 {
-                    if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
-                    {
-                        if(!click){
-                            background_fields[i][j].setColor(sf::Color(255, 255, 255, 255));
-                        }
-                        else{
-
-                            if(front_fields[i*34+j].owner==opponentOwner&&canAttack(front_fields,figure_x,figure_y, i, j)){
-                                if(front_fields[figure_x*34+figure_y].name=="tower"){ if(!kursor.loadFromFile("img/kursorC.png")) ms_error(26, "no kursor found", 1);}
-                                else{ if (!kursor.loadFromFile("img/kursorF.png"))ms_error(216, "no kursor found", 1);}
-                            }else{
-
-                                if (!kursor.loadFromFile("img/kursor.png")) ms_error(26, "no kursor found", 1);
-                            }
-
-
-                        }
-                    }
-                    else if((front_fields[i * board_size_y + j].name != "empty"))
+                    if((front_fields[i * board_size_y + j].name != "empty"))
                     {
                         if(front_fields[i * board_size_y + j].owner == 1)
                         {
@@ -229,6 +212,26 @@ int main()
                     }
                 }
             }
+
+            /*if(!click){
+                background_fields[mouseDX][mouseDY].setColor(sf::Color(255, 255, 255, 255));
+            }
+            else{
+
+                if(front_fields[i*34+j].owner==opponentOwner&&canAttack(front_fields,figure_x,figure_y, i, j)){
+                    if(front_fields[figure_x*34+figure_y].name=="tower"){
+                        if(!kursor.loadFromFile("img/kursorC.png")) ms_error(26, "no kursor found", 1);
+                    }
+                    else{
+                        if (!kursor.loadFromFile("img/kursorF.png"))ms_error(216, "no kursor found", 1);
+                    }
+                }else{
+
+                    if (!kursor.loadFromFile("img/kursor.png")) ms_error(26, "no kursor found", 1);
+                }
+
+
+            }*/
 
             while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
