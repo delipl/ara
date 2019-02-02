@@ -147,35 +147,35 @@ int main()
 //==============================Zabawa z myszka==========================================//
         //zabawa ze wzorami na mysz
 
-        int mouse_x = mouse_position.x / 35;
-        int mouse_d_x = mouse_position.x % 35;
-        int mouse_y = 2 * (mouse_position.y / 40) - (mouse_x % 2);
-        int mouse_d_y = mouse_position.y - (mouse_y * 20);
-        if(mouse_d_y < 0)
+        mouseFieldX = mouse_position.x / 35;
+        mouseDX = mouse_position.x % 35;
+        mouseFieldY = 2 * (mouse_position.y / 40) - (mouse_x % 2);
+        mouseDY = mouse_position.y - (mouse_y * 20);
+        if(mouseDY < 0)
         {
-            mouse_y -= 2;
-            mouse_d_y += 40;
+            mouseFieldY -= 2;
+            mouseDY += 40;
         }
-        if(mouse_d_y > 39)
+        else if(mouseDY > 39)
         {
-            mouse_y += 2;
-            mouse_d_y -= 40;
-        }
-
-        if(mouse_d_y < 20 - (2 * mouse_d_x))
-        {
-            mouse_x--;
-            mouse_y--;
-        }
-        else if(mouse_d_y > 20 + (2 * mouse_d_x))
-        {
-            mouse_x--;
-            mouse_y++;
+            mouseFieldY += 2;
+            mouseDY -= 40;
         }
 
-        if((mouse_x >= 0) && (mouse_x < 17) && (mouse_y >= 0) && (mouse_y < 34))
+        if(mouseDY < 20 - (2 * mouseDX))
         {
-            background_fields[mouse_x][mouse_y].setColor(sf::Color::Red);
+            mouseFieldX--;
+            mouseFieldY--;
+        }
+        else if(mouseDY > 20 + (2 * mouseDX))
+        {
+            mouseFieldX--;
+            mouseFieldY++;
+        }
+
+        if((mouseFieldX >= 0) && (mouseFieldX < 17) && (mouseFieldY >= 0) && (mouseFieldY < 34))
+        {
+            mousePointing = 1;
         }
 
         //koniec zabawy
