@@ -35,15 +35,6 @@ int main()
     sound.setBuffer(buffer);
     sound.setVolume(250.f);
 
-    sf::Texture kursor;
-    if (!kursor.loadFromFile("img/kursor.png"))
-    {
-        ms_error(26, "no kursor found", 1);
-    }
-
-    Kursor.setTexture(kursor);
-    Kursor.setScale(0.1f, 0.1f);
-
 
 
 
@@ -51,19 +42,9 @@ int main()
 
 
 //=================================T£O================================================//
-    sf::Texture Background;
-    if (!Background.loadFromFile("img/dupa.png"))
-    {
-        ms_error(54, "nie zaladowano img/dupa.png pola");
-    }
-    sf::Font font;
-    if (!font.loadFromFile("fonts/arial.ttf"))
-    {
-        ms_error(54, "nie zaladowano czcionki");
-    }
 
-
-    loadTexture();
+    loadFiguresTexture();
+    loadMenuTexture();
 
     backgroundFields();
 
@@ -104,8 +85,6 @@ int main()
         }
     while (window.isOpen())
     {
-        Kursor.setTexture(kursor);
-        Kursor.setScale(0.1f, 0.1f);
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -137,8 +116,6 @@ int main()
 
         }
 
-
-
         //consoleHiding();
 
 
@@ -165,47 +142,14 @@ int main()
 
         }
 //==============================Aktualizacja tekstur=====================================//
+        Kursor.setTexture(kursor);
+        Kursor.setScale(0.1f, 0.1f);
+
         for(int i = 0; i < 17; i ++)
         {
             for(int j = 0; j < 34; j ++)
             {
-                if(front_fields[i * board_size_y + j].name == "pawn")
-                {
-                    front_fields[i * board_size_y + j].setTexture(texture_pawn);
-                }
-                else if(front_fields[i * board_size_y + j].name == "tower")
-                {
-                    front_fields[i * board_size_y + j].setTexture(texture_tower);
-                }
-                else if(front_fields[i * board_size_y + j].name == "ghost")
-                {
-                    front_fields[i * board_size_y + j].setTexture(texture_ghost);
-                }
-                else if(front_fields[i * board_size_y + j].name == "cav")
-                {
-                    front_fields[i * board_size_y + j].setTexture(texture_cav);
-                }
-                else if(front_fields[i * board_size_y + j].name == "king")
-                {
-                    front_fields[i * board_size_y + j].setTexture(texture_king);
-                }
-                else if(front_fields[i * board_size_y + j].name == "mystery")
-                {
-                    front_fields[i * board_size_y + j].setTexture(texture_mystery);
-                }
-                else if(front_fields[i * board_size_y + j].name == "charge")
-                {
-                    front_fields[i * board_size_y + j].setTexture(texture_charge);
-                }
-                else if(front_fields[i * board_size_y + j].name == "notexist")
-                {
-                    front_fields[i * board_size_y + j].setTexture(texture_notexist);
-                }
-                else if(front_fields[i * board_size_y + j].name == "empty")
-                {
-                    front_fields[i * board_size_y + j].setTexture(texture_nothing);
-                }
-
+                setFigureTexture(&front_fields[i * board_size_y + j]);
             }
         }
 
@@ -339,14 +283,14 @@ int main()
                             {
                                 if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                                 {
-    
+
                                     target_x = i;
                                     target_y = j;
                                     if(front_fields[34*figure_x+figure_y].owner == tura)
                                     {
                                         if(action(front_fields, figure_x, figure_y, target_x, target_y))
                                         {
-                                        
+
                                             if(tura == 1) tura = 2;
                                             else tura = 1;
                                             nrTura++;
@@ -386,7 +330,7 @@ int main()
                                                 }
                                             }
 
-                                            
+
                                             if (!kursor.loadFromFile("img/kursor.png"))
                                             {
                                                 ms_error(26, "no kursor found", 1);
