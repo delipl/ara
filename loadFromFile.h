@@ -5,6 +5,8 @@
 #include <string>
 // ###
 
+
+    #define coIleTurMaSieZapadac 5
     int tura;
     int nrTura=1;
     int oldTura =1;
@@ -14,6 +16,8 @@
     int baseY=16;
     int basex=8;
     int basey=16;
+
+    #include "mapRemoving.h"
 
 int saveChosing(){
     std::fstream file;  // plik
@@ -85,7 +89,47 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         return 1;
     }
 
-    tura = int(line[0])-('0');
+    nrTura = 0;
+
+    for(int i = 0; i < line.length(); i ++)
+    {
+        nrTura = nrTura * 10 + int(line[i]) - int('0');
+    }
+    tura = nrTura % 2+1;
+    //std::cout<<nrTura<<"\n";
+
+    for(int i = 1; i < nrTura; i ++)
+    {
+        if(i==1){
+            fields[baseX*34+baseY].name="notexist";
+            fields[baseX*34+baseY].owner=0;
+            baseX+=1;
+            baseY-=1;
+            basex-=1;
+            basey+=1;
+        }
+        if(oldTura+coIleTurMaSieZapadac<=i){
+            //std::cout<<nrZmiany<<"\n";
+            //std::cout<<nrZmiany2<<"\n";
+
+            //background_fields[baseX][baseY].setPosition(1000,1000);
+            fields[baseX*34+baseY].name="notexist";
+            fields[baseX*34+baseY].owner=0;
+            //background_fields[basex][basey].setPosition(1000,1000);
+            fields[basex*34+basey].name="notexist";
+            fields[basex*34+basey].owner=0;
+            algorytmBase();
+
+
+
+            oldTura=i;
+
+            nrZmiany++;
+            //std::cout<<nrZmiany-2<<std::endl;
+
+        }
+    }
+
     // ###tu nie dzia³a zapisywanie tury
 
     bool good = 0;
@@ -187,8 +231,7 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     {
         file.open("Saves/save5.txt", std::ios::out);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
-    file<<tura<<"\n";
-
+    file<<nrTura<<"\n";
 
     for (int i = 0; i<17;++i)
     {

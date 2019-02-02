@@ -6,7 +6,6 @@ bool click=0;
 #include "figures.h"
 #include "header.h"
 #include "fields.h"
-#include "mapRemoving.h"
 #include <math.h>
 #include "highlight.h"
 #include "AI.h"
@@ -78,9 +77,10 @@ int main()
             {
                 background_fields[i][j].setScale(0.222f, 0.222f);
                 sf::Color a= background_fields[i][j].getColor();
-                if(front_fields[i*34+j].name!="notexist"&&a!=sf::Color::Cyan)background_fields[i][j].setTexture(Background);
-
-                //else background_fields[i][j].setTexture(texture_notexist);
+                if(front_fields[i*34+j].name!="notexist"){
+                    if(a!=sf::Color::Cyan)background_fields[i][j].setTexture(Background);
+                }
+                else background_fields[i][j].setTexture(texture_notexist);
             }
         }
     while (window.isOpen())
@@ -91,6 +91,7 @@ int main()
             switch (event.type)
             {
                 case sf::Event::Closed:
+
                     window.close();
                     music.stop();
                     return 0;
@@ -121,7 +122,7 @@ int main()
 
 //=========================Znikanie mapy=====================================//
 
-        if(oldTura+coIleTurMaSieZapadac-1<nrTura){
+        if(oldTura+coIleTurMaSieZapadac<=nrTura){
             //std::cout<<nrZmiany<<"\n";
             //std::cout<<nrZmiany2<<"\n";
 
@@ -195,9 +196,11 @@ int main()
                         {
                             if(!click)background_fields[i][j].setColor(sf::Color::Yellow);
                         }
-                        else
+                        else if(front_fields[i * board_size_y + j].owner == 2)
                         {
                             if(!click)background_fields[i][j].setColor(sf::Color::Blue);
+                        }else if(front_fields[i * board_size_y + j].name == "notexist"){
+                            if(!click)background_fields[i][j].setTexture(texture_notexist);
                         }
 
                     }else if(!click){

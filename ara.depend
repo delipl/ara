@@ -825,12 +825,11 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1549113106 source:c:\users\kivi\documents\ara\main.cpp
+1549120789 source:c:\users\kivi\documents\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
 	"fields.h"
-	"mapRemoving.h"
 	<math.h>
 	"highlight.h"
 	"AI.h"
@@ -2555,7 +2554,7 @@
 1549109539 c:\users\kivi\documents\ara\messages.h
 	<iostream>
 
-1549112453 c:\users\kivi\documents\ara\header.h
+1549120325 c:\users\kivi\documents\ara\header.h
 	<math.h>
 
 1549111571 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\header.h
@@ -2565,7 +2564,7 @@
 
 1549105879 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\fields.h
 
-1548165701 c:\users\kivi\documents\ara\mapremoving.h
+1549119879 c:\users\kivi\documents\ara\mapremoving.h
 
 1549054722 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\audio.hpp
 	<SFML/System.hpp>
@@ -2914,11 +2913,12 @@
 
 1549103016 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\znajdzruchai.h
 
-1549112015 c:\users\kivi\documents\ara\loadfromfile.h
+1549121062 c:\users\kivi\documents\ara\loadfromfile.h
 	"textures.h"
 	<fstream>
 	<cstdlib>
 	<string>
+	"mapRemoving.h"
 
 1549112805 c:\users\kivi\documents\ara\textures.h
 	"pole.h"
