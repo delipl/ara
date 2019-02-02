@@ -145,7 +145,42 @@ int main()
         Kursor.setTexture(kursor);
 
 //==============================Zabawa z myszka==========================================//
-       mouse_pressed = 0;
+        //zabawa ze wzorami na mysz
+
+        int mouse_x = mouse_position.x / 35;
+        int mouse_d_x = mouse_position.x % 35;
+        int mouse_y = 2 * (mouse_position.y / 40) - (mouse_x % 2);
+        int mouse_d_y = mouse_position.y - (mouse_y * 20);
+        if(mouse_d_y < 0)
+        {
+            mouse_y -= 2;
+            mouse_d_y += 40;
+        }
+        if(mouse_d_y > 39)
+        {
+            mouse_y += 2;
+            mouse_d_y -= 40;
+        }
+
+        if(mouse_d_y < 20 - (2 * mouse_d_x))
+        {
+            mouse_x--;
+            mouse_y--;
+        }
+        else if(mouse_d_y > 20 + (2 * mouse_d_x))
+        {
+            mouse_x--;
+            mouse_y++;
+        }
+
+        if((mouse_x >= 0) && (mouse_x < 17) && (mouse_y >= 0) && (mouse_y < 34))
+        {
+            background_fields[mouse_x][mouse_y].setColor(sf::Color::Red);
+        }
+
+        //koniec zabawy
+
+        mouse_pressed = 0;
 
         mouse_position = sf::Mouse::getPosition(window);
         if(!isMenu&!isSaving){
@@ -155,7 +190,12 @@ int main()
                 {
                     if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
                     {
-                        if(!click)background_fields[i][j].setColor(sf::Color(255, 255, 255, 255));
+                        if(!click){
+                            background_fields[i][j].setColor(sf::Color(255, 255, 255, 255));
+                        system("cls");
+                            std::cout<<i<<" "<<j<<"\n";
+                            std::cout<<background_fields[i][j].getPosition().x<<" "<<background_fields[i][j].getPosition().y<<"\n";
+                        }
                         else{
 
                             if(front_fields[i*34+j].owner==opponentOwner&&canAttack(front_fields,figure_x,figure_y, i, j)){
@@ -192,7 +232,6 @@ int main()
                     }
                 }
             }
-
 
             while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
