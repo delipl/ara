@@ -197,7 +197,7 @@ int main()
                             {
                                 background_fields[i][j].setColor(sf::Color::Yellow);
                             }
-                            else
+                            else if(front_fields[i * board_size_y + j].owner == 2)
                             {
                                 background_fields[i][j].setColor(sf::Color::Blue);
                             }
