@@ -1,5 +1,5 @@
-void backgroundFields()
-{
+void backgroundFields(){
+
     front_fields = new Pole [578];
     // Przygotowanie tablic
 
@@ -55,18 +55,15 @@ void backgroundFields()
         background_fields[i][33].setPosition(sf::Vector2f(10000, 10000));
         front_fields[i * board_size_y + 33].setPosition(sf::Vector2f(10000, 10000));
     }
-
-
-
 }
 
-void frontFields(){
+frontFields(){
 
     for(int i = 0; i < 17; i ++)
     {
         for(int j = 0; j < 34; j ++)
         {
-            setFigureTexture(&front_fields[i * board_size_y + j]);
+            setFigureTexture(&front_fields[i * board_size_y + j])
             background_fields[i][j].setTexture(Background);
         }
     }

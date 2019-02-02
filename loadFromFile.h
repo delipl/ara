@@ -19,7 +19,7 @@ int saveChosing(){
     std::fstream file;  // plik
     std::string line;
 
-    file.open("saves/a.txt");
+    file.open("Saves/a.txt");
     getline(file, line);
     int returning = int(line[0])-('0');
     file.close();
@@ -38,23 +38,23 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
 
     if(save_number == 0)
     {
-        file.open("saves/save0.txt", std::ios::in);
+        file.open("Saves/save0.txt", std::ios::in);
     }
     else if(save_number == 1)
     {
-        file.open("saves/save1.txt", std::ios::in);
+        file.open("Saves/save1.txt", std::ios::in);
     }
     else if(save_number == 2)
     {
-        file.open("saves/save2.txt", std::ios::in);
+        file.open("Saves/save2.txt", std::ios::in);
     }
     else if(save_number == 3)
     {
-        file.open("saves/save3.txt", std::ios::in);
+        file.open("Saves/save3.txt", std::ios::in);
     }
     else if(save_number == 4)
     {
-        file.open("saves/save4.txt", std::ios::in);
+        file.open("Saves/save4.txt", std::ios::in);
     }
     else if(save_number == 5)
     {
@@ -85,7 +85,7 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         return 1;
     }
 
-    tura = int(line[0]) - int('0');
+    tura = int(line[0])-('0');
     // ###tu nie dzia³a zapisywanie tury
 
     bool good = 0;
@@ -151,6 +151,7 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
             fields[figure_x * board_size_y + figure_y].owner = figure_owner;  // stawiam pionka
             fields[figure_x * board_size_y + figure_y].name = figure_name;    // stawiam pionka
             setFigureTexture(&fields[figure_x * board_size_y + figure_y]);
+            fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(0.2f, 0.2f));
         }
     }
 
@@ -167,24 +168,24 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
 
     if(save_number == 0)
     {
-        file.open("saves/save0.txt", std::ios::out);
+        file.open("Saves/save0.txt", std::ios::out);
     }
     else if(save_number == 1)
     {
-        file.open("saves/save1.txt", std::ios::out);
+        file.open("Saves/save1.txt", std::ios::out);
     }
     else if(save_number == 2)
     {
-        file.open("saves/save2.txt", std::ios::out);
+        file.open("Saves/save2.txt", std::ios::out);
     }else if(save_number == 3)
     {
-        file.open("saves/save3.txt", std::ios::out);
+        file.open("Saves/save3.txt", std::ios::out);
     }else if(save_number == 4)
     {
-        file.open("saves/save4.txt", std::ios::out);
+        file.open("Saves/save4.txt", std::ios::out);
     }else if(save_number == 5)
     {
-        file.open("saves/save5.txt", std::ios::out);
+        file.open("Saves/save5.txt", std::ios::out);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
     file<<tura<<"\n";
 
