@@ -99,6 +99,7 @@ bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
     if(board[x][y].name=="tower")
     {
+        if(board[targetX][targetY].name!="empty")return 0;
         if(targetX==x)
         {
             if(abs(targetY-y) == 2) return 1;
