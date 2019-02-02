@@ -312,15 +312,6 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
 void move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
-    /*
-    sf::Texture Background;
-    if (!Background.loadFromFile("img/dupa.png"))
-    {
-        ms_error(392, "Figures/move/something wrong with file dupa.png");
-        return;
-    }
-    */
-
     if((wsk_to_board[x * 34 + y].name == "cav") || (wsk_to_board[x * 34 + y].name == "charge"))
     {
         Pole board[17][34];
@@ -350,11 +341,11 @@ void move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                         tura==2?tura=1:tura=2;
                         win = 1;
 
-                        }
+                    }
 
                     wsk_to_board[x * 34 + (i * d_y) + y].name = "empty";
                     wsk_to_board[x * 34 + (i * d_y) + y].owner = 0;
-                    //board[x][i * d_y + y].setTexture(Background);
+                    wsk_to_board[x * 34 + (i * d_y) + y].setTexture(texture_nothing);
                 }
             }
         }
@@ -376,7 +367,7 @@ void move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                 //background_fields[targetX - d_x][targetY - d_y].setColor(sf::Color::Red);
                 wsk_to_board[(targetX - d_x) * 34 + targetY - d_y].name = "empty";
                 wsk_to_board[(targetX - d_x) * 34 + targetY - d_y].owner = 0;
-                //board[targetX - d_x][targetY - d_y].setTexture(Background);
+                wsk_to_board[(targetX - d_x) * 34 + targetY - d_y].setTexture(texture_nothing);
 
                 if(board[targetX - (2 * d_x)][targetY - (2 * d_y)].name == "empty")
                 {
@@ -385,7 +376,7 @@ void move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
                         if(board[targetX - d_x][targetY - d_y].name == "king")         win      = 1;
                         wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].name     = "empty";
                         wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].owner    = 0;
-                        //board[targetX - (3 * d_x)][targetY - (3 * d_y)].setTexture(Background);
+                        wsk_to_board[(targetX - (3 * d_x)) * 34 + targetY - (3 * d_y)].setTexture(texture_nothing);
                     }
                 }
             }
@@ -394,17 +385,14 @@ void move(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
     wsk_to_board[targetX * 34 + targetY].name = wsk_to_board[x * 34 + y].name;
     wsk_to_board[targetX * 34 + targetY].owner = wsk_to_board[x * 34 + y].owner;
-    //wsk_to_board[targetX * 34 + targetY].setTexture(wsk_to_board[x * 34 + y].getTexture());
-    //wsk_to_board[x * 34 + y].setTexture(Background);
+    setFigureTexture(&wsk_to_board[targetX * 34 + targetY]);
     wsk_to_board[x * 34 + y].name = "empty";
     wsk_to_board[x * 34 + y].owner = 0;
+    wsk_to_board[x * 34 + y].setTexture(Background);
 }
 
 void attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {
-
-
-
     if(wsk_to_board[x * 34 + y].name == "ghost")
     {
         move(wsk_to_board, x, y, targetX, targetY);
@@ -413,6 +401,8 @@ void attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     if(wsk_to_board[x * 34 + y].name == "king")
     {
         wsk_to_board[targetX*34+targetY].name="empty";
+        wsk_to_board[targetX*34+targetY].owner = 0;
+        wsk_to_board[targetX*34+targetY].setTexture(Background);
         return;
     }
     if(wsk_to_board[x * 34 + y].name == "charge")
@@ -433,6 +423,7 @@ void attack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
     wsk_to_board[targetX * 34 + targetY].name = "empty";
     wsk_to_board[targetX * 34 + targetY].owner = 0;
+    wsk_to_board[targetX * 34 + targetY].setTexture(texture_nothing);
 }
 
 bool action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)

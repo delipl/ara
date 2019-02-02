@@ -138,7 +138,7 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
             good = 0;
         }
 
-        /*if(!good)
+        if(!good)
         {
             char *intStr = itoa(i, intStr, 3);
             std::string str = std::string(intStr);
@@ -147,20 +147,12 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
             returning = 2;
         }
         else
-        {*/
+        {
             fields[figure_x * board_size_y + figure_y].owner = figure_owner;  // stawiam pionka
             fields[figure_x * board_size_y + figure_y].name = figure_name;    // stawiam pionka
-
-        //}
-
-        /*
-
-        fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(0.2f, 0.2f));
-        */
-
-        // Mam textury i pozycje i skale
+            setFigureTexture(&fields[figure_x * board_size_y + figure_y]);
+        }
     }
-    //std::cout<<"jest ok!\n";
 
     file.close();
     return returning;

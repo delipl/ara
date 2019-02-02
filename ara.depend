@@ -2088,7 +2088,7 @@
 1548092032 c:\users\adamw\documents\ara\header.h
 	<math.h>
 
-1549104807 source:c:\users\pawe許dane z pulpitu\programowanie\github\ara\main.cpp
+1549105457 source:c:\users\pawe許dane z pulpitu\programowanie\github\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -2098,7 +2098,7 @@
 	"highlight.h"
 	"AI.h"
 
-1549103016 c:\users\pawe許dane z pulpitu\programowanie\github\ara\figures.h
+1549106513 c:\users\pawe許dane z pulpitu\programowanie\github\ara\figures.h
 	"loadFromFile.h"
 
 1547815620 c:\users\pawe許dane z pulpitu\programowanie\github\ara\load_from_file.h
@@ -2564,7 +2564,7 @@
 
 1548378739 c:\users\kivi\documents\ara\fields.h
 
-1549104847 c:\users\pawe許dane z pulpitu\programowanie\github\ara\fields.h
+1549105879 c:\users\pawe許dane z pulpitu\programowanie\github\ara\fields.h
 
 1548165701 c:\users\kivi\documents\ara\mapremoving.h
 
@@ -2790,13 +2790,13 @@
 
 1548546081 c:\users\kivi\documents\ara\znajdzruchp.h
 
-1549105207 c:\users\pawe許dane z pulpitu\programowanie\github\ara\loadfromfile.h
+1549106030 c:\users\pawe許dane z pulpitu\programowanie\github\ara\loadfromfile.h
 	"textures.h"
 	<fstream>
 	<cstdlib>
 	<string>
 
-1549105297 c:\users\pawe許dane z pulpitu\programowanie\github\ara\textures.h
+1549105468 c:\users\pawe許dane z pulpitu\programowanie\github\ara\textures.h
 	"pole.h"
 
 1549060295 c:\users\pawe許dane z pulpitu\programowanie\github\ara\lib\sfml-2.5.1\include\sfml\audio.hpp

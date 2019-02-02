@@ -143,17 +143,6 @@ int main()
         }
 //==============================Aktualizacja tekstur=====================================//
         Kursor.setTexture(kursor);
-        Kursor.setScale(0.1f, 0.1f);
-
-        for(int i = 0; i < 17; i ++)
-        {
-            for(int j = 0; j < 34; j ++)
-            {
-                setFigureTexture(&front_fields[i * board_size_y + j]);
-            }
-        }
-
-
 
 //==============================Zabawa z myszka==========================================//
        mouse_pressed = 0;
