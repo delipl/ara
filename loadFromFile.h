@@ -5,6 +5,15 @@
 #include <string>
 // ###
 
+    //loadSettings
+    int fieldSizeX = 0;
+    int fieldSizeY = 0;
+    float fieldScaleX = 0;
+    float fieldScaleY = 0;
+    int soundVolume = 0;
+    int musicVolume = 0;
+    int difficultyAI = 0;
+    int turaLength = 0;
 
     #define coIleTurMaSieZapadac 5
     int tura;
@@ -29,6 +38,64 @@ int saveChosing(){
     file.close();
     return returning;
 
+}
+
+int loadSettings(){
+    std::fstream file;  // plik
+    std::string line;
+
+    file.open("settings.txt", std::ios::in);
+    getline(file, line);
+    int length = line.length();
+
+    int i = 0;
+    while((length > i) && (line[i] != ';'))
+    {
+        fieldSizeX = fieldSizeX * 10 + int(line[i]) - int('0');
+        i++;
+    }
+    i++;
+    while((length > i) && (line[i] != ';'))
+    {
+        fieldSizeY = fieldSizeY * 10 + int(line[i]) - int('0');
+        i++;
+    }
+    i++;
+    while((length > i) && (line[i] != ';'))
+    {
+        soundVolume = soundVolume * 10 + int(line[i]) - int('0');
+        i++;
+    }
+    i++;
+    while((length > i) && (line[i] != ';'))
+    {
+        musicVolume = musicVolume * 10 + int(line[i]) - int('0');
+        i++;
+    }
+    i++;
+    while((length > i) && (line[i] != ';'))
+    {
+        difficultyAI = difficultyAI * 10 + int(line[i]) - int('0');
+        i++;
+    }
+    i++;
+    while((length > i) && (line[i] != ';'))
+    {
+        turaLength = turaLength * 10 + int(line[i]) - int('0');
+        i++;
+    }
+
+    if((fieldSizeX < 1) || (fieldSizeY < 1) || (soundVolume < 0) || (soundVolume > 100) || (musicVolume < 0) || (musicVolume > 100) || (difficultyAI < 0) || (turaLength < 0))
+    {
+        ms_error(82, "loadSettings -> kupa", 1);
+        file.close();
+        return 0;
+    }
+    fieldScaleX = Background.getSize().x / fieldSizeX;
+    fieldScaleY = Background.getSize().y / fieldSizeY;
+
+    file.close();
+    return 0;
 }
 
 int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad

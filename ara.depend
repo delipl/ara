@@ -2088,17 +2088,16 @@
 1548092032 c:\users\adamw\documents\ara\header.h
 	<math.h>
 
-1549118628 source:c:\users\pawe許dane z pulpitu\programowanie\github\ara\main.cpp
+1549201285 source:c:\users\pawe許dane z pulpitu\programowanie\github\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
 	"fields.h"
-	"mapRemoving.h"
 	<math.h>
 	"highlight.h"
 	"AI.h"
 
-1549106513 c:\users\pawe許dane z pulpitu\programowanie\github\ara\figures.h
+1549121797 c:\users\pawe許dane z pulpitu\programowanie\github\ara\figures.h
 	"loadFromFile.h"
 
 1547815620 c:\users\pawe許dane z pulpitu\programowanie\github\ara\load_from_file.h
@@ -2558,12 +2557,12 @@
 1549120325 c:\users\kivi\documents\ara\header.h
 	<math.h>
 
-1549111571 c:\users\pawe許dane z pulpitu\programowanie\github\ara\header.h
+1549199670 c:\users\pawe許dane z pulpitu\programowanie\github\ara\header.h
 	<math.h>
 
 1549192136 c:\users\kivi\documents\ara\fields.h
 
-1549105879 c:\users\pawe許dane z pulpitu\programowanie\github\ara\fields.h
+1549201058 c:\users\pawe許dane z pulpitu\programowanie\github\ara\fields.h
 
 1549119879 c:\users\kivi\documents\ara\mapremoving.h
 
@@ -2789,11 +2788,12 @@
 
 1549109539 c:\users\kivi\documents\ara\znajdzruchp.h
 
-1549106030 c:\users\pawe許dane z pulpitu\programowanie\github\ara\loadfromfile.h
+1549201694 c:\users\pawe許dane z pulpitu\programowanie\github\ara\loadfromfile.h
 	"textures.h"
 	<fstream>
 	<cstdlib>
 	<string>
+	"mapRemoving.h"
 
 1549105468 c:\users\pawe許dane z pulpitu\programowanie\github\ara\textures.h
 	"pole.h"
@@ -2902,7 +2902,7 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1549053284 c:\users\pawe許dane z pulpitu\programowanie\github\ara\mapremoving.h
+1549121797 c:\users\pawe許dane z pulpitu\programowanie\github\ara\mapremoving.h
 
 1549103016 c:\users\pawe許dane z pulpitu\programowanie\github\ara\highlight.h
 

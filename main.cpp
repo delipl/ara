@@ -37,12 +37,10 @@ int main()
 
 
 
-
-
-
 //=================================T£O================================================//
 
     loadFiguresTexture();
+    loadSettings();
     loadMenuTexture();
 
     backgroundFields();
