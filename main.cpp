@@ -9,7 +9,6 @@ bool click=0;
 #include <math.h>
 #include "highlight.h"
 #include "AI.h"
-#include "saving.h"
 
 bool ai=0;
 
