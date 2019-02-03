@@ -45,6 +45,9 @@
     bool isSaving=0;
     int opponentOwner;
 
+    bool clickInMenu=1;
+    bool clickInSaving=1;
+
     //======do AI========\\
 
     int aiFX;
