@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1549122302 source:c:\users\kivi\documents\ara\main.cpp
+1549193171 source:c:\users\kivi\documents\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -833,6 +833,7 @@
 	<math.h>
 	"highlight.h"
 	"AI.h"
+	"saving.h"
 
 1549054722 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -2922,4 +2923,6 @@
 
 1549112805 c:\users\kivi\documents\ara\textures.h
 	"pole.h"
+
+1549193343 c:\users\kivi\documents\ara\saving.h
 

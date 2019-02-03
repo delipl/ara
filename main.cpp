@@ -9,6 +9,7 @@ bool click=0;
 #include <math.h>
 #include "highlight.h"
 #include "AI.h"
+#include "saving.h"
 
 bool ai=0;
 
@@ -24,7 +25,7 @@ int main()
     sf::Music music;
 
     if (!music.openFromFile("sounds/music.wav"))ms_error(24, "nie zaladowano music.wav");
-    music.setVolume(20.f);
+    music.setVolume(10.f);
 
     music.play();
     sf::SoundBuffer buffer;
@@ -32,7 +33,7 @@ int main()
         ms_error(22, "nie zaladowano dzwieku");
     sf::Sound sound;
     sound.setBuffer(buffer);
-    sound.setVolume(250.f);
+    sound.setVolume(150.f);
 
 
 
@@ -390,65 +391,73 @@ int main()
         }
 
         //=======================Plansza menu==========================//
+        if(!sf::Mouse::isButtonPressed(sf::Mouse::Left))clickInSaving=0;
 
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+        if(isMenu&&!clickInSaving){
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
 
-            if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>110&&mouse_position.y<180){
-                isMenu=0;
-            }else if(mouse_position.x>=230&mouse_position.x<=510&&mouse_position.y>215&&mouse_position.y<290){
-                isMenu=0;
-                isSaving=1;
-            }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>320&&mouse_position.y<380){  //działa tylko z execa (wraca do menu){
-                window.close();
-                music.stop();
-                //system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu
-                system("ara.exe");  //działa tylko z execa (wraca do menu
-                return 0;
-            }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>430&&mouse_position.y<490){
-                music.stop();
+                if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>110&&mouse_position.y<180){
+                    isMenu=0;
+                    sound.play();
+                }else if(mouse_position.x>=230&mouse_position.x<=510&&mouse_position.y>215&&mouse_position.y<290){
+                    sound.play();
+                    isMenu=0;
+                    isSaving=1;
+                    clickInMenu=1;
+                }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>320&&mouse_position.y<380){  //działa tylko z execa (wraca do menu){
+                    sound.play();
+                    window.close();
+                    music.stop();
+                    //system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu
+                    system("ara.exe");  //działa tylko z execa (wraca do menu
+                    return 0;
+                }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>430&&mouse_position.y<490){
+                    sound.play();
+                    music.stop();
 
-                window.close();
-                return 0;
-
-
-
-
+                    window.close();
+                    return 0;
+                }
             }
-
         }
+        if(!sf::Mouse::isButtonPressed(sf::Mouse::Left))clickInMenu=0;
 
-        if(isSaving){
+        if(isSaving&&!clickInMenu){
             if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
                 if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>50&&mouse_position.y<120){
                     SaveGame(1, front_fields);
-                    std::cout<<"lolo\n";
                     isSaving=0;
                     isMenu=1;
                     sound.play();
+                    clickInSaving=1;
                 }
                 else if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>150&&mouse_position.y<230){
                     SaveGame(2, front_fields);
                     isSaving=0;
                     isMenu=1;
                     sound.play();
+                    clickInSaving=1;
                 }
                 else if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>270&&mouse_position.y<360){
                     SaveGame(3, front_fields);
                     isSaving=0;
                     isMenu=1;
                     sound.play();
+                    clickInSaving=1;
                 }
                 if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>380&&mouse_position.y<450){
                     SaveGame(4, front_fields);
                     isSaving=0;
                     isMenu=1;
                     sound.play();
+                    clickInSaving=1;
                 }
                 if(mouse_position.x>=190&mouse_position.x<=590&&mouse_position.y>480&&mouse_position.y<560){
                     SaveGame(5, front_fields);
                     isSaving=0;
                     isMenu=1;
                     sound.play();
+                    clickInSaving=1;
                 }
             }
         }
