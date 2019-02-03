@@ -140,61 +140,71 @@ int main()
             }
 
         }
-        if(isLoadingSave){
+        while(isLoadingSave){
             mouse_pressed=0;
-            while(true){
-                mouse_pressed = 0;
-                window.draw(Loading);
-                Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
-                window.draw(Kursor);
-                window.display();
-                window.clear();
-                while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
-                {
-                    mouse_position = sf::Mouse::getPosition(window);
-                    mouse_pressed = 1;
+            sf::Event event;
+            while (window.pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed){
+                    window.close();
+                    return 0;
                 }
-                if(mouse_pressed){
-                    if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>30&&mouse_position.y<130){
-                        sound.play();
-                        saveToFile(1);
-                        music.stop();
-                        window.close();
-                        system("..\\..\\..\\bin\\Debug\\ara.exe");
-                        //system("./sfml-app.o");
-                    }
-                    if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>170&&mouse_position.y<290){
-                        sound.play();
-                        saveToFile(2);
-                        music.stop();
-                        window.close();
-                        system("..\\..\\..\\bin\\Debug\\ara.exe");
-                        //system("./sfml-app.o");
-                    }
-                    if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>320&&mouse_position.y<430){
-                        sound.play();
-                        saveToFile(3);
-                        music.stop();
-                        window.close();
-                        system("..\\..\\..\\bin\\Debug\\ara.exe");
-                        //system("./sfml-app.o");
-                    }
-                    if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>470&&mouse_position.y<570){
-                        sound.play();
-                        saveToFile(4);
-                        music.stop();
-                        window.close();
-                        system("..\\..\\..\\bin\\Debug\\ara.exe");
-                        //system(./sfml-app.o);
-                    }
-                    if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>610&&mouse_position.y<710){
-                       sound.play();
-                       saveToFile(5);
-                       music.stop();
-                       window.close();
-                       system("..\\..\\..\\bin\\Debug\\ara.exe");
-                       //system("./sfml-app.o");
-                    }
+                if(event.type==sf::Event::KeyPressed){
+
+                        if (event.key.code == sf::Keyboard::Escape)isLoadingSave=0;;
+                }
+            }
+            mouse_pressed = 0;
+            window.draw(Loading);
+            Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
+            window.draw(Kursor);
+            window.display();
+            window.clear();
+            while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                mouse_position = sf::Mouse::getPosition(window);
+                mouse_pressed = 1;
+            }
+            if(mouse_pressed){
+                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>30&&mouse_position.y<130){
+                    sound.play();
+                    saveToFile(1);
+                    music.stop();
+                    window.close();
+                    system("..\\..\\..\\bin\\Debug\\ara.exe");
+                    //system("./sfml-app.o");
+                }
+                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>170&&mouse_position.y<290){
+                    sound.play();
+                    saveToFile(2);
+                    music.stop();
+                    window.close();
+                    system("..\\..\\..\\bin\\Debug\\ara.exe");
+                    //system("./sfml-app.o");
+                }
+                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>320&&mouse_position.y<430){
+                    sound.play();
+                    saveToFile(3);
+                    music.stop();
+                    window.close();
+                    system("..\\..\\..\\bin\\Debug\\ara.exe");
+                    //system("./sfml-app.o");
+                }
+                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>470&&mouse_position.y<570){
+                    sound.play();
+                    saveToFile(4);
+                    music.stop();
+                    window.close();
+                    system("..\\..\\..\\bin\\Debug\\ara.exe");
+                    //system(./sfml-app.o);
+                }
+                if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>610&&mouse_position.y<710){
+                   sound.play();
+                   saveToFile(5);
+                   music.stop();
+                   window.close();
+                   system("..\\..\\..\\bin\\Debug\\ara.exe");
+                   //system("./sfml-app.o");
                 }
             }
         }
