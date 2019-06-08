@@ -197,11 +197,13 @@ int main()
                     {
                         if(front_fields[i * board_size_y + j].owner == 1)
                         {
-                            if(!click)background_fields[i][j].setColor(sf::Color::Yellow);
+                            if(!click)background_fields[i][j].setColor(sf::Color(140,140, 250,195));
                         }
                         else if(front_fields[i * board_size_y + j].owner == 2)
                         {
-                            if(!click)background_fields[i][j].setColor(sf::Color::Blue);
+                            if(!click){
+                                    background_fields[i][j].setColor(sf::Color(250,140, 140,195));
+                            }
                         }else if(front_fields[i * board_size_y + j].name == "notexist"){
                             if(!click)background_fields[i][j].setTexture(texture_notexist);
                         }

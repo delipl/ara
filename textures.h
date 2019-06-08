@@ -2,13 +2,20 @@
 
 //-------------------------------Deklaracja tekstur-----------------------------------------------
 // frontFields
-sf::Texture texture_pawn;
-sf::Texture texture_ghost;
-sf::Texture texture_cav;
-sf::Texture texture_king;
-sf::Texture texture_tower;
-sf::Texture texture_charge;
-sf::Texture texture_mystery;
+sf::Texture texture_pawnU;
+sf::Texture texture_ghostU;
+sf::Texture texture_cavU;
+sf::Texture texture_kingU;
+sf::Texture texture_towerU;
+sf::Texture texture_chargeU;
+sf::Texture texture_mysteryU;
+sf::Texture texture_pawnD;
+sf::Texture texture_ghostD;
+sf::Texture texture_cavD;
+sf::Texture texture_kingD;
+sf::Texture texture_towerD;
+sf::Texture texture_chargeD;
+sf::Texture texture_mysteryD;
 sf::Texture texture_notexist;
 sf::Texture texture_nothing;
 
@@ -29,31 +36,31 @@ sf::Texture backroundImage;
 
 
 void loadFiguresTexture(){
-    if (!texture_pawn.loadFromFile("img/pawn.png"))
+    if (!texture_pawnU.loadFromFile("img/pawn.png"))
     {
         ms_error(666, "img/pawn.png", 1);
     }
-    if (!texture_ghost.loadFromFile("img/ghost.png"))
+    if (!texture_ghostU.loadFromFile("img/ghost.png"))
     {
         ms_error(666, "img/ghost.png", 1);
     }
-    if (!texture_cav.loadFromFile("graphics/ikony/kawaleriaRed.png"))
+    if (!texture_cavU.loadFromFile("graphics/ikony/kawaleriaRed.png"))
     {
         ms_error(666, "graphics/ikony/kawaleriaRed.png", 1);
     }
-    if (!texture_king.loadFromFile("graphics/ikony/kroolRed.png"))
+    if (!texture_kingU.loadFromFile("graphics/ikony/kroolRed.png"))
     {
         ms_error(666, "graphics/ikony/kroolRed.png", 1);
     }
-    if (!texture_tower.loadFromFile("img/tower.png"))
+    if (!texture_towerU.loadFromFile("img/tower.png"))
     {
         ms_error(666, "img/tower.png", 1);
     }
-    if (!texture_charge.loadFromFile("img/charge.png"))
+    if (!texture_chargeU.loadFromFile("img/charge.png"))
     {
         ms_error(666, "img/charge.png", 1);
     }
-    if (!texture_mystery.loadFromFile("graphics/ikony/zagadkaRed.png"))
+    if (!texture_mysteryU.loadFromFile("graphics/ikony/zagadkaRed.png"))
     {
         ms_error(666, "graphics/ikony/zagadkaRed.png", 1);
     }
@@ -64,6 +71,34 @@ void loadFiguresTexture(){
     if (!texture_nothing.loadFromFile("img/nothing.png"))
     {
         ms_error(666, "img/nothing.png", 1);
+    }
+    if (!texture_pawnD.loadFromFile("img/pawn.png"))
+    {
+        ms_error(666, "img/pawn.png", 1);
+    }
+    if (!texture_ghostD.loadFromFile("img/ghost.png"))
+    {
+        ms_error(666, "img/ghost.png", 1);
+    }
+    if (!texture_cavD.loadFromFile("graphics/ikony/kawaleriaBlue.png"))
+    {
+        ms_error(666, "graphics/ikony/kawaleriaRed.png", 1);
+    }
+    if (!texture_kingD.loadFromFile("graphics/ikony/kroolBlue.png"))
+    {
+        ms_error(666, "graphics/ikony/kroolRed.png", 1);
+    }
+    if (!texture_towerD.loadFromFile("img/tower.png"))
+    {
+        ms_error(666, "img/tower.png", 1);
+    }
+    if (!texture_chargeD.loadFromFile("img/charge.png"))
+    {
+        ms_error(666, "img/charge.png", 1);
+    }
+    if (!texture_mysteryD.loadFromFile("graphics/ikony/zagadkaBlue.png"))
+    {
+        ms_error(666, "graphics/ikony/zagadkaRed.png", 1);
     }
     if (!Background.loadFromFile("graphics/stones/stone1.png"))
     {
@@ -107,31 +142,38 @@ void loadMenuTexture(){
 void setFigureTexture(Pole *field){
     if(field->name == "pawn")
     {
-        field->setTexture(texture_pawn);
+        if(field->owner==1)field->setTexture(texture_pawnD);
+        else field->setTexture(texture_pawnU);
     }
     else if(field->name == "tower")
     {
-        field->setTexture(texture_tower);
+        if(field->owner==1)field->setTexture(texture_towerD);
+        else field->setTexture(texture_towerU);
     }
     else if(field->name == "ghost")
     {
-        field->setTexture(texture_ghost);
+        if(field->owner==1)field->setTexture(texture_ghostD);
+        else field->setTexture(texture_ghostU);
     }
     else if(field->name == "cav")
     {
-        field->setTexture(texture_cav);
+        if(field->owner==1)field->setTexture(texture_cavD);
+        else field->setTexture(texture_cavU);
     }
     else if(field->name == "king")
     {
-        field->setTexture(texture_king);
+        if(field->owner==1)field->setTexture(texture_kingD);
+        else field->setTexture(texture_kingU);
     }
     else if(field->name == "mystery")
     {
-        field->setTexture(texture_mystery);
+        if(field->owner==1)field->setTexture(texture_mysteryD);
+        else field->setTexture(texture_mysteryU);
     }
     else if(field->name == "charge")
     {
-        field->setTexture(texture_charge);
+        if(field->owner==1)field->setTexture(texture_chargeD);
+        else field->setTexture(texture_chargeU);
     }
     else if(field->name == "notexist")
     {
