@@ -1,10 +1,21 @@
 // ###Te biblioteki trzeb bedzie dolaczyc do ostatecznej wersji
-#include "pole.h"
+#include "textures.h"
 #include <fstream>
 #include <cstdlib>
 #include <string>
 // ###
 
+    //loadSettings
+    int fieldSizeX = 0;
+    int fieldSizeY = 0;
+    float fieldScaleX = 0;
+    float fieldScaleY = 0;
+    int soundVolume = 0;
+    int musicVolume = 0;
+    int difficultyAI = 0;
+    int turaLength = 0;
+
+    #define coIleTurMaSieZapadac 5
     int tura;
     int nrTura=1;
     int oldTura =1;
@@ -14,6 +25,8 @@
     int baseY=16;
     int basex=8;
     int basey=16;
+
+    #include "mapRemoving.h"
 
 int saveChosing(){
     std::fstream file;  // plik
@@ -27,63 +40,69 @@ int saveChosing(){
 
 }
 
+int loadSettings(){
+    std::fstream file;  // plik
+    std::string line;
+
+    file.open("settings.txt", std::ios::in);
+    getline(file, line);
+    int length = line.length();
+
+    int i = 0;
+    while((length > i) && (line[i] != ';'))
+    {
+        fieldSizeX = fieldSizeX * 10 + int(line[i]) - int('0');
+        i++;
+    }
+    i++;
+    while((length > i) && (line[i] != ';'))
+    {
+        fieldSizeY = fieldSizeY * 10 + int(line[i]) - int('0');
+        i++;
+    }
+    i++;
+    while((length > i) && (line[i] != ';'))
+    {
+        soundVolume = soundVolume * 10 + int(line[i]) - int('0');
+        i++;
+    }
+    i++;
+    while((length > i) && (line[i] != ';'))
+    {
+        musicVolume = musicVolume * 10 + int(line[i]) - int('0');
+        i++;
+    }
+    i++;
+    while((length > i) && (line[i] != ';'))
+    {
+        difficultyAI = difficultyAI * 10 + int(line[i]) - int('0');
+        i++;
+    }
+    i++;
+    while((length > i) && (line[i] != ';'))
+    {
+        turaLength = turaLength * 10 + int(line[i]) - int('0');
+        i++;
+    }
+
+    if((fieldSizeX < 1) || (fieldSizeY < 1) || (soundVolume < 0) || (soundVolume > 100) || (musicVolume < 0) || (musicVolume > 100) || (difficultyAI < 0) || (turaLength < 0))
+    {
+        ms_error(82, "loadSettings -> kupa", 1);
+        file.close();
+        return 0;
+    }
+    fieldScaleX = Background.getSize().x / fieldSizeX;
+    fieldScaleY = Background.getSize().y / fieldSizeY;
+
+    file.close();
+    return 0;
+}
+
 int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad
 {
     int board_size_y = 34;
     std::string names[8] = {"pawn", "ghost", "tower", "cav", "mystery", "charge", "king", "notexist"};
     int returning = 0;
-
-    /*
-    sf::Texture texture_pawn;
-    sf::Texture texture_ghost;
-    sf::Texture texture_cav;
-    sf::Texture texture_king;
-    sf::Texture texture_tower;
-    sf::Texture texture_charge;
-    sf::Texture texture_mystery;
-    sf::Texture texture_notexist;
-    if (!texture_pawn.loadFromFile("img/pawn.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_ghost.loadFromFile("img/ghost.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_cav.loadFromFile("img/cav.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_king.loadFromFile("img/king.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_tower.loadFromFile("img/tower.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_charge.loadFromFile("img/charge.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_mystery.loadFromFile("img/mystery.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }
-    if (!texture_notexist.loadFromFile("img/notexist.png"))
-    {
-        std::cout<<"NIE JEST DOBRZE!!!\n";
-        system("PAUSE");
-    }*/
-
-    //Mam wszystkie textury
 
     std::fstream file;  // plik
     std::string line;
@@ -137,7 +156,47 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         return 1;
     }
 
-    tura = int(line[0])-('0');
+    nrTura = 0;
+
+    for(int i = 0; i < line.length(); i ++)
+    {
+        nrTura = nrTura * 10 + int(line[i]) - int('0');
+    }
+    tura = nrTura % 2+1;
+    //std::cout<<nrTura<<"\n";
+
+    for(int i = 1; i < nrTura; i ++)
+    {
+        if(i==1){
+            fields[baseX*34+baseY].name="notexist";
+            fields[baseX*34+baseY].owner=0;
+            baseX+=1;
+            baseY-=1;
+            basex-=1;
+            basey+=1;
+        }
+        if(oldTura+coIleTurMaSieZapadac<=i){
+            //std::cout<<nrZmiany<<"\n";
+            //std::cout<<nrZmiany2<<"\n";
+
+            //background_fields[baseX][baseY].setPosition(1000,1000);
+            fields[baseX*34+baseY].name="notexist";
+            fields[baseX*34+baseY].owner=0;
+            //background_fields[basex][basey].setPosition(1000,1000);
+            fields[basex*34+basey].name="notexist";
+            fields[basex*34+basey].owner=0;
+            algorytmBase();
+
+
+
+            oldTura=i;
+
+            nrZmiany++;
+            //std::cout<<nrZmiany-2<<std::endl;
+
+        }
+    }
+
     // ###tu nie dzia³a zapisywanie tury
 
     bool good = 0;
@@ -202,48 +261,10 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         {
             fields[figure_x * board_size_y + figure_y].owner = figure_owner;  // stawiam pionka
             fields[figure_x * board_size_y + figure_y].name = figure_name;    // stawiam pionka
-
+            setFigureTexture(&fields[figure_x * board_size_y + figure_y]);
+            fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(0.2f, 0.2f));
         }
-
-        /*
-        if(fields[figure_x * board_size_y + figure_y].name == "pawn")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_pawn);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "tower")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_tower);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "ghost")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_ghost);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "cav")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_cav);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "king")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_king);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "mystery")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_mystery);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "charge")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_charge);
-        }
-        else if(fields[figure_x * board_size_y + figure_y].name == "notexist")
-        {
-            fields[figure_x * board_size_y + figure_y].setTexture(texture_notexist);
-        }
-        fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(0.2f, 0.2f));
-        */
-
-        // Mam textury i pozycje i skale
     }
-    //std::cout<<"jest ok!\n";
 
     file.close();
     return returning;
@@ -277,8 +298,7 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     {
         file.open("Saves/save5.txt", std::ios::out);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
-    file<<tura<<"\n";
-
+    file<<nrTura<<"\n";
 
     for (int i = 0; i<17;++i)
     {

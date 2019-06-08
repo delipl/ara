@@ -22,7 +22,6 @@ void baseDown(){
     basey-=2;
 }
 void baseJump(){
-    std::cout<<nrZmiany2<<std::endl;
     int a=nrZmiany2-1;
     baseX=baseX+3*nrZmiany2-a;
     basex=basex-3*nrZmiany2+a;
