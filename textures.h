@@ -11,6 +11,7 @@ sf::Texture texture_charge;
 sf::Texture texture_mystery;
 sf::Texture texture_notexist;
 sf::Texture texture_nothing;
+
 // beckgroundFields
 sf::Texture Background;
 // menu (+ sprite'y)
@@ -22,8 +23,8 @@ sf::Texture save;
 sf::Font font;
 // kursor (+sprite)
 sf::Texture kursor;
-    sf::Sprite Kursor;
-
+sf::Sprite Kursor;
+sf::Texture backroundImage;
 
 
 
@@ -36,13 +37,13 @@ void loadFiguresTexture(){
     {
         ms_error(666, "img/ghost.png", 1);
     }
-    if (!texture_cav.loadFromFile("img/cav.png"))
+    if (!texture_cav.loadFromFile("graphics/ikony/kawaleriaRed.png"))
     {
-        ms_error(666, "img/cav.png", 1);
+        ms_error(666, "graphics/ikony/kawaleriaRed.png", 1);
     }
-    if (!texture_king.loadFromFile("img/king.png"))
+    if (!texture_king.loadFromFile("graphics/ikony/kroolRed.png"))
     {
-        ms_error(666, "img/king.png", 1);
+        ms_error(666, "graphics/ikony/kroolRed.png", 1);
     }
     if (!texture_tower.loadFromFile("img/tower.png"))
     {
@@ -52,9 +53,9 @@ void loadFiguresTexture(){
     {
         ms_error(666, "img/charge.png", 1);
     }
-    if (!texture_mystery.loadFromFile("img/mystery.png"))
+    if (!texture_mystery.loadFromFile("graphics/ikony/zagadkaRed.png"))
     {
-        ms_error(666, "img/mystery.png", 1);
+        ms_error(666, "graphics/ikony/zagadkaRed.png", 1);
     }
     if (!texture_notexist.loadFromFile("img/notexist.png"))
     {
@@ -64,7 +65,7 @@ void loadFiguresTexture(){
     {
         ms_error(666, "img/nothing.png", 1);
     }
-    if (!Background.loadFromFile("img/dupa.png"))
+    if (!Background.loadFromFile("graphics/stones/stone1.png"))
     {
         ms_error(666, "img/dupa.png", 1);
     }
@@ -83,11 +84,13 @@ void loadMenuTexture(){
     {
         ms_error(666, "fonts/arial.ttf", 1);
     }
-    if (!kursor.loadFromFile("img/kursor.png"))
+    if (!kursor.loadFromFile("graphics/rzeczy/kursorDuzy.png"))
     {
-        ms_error(666, "img/kursor.png", 1);
+        ms_error(666, "graphics/rzeczy/kursorDuzy.png", 1);
     }
-
+    if(!backroundImage.loadFromFile("graphics/rzeczy/tloLight.jpg")){
+        ms_error(666, "graphics/rzeczy/tloLight.jpg");
+    }
     //ustawianie tekstur dla menu itp.
     Menu.setTexture(menu);
     Menu.setPosition(sf::Vector2f(0, 0));
@@ -98,7 +101,7 @@ void loadMenuTexture(){
     Save.setScale(sf::Vector2f(1, 1));
 
     Kursor.setTexture(kursor);
-    Kursor.setScale(0.1f, 0.1f);
+    Kursor.setScale(0.5f, 0.5f);
 }
 
 void setFigureTexture(Pole *field){

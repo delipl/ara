@@ -9,6 +9,10 @@
 
     static const float VIEW_HEIGHT = 1000.0f;
 
+     sf::Color gColor=sf::Color(215,255,215,165);
+     sf::Color rColor=sf::Color(255,180,180,195);
+
+
     //HWND hWnd = GetConsoleWindow();
 
     //----------[super zmienne]---------------
@@ -56,7 +60,7 @@
 
     //==================\\
 
-    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
+    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A."/*, sf::Style::Fullscreen*/);
 
 void ResizeView(const sf::RenderWindow& window, sf::View& view)
 {
