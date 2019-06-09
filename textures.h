@@ -130,24 +130,12 @@ void loadMenuTexture(){
     Menu.setTexture(menu);
     Menu.setPosition(sf::Vector2f(0, 0));
     Menu.setScale(sf::Vector2f(1, 1));
-
-            int a;
-            if(sf::VideoMode::getDesktopMode().width> sf::VideoMode::getDesktopMode().height){
-                a=sf::VideoMode::getDesktopMode().width;
-                  //Menu.setPosition(0, -int(sf::VideoMode::getDesktopMode().height)/4);
-            }else{
-                a=sf::VideoMode::getDesktopMode().height;
-                Menu.setPosition(-int(sf::VideoMode::getDesktopMode().width)/4, 0);
-            }
-
-            //auto size = SbackroundImage.getTexture()->getSize();
-            Menu.setScale(1, 4);
-
+    Menu.setScale(float(sf::VideoMode::getDesktopMode().width)/menu.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu.getSize().y);
 
 
     Save.setTexture(save);
     Save.setPosition(sf::Vector2f(0, 0));
-    Save.setScale(sf::Vector2f(1, 1));
+    Save.setScale(float(sf::VideoMode::getDesktopMode().width)/save.getSize().x, float(sf::VideoMode::getDesktopMode().height)/save.getSize().y);
 
     Kursor.setTexture(kursor);
     Kursor.setScale(0.5f, 0.5f);

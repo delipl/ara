@@ -85,10 +85,7 @@ int main()
     {
         sf::Sprite SbackroundImage;
         SbackroundImage.setTexture(backroundImage);
-
-
-            //auto size = SbackroundImage.getTexture()->getSize();
-            SbackroundImage.setTextureRect(sf::IntRect(0,0,sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height));
+        SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x, float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y);
 
 
 
