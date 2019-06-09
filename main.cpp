@@ -17,7 +17,7 @@ bool ai=0;
 
 int main()
 {
-    sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
+    //sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
     window.setMouseCursorVisible(false);
     sf::Clock minutes;
     sf::Clock seconds;
@@ -95,7 +95,7 @@ int main()
                     return 0;
                     break;
                 case sf::Event::Resized:
-                    ResizeView(window, view);
+                    //ResizeView(window, view);
                     break;
                 case sf::Event::KeyPressed:
                     if (event.key.code == sf::Keyboard::Escape&&isMenu)isMenu=0;
@@ -495,10 +495,13 @@ int main()
             }
             }
 
+            unsigned int time;
+            unsigned int minute;
 
-            int time = seconds.getElapsedTime().asSeconds();
-            int minute = minutes.getElapsedTime().asSeconds()/60;
-
+            if(!isMenu){
+                time = seconds.getElapsedTime().asSeconds();
+                minute = minutes.getElapsedTime().asSeconds()/60;
+            }
         std::ostringstream ss;
         ss.clear();
         (time<10)?ss << "Czas: " <<minute<<":0"<<time:ss << "Czas: " <<minute<<":"<<time;
@@ -534,8 +537,8 @@ int main()
         Win.setTexture(winTexture);
         Win.setPosition(sf::Vector2f(0,0));
         window.draw(Win);
-        view.setCenter(sf::Vector2f(360.0f, 360.0f));
-        window.setView(view);
+        //view.setCenter(sf::Vector2f(360.0f, 360.0f));
+        //window.setView(view);
         if(isMenu)window.draw(Menu);
         if(isSaving)window.draw(Save);
         Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));

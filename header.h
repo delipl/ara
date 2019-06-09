@@ -60,8 +60,7 @@
 
     //==================\\
 
-    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A."/*, sf::Style::Fullscreen*/);
-
+    sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "A.R.A.", sf::Style::None);
 void ResizeView(const sf::RenderWindow& window, sf::View& view)
 {
     float aspectRatio = float(window.getSize().x/ float(window.getSize().y));
