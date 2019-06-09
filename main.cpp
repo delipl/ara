@@ -83,6 +83,16 @@ int main()
         }
     while (window.isOpen())
     {
+        sf::Sprite SbackroundImage;
+        SbackroundImage.setTexture(backroundImage);
+
+
+            //auto size = SbackroundImage.getTexture()->getSize();
+            SbackroundImage.setTextureRect(sf::IntRect(0,0,sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height));
+
+
+
+        window.draw(SbackroundImage);
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -148,10 +158,7 @@ int main()
 
 //==============================Zabawa z myszka==========================================//
         //zabawa ze wzorami na mysz
-        sf::Sprite SbackroundImage;
-        SbackroundImage.setTexture(backroundImage);
-        SbackroundImage.setScale(0.6,0.6);
-        window.draw(SbackroundImage);
+
 
 
         mouseFieldX = mouse_position.x / 35;
