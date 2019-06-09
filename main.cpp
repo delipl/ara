@@ -2,7 +2,7 @@
 
 bool click=0;
 
-const float scale=0.1;
+const float scale=0.01;
 
 #include <sstream>
 #include "figures.h"
@@ -549,7 +549,7 @@ int main()
         if(isSaving)window.draw(Save);
         Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
         window.draw(Kursor);
-        std::cout<<Kursor.getPosition().x<<"x"<<Kursor.getPosition().y<<"\n";
+        //std::cout<<Kursor.getPosition().x<<"x"<<Kursor.getPosition().y<<"\n";
         window.display();
         window.clear();
 

@@ -61,7 +61,7 @@
 
     //==================\\
 
-    sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode().width-100, sf::VideoMode::getDesktopMode().height-100), "A.R.A.", sf::Style::None);
+    sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "A.R.A.", sf::Style::None);
 
 
 

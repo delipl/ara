@@ -4,7 +4,8 @@ void backgroundFields(){
     // Przygotowanie tablic
 
 
-
+    const int posuniecieX = (sf::VideoMode::getDesktopMode().width-(scale*2328))/2;
+    const int posuniecieY = (sf::VideoMode::getDesktopMode().height-(scale*2880))/2;
 
     for (int i = 0; i<17;++i)
     {
@@ -17,10 +18,10 @@ void backgroundFields(){
                 background_fields[i][j].setTexture(Background);
                 background_fields[i][j].setScale(sf::Vector2f(scale, scale));
                 //background_fields[i][j].setOrigin(sf::Vector2f(0.1, 0.1));
-                background_fields[i][j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*scale,j*texture_kingD.getSize().x*scale*0.45));
+                background_fields[i][j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*scale+posuniecieX,j*texture_kingD.getSize().x*scale*0.45+posuniecieY));
                 front_fields[i * board_size_y + j].setScale(sf::Vector2f(scale, scale));
                 //front_fields[i * board_size_y + j].setOrigin(sf::Vector2f(0.1, 0.1));
-                front_fields[i * board_size_y + j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*scale,j*texture_kingD.getSize().x*0.45*scale));
+                front_fields[i * board_size_y + j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*scale+posuniecieX,j*texture_kingD.getSize().x*0.45*scale+posuniecieY));
             }
             else
             {
