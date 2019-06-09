@@ -148,6 +148,11 @@ int main()
 
 //==============================Zabawa z myszka==========================================//
         //zabawa ze wzorami na mysz
+        sf::Sprite SbackroundImage;
+        SbackroundImage.setTexture(backroundImage);
+        SbackroundImage.setScale(0.6,0.6);
+        window.draw(SbackroundImage);
+
 
         mouseFieldX = mouse_position.x / 35;
         mouseDX = mouse_position.x % 35;
@@ -192,11 +197,13 @@ int main()
                     {
                         if(front_fields[i * board_size_y + j].owner == 1)
                         {
-                            if(!click)background_fields[i][j].setColor(sf::Color::Yellow);
+                            if(!click)background_fields[i][j].setColor(sf::Color(140,140, 250,195));
                         }
                         else if(front_fields[i * board_size_y + j].owner == 2)
                         {
-                            if(!click)background_fields[i][j].setColor(sf::Color::Blue);
+                            if(!click){
+                                    background_fields[i][j].setColor(sf::Color(250,140, 140,195));
+                            }
                         }else if(front_fields[i * board_size_y + j].name == "notexist"){
                             if(!click)background_fields[i][j].setTexture(texture_notexist);
                         }
@@ -360,9 +367,9 @@ int main()
                                             }
 
 
-                                            if (!kursor.loadFromFile("img/kursor.png"))
+                                            if (!kursor.loadFromFile("graphics/rzeczy/kursorDuzy.png"))
                                             {
-                                                ms_error(26, "no kursor found", 1);
+                                                ms_error(26, "graphics/rzeczy/kursorDuzy.png", 1);
                                             }
                                         }
                                     }
@@ -497,7 +504,6 @@ int main()
         (time<10)?ss << "Czas: " <<minute<<":0"<<time:ss << "Czas: " <<minute<<":"<<time;
 
 
-
         sf::Text clock;
         clock.setPosition(sf::Vector2f(625, 325));
         clock.setFont(font);
@@ -534,6 +540,7 @@ int main()
         if(isSaving)window.draw(Save);
         Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
         window.draw(Kursor);
+
         window.display();
         window.clear();
 
