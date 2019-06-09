@@ -2,6 +2,8 @@
 
 bool click=0;
 
+const float scale=0.1;
+
 #include <sstream>
 #include "figures.h"
 #include "header.h"
@@ -47,7 +49,7 @@ int main()
 
     Pole klik;
     klik.setPosition(sf::Vector2f(650, 350));
-    klik.setScale(sf::Vector2f(0.2, 0.2));
+    klik.setScale(sf::Vector2f(0, 0));
     klik.setTexture(Background);
     klik.setColor(sf::Color::Red);
 
@@ -73,7 +75,7 @@ int main()
         {
             for(int j = 0; j < 34; j ++)
             {
-                background_fields[i][j].setScale(0.222f, 0.222f);
+                background_fields[i][j].setScale(scale, scale);
                 sf::Color a= background_fields[i][j].getColor();
                 if(front_fields[i*34+j].name!="notexist"){
                     if(a!=sf::Color::Cyan)background_fields[i][j].setTexture(Background);
@@ -81,14 +83,14 @@ int main()
                 else background_fields[i][j].setTexture(texture_notexist);
             }
         }
-    while (window.isOpen())
-    {
+
         sf::Sprite SbackroundImage;
         SbackroundImage.setTexture(backroundImage);
-        SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x, float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y);
+        SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x, float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x);
+        SbackroundImage.setPosition(0, -(float(sf::VideoMode::getDesktopMode().width)-backroundImage.getSize().x)/2);
 
-
-
+    while (window.isOpen())
+    {
         window.draw(SbackroundImage);
         sf::Event event;
         while (window.pollEvent(event))
@@ -547,7 +549,7 @@ int main()
         if(isSaving)window.draw(Save);
         Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
         window.draw(Kursor);
-
+        std::cout<<Kursor.getPosition().x<<"x"<<Kursor.getPosition().y<<"\n";
         window.display();
         window.clear();
 

@@ -7,7 +7,6 @@
     Pole background_fields[17][34];
     Pole *front_fields;
 
-    static const float VIEW_HEIGHT = 1000.0f;
 
      sf::Color gColor=sf::Color(215,255,215,165);
      sf::Color rColor=sf::Color(255,180,180,195);
@@ -62,12 +61,8 @@
 
     //==================\\
 
-    sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "A.R.A.", sf::Style::None);
-void ResizeView(const sf::RenderWindow& window, sf::View& view)
-{
-    float aspectRatio = float(window.getSize().x/ float(window.getSize().y));
-    view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
-}
+    sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode().width-100, sf::VideoMode::getDesktopMode().height-100), "A.R.A.", sf::Style::None);
+
 
 
 /*

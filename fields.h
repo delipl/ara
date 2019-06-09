@@ -3,6 +3,9 @@ void backgroundFields(){
     front_fields = new Pole [578];
     // Przygotowanie tablic
 
+
+
+
     for (int i = 0; i<17;++i)
     {
         for (int j = 0; j<33; ++j)
@@ -12,12 +15,12 @@ void backgroundFields(){
             if(i%2==j%2)
             {
                 background_fields[i][j].setTexture(Background);
-                background_fields[i][j].setScale(sf::Vector2f(0.2, 0.2));
+                background_fields[i][j].setScale(sf::Vector2f(scale, scale));
                 //background_fields[i][j].setOrigin(sf::Vector2f(0.1, 0.1));
-                background_fields[i][j].setPosition(sf::Vector2f(i*35,j*20));
-                front_fields[i * board_size_y + j].setScale(sf::Vector2f(0.2, 0.2));
+                background_fields[i][j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*scale,j*texture_kingD.getSize().x*scale*0.45));
+                front_fields[i * board_size_y + j].setScale(sf::Vector2f(scale, scale));
                 //front_fields[i * board_size_y + j].setOrigin(sf::Vector2f(0.1, 0.1));
-                front_fields[i * board_size_y + j].setPosition(sf::Vector2f(i*35,j*20));
+                front_fields[i * board_size_y + j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*scale,j*texture_kingD.getSize().x*0.45*scale));
             }
             else
             {
