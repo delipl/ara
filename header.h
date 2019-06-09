@@ -38,6 +38,12 @@
     int mouseFieldY;
     bool mousePointing;
 
+    float stalaX=-60;
+    float stalaY=50;
+
+    const int posuniecieX = (sf::VideoMode::getDesktopMode().width-(scale*200*16+(stalaX)))/2;
+    const int posuniecieY = (sf::VideoMode::getDesktopMode().height-(scale*200*16)+(stalaY))/2;
+
     std::string actual_name = "pawn";
     int actual_owner = 0;
 

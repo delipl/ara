@@ -2,7 +2,7 @@
 
 bool click=0;
 
-const float scale=0.01;
+const float scale=0.2;
 
 #include <sstream>
 #include "figures.h"
@@ -65,10 +65,6 @@ int main()
         baseY-=1;
         basex-=1;
         basey+=1;
-        background_fields[basex][basey].setTexture(Background);
-        background_fields[baseX][baseY].setTexture(Background);
-        background_fields[baseX][baseY].setColor(sf::Color::Cyan);
-        background_fields[basex][basey].setColor(sf::Color::Cyan);
     }
 
     for(int i = 0; i < 17; i ++)
@@ -220,8 +216,8 @@ int main()
 
 
 
-                    background_fields[baseX][baseY].setColor(sf::Color::Cyan);
-                    background_fields[basex][basey].setColor(sf::Color::Cyan);
+                    background_fields[baseX][baseY].setTexture(BackgroundBroken);
+                    background_fields[basex][basey].setTexture(BackgroundBroken);
 
                     }
                 }

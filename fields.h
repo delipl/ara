@@ -4,9 +4,6 @@ void backgroundFields(){
     // Przygotowanie tablic
 
 
-    const int posuniecieX = (sf::VideoMode::getDesktopMode().width-(scale*2328))/2;
-    const int posuniecieY = (sf::VideoMode::getDesktopMode().height-(scale*2880))/2;
-
     for (int i = 0; i<17;++i)
     {
         for (int j = 0; j<33; ++j)
