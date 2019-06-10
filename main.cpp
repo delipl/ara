@@ -1,8 +1,7 @@
 #define _WIN32_WINNT 0x0500
 
 bool click=0;
-
-const float scale=0.2;
+const float scale=0.4;
 
 #include <sstream>
 #include "figures.h"
@@ -82,8 +81,13 @@ int main()
 
         sf::Sprite SbackroundImage;
         SbackroundImage.setTexture(backroundImage);
-        SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x, float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x);
-        SbackroundImage.setPosition(0, -(float(sf::VideoMode::getDesktopMode().width)-backroundImage.getSize().x)/2);
+        if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
+            SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x, float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x);
+            SbackroundImage.setPosition(0, -(float(sf::VideoMode::getDesktopMode().width)-backroundImage.getSize().x)/2);
+        }else{
+            SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y, float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y);
+            SbackroundImage.setPosition(-(float(sf::VideoMode::getDesktopMode().height)-backroundImage.getSize().y)/2, 0);
+        }
 
     while (window.isOpen())
     {
@@ -154,21 +158,21 @@ int main()
 //==============================Zabawa z myszka==========================================//
         //zabawa ze wzorami na mysz
 
-
+/*
 
         mouseFieldX = mouse_position.x / 35;
         mouseDX = mouse_position.x % 35;
-        mouseFieldY = 2 * (mouse_position.y / 40) - (mouseFieldX % 2);
-        mouseDY = mouse_position.y - (mouseFieldY * 20);
+        mouseFieldY = 2 * (mouse_position.y / texture_kingD.getSize().x*scale) - (mouseFieldX % 2);
+        mouseDY = mouse_position.y - (mouseFieldY * texture_kingD.getSize().x*scale/2);
         if(mouseDY < 0)
         {
             mouseFieldY -= 2;
-            mouseDY += 40;
+            mouseDY += texture_kingD.getSize().x*scale;
         }
         else if(mouseDY > 39)
         {
             mouseFieldY += 2;
-            mouseDY -= 40;
+            mouseDY -= texture_kingD.getSize().x*scale;
         }
 
         if(mouseDY < 20 - (2 * mouseDX))
@@ -186,7 +190,7 @@ int main()
         {
             mousePointing = 1;
         }
-
+*/
         //koniec zabawy
 
         mouse_position = sf::Mouse::getPosition(window);
@@ -248,7 +252,7 @@ int main()
                 mouse_position = sf::Mouse::getPosition(window);
                 mouse_pressed = 1;
             }
-            if((pow(mouse_position.x - 20 - klik.getPosition().x, 2) + pow(mouse_position.y - 20 - klik.getPosition().y, 2) < 400) && mouse_pressed)
+            if((pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - klik.getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - klik.getPosition().y, 2) < (texture_kingD.getSize().x*scale)*texture_kingD.getSize().x*scale) && mouse_pressed)
             {
                 if(actual_mode == "edit")
                 {
@@ -269,7 +273,7 @@ int main()
                 {
                     for(int j = 0; j < 34; j ++)
                     {
-                        if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                        if(pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().y, 2) < pow(texture_kingD.getSize().x*scale/2,2))
                         {
                             front_fields[i * board_size_y + j].name = actual_name;
                             front_fields[i * board_size_y + j].owner = actual_owner;
@@ -288,7 +292,7 @@ int main()
                         {
                             for(int j = 0; j < 34; j ++)
                             {
-                                if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                                if(pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().y, 2) < pow(texture_kingD.getSize().x*scale/2,2))
                                 {
                                     figure_x = i;
                                     figure_y = j;
@@ -319,7 +323,7 @@ int main()
                         {
                             for(int j = 0; j < 34; j ++)
                             {
-                                if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                                if(pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().y, 2) < pow(texture_kingD.getSize().x*scale/2,2))
                                 {
 
                                     target_x = i;
