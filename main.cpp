@@ -517,7 +517,7 @@ int main()
 
 
         sf::Text clock;
-        clock.setPosition(sf::Vector2f(625, 325));
+        clock.setPosition(sf::Vector2f(1625, 325));
         clock.setFont(font);
         clock.setCharacterSize(20);
         clock.setStyle(sf::Text::Regular);
@@ -528,7 +528,7 @@ int main()
         else ss1<<" Tura: "<<nrTura<<std::endl<<"Gracz: Gorny";
 
         sf::Text turn;
-        turn.setPosition(sf::Vector2f(635, 275));
+        turn.setPosition(sf::Vector2f(1635, 275));
         turn.setFont(font);
         turn.setCharacterSize(20);
         turn.setStyle(sf::Text::Regular);

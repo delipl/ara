@@ -48,7 +48,6 @@
 			<Add directory="lib/SFML-2.5.1/lib" />
 		</Linker>
 		<Unit filename="AI.h" />
-		<Unit filename="Saving.h" />
 		<Unit filename="fields.h" />
 		<Unit filename="figures.h" />
 		<Unit filename="header.h" />
