@@ -1,7 +1,7 @@
 #define _WIN32_WINNT 0x0500
 
 bool click=0;
-const float scale=0.4;
+const float scale=0.35;
 
 #include <sstream>
 #include "figures.h"
@@ -251,7 +251,7 @@ int main()
             {
                 mouse_position = sf::Mouse::getPosition(window);
                 mouse_pressed = 1;
-            }
+            }/*
             if((pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - klik.getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - klik.getPosition().y, 2) < (texture_kingD.getSize().x*scale)*texture_kingD.getSize().x*scale) && mouse_pressed)
             {
                 if(actual_mode == "edit")
@@ -283,7 +283,7 @@ int main()
                     }
                 }
             }
-            else if((actual_mode == "play") && (mouse_pressed||(ai&&tura==1)))
+            else */if((actual_mode == "play") && (mouse_pressed||(ai&&tura==1)))
             {
                 if(!ai||tura==2){
                     if((figure_x == 0) && (figure_y == 0))
