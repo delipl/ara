@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1560183026 source:c:\users\kivi\documents\ara\main.cpp
+1560184535 source:c:\users\kivi\documents\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -2920,7 +2920,7 @@
 	<string>
 	"mapRemoving.h"
 
-1560111574 c:\users\kivi\documents\ara\textures.h
+1560184535 c:\users\kivi\documents\ara\textures.h
 	"pole.h"
 
 1549193343 c:\users\kivi\documents\ara\saving.h

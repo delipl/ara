@@ -492,13 +492,16 @@ int main()
                     {
                     ms_error(230, "main.cpp no file winDolny.png, 1");
                     }
-            }else{
-                if (!winTexture.loadFromFile("img/winGorny.png"))
-                {
-                    ms_error(230, "main.cpp no file winGorny.png", true);
-                }
+                }else{
+                    if (!winTexture.loadFromFile("img/winGorny.png"))
+                    {
+                        ms_error(230, "main.cpp no file winGorny.png", true);
+                    }
 
-            }
+                }
+                WinTexture.setTexture(winTexture);
+                WinTexture.setPosition(sf::Vector2f(0,0));
+                WinTexture.setScale(float(sf::VideoMode::getDesktopMode().width)/winTexture.getSize().x, float(sf::VideoMode::getDesktopMode().height)/winTexture.getSize().y);
             }
 
             unsigned int time;
@@ -539,10 +542,7 @@ int main()
         //window.draw(klik);
         window.draw(clock);
         window.draw(turn);
-        sf::Sprite Win;
-        Win.setTexture(winTexture);
-        Win.setPosition(sf::Vector2f(0,0));
-        window.draw(Win);
+        window.draw(WinTexture);
         //view.setCenter(sf::Vector2f(360.0f, 360.0f));
         //window.setView(view);
         if(isMenu)window.draw(Menu);

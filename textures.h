@@ -25,8 +25,9 @@ sf::Texture BackgroundBroken;
 // menu (+ sprite'y)
 sf::Texture menu;
 sf::Texture save;
-    sf::Sprite Menu;
-    sf::Sprite Save;
+sf::Sprite Menu;
+sf::Sprite Save;
+sf::Sprite WinTexture;
 // font
 sf::Font font;
 // kursor (+sprite)
@@ -141,6 +142,8 @@ void loadMenuTexture(){
     Save.setTexture(save);
     Save.setPosition(sf::Vector2f(0, 0));
     Save.setScale(float(sf::VideoMode::getDesktopMode().width)/save.getSize().x, float(sf::VideoMode::getDesktopMode().height)/save.getSize().y);
+
+
 
     Kursor.setTexture(kursor);
     Kursor.setScale(0.5f, 0.5f);
