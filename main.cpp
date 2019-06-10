@@ -1,7 +1,7 @@
 #define _WIN32_WINNT 0x0500
 
 bool click=0;
-const float scale=0.35;
+
 
 #include <sstream>
 #include "figures.h"
