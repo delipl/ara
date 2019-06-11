@@ -6,7 +6,7 @@
 // ###
 
 
-const float scale=0.35*sf::VideoMode::getDesktopMode().width/1920;
+const float scale=0.0*sf::VideoMode::getDesktopMode().height/1080;
 
     //loadSettings
     int fieldSizeX = 0;

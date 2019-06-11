@@ -79,16 +79,17 @@ int main()
             }
         }
 
+
+
         sf::Sprite SbackroundImage;
         SbackroundImage.setTexture(backroundImage);
         if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
             SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x, float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x);
-            SbackroundImage.setPosition(0, -(float(sf::VideoMode::getDesktopMode().width)-backroundImage.getSize().x)/2);
+            SbackroundImage.setPosition(0, float(-(backroundImage.getSize().y*(float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x) - sf::VideoMode::getDesktopMode().height)/2));
         }else{
             SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y, float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y);
-            SbackroundImage.setPosition(-(float(sf::VideoMode::getDesktopMode().height)-backroundImage.getSize().y)/2, 0);
+            SbackroundImage.setPosition((float(sf::VideoMode::getDesktopMode().width)-backroundImage.getSize().x*(float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y))/2 ,0);
         }
-
     while (window.isOpen())
     {
         window.draw(SbackroundImage);
