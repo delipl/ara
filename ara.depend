@@ -2944,9 +2944,16 @@
 	<string>
 	"mapRemoving.h"
 
+<<<<<<< HEAD
 1560294588 c:\users\buka\documents\github\ara\textures.h
 
 1560250068 1ccea4d750417c0369775c5085310912f9c3c
+=======
+1560295280 c:\users\buka\documents\github\ara\textures.h
+	"pole.h"
+
+1560250068 ffc79f83e38acd30bd8cef6a3c204acffb7d9
+>>>>>>> df803db518f2f46b88c3fa74935cf10c04355a9e
 	"pole.h"
 
 1559757103 c:\users\buka\documents\github\ara\pole.h
@@ -3828,4 +3835,9 @@
 	<fstream>
 	<cstdlib>
 	<string>
+<<<<<<< HEAD
+=======
+
+1560250068 
+>>>>>>> df803db518f2f46b88c3fa74935cf10c04355a9e
 
