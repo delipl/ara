@@ -5,6 +5,9 @@
 #include <string>
 // ###
 
+
+const float scale=0.35*sf::VideoMode::getDesktopMode().width/1920;
+
     //loadSettings
     int fieldSizeX = 0;
     int fieldSizeY = 0;
@@ -262,7 +265,7 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
             fields[figure_x * board_size_y + figure_y].owner = figure_owner;  // stawiam pionka
             fields[figure_x * board_size_y + figure_y].name = figure_name;    // stawiam pionka
             setFigureTexture(&fields[figure_x * board_size_y + figure_y]);
-            fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(0.2f, 0.2f));
+            fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(scale, scale));
         }
     }
 

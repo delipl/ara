@@ -2,6 +2,11 @@ void backgroundFields(){
 
     front_fields = new Pole [578];
     // Przygotowanie tablic
+        const int posuniecieX = 480;//16*texture_kingD.getSize().x*0.79*scale;
+        const int posuniecieY = 0;//(32*texture_kingD.getSize().x*0.45*scale  )/2;
+
+    //pawe³ wyœrodkuj matematycznie plz
+
 
     for (int i = 0; i<17;++i)
     {
@@ -9,15 +14,16 @@ void backgroundFields(){
         {
             front_fields[i * board_size_y + j].name = "empty";
             front_fields[i * board_size_y + j].owner = 0;
+
             if(i%2==j%2)
             {
                 background_fields[i][j].setTexture(Background);
-                background_fields[i][j].setScale(sf::Vector2f(0.2, 0.2));
+                background_fields[i][j].setScale(sf::Vector2f(scale, scale));
                 //background_fields[i][j].setOrigin(sf::Vector2f(0.1, 0.1));
-                background_fields[i][j].setPosition(sf::Vector2f(i*35,j*20));
-                front_fields[i * board_size_y + j].setScale(sf::Vector2f(0.2, 0.2));
+                background_fields[i][j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*scale+posuniecieX,j*texture_kingD.getSize().x*scale*0.45+posuniecieY));
+                front_fields[i * board_size_y + j].setScale(sf::Vector2f(scale, scale));
                 //front_fields[i * board_size_y + j].setOrigin(sf::Vector2f(0.1, 0.1));
-                front_fields[i * board_size_y + j].setPosition(sf::Vector2f(i*35,j*20));
+                front_fields[i * board_size_y + j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*scale+posuniecieX,j*texture_kingD.getSize().x*0.45*scale+posuniecieY));
             }
             else
             {

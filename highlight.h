@@ -83,66 +83,6 @@ bool highlight(int x, int y){
         }
     }
 
-    /*//wieza
-    else if(front_fields[x* 34 + y].name == "tower"){
-        for(int k = x-2; k <= x+2; k++){
-            for (int l = y-4; l <= y+4; l++){
-                if(k > -1 && k < 17 && l >= 0 && l < 34){
-                    if(canMove(front_fields, x, y, k, l)    &&
-                        front_fields[k*34+l].name == empty)
-                            background_fields[k][l].setColor(gColor);
-                }
-            }
-
-            int nx=x+2;
-            int ny=y+2;
-            while(nx>0 && ny>0 && nx<17 && ny<34 && nx<x+4){
-                nx++;
-                ny++;
-                if(canAttack(front_fields, x, y, nx, ny)    &&
-                    front_fields[nx*34+ny].owner == opponentOwner)
-                        background_fields[nx][ny].setColor(rColor);
-            }
-            nx=x-2;
-            ny=y-2;
-            while(nx>0 && ny>0 && nx<17 && ny<34 && nx>x-4){
-                nx--;
-                ny--;
-                if(canAttack(front_fields, x, y, nx, ny)    &&
-                    front_fields[nx*34+ny].owner == opponentOwner)
-                        background_fields[nx][ny].setColor(rColor);
-            }
-            nx=x+2;
-            ny=y-2;
-            while(nx>0 && ny>0 && nx<17 && ny<34 && nx<x+4){
-                nx++;
-                ny--;
-                if(canAttack(front_fields, x, y, nx, ny)    &&
-                    front_fields[nx*34+ny].owner == opponentOwner)
-                        background_fields[nx][ny].setColor(rColor);
-            }
-            nx=x-2;
-            ny=y+2;
-            while(nx>0 && ny>0 && nx<17 && ny<34 && nx>x-4){
-                nx--;
-                ny++;
-                if(canAttack(front_fields, x, y, nx, ny)    &&
-                    front_fields[nx*34+ny].owner == opponentOwner)
-                        background_fields[nx][ny].setColor(rColor);
-            }
-            for(int i=y+6; i<=y+8; i+=2){
-                if(canAttack(front_fields, x, y, nx, ny)    &&
-                    front_fields[x*34+i].owner == opponentOwner)
-                        background_fields[x][i].setColor(rColor);
-            }
-            for(int i=y-8; i<=y-6; i+=2){
-                if(canAttack(front_fields, x, y, nx, ny)    &&
-                    front_fields[x*34+i].owner == opponentOwner)
-                        background_fields[x][i].setColor(rColor);
-            }
-        }
-    }*/
-
     //wieza
             else if(front_fields[x* 34 + y].name == "tower"){
                 for(int k = x-2; k <= x+2; k++){
@@ -151,7 +91,7 @@ bool highlight(int x, int y){
                             if(canMove(front_fields, x, y, k, l))background_fields[k][l].setColor(gColor);
                         }
                     }
-                /*int nx=x+2;
+                int nx=x+2;
                 int ny=y+2;
                 while(nx<17&&ny<34&&nx<x+4){
                     nx++;
@@ -184,7 +124,7 @@ bool highlight(int x, int y){
                 }
                 for(int i=y-8; i<=y-6; i+=2){
                     if(canAttack(front_fields, x, y, x, i))background_fields[x][i].setColor(rColor);
-                }*/
+                }
                 }
             }
 

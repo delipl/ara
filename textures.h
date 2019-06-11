@@ -21,11 +21,13 @@ sf::Texture texture_nothing;
 
 // beckgroundFields
 sf::Texture Background;
+sf::Texture BackgroundBroken;
 // menu (+ sprite'y)
 sf::Texture menu;
 sf::Texture save;
-    sf::Sprite Menu;
-    sf::Sprite Save;
+sf::Sprite Menu;
+sf::Sprite Save;
+sf::Sprite WinTexture;
 // font
 sf::Font font;
 // kursor (+sprite)
@@ -100,9 +102,17 @@ void loadFiguresTexture(){
     {
         ms_error(666, "graphics/ikony/zagadkaRed.png", 1);
     }
+<<<<<<< HEAD
     if (!Background.loadFromFile("graphics/stones/stone1.0.png"))
+=======
+    if (!Background.loadFromFile("graphics/stones/stone3.0.png"))
+>>>>>>> 4285e01bd33d126cfe72ff11811ec5541baf5956
     {
-        ms_error(666, "img/dupa.png", 1);
+        ms_error(666, "graphics/stones/stone1.1.png", 1);
+    }
+    if (!BackgroundBroken.loadFromFile("graphics/stones/stone3.1.png"))
+    {
+        ms_error(666, "graphics/stones/stone3.1.png", 1);
     }
 }
 
@@ -130,10 +140,14 @@ void loadMenuTexture(){
     Menu.setTexture(menu);
     Menu.setPosition(sf::Vector2f(0, 0));
     Menu.setScale(sf::Vector2f(1, 1));
+    Menu.setScale(float(sf::VideoMode::getDesktopMode().width)/menu.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu.getSize().y);
+
 
     Save.setTexture(save);
     Save.setPosition(sf::Vector2f(0, 0));
-    Save.setScale(sf::Vector2f(1, 1));
+    Save.setScale(float(sf::VideoMode::getDesktopMode().width)/save.getSize().x, float(sf::VideoMode::getDesktopMode().height)/save.getSize().y);
+
+
 
     Kursor.setTexture(kursor);
     Kursor.setScale(0.5f, 0.5f);

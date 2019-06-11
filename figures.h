@@ -1,4 +1,6 @@
 #include "loadFromFile.h"
+
+
 bool win=0;
 /*
     Pionek          - pawn
@@ -17,6 +19,7 @@ int abs(int x)
 {
     return x > 0 ? x: -x;
 }
+
 
 bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 {

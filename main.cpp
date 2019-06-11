@@ -2,6 +2,7 @@
 
 bool click=0;
 
+
 #include <sstream>
 #include "figures.h"
 #include "header.h"
@@ -17,7 +18,7 @@ bool ai=0;
 
 int main()
 {
-    sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
+    //sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
     window.setMouseCursorVisible(false);
     sf::Clock minutes;
     sf::Clock seconds;
@@ -47,7 +48,7 @@ int main()
 
     Pole klik;
     klik.setPosition(sf::Vector2f(650, 350));
-    klik.setScale(sf::Vector2f(0.2, 0.2));
+    klik.setScale(sf::Vector2f(0, 0));
     klik.setTexture(Background);
     klik.setColor(sf::Color::Red);
 
@@ -63,17 +64,13 @@ int main()
         baseY-=1;
         basex-=1;
         basey+=1;
-        background_fields[basex][basey].setTexture(Background);
-        background_fields[baseX][baseY].setTexture(Background);
-        background_fields[baseX][baseY].setColor(sf::Color::Cyan);
-        background_fields[basex][basey].setColor(sf::Color::Cyan);
     }
 
     for(int i = 0; i < 17; i ++)
         {
             for(int j = 0; j < 34; j ++)
             {
-                background_fields[i][j].setScale(0.222f, 0.222f);
+                background_fields[i][j].setScale(scale, scale);
                 sf::Color a= background_fields[i][j].getColor();
                 if(front_fields[i*34+j].name!="notexist"){
                     if(a!=sf::Color::Cyan)background_fields[i][j].setTexture(Background);
@@ -81,8 +78,20 @@ int main()
                 else background_fields[i][j].setTexture(texture_notexist);
             }
         }
+
+        sf::Sprite SbackroundImage;
+        SbackroundImage.setTexture(backroundImage);
+        if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
+            SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x, float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x);
+            SbackroundImage.setPosition(0, -(float(sf::VideoMode::getDesktopMode().width)-backroundImage.getSize().x)/2);
+        }else{
+            SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y, float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y);
+            SbackroundImage.setPosition(-(float(sf::VideoMode::getDesktopMode().height)-backroundImage.getSize().y)/2, 0);
+        }
+
     while (window.isOpen())
     {
+        window.draw(SbackroundImage);
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -95,7 +104,7 @@ int main()
                     return 0;
                     break;
                 case sf::Event::Resized:
-                    ResizeView(window, view);
+                    //ResizeView(window, view);
                     break;
                 case sf::Event::KeyPressed:
                     if (event.key.code == sf::Keyboard::Escape&&isMenu)isMenu=0;
@@ -148,25 +157,22 @@ int main()
 
 //==============================Zabawa z myszka==========================================//
         //zabawa ze wzorami na mysz
-        sf::Sprite SbackroundImage;
-        SbackroundImage.setTexture(backroundImage);
-        SbackroundImage.setScale(0.6,0.6);
-        window.draw(SbackroundImage);
 
+/*
 
         mouseFieldX = mouse_position.x / 35;
         mouseDX = mouse_position.x % 35;
-        mouseFieldY = 2 * (mouse_position.y / 40) - (mouseFieldX % 2);
-        mouseDY = mouse_position.y - (mouseFieldY * 20);
+        mouseFieldY = 2 * (mouse_position.y / texture_kingD.getSize().x*scale) - (mouseFieldX % 2);
+        mouseDY = mouse_position.y - (mouseFieldY * texture_kingD.getSize().x*scale/2);
         if(mouseDY < 0)
         {
             mouseFieldY -= 2;
-            mouseDY += 40;
+            mouseDY += texture_kingD.getSize().x*scale;
         }
         else if(mouseDY > 39)
         {
             mouseFieldY += 2;
-            mouseDY -= 40;
+            mouseDY -= texture_kingD.getSize().x*scale;
         }
 
         if(mouseDY < 20 - (2 * mouseDX))
@@ -184,7 +190,7 @@ int main()
         {
             mousePointing = 1;
         }
-
+*/
         //koniec zabawy
 
         mouse_position = sf::Mouse::getPosition(window);
@@ -214,8 +220,8 @@ int main()
 
 
 
-                    background_fields[baseX][baseY].setColor(sf::Color::Cyan);
-                    background_fields[basex][basey].setColor(sf::Color::Cyan);
+                    background_fields[baseX][baseY].setTexture(BackgroundBroken);
+                    background_fields[basex][basey].setTexture(BackgroundBroken);
 
                     }
                 }
@@ -245,8 +251,8 @@ int main()
             {
                 mouse_position = sf::Mouse::getPosition(window);
                 mouse_pressed = 1;
-            }
-            if((pow(mouse_position.x - 20 - klik.getPosition().x, 2) + pow(mouse_position.y - 20 - klik.getPosition().y, 2) < 400) && mouse_pressed)
+            }/*
+            if((pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - klik.getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - klik.getPosition().y, 2) < (texture_kingD.getSize().x*scale)*texture_kingD.getSize().x*scale) && mouse_pressed)
             {
                 if(actual_mode == "edit")
                 {
@@ -267,7 +273,7 @@ int main()
                 {
                     for(int j = 0; j < 34; j ++)
                     {
-                        if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                        if(pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().y, 2) < pow(texture_kingD.getSize().x*scale/2,2))
                         {
                             front_fields[i * board_size_y + j].name = actual_name;
                             front_fields[i * board_size_y + j].owner = actual_owner;
@@ -277,7 +283,7 @@ int main()
                     }
                 }
             }
-            else if((actual_mode == "play") && (mouse_pressed||(ai&&tura==1)))
+            else */if((actual_mode == "play") && (mouse_pressed||(ai&&tura==1)))
             {
                 if(!ai||tura==2){
                     if((figure_x == 0) && (figure_y == 0))
@@ -286,7 +292,7 @@ int main()
                         {
                             for(int j = 0; j < 34; j ++)
                             {
-                                if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                                if(pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().y, 2) < pow(texture_kingD.getSize().x*scale/2,2))
                                 {
                                     figure_x = i;
                                     figure_y = j;
@@ -317,7 +323,7 @@ int main()
                         {
                             for(int j = 0; j < 34; j ++)
                             {
-                                if(pow(mouse_position.x - 20 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - 20 - background_fields[i][j].getPosition().y, 2) < 400)
+                                if(pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().y, 2) < pow(texture_kingD.getSize().x*scale/2,2))
                                 {
 
                                     target_x = i;
@@ -486,19 +492,25 @@ int main()
                     {
                     ms_error(230, "main.cpp no file winDolny.png, 1");
                     }
-            }else{
-                if (!winTexture.loadFromFile("img/winGorny.png"))
-                {
-                    ms_error(230, "main.cpp no file winGorny.png", true);
+                }else{
+                    if (!winTexture.loadFromFile("img/winGorny.png"))
+                    {
+                        ms_error(230, "main.cpp no file winGorny.png", true);
+                    }
+
                 }
-
+                WinTexture.setTexture(winTexture);
+                WinTexture.setPosition(sf::Vector2f(0,0));
+                WinTexture.setScale(float(sf::VideoMode::getDesktopMode().width)/winTexture.getSize().x, float(sf::VideoMode::getDesktopMode().height)/winTexture.getSize().y);
             }
+
+            unsigned int time;
+            unsigned int minute;
+
+            if(!isMenu){
+                time = seconds.getElapsedTime().asSeconds();
+                minute = minutes.getElapsedTime().asSeconds()/60;
             }
-
-
-            int time = seconds.getElapsedTime().asSeconds();
-            int minute = minutes.getElapsedTime().asSeconds()/60;
-
         std::ostringstream ss;
         ss.clear();
         (time<10)?ss << "Czas: " <<minute<<":0"<<time:ss << "Czas: " <<minute<<":"<<time;
@@ -530,17 +542,14 @@ int main()
         //window.draw(klik);
         window.draw(clock);
         window.draw(turn);
-        sf::Sprite Win;
-        Win.setTexture(winTexture);
-        Win.setPosition(sf::Vector2f(0,0));
-        window.draw(Win);
-        view.setCenter(sf::Vector2f(360.0f, 360.0f));
-        window.setView(view);
+        window.draw(WinTexture);
+        //view.setCenter(sf::Vector2f(360.0f, 360.0f));
+        //window.setView(view);
         if(isMenu)window.draw(Menu);
         if(isSaving)window.draw(Save);
         Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
         window.draw(Kursor);
-
+        //std::cout<<Kursor.getPosition().x<<"x"<<Kursor.getPosition().y<<"\n";
         window.display();
         window.clear();
 
