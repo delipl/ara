@@ -47,15 +47,20 @@
 		<Linker>
 			<Add directory="lib/SFML-2.5.1/lib" />
 		</Linker>
-		<Unit filename="Figures.h" />
-		<Unit filename="Header.h" />
-		<Unit filename="Load_From_File.h" />
-		<Unit filename="Messages.h" />
+		<Unit filename="AI.h" />
+		<Unit filename="Saving.h" />
 		<Unit filename="fields.h" />
+		<Unit filename="figures.h" />
+		<Unit filename="header.h" />
 		<Unit filename="highlight.h" />
+		<Unit filename="loadFromFile.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="mapRemoving.h" />
+		<Unit filename="messages.h" />
 		<Unit filename="pole.h" />
+		<Unit filename="textures.h" />
+		<Unit filename="znajdzRuchAI.h" />
+		<Unit filename="znajdzRuchP.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

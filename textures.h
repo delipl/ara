@@ -42,9 +42,9 @@ void loadFiguresTexture(){
     {
         ms_error(666, "img/pawn.png", 1);
     }
-    if (!texture_ghostU.loadFromFile("graphics/ikony/duszekredone.png"))
+    if (!texture_ghostU.loadFromFile("img/ghost.png"))
     {
-        ms_error(666, "graphics/ikony/duszekredone.png", 1);
+        ms_error(666, "img/ghost.png", 1);
     }
     if (!texture_cavU.loadFromFile("graphics/ikony/kawaleriaRed.png"))
     {
@@ -58,9 +58,9 @@ void loadFiguresTexture(){
     {
         ms_error(666, "img/tower.png", 1);
     }
-    if (!texture_chargeU.loadFromFile("graphics/ikony/nosekred^^.png"))
+    if (!texture_chargeU.loadFromFile("img/charge.png"))
     {
-        ms_error(666, "graphics/ikony/nosekred^^.png", 1);
+        ms_error(666, "img/charge.png", 1);
     }
     if (!texture_mysteryU.loadFromFile("graphics/ikony/zagadkaRed.png"))
     {
@@ -78,9 +78,9 @@ void loadFiguresTexture(){
     {
         ms_error(666, "img/pawn.png", 1);
     }
-    if (!texture_ghostD.loadFromFile("graphics/ikony/duszekbludone.png"))
+    if (!texture_ghostD.loadFromFile("img/ghost.png"))
     {
-        ms_error(666, "graphics/ikony/duszekbludone.png", 1);
+        ms_error(666, "img/ghost.png", 1);
     }
     if (!texture_cavD.loadFromFile("graphics/ikony/kawaleriaBlue.png"))
     {
@@ -94,16 +94,15 @@ void loadFiguresTexture(){
     {
         ms_error(666, "img/tower.png", 1);
     }
-    if (!texture_chargeD.loadFromFile("graphics/ikony/nosekblue^^.png"))
+    if (!texture_chargeD.loadFromFile("img/charge.png"))
     {
-        ms_error(666, "graphics/ikony/nosekblue^^.png", 1);
+        ms_error(666, "img/charge.png", 1);
     }
     if (!texture_mysteryD.loadFromFile("graphics/ikony/zagadkaBlue.png"))
     {
         ms_error(666, "graphics/ikony/zagadkaRed.png", 1);
     }
     if (!Background.loadFromFile("graphics/stones/stone3.0.png"))
-
     {
         ms_error(666, "graphics/stones/stone1.1.png", 1);
     }
