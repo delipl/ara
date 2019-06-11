@@ -84,11 +84,11 @@ void loadFiguresTexture(){
     }
     if (!texture_cavD.loadFromFile("graphics/ikony/kawaleriaBlue.png"))
     {
-        ms_error(666, "graphics/ikony/kawaleriaRed.png", 1);
+        ms_error(666, "graphics/ikony/kawaleriaBlue.png", 1);
     }
     if (!texture_kingD.loadFromFile("graphics/ikony/kroolBlue.png"))
     {
-        ms_error(666, "graphics/ikony/kroolRed.png", 1);
+        ms_error(666, "graphics/ikony/kroolBlue.png", 1);
     }
     if (!texture_towerD.loadFromFile("img/tower.png"))
     {

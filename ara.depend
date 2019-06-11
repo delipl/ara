@@ -863,7 +863,7 @@
 	<SFML/Graphics/VertexBuffer.hpp>
 	<SFML/Graphics/View.hpp>
 
-1525808418 D
+1560250978 D
 
 1525808418 e
 
@@ -2944,7 +2944,10 @@
 	<string>
 	"mapRemoving.h"
 
-1560294588 c:\users\buka\documents\github\ara\textures.h
+1560295280 c:\users\buka\documents\github\ara\textures.h
+	"pole.h"
+
+1560250068 ffc79f83e38acd30bd8cef6a3c204acffb7d9
 	"pole.h"
 
 1559757103 c:\users\buka\documents\github\ara\pole.h
@@ -3826,4 +3829,6 @@
 	<fstream>
 	<cstdlib>
 	<string>
+
+1560250068 
 
