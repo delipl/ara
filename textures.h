@@ -100,7 +100,7 @@ void loadFiguresTexture(){
     {
         ms_error(666, "graphics/ikony/zagadkaRed.png", 1);
     }
-    if (!Background.loadFromFile("graphics/stones/stone1.png"))
+    if (!Background.loadFromFile("graphics/stones/stone1.0.png"))
     {
         ms_error(666, "img/dupa.png", 1);
     }
