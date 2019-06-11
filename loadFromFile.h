@@ -4,9 +4,7 @@
 #include <cstdlib>
 #include <string>
 // ###
-
-
-const float scale=0.0*sf::VideoMode::getDesktopMode().height/1080;
+float scale=0;
 
     //loadSettings
     int fieldSizeX = 0;

@@ -18,6 +18,7 @@ bool ai=0;
 
 int main()
 {
+
     //sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
     window.setMouseCursorVisible(false);
     sf::Clock minutes;
@@ -43,6 +44,17 @@ int main()
     loadFiguresTexture();
     loadSettings();
     loadMenuTexture();
+
+
+    if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
+        scale=0.35*sf::VideoMode::getDesktopMode().height/1080; //uzależnic od sizePlanszyPrzed
+        posuniecieX=0;
+        posuniecieY=0;//paweł da rade!
+    }else{
+        scale=0.397*sf::VideoMode::getDesktopMode().width/1080; //uzależnić od size planszzyPrzed
+        posuniecieX=0;
+        posuniecieY=0;
+    }
 
     backgroundFields();
 

@@ -1,11 +1,11 @@
+int posuniecieX = 0;
+int posuniecieY = 0;
+
 void backgroundFields(){
 
     front_fields = new Pole [578];
     // Przygotowanie tablic
-        const int posuniecieX = 0;//16*texture_kingD.getSize().x*0.79*scale;
-        const int posuniecieY = 0;//(32*texture_kingD.getSize().x*0.45*scale  )/2;
 
-    //pawe³ wyœrodkuj matematycznie plz
 
 
     for (int i = 0; i<17;++i)
