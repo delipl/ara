@@ -2925,7 +2925,7 @@
 
 1549193343 c:\users\kivi\documents\ara\saving.h
 
-1560012231 source:c:\users\buka\documents\github\ara\main.cpp
+1560244383 source:c:\users\buka\documents\github\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -2934,17 +2934,17 @@
 	"highlight.h"
 	"AI.h"
 
-1559992026 c:\users\buka\documents\github\ara\figures.h
+1560244383 c:\users\buka\documents\github\ara\figures.h
 	"loadFromFile.h"
 
-1559992026 c:\users\buka\documents\github\ara\loadfromfile.h
+1560249470 c:\users\buka\documents\github\ara\loadfromfile.h
 	"textures.h"
 	<fstream>
 	<cstdlib>
 	<string>
 	"mapRemoving.h"
 
-1560012335 c:\users\buka\documents\github\ara\textures.h
+1560246185 c:\users\buka\documents\github\ara\textures.h
 	"pole.h"
 
 1559757103 c:\users\buka\documents\github\ara\pole.h
@@ -3471,12 +3471,12 @@
 
 1559992026 c:\users\buka\documents\github\ara\mapremoving.h
 
-1560000130 c:\users\buka\documents\github\ara\header.h
+1560244383 c:\users\buka\documents\github\ara\header.h
 	<math.h>
 
-1559992026 c:\users\buka\documents\github\ara\fields.h
+1560244383 c:\users\buka\documents\github\ara\fields.h
 
-1560000061 c:\users\buka\documents\github\ara\highlight.h
+1560244383 c:\users\buka\documents\github\ara\highlight.h
 
 1559992026 c:\users\buka\documents\github\ara\ai.h
 	"znajdzRuchP.h"
