@@ -21,7 +21,11 @@ sf::Texture texture_nothing;
 
 // beckgroundFields
 sf::Texture Background;
+sf::Texture Background2;
+sf::Texture Background3;
 sf::Texture BackgroundBroken;
+sf::Texture BackgroundBroke2;
+sf::Texture BackgroundBroke3;
 // menu (+ sprite'y)
 sf::Texture menu;
 sf::Texture save;
@@ -105,11 +109,29 @@ void loadFiguresTexture(){
     if (!Background.loadFromFile("graphics/stones/stone3.0.png"))
 
     {
-        ms_error(666, "graphics/stones/stone1.1.png", 1);
+        ms_error(666, "graphics/stones/stone3.0.png", 1);
     }
     if (!BackgroundBroken.loadFromFile("graphics/stones/stone3.1.png"))
     {
         ms_error(666, "graphics/stones/stone3.1.png", 1);
+    }
+    if (!Background.loadFromFile("graphics/stones/stone2.0.png"))
+
+    {
+        ms_error(666, "graphics/stones/stone2.0.png", 1);
+    }
+    if (!BackgroundBroken.loadFromFile("graphics/stones/stone2.1.png"))
+    {
+        ms_error(666, "graphics/stones/stone2.1.png", 1);
+    }
+    if (!Background.loadFromFile("graphics/stones/stone1.0.png"))
+
+    {
+        ms_error(666, "graphics/stones/stone1.0.png", 1);
+    }
+    if (!BackgroundBroken.loadFromFile("graphics/stones/stone1.1.png"))
+    {
+        ms_error(666, "graphics/stones/stone1.1.png", 1);
     }
 }
 

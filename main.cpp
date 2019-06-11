@@ -18,7 +18,7 @@ bool ai=0;
 
 int main()
 {
-
+    srand(time(NULL));
     //sf::View view(sf::Vector2f(0.0f,0.0f), sf::Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
     window.setMouseCursorVisible(false);
     sf::Clock minutes;
