@@ -2925,7 +2925,7 @@
 
 1549193343 c:\users\kivi\documents\ara\saving.h
 
-1560244383 source:c:\users\buka\documents\github\ara\main.cpp
+1560250978 source:c:\users\buka\documents\github\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -2934,17 +2934,17 @@
 	"highlight.h"
 	"AI.h"
 
-1560244383 c:\users\buka\documents\github\ara\figures.h
+1560250979 c:\users\buka\documents\github\ara\figures.h
 	"loadFromFile.h"
 
-1560249470 c:\users\buka\documents\github\ara\loadfromfile.h
+1560250979 c:\users\buka\documents\github\ara\loadfromfile.h
 	"textures.h"
 	<fstream>
 	<cstdlib>
 	<string>
 	"mapRemoving.h"
 
-1560246185 c:\users\buka\documents\github\ara\textures.h
+1560294588 c:\users\buka\documents\github\ara\textures.h
 	"pole.h"
 
 1559757103 c:\users\buka\documents\github\ara\pole.h
@@ -2952,8 +2952,39 @@
 	"lib/SFML-2.5.1/include/SFML/Window.hpp"
 	"lib/SFML-2.5.1/include/SFML/Audio.hpp"
 	"messages.h"
+	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
+	"lib/SFML-2.5.1/include/SFML/Window.hpp"
+	"lib/SFML-2.5.1/include/SFML/Audio.hpp"
+	"messages.h"
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics.hpp
+	<SFML/Window.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/CircleShape.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/ConvexShape.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/RenderTexture.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/Shader.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/Graphics/VertexBuffer.hpp>
+	<SFML/Graphics/View.hpp>
 	<SFML/Window.hpp>
 	<SFML/Graphics/BlendMode.hpp>
 	<SFML/Graphics/CircleShape.hpp>
@@ -2998,8 +3029,41 @@
 	<SFML/Window/Window.hpp>
 	<SFML/Window/WindowHandle.hpp>
 	<SFML/Window/WindowStyle.hpp>
+	<SFML/System.hpp>
+	<SFML/Window/Clipboard.hpp>
+	<SFML/Window/Context.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/Cursor.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+	<SFML/Window/Sensor.hpp>
+	<SFML/Window/Touch.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/Window.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<SFML/Window/WindowStyle.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Err.hpp>
+	<SFML/System/FileInputStream.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/MemoryInputStream.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/System/String.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Utf.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
 	<SFML/Config.hpp>
 	<SFML/System/Clock.hpp>
 	<SFML/System/Err.hpp>
@@ -3021,18 +3085,25 @@
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\config.hpp
 	"TargetConditionals.h"
+	"TargetConditionals.h"
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\clock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
 	<SFML/System/Export.hpp>
 	<SFML/System/Time.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\export.hpp
 	<SFML/Config.hpp>
+	<SFML/Config.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
+	<SFML/System/Export.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\err.hpp
+	<SFML/System/Export.hpp>
+	<ostream>
 	<SFML/System/Export.hpp>
 	<ostream>
 
@@ -3043,15 +3114,26 @@
 	<SFML/System/NonCopyable.hpp>
 	<cstdio>
 	<string>
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdio>
+	<string>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\inputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
 	<SFML/Config.hpp>
 	<SFML/System/Export.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\noncopyable.hpp
 	<SFML/System/Export.hpp>
+	<SFML/System/Export.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\lock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 
@@ -3060,12 +3142,20 @@
 	<SFML/System/InputStream.hpp>
 	<SFML/System/Export.hpp>
 	<cstdlib>
+	<SFML/Config.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Export.hpp>
+	<cstdlib>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\mutex.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\sleep.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
 	<SFML/System/Export.hpp>
 	<SFML/System/Time.hpp>
 
@@ -3076,8 +3166,20 @@
 	<locale>
 	<string>
 	<SFML/System/String.inl>
+	<SFML/System/Export.hpp>
+	<SFML/System/Utf.hpp>
+	<iterator>
+	<locale>
+	<string>
+	<SFML/System/String.inl>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\utf.hpp
+	<SFML/Config.hpp>
+	<algorithm>
+	<locale>
+	<string>
+	<cstdlib>
+	<SFML/System/Utf.inl>
 	<SFML/Config.hpp>
 	<algorithm>
 	<locale>
@@ -3094,6 +3196,10 @@
 	<SFML/System/NonCopyable.hpp>
 	<cstdlib>
 	<SFML/System/Thread.inl>
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+	<SFML/System/Thread.inl>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\thread.inl
 
@@ -3101,8 +3207,13 @@
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 	<cstdlib>
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\threadlocalptr.hpp
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.inl>
 	<SFML/System/ThreadLocal.hpp>
 	<SFML/System/ThreadLocalPtr.inl>
 
@@ -3110,10 +3221,12 @@
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\vector2.hpp
 	<SFML/System/Vector2.inl>
+	<SFML/System/Vector2.inl>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\vector2.inl
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\vector3.hpp
+	<SFML/System/Vector3.inl>
 	<SFML/System/Vector3.inl>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\vector3.inl
@@ -3121,11 +3234,18 @@
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\clipboard.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/System/String.hpp>
+	<SFML/Window/Export.hpp>
+	<SFML/System/String.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\export.hpp
 	<SFML/Config.hpp>
+	<SFML/Config.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\context.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/System/NonCopyable.hpp>
 	<SFML/Window/Export.hpp>
 	<SFML/Window/GlResource.hpp>
 	<SFML/Window/ContextSettings.hpp>
@@ -3134,11 +3254,17 @@
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\glresource.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
+	<SFML/Window/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\contextsettings.hpp
 	<SFML/Config.hpp>
+	<SFML/Config.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\cursor.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Vector2.hpp>
 	<SFML/Window/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 	<SFML/System/Vector2.hpp>
@@ -3149,15 +3275,25 @@
 	<SFML/Window/Keyboard.hpp>
 	<SFML/Window/Mouse.hpp>
 	<SFML/Window/Sensor.hpp>
+	<SFML/Config.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+	<SFML/Window/Sensor.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\joystick.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/String.hpp>
 	<SFML/Window/Export.hpp>
 	<SFML/System/String.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\keyboard.hpp
 	<SFML/Window/Export.hpp>
+	<SFML/Window/Export.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\mouse.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector2.hpp>
 	<SFML/Window/Export.hpp>
 	<SFML/System/Vector2.hpp>
 
@@ -3165,12 +3301,19 @@
 	<SFML/Window/Export.hpp>
 	<SFML/System/Vector3.hpp>
 	<SFML/System/Time.hpp>
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector3.hpp>
+	<SFML/System/Time.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\touch.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/System/Vector2.hpp>
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector2.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\videomode.hpp
+	<SFML/Window/Export.hpp>
+	<vector>
 	<SFML/Window/Export.hpp>
 	<vector>
 
@@ -3186,19 +3329,35 @@
 	<SFML/System/NonCopyable.hpp>
 	<SFML/System/String.hpp>
 	<SFML/System/Vector2.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/Cursor.hpp>
+	<SFML/Window/Export.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<SFML/Window/WindowStyle.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/String.hpp>
+	<SFML/System/Vector2.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\windowhandle.hpp
+	<SFML/Config.hpp>
 	<SFML/Config.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\windowstyle.hpp
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\blendmode.hpp
 	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Export.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\export.hpp
 	<SFML/Config.hpp>
+	<SFML/Config.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\circleshape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Shape.hpp>
 
@@ -3208,12 +3367,22 @@
 	<SFML/Graphics/Transformable.hpp>
 	<SFML/Graphics/VertexArray.hpp>
 	<SFML/System/Vector2.hpp>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/System/Vector2.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\drawable.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/RenderStates.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\renderstates.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/Transform.hpp>
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/BlendMode.hpp>
 	<SFML/Graphics/Transform.hpp>
@@ -3222,8 +3391,14 @@
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/System/Vector2.hpp>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/System/Vector2.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\rect.hpp
+	<SFML/System/Vector2.hpp>
+	<algorithm>
+	<SFML/Graphics/Rect.inl>
 	<SFML/System/Vector2.hpp>
 	<algorithm>
 	<SFML/Graphics/Rect.inl>
@@ -3233,8 +3408,16 @@
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\transformable.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Transform.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\vertexarray.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<vector>
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Vertex.hpp>
 	<SFML/Graphics/PrimitiveType.hpp>
@@ -3246,13 +3429,20 @@
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/System/Vector2.hpp>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/System/Vector2.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\color.hpp
+	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Export.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\primitivetype.hpp
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\convexshape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<vector>
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Shape.hpp>
 	<vector>
@@ -3267,12 +3457,26 @@
 	<map>
 	<string>
 	<vector>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/String.hpp>
+	<map>
+	<string>
+	<vector>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\glyph.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\texture.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Window/GlResource.hpp>
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Image.hpp>
 	<SFML/Window/GlResource.hpp>
@@ -3283,12 +3487,29 @@
 	<SFML/Graphics/Rect.hpp>
 	<string>
 	<vector>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<string>
+	<vector>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\rectangleshape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Shape.hpp>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\rendertarget.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/View.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/System/NonCopyable.hpp>
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/Graphics/Rect.hpp>
@@ -3305,14 +3526,27 @@
 	<SFML/Graphics/Rect.hpp>
 	<SFML/Graphics/Transform.hpp>
 	<SFML/System/Vector2.hpp>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/System/Vector2.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\rendertexture.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Texture.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
 	<SFML/Window/ContextSettings.hpp>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Window/ContextSettings.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\renderwindow.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Window/Window.hpp>
+	<string>
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
 	<SFML/Graphics/Image.hpp>
@@ -3328,8 +3562,21 @@
 	<SFML/System/Vector3.hpp>
 	<map>
 	<string>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Glsl.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+	<map>
+	<string>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\glsl.hpp
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+	<SFML/Graphics/Glsl.inl>
 	<SFML/Graphics/Transform.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/System/Vector2.hpp>
@@ -3339,6 +3586,11 @@
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\glsl.inl
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\sprite.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/Rect.hpp>
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Graphics/Transformable.hpp>
@@ -3355,14 +3607,41 @@
 	<SFML/System/String.hpp>
 	<string>
 	<vector>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/System/String.hpp>
+	<string>
+	<vector>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\vertexbuffer.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/PrimitiveType.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Window/GlResource.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/OutputSoundFile.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundFileFactory.hpp>
+	<SFML/Audio/SoundFileReader.hpp>
+	<SFML/Audio/SoundFileWriter.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/Audio/SoundStream.hpp>
 	<SFML/System.hpp>
 	<SFML/Audio/InputSoundFile.hpp>
 	<SFML/Audio/Listener.hpp>
@@ -3384,15 +3663,30 @@
 	<SFML/System/Time.hpp>
 	<string>
 	<algorithm>
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<algorithm>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\export.hpp
+	<SFML/Config.hpp>
 	<SFML/Config.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\listener.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/System/Vector3.hpp>
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/SoundStream.hpp>
 	<SFML/Audio/InputSoundFile.hpp>
@@ -3408,21 +3702,38 @@
 	<SFML/System/Time.hpp>
 	<SFML/System/Mutex.hpp>
 	<cstdlib>
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Mutex.hpp>
+	<cstdlib>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundsource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Vector3.hpp>
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/AlResource.hpp>
 	<SFML/System/Vector3.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\alresource.hpp
 	<SFML/Audio/Export.hpp>
+	<SFML/Audio/Export.hpp>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\outputsoundfile.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 	<string>
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/SoundSource.hpp>
 	<SFML/System/Time.hpp>
@@ -3435,8 +3746,18 @@
 	<string>
 	<vector>
 	<set>
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundbufferrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/SoundBuffer.hpp>
 	<SFML/Audio/SoundRecorder.hpp>
@@ -3449,8 +3770,18 @@
 	<SFML/System/Time.hpp>
 	<vector>
 	<string>
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<vector>
+	<string>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilefactory.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+	<vector>
+	<SFML/Audio/SoundFileFactory.inl>
 	<SFML/Audio/Export.hpp>
 	<string>
 	<vector>
@@ -3461,578 +3792,38 @@
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilereader.hpp
 	<SFML/Audio/Export.hpp>
 	<string>
+	<SFML/Audio/Export.hpp>
+	<string>
 
 1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilewriter.hpp
 	<SFML/Audio/Export.hpp>
 	<string>
+	<SFML/Audio/Export.hpp>
+	<string>
 
-1559992026 c:\users\buka\documents\github\ara\messages.h
+1560250979 c:\users\buka\documents\github\ara\messages.h
 	<iostream>
 
-1559992026 c:\users\buka\documents\github\ara\mapremoving.h
+1560250978 c:\users\buka\documents\github\ara\mapremoving.h
 
-1560244383 c:\users\buka\documents\github\ara\header.h
+1560250978 c:\users\buka\documents\github\ara\header.h
 	<math.h>
 
-1560244383 c:\users\buka\documents\github\ara\fields.h
+1560250978 c:\users\buka\documents\github\ara\fields.h
 
-1560244383 c:\users\buka\documents\github\ara\highlight.h
+1560250978 c:\users\buka\documents\github\ara\highlight.h
 
-1559992026 c:\users\buka\documents\github\ara\ai.h
+1560250978 c:\users\buka\documents\github\ara\ai.h
 	"znajdzRuchP.h"
 	"znajdzRuchAI.h"
 
-1559992026 c:\users\buka\documents\github\ara\znajdzruchp.h
+1560250978 c:\users\buka\documents\github\ara\znajdzruchp.h
 
-1559992026 c:\users\buka\documents\github\ara\znajdzruchai.h
-
-1560250068 source:c:\users\buka\documents\github\ara\main.cpp
-	<sstream>
-	"Figures.h"
-	"Header.h"
-	"fields.h"
-	"mapRemoving.h"
-	<math.h>
-	"highlight.h"
-
-1560250068 c:\users\buka\documents\github\ara\figures.h
-	"Load_From_File.h"
+1560250978 c:\users\buka\documents\github\ara\znajdzruchai.h
 
 1560250068 c:\users\buka\documents\github\ara\load_from_file.h
 	"pole.h"
 	<fstream>
 	<cstdlib>
 	<string>
-
-1559757103 c:\users\buka\documents\github\ara\pole.h
-	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
-	"lib/SFML-2.5.1/include/SFML/Window.hpp"
-	"lib/SFML-2.5.1/include/SFML/Audio.hpp"
-	"messages.h"
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics.hpp
-	<SFML/Window.hpp>
-	<SFML/Graphics/BlendMode.hpp>
-	<SFML/Graphics/CircleShape.hpp>
-	<SFML/Graphics/Color.hpp>
-	<SFML/Graphics/ConvexShape.hpp>
-	<SFML/Graphics/Drawable.hpp>
-	<SFML/Graphics/Font.hpp>
-	<SFML/Graphics/Glyph.hpp>
-	<SFML/Graphics/Image.hpp>
-	<SFML/Graphics/PrimitiveType.hpp>
-	<SFML/Graphics/Rect.hpp>
-	<SFML/Graphics/RectangleShape.hpp>
-	<SFML/Graphics/RenderStates.hpp>
-	<SFML/Graphics/RenderTarget.hpp>
-	<SFML/Graphics/RenderTexture.hpp>
-	<SFML/Graphics/RenderWindow.hpp>
-	<SFML/Graphics/Shader.hpp>
-	<SFML/Graphics/Shape.hpp>
-	<SFML/Graphics/Sprite.hpp>
-	<SFML/Graphics/Text.hpp>
-	<SFML/Graphics/Texture.hpp>
-	<SFML/Graphics/Transform.hpp>
-	<SFML/Graphics/Transformable.hpp>
-	<SFML/Graphics/Vertex.hpp>
-	<SFML/Graphics/VertexArray.hpp>
-	<SFML/Graphics/VertexBuffer.hpp>
-	<SFML/Graphics/View.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window.hpp
-	<SFML/System.hpp>
-	<SFML/Window/Clipboard.hpp>
-	<SFML/Window/Context.hpp>
-	<SFML/Window/ContextSettings.hpp>
-	<SFML/Window/Cursor.hpp>
-	<SFML/Window/Event.hpp>
-	<SFML/Window/Joystick.hpp>
-	<SFML/Window/Keyboard.hpp>
-	<SFML/Window/Mouse.hpp>
-	<SFML/Window/Sensor.hpp>
-	<SFML/Window/Touch.hpp>
-	<SFML/Window/VideoMode.hpp>
-	<SFML/Window/Window.hpp>
-	<SFML/Window/WindowHandle.hpp>
-	<SFML/Window/WindowStyle.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system.hpp
-	<SFML/Config.hpp>
-	<SFML/System/Clock.hpp>
-	<SFML/System/Err.hpp>
-	<SFML/System/FileInputStream.hpp>
-	<SFML/System/InputStream.hpp>
-	<SFML/System/Lock.hpp>
-	<SFML/System/MemoryInputStream.hpp>
-	<SFML/System/Mutex.hpp>
-	<SFML/System/NonCopyable.hpp>
-	<SFML/System/Sleep.hpp>
-	<SFML/System/String.hpp>
-	<SFML/System/Thread.hpp>
-	<SFML/System/ThreadLocal.hpp>
-	<SFML/System/ThreadLocalPtr.hpp>
-	<SFML/System/Time.hpp>
-	<SFML/System/Utf.hpp>
-	<SFML/System/Vector2.hpp>
-	<SFML/System/Vector3.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\config.hpp
-	"TargetConditionals.h"
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\clock.hpp
-	<SFML/System/Export.hpp>
-	<SFML/System/Time.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\export.hpp
-	<SFML/Config.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\time.hpp
-	<SFML/System/Export.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\err.hpp
-	<SFML/System/Export.hpp>
-	<ostream>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\fileinputstream.hpp
-	<SFML/Config.hpp>
-	<SFML/System/Export.hpp>
-	<SFML/System/InputStream.hpp>
-	<SFML/System/NonCopyable.hpp>
-	<cstdio>
-	<string>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\inputstream.hpp
-	<SFML/Config.hpp>
-	<SFML/System/Export.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\noncopyable.hpp
-	<SFML/System/Export.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\lock.hpp
-	<SFML/System/Export.hpp>
-	<SFML/System/NonCopyable.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\memoryinputstream.hpp
-	<SFML/Config.hpp>
-	<SFML/System/InputStream.hpp>
-	<SFML/System/Export.hpp>
-	<cstdlib>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\mutex.hpp
-	<SFML/System/Export.hpp>
-	<SFML/System/NonCopyable.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\sleep.hpp
-	<SFML/System/Export.hpp>
-	<SFML/System/Time.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\string.hpp
-	<SFML/System/Export.hpp>
-	<SFML/System/Utf.hpp>
-	<iterator>
-	<locale>
-	<string>
-	<SFML/System/String.inl>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\utf.hpp
-	<SFML/Config.hpp>
-	<algorithm>
-	<locale>
-	<string>
-	<cstdlib>
-	<SFML/System/Utf.inl>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\utf.inl
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\string.inl
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\thread.hpp
-	<SFML/System/Export.hpp>
-	<SFML/System/NonCopyable.hpp>
-	<cstdlib>
-	<SFML/System/Thread.inl>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\thread.inl
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\threadlocal.hpp
-	<SFML/System/Export.hpp>
-	<SFML/System/NonCopyable.hpp>
-	<cstdlib>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\threadlocalptr.hpp
-	<SFML/System/ThreadLocal.hpp>
-	<SFML/System/ThreadLocalPtr.inl>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\threadlocalptr.inl
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\vector2.hpp
-	<SFML/System/Vector2.inl>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\vector2.inl
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\vector3.hpp
-	<SFML/System/Vector3.inl>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\system\vector3.inl
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\clipboard.hpp
-	<SFML/Window/Export.hpp>
-	<SFML/System/String.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\export.hpp
-	<SFML/Config.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\context.hpp
-	<SFML/Window/Export.hpp>
-	<SFML/Window/GlResource.hpp>
-	<SFML/Window/ContextSettings.hpp>
-	<SFML/System/NonCopyable.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\glresource.hpp
-	<SFML/Window/Export.hpp>
-	<SFML/System/NonCopyable.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\contextsettings.hpp
-	<SFML/Config.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\cursor.hpp
-	<SFML/Window/Export.hpp>
-	<SFML/System/NonCopyable.hpp>
-	<SFML/System/Vector2.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\event.hpp
-	<SFML/Config.hpp>
-	<SFML/Window/Joystick.hpp>
-	<SFML/Window/Keyboard.hpp>
-	<SFML/Window/Mouse.hpp>
-	<SFML/Window/Sensor.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\joystick.hpp
-	<SFML/Window/Export.hpp>
-	<SFML/System/String.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\keyboard.hpp
-	<SFML/Window/Export.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\mouse.hpp
-	<SFML/Window/Export.hpp>
-	<SFML/System/Vector2.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\sensor.hpp
-	<SFML/Window/Export.hpp>
-	<SFML/System/Vector3.hpp>
-	<SFML/System/Time.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\touch.hpp
-	<SFML/Window/Export.hpp>
-	<SFML/System/Vector2.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\videomode.hpp
-	<SFML/Window/Export.hpp>
-	<vector>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\window.hpp
-	<SFML/Window/ContextSettings.hpp>
-	<SFML/Window/Cursor.hpp>
-	<SFML/Window/Export.hpp>
-	<SFML/Window/GlResource.hpp>
-	<SFML/Window/VideoMode.hpp>
-	<SFML/Window/WindowHandle.hpp>
-	<SFML/Window/WindowStyle.hpp>
-	<SFML/System/Clock.hpp>
-	<SFML/System/NonCopyable.hpp>
-	<SFML/System/String.hpp>
-	<SFML/System/Vector2.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\windowhandle.hpp
-	<SFML/Config.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\window\windowstyle.hpp
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\blendmode.hpp
-	<SFML/Graphics/Export.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\export.hpp
-	<SFML/Config.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\circleshape.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Shape.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\shape.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Drawable.hpp>
-	<SFML/Graphics/Transformable.hpp>
-	<SFML/Graphics/VertexArray.hpp>
-	<SFML/System/Vector2.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\drawable.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/RenderStates.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\renderstates.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/BlendMode.hpp>
-	<SFML/Graphics/Transform.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\transform.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Rect.hpp>
-	<SFML/System/Vector2.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\rect.hpp
-	<SFML/System/Vector2.hpp>
-	<algorithm>
-	<SFML/Graphics/Rect.inl>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\rect.inl
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\transformable.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Transform.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\vertexarray.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Vertex.hpp>
-	<SFML/Graphics/PrimitiveType.hpp>
-	<SFML/Graphics/Rect.hpp>
-	<SFML/Graphics/Drawable.hpp>
-	<vector>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\vertex.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Color.hpp>
-	<SFML/System/Vector2.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\color.hpp
-	<SFML/Graphics/Export.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\primitivetype.hpp
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\convexshape.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Shape.hpp>
-	<vector>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\font.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Glyph.hpp>
-	<SFML/Graphics/Texture.hpp>
-	<SFML/Graphics/Rect.hpp>
-	<SFML/System/Vector2.hpp>
-	<SFML/System/String.hpp>
-	<map>
-	<string>
-	<vector>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\glyph.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Rect.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\texture.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Image.hpp>
-	<SFML/Window/GlResource.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\image.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Color.hpp>
-	<SFML/Graphics/Rect.hpp>
-	<string>
-	<vector>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\rectangleshape.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Shape.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\rendertarget.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Color.hpp>
-	<SFML/Graphics/Rect.hpp>
-	<SFML/Graphics/View.hpp>
-	<SFML/Graphics/Transform.hpp>
-	<SFML/Graphics/BlendMode.hpp>
-	<SFML/Graphics/RenderStates.hpp>
-	<SFML/Graphics/PrimitiveType.hpp>
-	<SFML/Graphics/Vertex.hpp>
-	<SFML/System/NonCopyable.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\view.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Rect.hpp>
-	<SFML/Graphics/Transform.hpp>
-	<SFML/System/Vector2.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\rendertexture.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Texture.hpp>
-	<SFML/Graphics/RenderTarget.hpp>
-	<SFML/Window/ContextSettings.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\renderwindow.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/RenderTarget.hpp>
-	<SFML/Graphics/Image.hpp>
-	<SFML/Window/Window.hpp>
-	<string>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\shader.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Glsl.hpp>
-	<SFML/Window/GlResource.hpp>
-	<SFML/System/NonCopyable.hpp>
-	<SFML/System/Vector2.hpp>
-	<SFML/System/Vector3.hpp>
-	<map>
-	<string>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\glsl.hpp
-	<SFML/Graphics/Transform.hpp>
-	<SFML/Graphics/Color.hpp>
-	<SFML/System/Vector2.hpp>
-	<SFML/System/Vector3.hpp>
-	<SFML/Graphics/Glsl.inl>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\glsl.inl
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\sprite.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Drawable.hpp>
-	<SFML/Graphics/Transformable.hpp>
-	<SFML/Graphics/Vertex.hpp>
-	<SFML/Graphics/Rect.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\text.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/Drawable.hpp>
-	<SFML/Graphics/Transformable.hpp>
-	<SFML/Graphics/Font.hpp>
-	<SFML/Graphics/Rect.hpp>
-	<SFML/Graphics/VertexArray.hpp>
-	<SFML/System/String.hpp>
-	<string>
-	<vector>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\graphics\vertexbuffer.hpp
-	<SFML/Graphics/Export.hpp>
-	<SFML/Graphics/PrimitiveType.hpp>
-	<SFML/Graphics/Drawable.hpp>
-	<SFML/Window/GlResource.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio.hpp
-	<SFML/System.hpp>
-	<SFML/Audio/InputSoundFile.hpp>
-	<SFML/Audio/Listener.hpp>
-	<SFML/Audio/Music.hpp>
-	<SFML/Audio/OutputSoundFile.hpp>
-	<SFML/Audio/Sound.hpp>
-	<SFML/Audio/SoundBuffer.hpp>
-	<SFML/Audio/SoundBufferRecorder.hpp>
-	<SFML/Audio/SoundFileFactory.hpp>
-	<SFML/Audio/SoundFileReader.hpp>
-	<SFML/Audio/SoundFileWriter.hpp>
-	<SFML/Audio/SoundRecorder.hpp>
-	<SFML/Audio/SoundSource.hpp>
-	<SFML/Audio/SoundStream.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\inputsoundfile.hpp
-	<SFML/Audio/Export.hpp>
-	<SFML/System/NonCopyable.hpp>
-	<SFML/System/Time.hpp>
-	<string>
-	<algorithm>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\export.hpp
-	<SFML/Config.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\listener.hpp
-	<SFML/Audio/Export.hpp>
-	<SFML/System/Vector3.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\music.hpp
-	<SFML/Audio/Export.hpp>
-	<SFML/Audio/SoundStream.hpp>
-	<SFML/Audio/InputSoundFile.hpp>
-	<SFML/System/Mutex.hpp>
-	<SFML/System/Time.hpp>
-	<string>
-	<vector>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundstream.hpp
-	<SFML/Audio/Export.hpp>
-	<SFML/Audio/SoundSource.hpp>
-	<SFML/System/Thread.hpp>
-	<SFML/System/Time.hpp>
-	<SFML/System/Mutex.hpp>
-	<cstdlib>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundsource.hpp
-	<SFML/Audio/Export.hpp>
-	<SFML/Audio/AlResource.hpp>
-	<SFML/System/Vector3.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\alresource.hpp
-	<SFML/Audio/Export.hpp>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\outputsoundfile.hpp
-	<SFML/Audio/Export.hpp>
-	<SFML/System/NonCopyable.hpp>
-	<string>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\sound.hpp
-	<SFML/Audio/Export.hpp>
-	<SFML/Audio/SoundSource.hpp>
-	<SFML/System/Time.hpp>
-	<cstdlib>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundbuffer.hpp
-	<SFML/Audio/Export.hpp>
-	<SFML/Audio/AlResource.hpp>
-	<SFML/System/Time.hpp>
-	<string>
-	<vector>
-	<set>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundbufferrecorder.hpp
-	<SFML/Audio/Export.hpp>
-	<SFML/Audio/SoundBuffer.hpp>
-	<SFML/Audio/SoundRecorder.hpp>
-	<vector>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundrecorder.hpp
-	<SFML/Audio/Export.hpp>
-	<SFML/Audio/AlResource.hpp>
-	<SFML/System/Thread.hpp>
-	<SFML/System/Time.hpp>
-	<vector>
-	<string>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilefactory.hpp
-	<SFML/Audio/Export.hpp>
-	<string>
-	<vector>
-	<SFML/Audio/SoundFileFactory.inl>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilefactory.inl
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilereader.hpp
-	<SFML/Audio/Export.hpp>
-	<string>
-
-1559757103 c:\users\buka\documents\github\ara\lib\sfml-2.5.1\include\sfml\audio\soundfilewriter.hpp
-	<SFML/Audio/Export.hpp>
-	<string>
-
-1560250068 c:\users\buka\documents\github\ara\messages.h
-	<iostream>
-
-1560250068 c:\users\buka\documents\github\ara\header.h
-	<math.h>
-	<windows.h>
-
-1560250068 c:\users\buka\documents\github\ara\fields.h
-
-1560250068 c:\users\buka\documents\github\ara\mapremoving.h
-
-1560250068 c:\users\buka\documents\github\ara\highlight.h
 
