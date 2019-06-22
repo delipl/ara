@@ -70,9 +70,13 @@ bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
     if(board[x][y].name=="charge")
     {
-        if((y == targetY) && (abs(targetX - x) == 2)) return 1;
-        //if((y == targetY+1) && (abs(targetX - x) == 1)) return 1;
-        //if((y == targetY-1) && (abs(targetX - x) == -1)) return 1;
+
+        if((y == targetY) && ((targetX - x) == 2) && ( board[x+1][y+1].name=="empty" || board[x+1][y-1].name=="empty" )) return 1;
+        if((y == targetY) && ((targetX - x) == -2) && ( board[x-1][y+1].name=="empty" || board[x-1][y+1].name=="empty" ) ) return 1;
+
+
+        if((y == targetY+1) && (abs(targetX - x) == 1)) return 1;
+        if((y == targetY-1) && (abs(targetX - x) == 1)) return 1;
         if(x == targetX)
         {
             if(y > targetY)

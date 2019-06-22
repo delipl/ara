@@ -151,10 +151,30 @@ bool highlight(int x, int y){
                     front_fields[(x-2)*34+y].name == empty)
                         background_fields[x-2][y].setColor(gColor);
             }
-            if(x+2>0){
+            if(x+2<17){
                 if(canMove(front_fields, x, y, x+2, y)  &&
                     front_fields[(x+2)*34+y].name == empty)
                         background_fields[x+2][y].setColor(gColor);
+            }
+            if(x+1<17 && y+1<34){
+                if(canMove(front_fields, x, y, x+1, y+1)  &&
+                    front_fields[(x+1)*34+y+1].name == empty)
+                        background_fields[x+1][y+1].setColor(gColor);
+            }
+            if(x+1<17 && y-1>0){
+                if(canMove(front_fields, x, y, x+1, y-1)  &&
+                    front_fields[(x+1)*34+y-1].name == empty)
+                        background_fields[x+1][y-1].setColor(gColor);
+            }
+            if(x-1>0 && y+1<34){
+                if(canMove(front_fields, x, y, x-1, y+1)  &&
+                    front_fields[(x-1)*34+y+1].name == empty)
+                        background_fields[x-1][y+1].setColor(gColor);
+            }
+            if(x-1>0 && y-1>0){
+                if(canMove(front_fields, x, y, x-1, y-1)  &&
+                    front_fields[(x-1)*34+y-1].name == empty)
+                        background_fields[x-1][y-1].setColor(gColor);
             }
     }
 
