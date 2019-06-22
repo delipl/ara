@@ -2078,7 +2078,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1561242576 c:\users\kivi\documents\ara\figures.h
+1561243033 c:\users\kivi\documents\ara\figures.h
 	"loadFromFile.h"
 
 1548090551 c:\users\adamw\documents\ara\figures.h
@@ -2913,7 +2913,7 @@
 
 1549103016 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\znajdzruchai.h
 
-1561221306 c:\users\kivi\documents\ara\loadfromfile.h
+1561242897 c:\users\kivi\documents\ara\loadfromfile.h
 	"textures.h"
 	<fstream>
 	<cstdlib>

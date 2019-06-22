@@ -280,6 +280,8 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     {
         if((abs(targetX - x) == 2) && (abs(targetY - y) == 2)) return 1;
         else if((targetX == x) && (abs(targetY - y) == 4)) return 1;
+        else if((targetX == x+1) && (abs(targetY - y) == 3)) return 1;
+        else if((targetX == x-1) && (abs(targetY - y) == 3)) return 1;
         return 0;
     }
     if(wsk_to_board[x * 34 + y].name == "ghost")
