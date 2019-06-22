@@ -72,19 +72,8 @@ int main()
         basex-=1;
         basey+=1;
     }
-setup();
-    for(int i = 0; i < 17; i ++)
-        {
-            for(int j = 0; j < 34; j ++)
-            {
-                background_fields[i][j].setScale(scale, scale);
-                sf::Color a= background_fields[i][j].getColor();
-                if(front_fields[i*34+j].name!="notexist"){
-                    if(a!=sf::Color::Cyan)background_fields[i][j].setTexture(Background);
-                }
-                else background_fields[i][j].setTexture(texture_notexist);
-            }
-        }
+    setup();
+
 
     float skalaX = float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x;
     float skalaY = float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y;
