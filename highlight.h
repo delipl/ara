@@ -17,7 +17,7 @@ bool highlight(int x, int y){
 
     //pionek
     if (front_fields[x* 34 + y].name == "pawn"){
-                for (int l = y-4; l<= y+4; l++){
+                for (int l = y-6; l<= y+6; l++){
                     if(l>=0 && l<34){
                         if((x%2==l%2)&&front_fields[x*34+l].name!="notexist"){
 
