@@ -216,13 +216,16 @@ setup();
 
                     }else if(!click){
                         sf::Color a= background_fields[i][j].getColor();
-                        if(a!=sf::Color::Cyan)background_fields[i][j].setColor(sf::Color(200, 200, 200));
+                        if(a!=sf::Color::Cyan)background_fields[i][j].setColor(sf::Color(255, 255, 255));
 
 
+                    if(background_fields[baseX][baseY].typK==1)background_fields[baseX][baseY].setTexture(BackgroundBroken);
+                    else if(background_fields[baseX][baseY].typK==2) background_fields[baseX][baseY].setTexture(BackgroundBroken2);
+                    //else background_fields[baseX][baseY].setTexture(BackgroundBroken3);
 
-                    background_fields[baseX][baseY].setTexture(BackgroundBroken);
-                    background_fields[basex][basey].setTexture(BackgroundBroken);
-
+                    if(background_fields[basex][basey].typK==1)background_fields[basex][basey].setTexture(BackgroundBroken);
+                    else if(background_fields[basex][basey].typK==2)background_fields[basex][basey].setTexture(BackgroundBroken2);
+                    //else background_fields[basex][basey].setTexture(BackgroundBroken3);
                     }
                 }
             }
