@@ -105,7 +105,7 @@ setup();
     }
 
 
-
+    sf::Color basicColor = background_fields[8][28].getColor();
     while (window.isOpen())
     {
 
@@ -216,16 +216,16 @@ setup();
 
                     }else if(!click){
                         sf::Color a= background_fields[i][j].getColor();
-                        if(a!=sf::Color::Cyan)background_fields[i][j].setColor(sf::Color(255, 255, 255));
+                        if(a!=sf::Color::Cyan)background_fields[i][j].setColor(basicColor);
 
 
                     if(background_fields[baseX][baseY].typK==1)background_fields[baseX][baseY].setTexture(BackgroundBroken);
                     else if(background_fields[baseX][baseY].typK==2) background_fields[baseX][baseY].setTexture(BackgroundBroken2);
-                    //else background_fields[baseX][baseY].setTexture(BackgroundBroken3);
+                    else background_fields[baseX][baseY].setTexture(BackgroundBroken3);
 
                     if(background_fields[basex][basey].typK==1)background_fields[basex][basey].setTexture(BackgroundBroken);
                     else if(background_fields[basex][basey].typK==2)background_fields[basex][basey].setTexture(BackgroundBroken2);
-                    //else background_fields[basex][basey].setTexture(BackgroundBroken3);
+                    else background_fields[basex][basey].setTexture(BackgroundBroken3);
                     }
                 }
             }
