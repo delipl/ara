@@ -2,7 +2,6 @@
     //#include <windows.h>
 
     #define board_size_y 34
-    #define coIleTurMaSieZapadac 5
 
     Pole background_fields[17][34];
     Pole *front_fields;

@@ -16,7 +16,7 @@ float scale=0;
     int difficultyAI = 0;
     int turaLength = 0;
 
-    #define coIleTurMaSieZapadac 5
+    #define coIleTurMaSieZapadac 2
     int tura;
     int nrTura=1;
     int oldTura =1;

@@ -14,7 +14,14 @@ bool click=0;
 bool ai=0;
 
 
-
+void setup(){
+    loadFiguresTexture();
+    loadSettings();
+    loadMenuTexture();
+    backgroundFields();
+    LoadSave(saveChosing(), front_fields);
+    frontFields();
+}
 
 int main()
 {
@@ -42,9 +49,6 @@ int main()
 
 //=================================T£O================================================//
 
-    loadFiguresTexture();
-    loadSettings();
-    loadMenuTexture();
 
 
     if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
@@ -57,17 +61,7 @@ int main()
         posuniecieY=0;
     }
 
-    backgroundFields();
 
-    Pole klik;
-    klik.setPosition(sf::Vector2f(650, 350));
-    klik.setScale(sf::Vector2f(0, 0));
-    klik.setTexture(Background);
-    klik.setColor(sf::Color::Red);
-
-    LoadSave(saveChosing(), front_fields);
-    //std::cout<<tura<<"\n";
-    frontFields();
 
     if(nrTura==1){
         background_fields[baseX][baseY].setPosition(1000,1000);
@@ -78,7 +72,7 @@ int main()
         basex-=1;
         basey+=1;
     }
-
+setup();
     for(int i = 0; i < 17; i ++)
         {
             for(int j = 0; j < 34; j ++)
@@ -92,23 +86,26 @@ int main()
             }
         }
 
-        float skalaX = float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x;
-        float skalaY = float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y;
+    float skalaX = float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x;
+    float skalaY = float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y;
 
-        int czteresci =texture_kingD.getSize().x*scale;
-        int dwajscia = czteresci/2;
+    int czteresci =texture_kingD.getSize().x*scale;
+    int dwajscia = czteresci/2;
 
 
 
-        sf::Sprite SbackroundImage;
-        SbackroundImage.setTexture(backroundImage);
-        if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
-            SbackroundImage.setScale(skalaX, skalaX);
-            SbackroundImage.setPosition(0, float(-(backroundImage.getSize().y*skalaX - sf::VideoMode::getDesktopMode().height)/2));
-        }else{
-            SbackroundImage.setScale(skalaY, skalaY);
-            SbackroundImage.setPosition((float(sf::VideoMode::getDesktopMode().width)-backroundImage.getSize().x*skalaY)/2 ,0);
-        }
+    sf::Sprite SbackroundImage;
+    SbackroundImage.setTexture(backroundImage);
+    if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
+        SbackroundImage.setScale(skalaX, skalaX);
+        SbackroundImage.setPosition(0, float(-(backroundImage.getSize().y*skalaX - sf::VideoMode::getDesktopMode().height)/2));
+    }else{
+        SbackroundImage.setScale(skalaY, skalaY);
+        SbackroundImage.setPosition((float(sf::VideoMode::getDesktopMode().width)-backroundImage.getSize().x*skalaY)/2 ,0);
+    }
+
+
+
     while (window.isOpen())
     {
         window.draw(SbackroundImage);
@@ -267,64 +264,13 @@ int main()
                     }
                 }
             }
-
-            /*if(!click){
-                background_fields[mouseDX][mouseDY].setColor(sf::Color(255, 255, 255, 255));
-            }
-            else{
-
-                if(front_fields[i*34+j].owner==opponentOwner&&canAttack(front_fields,figure_x,figure_y, i, j)){
-                    if(front_fields[figure_x*34+figure_y].name=="tower"){
-                        if(!kursor.loadFromFile("img/kursorC.png")) ms_error(26, "no kursor found", 1);
-                    }
-                    else{
-                        if (!kursor.loadFromFile("img/kursorF.png"))ms_error(216, "no kursor found", 1);
-                    }
-                }else{
-
-                    if (!kursor.loadFromFile("img/kursor.png")) ms_error(26, "no kursor found", 1);
-                }
-
-
-            }*/
-
             while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
                 mouse_position = sf::Mouse::getPosition(window);
                 mouse_pressed = 1;
-            }/*
-            if((pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - klik.getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - klik.getPosition().y, 2) < (texture_kingD.getSize().x*scale)*texture_kingD.getSize().x*scale) && mouse_pressed)
-            {
-                if(actual_mode == "edit")
-                {
-                    actual_mode = "play";
-                    std::cout<<"Zmieniono tryb na \"play\"\n";
-                }
-                else
-                {
-                    actual_mode = "edit";
-                    std::cout<<"Zmieniono tryb na \"edit\"\n";
-                    std::cin>>actual_name;
-                    std::cin>>actual_owner;
-                }
             }
-            else if((actual_mode == "edit") && mouse_pressed)
-            {
-                for(int i = 0; i < 17; i ++)
-                {
-                    for(int j = 0; j < 34; j ++)
-                    {
-                        if(pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().y, 2) < pow(texture_kingD.getSize().x*scale/2,2))
-                        {
-                            front_fields[i * board_size_y + j].name = actual_name;
-                            front_fields[i * board_size_y + j].owner = actual_owner;
-                            i = 16;
-                            j = 33;
-                        }
-                    }
-                }
-            }
-            else */if((actual_mode == "play") && (mouse_pressed||(ai&&tura==1)))
+
+            if((actual_mode == "play") && (mouse_pressed||(ai&&tura==1)))
             {
                 if(!ai||tura==2){
                     if((figure_x == 0) && (figure_y == 0))
@@ -346,7 +292,7 @@ int main()
 
                                         mouse_position = sf::Mouse::getPosition(window);
                                         (front_fields[figure_x* 34 + figure_y].owner == 1)?opponentOwner = 2:opponentOwner = 1;
-                                        //======================================================[highLight]================================
+                                        //=======================================[highLight]================================
                                         if(!highlight(figure_x, figure_y))ms_error(279, "cos poszlo nie tak z highlightem");
                                         //========================================highlight=========================================================
                                     }
@@ -391,24 +337,6 @@ int main()
                                                     frontFields();
                                                     window.draw(front_fields[i*34+j]);
                                                     window.draw(front_fields[i*34+j]);
-
-                                                    if((front_fields[i * board_size_y + j].name != "empty"))
-                                                    {
-                                                        if(front_fields[i * board_size_y + j].owner == 1)
-                                                        {
-                                                            background_fields[i][j].setColor(sf::Color::Yellow);
-                                                        }
-                                                        else
-                                                        {
-                                                            background_fields[i][j].setColor(sf::Color::Blue);
-                                                        }
-
-                                                    }else{
-                                                        sf::Color a= background_fields[i][j].getColor();
-                                                        if(a!=sf::Color::Cyan)background_fields[i][j].setColor(sf::Color::White);
-                                                    }
-
-
 
                                                 }
                                             }

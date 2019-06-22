@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1561220681 source:c:\users\kivi\documents\ara\main.cpp
+1561221805 source:c:\users\kivi\documents\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -2553,7 +2553,7 @@
 1549113139 c:\users\kivi\documents\ara\messages.h
 	<iostream>
 
-1560180796 c:\users\kivi\documents\ara\header.h
+1561221306 c:\users\kivi\documents\ara\header.h
 	<math.h>
 
 1549199670 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\header.h
@@ -2913,7 +2913,7 @@
 
 1549103016 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\znajdzruchai.h
 
-1560288832 c:\users\kivi\documents\ara\loadfromfile.h
+1561221306 c:\users\kivi\documents\ara\loadfromfile.h
 	"textures.h"
 	<fstream>
 	<cstdlib>
