@@ -151,10 +151,12 @@ bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
     if(board[x][y].name=="ghost")
     {
-        if((abs(targetX - x) == 1) && (abs(targetY - y) == 3)) return 1;
-        else if((abs(targetX - x) == 2) && ((abs(targetY - y) == 0)||(abs(targetY - y) == 2))) return 1;
-        else if((targetX == x) && (abs(targetY-y) ==  4)) return 1;
-        else return 0;
+        //if((abs(targetX - x) == 1) && (abs(targetY - y) == 3)) return 1;
+        if((abs(targetX - x) == 3) && (abs(targetY - y) == 3)) return 1;
+        if((abs(targetX - x) == 2) && (abs(targetY - y) == 2)) return 1;
+        if((targetX == x) && (abs(targetY-y) ==  4)) return 1;
+        if((targetX == x) && (abs(targetY-y) ==  6)) return 1;
+        return 0;
     }
 
     //kawaleria

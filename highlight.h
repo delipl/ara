@@ -52,8 +52,8 @@ bool highlight(int x, int y){
 
     //duch
     else if(front_fields[x* 34 + y].name == "ghost"){
-        for(int k = x-2; k <= x+2; k++){
-            for (int l = y - 4; l<= y+4; l++){
+        for(int k = x-3; k <= x+3; k++){
+            for (int l = y - 6; l<= y+6; l++){
                 if(k>-1&&k<17&&l>=0&&l<34){
                     if(canAttack(front_fields, x, y, k, l)      &&
                         front_fields[k*34+l].owner == opponentOwner)

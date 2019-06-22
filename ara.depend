@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1561229392 source:c:\users\kivi\documents\ara\main.cpp
+1561245379 source:c:\users\kivi\documents\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -2078,7 +2078,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1561243033 c:\users\kivi\documents\ara\figures.h
+1561244021 c:\users\kivi\documents\ara\figures.h
 	"loadFromFile.h"
 
 1548090551 c:\users\adamw\documents\ara\figures.h
@@ -2777,7 +2777,7 @@
 
 1548090552 c:\users\adamw\documents\ara\mapremoving.h
 
-1561242801 c:\users\kivi\documents\ara\highlight.h
+1561243713 c:\users\kivi\documents\ara\highlight.h
 
 1549060553 c:\users\kivi\documents\ara\ai.h
 	"znajdzRuchP.h"

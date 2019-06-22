@@ -23,6 +23,11 @@ void setup(){
     frontFields();
 }
 
+bool ruch=1;
+
+int zakazaneX;
+int zakazaneY;
+
 int main()
 {
     srand(time(NULL));
@@ -95,6 +100,10 @@ int main()
 
 
     sf::Color basicColor = background_fields[8][28].getColor();
+
+    //==========================PETLA GLOWNA==========================//
+
+
     while (window.isOpen())
     {
 
@@ -242,7 +251,7 @@ int main()
                                     {
                                         figure_x = 0;
                                         figure_y = 0;
-                                    }else if(front_fields[figure_x*34+figure_y].owner==tura){
+                                    }else if(front_fields[figure_x*34+figure_y].owner==tura && (figure_x!=zakazaneX || figure_y!=zakazaneY)){
                                         click=1;
 
                                         mouse_position = sf::Mouse::getPosition(window);
@@ -270,14 +279,35 @@ int main()
 
                                     target_x = i;
                                     target_y = j;
-                                    if(front_fields[34*figure_x+figure_y].owner == tura)
+                                    if(front_fields[34*figure_x+figure_y].owner)
                                     {
                                         if(action(front_fields, figure_x, figure_y, target_x, target_y))
                                         {
 
-                                            if(tura == 1) tura = 2;
-                                            else tura = 1;
-                                            nrTura++;
+                                            if(tura == 1 && ruch==0) {
+                                                tura = 2;
+                                                ruch=1;
+                                                nrTura++;
+                                                zakazaneX=0;
+                                                zakazaneY=0;
+                                            }
+                                            else if(tura == 1 && ruch==1){
+                                                ruch = 0;
+                                                zakazaneX=target_x;
+                                                zakazaneY=target_y;
+                                            }
+                                            else if(tura == 2 && ruch==0){
+                                                tura = 1;
+                                                ruch=1;
+                                                nrTura++;
+                                                zakazaneX=0;
+                                                zakazaneY=0;
+                                            }
+                                            else if(tura == 2 && ruch==1) {
+                                                    ruch = 0;
+                                                zakazaneX=target_x;
+                                                zakazaneY=target_y;
+                                            }
                                             sound.play();
                                             click=0;
 
@@ -462,7 +492,6 @@ int main()
         {
             seconds.restart();
         }
-        if(minute!=0&&minute%3==0)music.play();
         //window.draw(klik);
         window.draw(clock);
         window.draw(turn);
