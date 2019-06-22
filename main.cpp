@@ -29,6 +29,7 @@ int main()
     music.setVolume(10.f);
 
     music.play();
+    music.setLoop(true);
     sf::SoundBuffer buffer;
     if (!buffer.loadFromFile("sounds/sound.wav"))
         ms_error(22, "nie zaladowano dzwieku");
