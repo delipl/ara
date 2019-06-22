@@ -69,8 +69,8 @@ bool highlight(int x, int y){
 
     //krolik
     else if(front_fields[x* 34 + y].name == "king"){
-        for(int k = x-1; k <= x+1; k++){
-            for (int l = y-2; l <= y+2; l++){
+        for(int k = x-2; k <= x+2; k++){
+            for (int l = y-4; l <= y+4; l++){
                 if(k>-1&&k<17&&l>=0&&l<34){
                     if(canAttack(front_fields, x, y, k, l)      &&
                          front_fields[k*34+l].owner == opponentOwner)
@@ -146,7 +146,7 @@ bool highlight(int x, int y){
 
                 }
             }
-            if(x-2>0){
+            if(x-2>=0){
                 if(canMove(front_fields, x, y, x-2, y)  &&
                     front_fields[(x-2)*34+y].name == empty)
                         background_fields[x-2][y].setColor(gColor);
@@ -166,12 +166,12 @@ bool highlight(int x, int y){
                     front_fields[(x+1)*34+y-1].name == empty)
                         background_fields[x+1][y-1].setColor(gColor);
             }
-            if(x-1>0 && y+1<34){
+            if(x-1>=0 && y+1<34){
                 if(canMove(front_fields, x, y, x-1, y+1)  &&
                     front_fields[(x-1)*34+y+1].name == empty)
                         background_fields[x-1][y+1].setColor(gColor);
             }
-            if(x-1>0 && y-1>0){
+            if(x-1>=0 && y-1>0){
                 if(canMove(front_fields, x, y, x-1, y-1)  &&
                     front_fields[(x-1)*34+y-1].name == empty)
                         background_fields[x-1][y-1].setColor(gColor);
