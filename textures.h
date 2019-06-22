@@ -38,13 +38,13 @@ sf::Texture backroundImage;
 
 
 void loadFiguresTexture(){
-    if (!texture_pawnU.loadFromFile("img/pawn.png"))
+    if (!texture_pawnU.loadFromFile("graphics/ikony/peasantRed.png"))
     {
-        ms_error(666, "img/pawn.png", 1);
+        ms_error(666, "graphics/ikony/peasantRed.png", 1);
     }
-    if (!texture_ghostU.loadFromFile("graphics/ikony/duszekredone.png"))
+    if (!texture_ghostU.loadFromFile("graphics/ikony/ghostRed.png"))
     {
-        ms_error(666, "graphics/ikony/duszekredone.png", 1);
+        ms_error(666, "graphics/ikony/ghostRed.png", 1);
     }
     if (!texture_cavU.loadFromFile("graphics/ikony/kawaleriaRed.png"))
     {
@@ -54,9 +54,9 @@ void loadFiguresTexture(){
     {
         ms_error(666, "graphics/ikony/kroolRed.png", 1);
     }
-    if (!texture_towerU.loadFromFile("img/tower.png"))
+    if (!texture_towerU.loadFromFile("graphics/ikony/towerRed.png"))
     {
-        ms_error(666, "img/tower.png", 1);
+        ms_error(666, "graphics/ikony/towerRed.png", 1);
     }
     if (!texture_chargeU.loadFromFile("graphics/ikony/nosekred^^.png"))
     {
@@ -74,13 +74,13 @@ void loadFiguresTexture(){
     {
         ms_error(666, "img/nothing.png", 1);
     }
-    if (!texture_pawnD.loadFromFile("img/pawn.png"))
+    if (!texture_pawnD.loadFromFile("graphics/ikony/peasantBlue.png"))
     {
-        ms_error(666, "img/pawn.png", 1);
+        ms_error(666, "graphics/ikony/peasantBlue.png", 1);
     }
-    if (!texture_ghostD.loadFromFile("graphics/ikony/duszekbludone.png"))
+    if (!texture_ghostD.loadFromFile("graphics/ikony/ghostBlue.png"))
     {
-        ms_error(666, "graphics/ikony/duszekbludone.png", 1);
+        ms_error(666, "graphics/ikony/ghostBlue.png", 1);
     }
     if (!texture_cavD.loadFromFile("graphics/ikony/kawaleriaBlue.png"))
     {
@@ -90,9 +90,9 @@ void loadFiguresTexture(){
     {
         ms_error(666, "graphics/ikony/kroolBlue.png", 1);
     }
-    if (!texture_towerD.loadFromFile("img/tower.png"))
+    if (!texture_towerD.loadFromFile("graphics/ikony/towerBlue.png"))
     {
-        ms_error(666, "img/tower.png", 1);
+        ms_error(666, "graphics/ikony/towerBlue.png", 1);
     }
     if (!texture_chargeD.loadFromFile("graphics/ikony/nosekblue^^.png"))
     {
