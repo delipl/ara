@@ -108,6 +108,11 @@ setup();
 
     while (window.isOpen())
     {
+
+
+        Kursor.setTexture(kursor);
+        mousePointing = 0;
+        mouse_pressed = 0;
         window.draw(SbackroundImage);
         sf::Event event;
         while (window.pollEvent(event))
@@ -147,8 +152,6 @@ setup();
 //=========================Znikanie mapy=====================================//
 
         if(oldTura+coIleTurMaSieZapadac<=nrTura){
-            //std::cout<<nrZmiany<<"\n";
-            //std::cout<<nrZmiany2<<"\n";
 
             background_fields[baseX][baseY].setPosition(1000,1000);
             front_fields[baseX*34+baseY].name="notexist";
@@ -167,52 +170,8 @@ setup();
             oldTura=nrTura;
 
             nrZmiany++;
-            //std::cout<<nrZmiany-2<<std::endl;
 
         }
-//==============================troche zmian w zmiennych=================================//
-
-        Kursor.setTexture(kursor);
-        mousePointing = 0;
-        mouse_pressed = 0;
-
-//==============================Zabawa z myszka==========================================//
-        //zabawa ze wzorami na mysz
-
-/*
-
-        mouseFieldX = mouse_position.x / 35;
-        mouseDX = mouse_position.x % 35;
-        mouseFieldY = 2 * (mouse_position.y / texture_kingD.getSize().x*scale) - (mouseFieldX % 2);
-        mouseDY = mouse_position.y - (mouseFieldY * texture_kingD.getSize().x*scale/2);
-        if(mouseDY < 0)
-        {
-            mouseFieldY -= 2;
-            mouseDY += texture_kingD.getSize().x*scale;
-        }
-        else if(mouseDY > 39)
-        {
-            mouseFieldY += 2;
-            mouseDY -= texture_kingD.getSize().x*scale;
-        }
-
-        if(mouseDY < 20 - (2 * mouseDX))
-        {
-            mouseFieldX--;
-            mouseFieldY--;
-        }
-        else if(mouseDY > 20 + (2 * mouseDX))
-        {
-            mouseFieldX--;
-            mouseFieldY++;
-        }
-
-        if((mouseFieldX >= 0) && (mouseFieldX < 17) && (mouseFieldY >= 0) && (mouseFieldY < 34))
-        {
-            mousePointing = 1;
-        }
-*/
-        //koniec zabawy
 
         mouse_position = sf::Mouse::getPosition(window);
         if(!isMenu&!isSaving){
@@ -222,8 +181,11 @@ setup();
                 {
                     if(pow(mouse_position.x - dwajscia - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - dwajscia - background_fields[i][j].getPosition().y, 2) < dwajscia*dwajscia)
                     {
-                        if(!click)background_fields[i][j].setColor(sf::Color(255,255,255,220));
-                        else{
+                        if(!click){
+                                if(front_fields[i*34+j].owner==1)background_fields[i][j].setColor(sf::Color(175,210,255,150));
+                                else if (front_fields[i*34+j].owner==2) background_fields[i][j].setColor(sf::Color(255,220,175,140));
+                                else background_fields[i][j].setColor(sf::Color(255,255,255,220));
+                        }else{
 
                             if(front_fields[i*34+j].owner==opponentOwner){
                                if (!kursor.loadFromFile("graphics/rzeczy/kursorKlik.png"))ms_error(216, "no kursor found", 1);
@@ -283,6 +245,7 @@ setup();
                                 {
                                     figure_x = i;
                                     figure_y = j;
+                                    front_fields[i*34+j].owner==1?background_fields[i][j].setColor(sf::Color(175,210,255,150)):background_fields[i][j].setColor(sf::Color(255,220,175,140));
                                     if((front_fields[figure_x * 34 + figure_y].name == "empty"))
                                     {
                                         figure_x = 0;
