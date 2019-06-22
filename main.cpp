@@ -92,16 +92,22 @@ int main()
             }
         }
 
+        float skalaX = float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x;
+        float skalaY = float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y;
+
+        int czteresci =texture_kingD.getSize().x*scale;
+        int dwajscia = czteresci/2;
+
 
 
         sf::Sprite SbackroundImage;
         SbackroundImage.setTexture(backroundImage);
         if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
-            SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x, float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x);
-            SbackroundImage.setPosition(0, float(-(backroundImage.getSize().y*(float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x) - sf::VideoMode::getDesktopMode().height)/2));
+            SbackroundImage.setScale(skalaX, skalaX);
+            SbackroundImage.setPosition(0, float(-(backroundImage.getSize().y*skalaX - sf::VideoMode::getDesktopMode().height)/2));
         }else{
-            SbackroundImage.setScale(float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y, float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y);
-            SbackroundImage.setPosition((float(sf::VideoMode::getDesktopMode().width)-backroundImage.getSize().x*(float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y))/2 ,0);
+            SbackroundImage.setScale(skalaY, skalaY);
+            SbackroundImage.setPosition((float(sf::VideoMode::getDesktopMode().width)-backroundImage.getSize().x*skalaY)/2 ,0);
         }
     while (window.isOpen())
     {
@@ -217,7 +223,24 @@ int main()
             {
                 for(int j = 0; j < 34; j ++)
                 {
-                    if((front_fields[i * board_size_y + j].name != "empty"))
+                    if(pow(mouse_position.x - dwajscia - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - dwajscia - background_fields[i][j].getPosition().y, 2) < dwajscia*dwajscia)
+                    {
+                        if(!click)background_fields[i][j].setColor(sf::Color(255,255,255,220));
+                        else{
+
+                            if(front_fields[i*34+j].owner==opponentOwner){
+                               if (!kursor.loadFromFile("graphics/rzeczy/kursorKlik.png"))ms_error(216, "no kursor found", 1);
+                            }else{
+                                if (!kursor.loadFromFile("graphics/rzeczy/kursorDuzy.png"))
+                                    {
+                                    ms_error(26, "no kursor found", 1);
+                                    }
+                            }
+
+
+                        }
+                    }
+                    else if((front_fields[i * board_size_y + j].name != "empty"))
                     {
                         if(front_fields[i * board_size_y + j].owner == 1)
                         {
@@ -310,7 +333,7 @@ int main()
                         {
                             for(int j = 0; j < 34; j ++)
                             {
-                                if(pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().y, 2) < pow(texture_kingD.getSize().x*scale/2,2))
+                                if(pow(mouse_position.x - dwajscia - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - dwajscia - background_fields[i][j].getPosition().y, 2) < pow(dwajscia,2))
                                 {
                                     figure_x = i;
                                     figure_y = j;
@@ -341,7 +364,7 @@ int main()
                         {
                             for(int j = 0; j < 34; j ++)
                             {
-                                if(pow(mouse_position.x - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - texture_kingD.getSize().x*scale/2 - background_fields[i][j].getPosition().y, 2) < pow(texture_kingD.getSize().x*scale/2,2))
+                                if(pow(mouse_position.x - dwajscia - background_fields[i][j].getPosition().x, 2) + pow(mouse_position.y - dwajscia - background_fields[i][j].getPosition().y, 2) < pow(dwajscia,2))
                                 {
 
                                     target_x = i;

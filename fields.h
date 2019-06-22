@@ -7,7 +7,7 @@ void backgroundFields(){
     // Przygotowanie tablic
 
 
-
+    std::cout<<"jeste\n";
     for (int i = 0; i<17;++i)
     {
         for (int j = 0; j<33; ++j)

@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1560292227 source:c:\users\kivi\documents\ara\main.cpp
+1561220681 source:c:\users\kivi\documents\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -863,7 +863,7 @@
 	<SFML/Graphics/VertexBuffer.hpp>
 	<SFML/Graphics/View.hpp>
 
-1560250978 D
+1560250068 D
 
 1525808418 e
 
@@ -2559,7 +2559,7 @@
 1549199670 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\header.h
 	<math.h>
 
-1560292469 c:\users\kivi\documents\ara\fields.h
+1561219926 c:\users\kivi\documents\ara\fields.h
 
 1549201058 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\fields.h
 
@@ -2920,7 +2920,7 @@
 	<string>
 	"mapRemoving.h"
 
-1560292070 c:\users\kivi\documents\ara\textures.h
+1561218940 c:\users\kivi\documents\ara\textures.h
 	"pole.h"
 
 1549193343 c:\users\kivi\documents\ara\saving.h
@@ -2944,16 +2944,14 @@
 	<string>
 	"mapRemoving.h"
 
-<<<<<<< HEAD
-1560294588 c:\users\buka\documents\github\ara\textures.h
-
-1560250068 1ccea4d750417c0369775c5085310912f9c3c
-=======
 1560295280 c:\users\buka\documents\github\ara\textures.h
 	"pole.h"
 
+1560250068 1ccea4d750417c0369775c5085310912f9c3c
+
 1560250068 ffc79f83e38acd30bd8cef6a3c204acffb7d9
->>>>>>> df803db518f2f46b88c3fa74935cf10c04355a9e
+
+1560250068 03db518f2f46b88c3fa74935cf10c04355a9e
 	"pole.h"
 
 1559757103 c:\users\buka\documents\github\ara\pole.h
@@ -3835,9 +3833,6 @@
 	<fstream>
 	<cstdlib>
 	<string>
-<<<<<<< HEAD
-=======
 
 1560250068 
->>>>>>> df803db518f2f46b88c3fa74935cf10c04355a9e
 
