@@ -79,12 +79,16 @@ bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
         if((y == targetY-1) && (abs(targetX - x) == 1)) return 1;
         if(x == targetX)
         {
+            bool zascianek=0;
             if(y > targetY)
             {
                 for(int i = targetY + 2; i < y; i += 2)
                 {
-                    if((board[x][i].name == "empty") || (board[x][i].owner == board[x][y].owner))
+                    if(board[x][i].name == "empty" || board[x][i].owner == board[x][y].owner || board[x][i].name == "notexist")
                     {
+                        if(board[x][i].name == "notexist"){
+                            return 0; //tu kiedys bedzie latalo
+                        }
                         continue;
                     }
                     return 0;
@@ -95,8 +99,11 @@ bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
             {
                 for(int i = y + 2; i < targetY; i += 2)
                 {
-                    if((board[x][i].name == "empty") || (board[x][i].owner == board[x][y].owner))
+                    if(board[x][i].name == "empty" || board[x][i].owner == board[x][y].owner || board[x][i].name == "notexist")
                     {
+                        if(board[x][i].name == "notexist"){
+                            return 0; //tu kiedys bedzie latalo
+                        }
                         continue;
                     }
                     return 0;
