@@ -27,8 +27,10 @@ sf::Texture BackgroundBroken;
 sf::Texture BackgroundBroken2;
 sf::Texture BackgroundBroken3;
 // menu (+ sprite'y)
+sf::Texture firstMenuTexture;
 sf::Texture menu;
 sf::Texture save;
+sf::Sprite firstMenuSprite;
 sf::Sprite Menu;
 sf::Sprite Save;
 sf::Sprite WinTexture;
@@ -136,6 +138,10 @@ void loadFiguresTexture(){
 }
 
 void loadMenuTexture(){
+    if (!firstMenuTexture.loadFromFile("graphics/menu/menu2PlusSub.png"))
+    {
+        ms_error(666, "graphics/menu/menu2PlusSub.png", 1);
+    }
     if (!menu.loadFromFile("img/menu.png"))
     {
         ms_error(666, "img/menu.png", 1);
@@ -166,7 +172,7 @@ void loadMenuTexture(){
     Save.setPosition(sf::Vector2f(0, 0));
     Save.setScale(float(sf::VideoMode::getDesktopMode().width)/save.getSize().x, float(sf::VideoMode::getDesktopMode().height)/save.getSize().y);
 
-
+    firstMenuSprite.setTexture(firstMenuTexture);
 
     Kursor.setTexture(kursor);
     Kursor.setScale(0.5f, 0.5f);
