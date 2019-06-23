@@ -1,13 +1,13 @@
+int posuniecieX = 0;
+int posuniecieY = 0;
+
 void backgroundFields(){
 
     front_fields = new Pole [578];
     // Przygotowanie tablic
-        const int posuniecieX = 480;//16*texture_kingD.getSize().x*0.79*scale;
-        const int posuniecieY = 0;//(32*texture_kingD.getSize().x*0.45*scale  )/2;
-
-    //pawe³ wyœrodkuj matematycznie plz
 
 
+    std::cout<<"jeste\n";
     for (int i = 0; i<17;++i)
     {
         for (int j = 0; j<33; ++j)
@@ -17,7 +17,17 @@ void backgroundFields(){
 
             if(i%2==j%2)
             {
-                background_fields[i][j].setTexture(Background);
+                int a=rand()%3;
+                if(a==0){
+                    background_fields[i][j].setTexture(Background);
+                    background_fields[i][j].typK=1;
+                }else if(a==1){
+                    background_fields[i][j].setTexture(Background2);
+                    background_fields[i][j].typK=2;
+                }else if(a==2){
+                    background_fields[i][j].setTexture(Background3);
+                    background_fields[i][j].typK=3;
+                }
                 background_fields[i][j].setScale(sf::Vector2f(scale, scale));
                 //background_fields[i][j].setOrigin(sf::Vector2f(0.1, 0.1));
                 background_fields[i][j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*scale+posuniecieX,j*texture_kingD.getSize().x*scale*0.45+posuniecieY));
@@ -70,7 +80,10 @@ frontFields(){
         for(int j = 0; j < 34; j ++)
         {
             setFigureTexture(&front_fields[i * board_size_y + j]);
-            background_fields[i][j].setTexture(Background);
+            int a=rand()%3;
+                if(background_fields[i][j].typK==1)background_fields[i][j].setTexture(Background);
+                else if(background_fields[i][j].typK==2)background_fields[i][j].setTexture(Background2);
+                else if(background_fields[i][j].typK==3)background_fields[i][j].setTexture(Background3);
         }
     }
 }

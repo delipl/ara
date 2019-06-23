@@ -70,15 +70,25 @@ bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
     if(board[x][y].name=="charge")
     {
-        if((y == targetY) && (abs(targetX - x) == 2)) return 1;
+
+        if((y == targetY) && ((targetX - x) == 2) && ( board[x+1][y+1].name=="empty" || board[x+1][y-1].name=="empty" )) return 1;
+        if((y == targetY) && ((targetX - x) == -2) && ( board[x-1][y+1].name=="empty" || board[x-1][y+1].name=="empty" ) ) return 1;
+
+
+        if((y == targetY+1) && (abs(targetX - x) == 1)) return 1;
+        if((y == targetY-1) && (abs(targetX - x) == 1)) return 1;
         if(x == targetX)
         {
+            bool zascianek=0;
             if(y > targetY)
             {
                 for(int i = targetY + 2; i < y; i += 2)
                 {
-                    if((board[x][i].name == "empty") || (board[x][i].owner == board[x][y].owner))
+                    if(board[x][i].name == "empty" || board[x][i].owner == board[x][y].owner || board[x][i].name == "notexist")
                     {
+                        if(board[x][i].name == "notexist"){
+                            return 0; //tu kiedys bedzie latalo
+                        }
                         continue;
                     }
                     return 0;
@@ -89,8 +99,11 @@ bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
             {
                 for(int i = y + 2; i < targetY; i += 2)
                 {
-                    if((board[x][i].name == "empty") || (board[x][i].owner == board[x][y].owner))
+                    if(board[x][i].name == "empty" || board[x][i].owner == board[x][y].owner || board[x][i].name == "notexist")
                     {
+                        if(board[x][i].name == "notexist"){
+                            return 0; //tu kiedys bedzie latalo
+                        }
                         continue;
                     }
                     return 0;
@@ -130,6 +143,7 @@ bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
         if((targetX == x) && (targetY == y + 2 * a)) return 1;
         else if((targetX == x) && (targetY == y + 4 * a)&&(board[targetX][targetY-(2*a)].name=="empty")) return 1;
+        else if((targetX == x) && (targetY == y + 6 * a)&&(board[targetX][targetY-(2*a)].name=="empty")&&(board[targetX][targetY-(4*a)].name=="empty")) return 1;
         else if((targetX == x + 1) && (targetY == y + a)) return 1;
         else if((targetX == x - 1) && (targetY == y + a)) return 1;
         else return 0;
@@ -144,10 +158,12 @@ bool canMove(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
     if(board[x][y].name=="ghost")
     {
-        if((abs(targetX - x) == 1) && (abs(targetY - y) == 3)) return 1;
-        else if((abs(targetX - x) == 2) && ((abs(targetY - y) == 0)||(abs(targetY - y) == 2))) return 1;
-        else if((targetX == x) && (abs(targetY-y) ==  4)) return 1;
-        else return 0;
+        //if((abs(targetX - x) == 1) && (abs(targetY - y) == 3)) return 1;
+        if((abs(targetX - x) == 3) && (abs(targetY - y) == 3)) return 1;
+        if((abs(targetX - x) == 2) && (abs(targetY - y) == 2)) return 1;
+        if((targetX == x) && (abs(targetY-y) ==  4)) return 1;
+        if((targetX == x) && (abs(targetY-y) ==  6)) return 1;
+        return 0;
     }
 
     //kawaleria
@@ -271,7 +287,11 @@ bool canAttack(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
 
     if(wsk_to_board[x * 34 + y].name == "king")
     {
-        return canMove(wsk_to_board, x, y, targetX, targetY);
+        if((abs(targetX - x) == 2) && (abs(targetY - y) == 2)) return 1;
+        else if((targetX == x) && (abs(targetY - y) == 4)) return 1;
+        else if((targetX == x+1) && (abs(targetY - y) == 3)) return 1;
+        else if((targetX == x-1) && (abs(targetY - y) == 3)) return 1;
+        return 0;
     }
     if(wsk_to_board[x * 34 + y].name == "ghost")
     {

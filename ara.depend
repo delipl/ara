@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1560185857 source:c:\users\kivi\documents\ara\main.cpp
+1561246531 source:c:\users\kivi\documents\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -863,7 +863,7 @@
 	<SFML/Graphics/VertexBuffer.hpp>
 	<SFML/Graphics/View.hpp>
 
-1560250978 D
+1560250068 D
 
 1525808418 e
 
@@ -2078,7 +2078,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1560185872 c:\users\kivi\documents\ara\figures.h
+1561248308 c:\users\kivi\documents\ara\figures.h
 	"loadFromFile.h"
 
 1548090551 c:\users\adamw\documents\ara\figures.h
@@ -2544,7 +2544,7 @@
 	<cstdlib>
 	<string>
 
-1549058322 c:\users\kivi\documents\ara\pole.h
+1560292425 c:\users\kivi\documents\ara\pole.h
 	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 	"lib/SFML-2.5.1/include/SFML/Window.hpp"
 	"lib/SFML-2.5.1/include/SFML/Audio.hpp"
@@ -2553,13 +2553,13 @@
 1549113139 c:\users\kivi\documents\ara\messages.h
 	<iostream>
 
-1560180796 c:\users\kivi\documents\ara\header.h
+1561240560 c:\users\kivi\documents\ara\header.h
 	<math.h>
 
 1549199670 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\header.h
 	<math.h>
 
-1560186329 c:\users\kivi\documents\ara\fields.h
+1561219926 c:\users\kivi\documents\ara\fields.h
 
 1549201058 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\fields.h
 
@@ -2777,7 +2777,7 @@
 
 1548090552 c:\users\adamw\documents\ara\mapremoving.h
 
-1560185461 c:\users\kivi\documents\ara\highlight.h
+1561243713 c:\users\kivi\documents\ara\highlight.h
 
 1549060553 c:\users\kivi\documents\ara\ai.h
 	"znajdzRuchP.h"
@@ -2913,14 +2913,14 @@
 
 1549103016 c:\users\pawe³\dane z pulpitu\programowanie\github\ara\znajdzruchai.h
 
-1560185872 c:\users\kivi\documents\ara\loadfromfile.h
+1561242897 c:\users\kivi\documents\ara\loadfromfile.h
 	"textures.h"
 	<fstream>
 	<cstdlib>
 	<string>
 	"mapRemoving.h"
 
-1560184535 c:\users\kivi\documents\ara\textures.h
+1561218940 c:\users\kivi\documents\ara\textures.h
 	"pole.h"
 
 1549193343 c:\users\kivi\documents\ara\saving.h
@@ -2944,10 +2944,14 @@
 	<string>
 	"mapRemoving.h"
 
-1561166850 c:\users\buka\documents\github\ara\textures.h
+1560295280 c:\users\buka\documents\github\ara\textures.h
 	"pole.h"
 
+1560250068 1ccea4d750417c0369775c5085310912f9c3c
+
 1560250068 ffc79f83e38acd30bd8cef6a3c204acffb7d9
+
+1560250068 03db518f2f46b88c3fa74935cf10c04355a9e
 	"pole.h"
 
 1559757103 c:\users\buka\documents\github\ara\pole.h
