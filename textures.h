@@ -164,7 +164,6 @@ void loadMenuTexture(){
     //ustawianie tekstur dla menu itp.
     Menu.setTexture(menu);
     Menu.setPosition(sf::Vector2f(0, 0));
-    Menu.setScale(sf::Vector2f(1, 1));
     Menu.setScale(float(sf::VideoMode::getDesktopMode().width)/menu.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu.getSize().y);
 
 
@@ -173,6 +172,7 @@ void loadMenuTexture(){
     Save.setScale(float(sf::VideoMode::getDesktopMode().width)/save.getSize().x, float(sf::VideoMode::getDesktopMode().height)/save.getSize().y);
 
     firstMenuSprite.setTexture(firstMenuTexture);
+    firstMenuSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/firstMenuTexture.getSize().x, float(sf::VideoMode::getDesktopMode().height)/firstMenuTexture.getSize().y);
 
     Kursor.setTexture(kursor);
     Kursor.setScale(0.5f, 0.5f);
