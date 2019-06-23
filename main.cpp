@@ -12,17 +12,7 @@ bool click=0;
 #include "AI.h"
 
 bool ai=0;
-
-
-void setup(){
-    loadFiguresTexture();
-    loadSettings();
-    loadMenuTexture();
-    backgroundFields();
-    LoadSave(saveChosing(), front_fields);
-    frontFields();
-}
-
+bool firstMenu=1;
 bool ruch=1;
 
 int zakazaneX;
@@ -77,8 +67,13 @@ int main()
         basex-=1;
         basey+=1;
     }
-    setup();
 
+    loadFiguresTexture();
+    loadSettings();
+    loadMenuTexture();
+    backgroundFields();
+
+    frontFields();
 
     float skalaX = float(sf::VideoMode::getDesktopMode().width)/backroundImage.getSize().x;
     float skalaY = float(sf::VideoMode::getDesktopMode().height)/backroundImage.getSize().y;
@@ -101,12 +96,48 @@ int main()
 
     sf::Color basicColor = background_fields[8][28].getColor();
 
-    //==========================PETLA GLOWNA==========================//
 
 
-    while (window.isOpen())
+    //====================================================================PETLA GLOWNA================================================================//
+    //===================================================================PETLA GLOWNA=============================================================//
+    //=====================================================================PETLA GLOWNA===========================================================//
+
+    while (window.isOpen()&&firstMenu)
     {
 
+
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+
+            if(sf::Mouse::getPosition().x>350&&sf::Mouse::getPosition().x<750&&
+               sf::Mouse::getPosition().y>450&&sf::Mouse::getPosition().y<600)firstMenu=0;
+        }
+
+        Kursor.setTexture(kursor);
+        Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
+        //std::cout<<Kursor.getPosition().x<<"x"<<Kursor.getPosition().y<<"\n";
+        window.draw(firstMenuSprite);
+        window.draw(Kursor);
+
+
+        window.display();
+        window.clear();
+    }
+
+    bool s=1;
+
+    while (window.isOpen()&&!firstMenu)
+    {
+
+        if(s){
+            s=0;
+            LoadSave(saveChosing(), front_fields);
+        }
 
         Kursor.setTexture(kursor);
         mousePointing = 0;
