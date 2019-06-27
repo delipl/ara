@@ -2925,7 +2925,7 @@
 
 1549193343 c:\users\kivi\documents\ara\saving.h
 
-1561299218 source:c:\users\buka\documents\github\ara\main.cpp
+1561650570 source:c:\users\buka\documents\github\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -2944,7 +2944,7 @@
 	<string>
 	"mapRemoving.h"
 
-1561299218 c:\users\buka\documents\github\ara\textures.h
+1561315304 c:\users\buka\documents\github\ara\textures.h
 	"pole.h"
 
 1560250068 1ccea4d750417c0369775c5085310912f9c3c
@@ -3809,12 +3809,12 @@
 
 1560250978 c:\users\buka\documents\github\ara\mapremoving.h
 
-1561299218 c:\users\buka\documents\github\ara\header.h
+1561315304 c:\users\buka\documents\github\ara\header.h
 	<math.h>
 
 1561299218 c:\users\buka\documents\github\ara\fields.h
 
-1561299218 c:\users\buka\documents\github\ara\highlight.h
+1561650673 c:\users\buka\documents\github\ara\highlight.h
 
 1560250978 c:\users\buka\documents\github\ara\ai.h
 	"znajdzRuchP.h"
