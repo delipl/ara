@@ -35,3 +35,5 @@
 ara.depend
 ara.layout
 
+*.o
+*.sh
