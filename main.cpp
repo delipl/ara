@@ -52,7 +52,7 @@ int main()
         scale=0.35*sf::VideoMode::getDesktopMode().height/1080; //uzależnic od sizePlanszyPrzed
         posuniecieX=(sf::VideoMode::getDesktopMode().width-((16*texture_kingD.getSize().x*0.79*scale)+texture_kingD.getSize().x*scale))/2;
 
-        posuniecieY=0;//paweł da rade!
+        posuniecieY=0;//paweł da rade!... wcale nie! asia mi pomogła bo jest fajniejsza <3
     }else{
         scale=0.397*sf::VideoMode::getDesktopMode().width/1080; //uzależnić od size planszzyPrzed
         posuniecieX=0;
