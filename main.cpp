@@ -46,15 +46,17 @@ int main()
 //=================================T£O================================================//
 
 
+    loadFiguresTexture();
 
     if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
         scale=0.35*sf::VideoMode::getDesktopMode().height/1080; //uzależnic od sizePlanszyPrzed
-        posuniecieX=0;
+        posuniecieX=(sf::VideoMode::getDesktopMode().width-((16*texture_kingD.getSize().x*0.79*scale)+texture_kingD.getSize().x*scale))/2;
+
         posuniecieY=0;//paweł da rade!
     }else{
         scale=0.397*sf::VideoMode::getDesktopMode().width/1080; //uzależnić od size planszzyPrzed
         posuniecieX=0;
-        posuniecieY=0;
+        posuniecieY=(sf::VideoMode::getDesktopMode().height-((32*texture_kingD.getSize().y*0.45*scale)+texture_kingD.getSize().y*scale))/2;
     }
 
 
@@ -69,7 +71,6 @@ int main()
         basey+=1;
     }
 
-    loadFiguresTexture();
     loadSettings();
     loadMenuTexture();
     backgroundFields();

@@ -2925,7 +2925,7 @@
 
 1549193343 c:\users\kivi\documents\ara\saving.h
 
-1561650570 source:c:\users\buka\documents\github\ara\main.cpp
+1594060334 source:c:\users\buka\documents\github\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -2934,17 +2934,17 @@
 	"highlight.h"
 	"AI.h"
 
-1561299218 c:\users\buka\documents\github\ara\figures.h
+1593976125 c:\users\buka\documents\github\ara\figures.h
 	"loadFromFile.h"
 
-1561299218 c:\users\buka\documents\github\ara\loadfromfile.h
+1593976125 c:\users\buka\documents\github\ara\loadfromfile.h
 	"textures.h"
 	<fstream>
 	<cstdlib>
 	<string>
 	"mapRemoving.h"
 
-1561315304 c:\users\buka\documents\github\ara\textures.h
+1593976124 c:\users\buka\documents\github\ara\textures.h
 	"pole.h"
 
 1560250068 1ccea4d750417c0369775c5085310912f9c3c
@@ -2954,7 +2954,7 @@
 1560250068 03db518f2f46b88c3fa74935cf10c04355a9e
 	"pole.h"
 
-1561299218 c:\users\buka\documents\github\ara\pole.h
+1593976124 c:\users\buka\documents\github\ara\pole.h
 	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 	"lib/SFML-2.5.1/include/SFML/Window.hpp"
 	"lib/SFML-2.5.1/include/SFML/Audio.hpp"
@@ -3804,25 +3804,25 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1560250979 c:\users\buka\documents\github\ara\messages.h
+1593976125 c:\users\buka\documents\github\ara\messages.h
 	<iostream>
 
-1560250978 c:\users\buka\documents\github\ara\mapremoving.h
+1593976124 c:\users\buka\documents\github\ara\mapremoving.h
 
-1561315304 c:\users\buka\documents\github\ara\header.h
+1593976124 c:\users\buka\documents\github\ara\header.h
 	<math.h>
 
-1561299218 c:\users\buka\documents\github\ara\fields.h
+1594059473 c:\users\buka\documents\github\ara\fields.h
 
-1561650673 c:\users\buka\documents\github\ara\highlight.h
+1593976124 c:\users\buka\documents\github\ara\highlight.h
 
-1560250978 c:\users\buka\documents\github\ara\ai.h
+1593976122 c:\users\buka\documents\github\ara\ai.h
 	"znajdzRuchP.h"
 	"znajdzRuchAI.h"
 
-1560250978 c:\users\buka\documents\github\ara\znajdzruchp.h
+1593976124 c:\users\buka\documents\github\ara\znajdzruchp.h
 
-1560250978 c:\users\buka\documents\github\ara\znajdzruchai.h
+1593976124 c:\users\buka\documents\github\ara\znajdzruchai.h
 
 1560250068 c:\users\buka\documents\github\ara\load_from_file.h
 	"pole.h"
