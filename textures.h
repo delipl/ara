@@ -118,13 +118,13 @@ void loadFiguresTexture(){
     {
         ms_error(666, "graphics/ikony/zagadkaRed.png", 1);
     }
-    if (!texture_notexist.loadFromFile("img/notexist.png"))
+    if (!texture_notexist.loadFromFile("graphics/ikony/notexist.png"))
     {
-        ms_error(666, "img/notexist.png", 1);
+        ms_error(666, "graphics/ikony/notexist.png", 1);
     }
-    if (!texture_nothing.loadFromFile("img/nothing.png"))
+    if (!texture_nothing.loadFromFile("graphics/ikony/notexist.png"))
     {
-        ms_error(666, "img/nothing.png", 1);
+        ms_error(666, "graphics/ikony/notexist.png", 1);
     }
     if (!texture_pawnD.loadFromFile("graphics/ikony/peasantBlue.png"))
     {

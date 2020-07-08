@@ -825,7 +825,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1562858364 source:c:\users\kivi\documents\ara\main.cpp
+1594211343 source:c:\users\kivi\documents\ara\main.cpp
 	<sstream>
 	"figures.h"
 	"header.h"
@@ -2078,7 +2078,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1561248308 c:\users\kivi\documents\ara\figures.h
+1594208313 c:\users\kivi\documents\ara\figures.h
 	"loadFromFile.h"
 
 1548090551 c:\users\adamw\documents\ara\figures.h
@@ -2544,26 +2544,26 @@
 	<cstdlib>
 	<string>
 
-1560292425 c:\users\kivi\documents\ara\pole.h
+1594152605 c:\users\kivi\documents\ara\pole.h
 	"lib/SFML-2.5.1/include/SFML/Graphics.hpp"
 	"lib/SFML-2.5.1/include/SFML/Window.hpp"
 	"lib/SFML-2.5.1/include/SFML/Audio.hpp"
 	"messages.h"
 
-1549113139 c:\users\kivi\documents\ara\messages.h
+1594152605 c:\users\kivi\documents\ara\messages.h
 	<iostream>
 
-1562849214 c:\users\kivi\documents\ara\header.h
+1594152605 c:\users\kivi\documents\ara\header.h
 	<math.h>
 
 1549199670 c:\users\pawe許dane z pulpitu\programowanie\github\ara\header.h
 	<math.h>
 
-1561219926 c:\users\kivi\documents\ara\fields.h
+1594152605 c:\users\kivi\documents\ara\fields.h
 
 1549201058 c:\users\pawe許dane z pulpitu\programowanie\github\ara\fields.h
 
-1549123479 c:\users\kivi\documents\ara\mapremoving.h
+1594152605 c:\users\kivi\documents\ara\mapremoving.h
 
 1549058322 c:\users\kivi\documents\ara\lib\sfml-2.5.1\include\sfml\audio.hpp
 	<SFML/System.hpp>
@@ -2777,15 +2777,15 @@
 
 1548090552 c:\users\adamw\documents\ara\mapremoving.h
 
-1561243713 c:\users\kivi\documents\ara\highlight.h
+1594152605 c:\users\kivi\documents\ara\highlight.h
 
-1549060553 c:\users\kivi\documents\ara\ai.h
+1594152604 c:\users\kivi\documents\ara\ai.h
 	"znajdzRuchP.h"
 	"znajdzRuchAI.h"
 
-1549113139 c:\users\kivi\documents\ara\znajdzruchai.h
+1594152605 c:\users\kivi\documents\ara\znajdzruchai.h
 
-1549113139 c:\users\kivi\documents\ara\znajdzruchp.h
+1594152605 c:\users\kivi\documents\ara\znajdzruchp.h
 
 1549201694 c:\users\pawe許dane z pulpitu\programowanie\github\ara\loadfromfile.h
 	"textures.h"
@@ -2913,14 +2913,14 @@
 
 1549103016 c:\users\pawe許dane z pulpitu\programowanie\github\ara\znajdzruchai.h
 
-1561242897 c:\users\kivi\documents\ara\loadfromfile.h
+1594152605 c:\users\kivi\documents\ara\loadfromfile.h
 	"textures.h"
 	<fstream>
 	<cstdlib>
 	<string>
 	"mapRemoving.h"
 
-1562859411 c:\users\kivi\documents\ara\textures.h
+1594206778 c:\users\kivi\documents\ara\textures.h
 	"pole.h"
 
 1549193343 c:\users\kivi\documents\ara\saving.h

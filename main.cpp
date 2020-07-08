@@ -16,8 +16,13 @@ bool firstMenu=1;
 bool firstLoad=0;
 bool ruch=1;
 
+int firstMenuClickedX=0;
+int firstMenuClickedY=0;
+
 int zakazaneX;
 int zakazaneY;
+
+bool mouseButtonFromPrev=0;
 
 int main()
 {
@@ -46,7 +51,7 @@ int main()
 //=================================T£O================================================//
 
 
-    loadFiguresTexture();
+
 
     if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
         scale=0.35*sf::VideoMode::getDesktopMode().height/1080; //uzależnic od sizePlanszyPrzed
@@ -71,6 +76,7 @@ int main()
         basey+=1;
     }
 
+    loadFiguresTexture();
     loadSettings();
     loadMenuTexture();
     backgroundFields();
@@ -98,152 +104,45 @@ int main()
 
     sf::Color basicColor = background_fields[8][28].getColor();
 
+        float scaleMenuX = 1920/ sf::VideoMode::getDesktopMode().width;
+        float scaleMenuY = 1080/ sf::VideoMode::getDesktopMode().height;
 
-
+    bool s=1;
     //====================================================================PETLA GLOWNA================================================================//
     //===================================================================PETLA GLOWNA=============================================================//
     //=====================================================================PETLA GLOWNA===========================================================//
 while(true){
-    while (window.isOpen()&&firstMenu)
+
+    sf::Event event;
+    while (window.pollEvent(event))
     {
-        float scaleMenuX = 1920/ sf::VideoMode::getDesktopMode().width;
-        float scaleMenuY = 1080/ sf::VideoMode::getDesktopMode().height;
-        //std::cout<<"x: "<<sf::Mouse::getPosition().x <<"y: "<<sf::Mouse::getPosition().y<<"\n";
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
+        switch(event.type){
+            case sf::Event::Closed:
                 window.close();
-        }
-        if(sf::Mouse::getPosition().x>340*scaleMenuX&&sf::Mouse::getPosition().x<700*scaleMenuX&&
-           sf::Mouse::getPosition().y>400*scaleMenuY&&sf::Mouse::getPosition().y<560*scaleMenuY){
-               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-                firstMenu=0;
+            break;
+
+            case sf::Event::LostFocus:
+
+            break;
+
+            case sf::Event::GainedFocus:
+
+            break;
+
+            case sf::Event::MouseButtonPressed:
+                if(event.mouseButton.button == sf::Mouse::Left){
+                    if (!kursor.loadFromFile("graphics/rzeczy/kursorKlik.png"))ms_error(216, "no kursor found", 1);
                 }
-                PlaySprite.setColor(sf::Color::White);
-        }else PlaySprite.setColor(sf::Color(255, 255, 255, 200));
+            break;
 
-
-
-        if(sf::Mouse::getPosition().x>1095*scaleMenuX&&sf::Mouse::getPosition().x<1655*scaleMenuX&&
-           sf::Mouse::getPosition().y>440*scaleMenuY&&sf::Mouse::getPosition().y<550*scaleMenuY){
-               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-                    firstMenu=0;
-                    firstLoad=1;
+            case sf::Event::MouseButtonReleased:
+                if (event.mouseButton.button == sf::Mouse::Left){
+                    if (!kursor.loadFromFile("graphics/rzeczy/kursorDuzy.png")) ms_error(26, "no kursor found", 1);
+                    mouseButtonFromPrev=0;
                 }
-                LoadGameSprite.setColor(sf::Color::White);
-        }else LoadGameSprite.setColor(sf::Color(255, 255, 255, 200));
-
-
-
-        if(sf::Mouse::getPosition().x>500*scaleMenuX&&sf::Mouse::getPosition().x<830*scaleMenuX&&
-           sf::Mouse::getPosition().y>635*scaleMenuY&&sf::Mouse::getPosition().y<820*scaleMenuY){
-               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-                }
-                TutorialSprite.setColor(sf::Color::White);
-        }else TutorialSprite.setColor(sf::Color(255, 255, 255, 200));
-
-
-        if(sf::Mouse::getPosition().x>1075*scaleMenuX&&sf::Mouse::getPosition().x<1400*scaleMenuX&&
-           sf::Mouse::getPosition().y>635*scaleMenuY&&sf::Mouse::getPosition().y<840*scaleMenuY){
-               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-                }
-                OptionsSprite.setColor(sf::Color::White);
-        }else OptionsSprite.setColor(sf::Color(255, 255, 255, 200));
-
-        if(sf::Mouse::getPosition().x>55*scaleMenuX&&sf::Mouse::getPosition().x<360*scaleMenuX&&
-           sf::Mouse::getPosition().y>918*scaleMenuY&&sf::Mouse::getPosition().y<1010*scaleMenuY){
-               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-                }
-                AutorsSprite.setColor(sf::Color::White);
-        }else AutorsSprite.setColor(sf::Color(255, 255, 255, 200));
-
-        if(sf::Mouse::getPosition().x>1680*scaleMenuX&&sf::Mouse::getPosition().x<1855*scaleMenuX&&
-           sf::Mouse::getPosition().y>944*scaleMenuY&&sf::Mouse::getPosition().y<1018*scaleMenuY){
-               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-                    return 0;
-                }
-                ExitSprite.setColor(sf::Color::White);
-        }else ExitSprite.setColor(sf::Color(255, 255, 255, 200));
-
-
-
-        Kursor.setTexture(kursor);
-        Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
-        //std::cout<<Kursor.getPosition().x<<"x"<<Kursor.getPosition().y<<"\n";
-        window.draw(menu2Sprite);
-        window.draw(ARASprite);
-        window.draw(OptionsSprite);
-        window.draw(ExitSprite);
-        window.draw(AutorsSprite);
-        window.draw(LoadGameSprite);
-        window.draw(PlaySprite);
-        window.draw(TutorialSprite);
-        window.draw(Kursor);
-
-
-        window.display();
-        window.clear();
-    }
-
-    while (window.isOpen()&&!firstMenu && firstLoad)
-    {
-        float scaleMenuX = 1920/ (menu1.getSize().x * menu1Sprite.getScale().x  );
-        float scaleMenuY = 1080/ (menu1.getSize().y * menu1Sprite.getScale().y  );
-        //std::cout<<"x: "<<sf::Mouse::getPosition().x <<"y: "<<sf::Mouse::getPosition().y<<"\n";
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-
-        Kursor.setTexture(kursor);
-        Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
-        window.draw(savePlusSubSprite);
-        window.draw(saveBookSprite);
-        window.draw(saveslot1Sprite);
-        window.draw(saveslot2Sprite);
-        window.draw(saveslot3Sprite);
-        window.draw(saveslot4Sprite);
-        window.draw(saveslot5Sprite);
-        window.draw(saveslot6Sprite);
-        window.draw(Kursor);
-
-
-        window.display();
-        window.clear();
-    }
-
-    bool s=1;
-
-    while (window.isOpen()&&!firstMenu && !firstLoad)
-    {
-        if(s){
-            s=0;
-            LoadSave(saveChosing(), front_fields);
-        }
-
-        Kursor.setTexture(kursor);
-        mousePointing = 0;
-        mouse_pressed = 0;
-        window.draw(SbackroundImage);
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            switch (event.type)
-            {
-                case sf::Event::Closed:
-
-                    window.close();
-                    music.stop();
-                    return 0;
-                    break;
-                case sf::Event::Resized:
-                    //ResizeView(window, view);
-                    break;
-                case sf::Event::KeyPressed:
+            break;
+            case sf::Event::KeyPressed:
+                if(!firstLoad && !firstMenu){
                     if (event.key.code == sf::Keyboard::Escape&&isMenu)isMenu=0;
                     else if(event.key.code == sf::Keyboard::Escape&&isSaving){
                         isMenu=1;
@@ -256,10 +155,111 @@ while(true){
                         isSaving=1;
                         isMenu=0;
                     }
+                }
                 break;
-            }
 
+            default: break;
         }
+    }
+
+    if (window.isOpen()&&firstMenu)
+    {
+        //std::cout<<"x: "<<sf::Mouse::getPosition().x <<"y: "<<sf::Mouse::getPosition().y<<"\n";
+
+        if(sf::Mouse::getPosition().x>340*scaleMenuX&&sf::Mouse::getPosition().x<700*scaleMenuX&&
+           sf::Mouse::getPosition().y>400*scaleMenuY&&sf::Mouse::getPosition().y<560*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)&&!mouseButtonFromPrev){
+                        firstMenu=0;
+                }
+
+                PlaySprite.setColor(sf::Color::White);
+
+        }else PlaySprite.setColor(sf::Color(255, 255, 255, 200));
+
+
+
+        if(sf::Mouse::getPosition().x>1095*scaleMenuX&&sf::Mouse::getPosition().x<1655*scaleMenuX&&
+           sf::Mouse::getPosition().y>440*scaleMenuY&&sf::Mouse::getPosition().y<550*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)&&!mouseButtonFromPrev){
+                        firstMenu=0;
+                        firstLoad=1;
+                }
+
+                LoadGameSprite.setColor(sf::Color::White);
+        }else LoadGameSprite.setColor(sf::Color(255, 255, 255, 200));
+
+
+
+        if(sf::Mouse::getPosition().x>500*scaleMenuX&&sf::Mouse::getPosition().x<830*scaleMenuX&&
+           sf::Mouse::getPosition().y>635*scaleMenuY&&sf::Mouse::getPosition().y<820*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)&&!mouseButtonFromPrev){
+                }
+                TutorialSprite.setColor(sf::Color::White);
+        }else TutorialSprite.setColor(sf::Color(255, 255, 255, 200));
+
+
+        if(sf::Mouse::getPosition().x>1075*scaleMenuX&&sf::Mouse::getPosition().x<1400*scaleMenuX&&
+           sf::Mouse::getPosition().y>635*scaleMenuY&&sf::Mouse::getPosition().y<840*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)&&!mouseButtonFromPrev){
+                }
+                OptionsSprite.setColor(sf::Color::White);
+        }else OptionsSprite.setColor(sf::Color(255, 255, 255, 200));
+
+        if(sf::Mouse::getPosition().x>55*scaleMenuX&&sf::Mouse::getPosition().x<360*scaleMenuX&&
+           sf::Mouse::getPosition().y>918*scaleMenuY&&sf::Mouse::getPosition().y<1010*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)&&!mouseButtonFromPrev){
+                }
+                AutorsSprite.setColor(sf::Color::White);
+        }else AutorsSprite.setColor(sf::Color(255, 255, 255, 200));
+
+        if(sf::Mouse::getPosition().x>1680*scaleMenuX&&sf::Mouse::getPosition().x<1855*scaleMenuX&&
+           sf::Mouse::getPosition().y>944*scaleMenuY&&sf::Mouse::getPosition().y<1018*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)&&!mouseButtonFromPrev){
+                            return 0;
+                }
+                ExitSprite.setColor(sf::Color::White);
+        }else ExitSprite.setColor(sf::Color(255, 255, 255, 200));
+
+        //std::cout<<Kursor.getPosition().x<<"x"<<Kursor.getPosition().y<<"\n";
+        window.draw(menu2Sprite);
+        window.draw(ARASprite);
+        window.draw(OptionsSprite);
+        window.draw(ExitSprite);
+        window.draw(AutorsSprite);
+        window.draw(LoadGameSprite);
+        window.draw(PlaySprite);
+        window.draw(TutorialSprite);
+    }
+
+    else if (window.isOpen()&&!firstMenu && firstLoad)
+    {
+        float scaleMenuX = 1920/ (menu1.getSize().x * menu1Sprite.getScale().x  );
+        float scaleMenuY = 1080/ (menu1.getSize().y * menu1Sprite.getScale().y  );
+        //std::cout<<"x: "<<sf::Mouse::getPosition().x <<"y: "<<sf::Mouse::getPosition().y<<"\n";
+
+
+        window.draw(savePlusSubSprite);
+        window.draw(saveBookSprite);
+        window.draw(saveslot1Sprite);
+        window.draw(saveslot2Sprite);
+        window.draw(saveslot3Sprite);
+        window.draw(saveslot4Sprite);
+        window.draw(saveslot5Sprite);
+        window.draw(saveslot6Sprite);
+    }
+
+    else if (window.isOpen()&&!firstMenu && !firstLoad)
+    {
+        if(s){
+            s=0;
+            LoadSave(saveChosing(), front_fields);
+        }
+
+        Kursor.setTexture(kursor);
+        mousePointing = 0;
+        mouse_pressed = 0;
+        window.draw(SbackroundImage);
+
 
         //consoleHiding();
 
@@ -301,17 +301,6 @@ while(true){
                                 else if (front_fields[i*34+j].owner==2) background_fields[i][j].setColor(sf::Color(255,220,175,140));
                                 else background_fields[i][j].setColor(sf::Color(255,255,255,220));
                         }else{
-
-                            if(front_fields[i*34+j].owner==opponentOwner){
-                               if (!kursor.loadFromFile("graphics/rzeczy/kursorKlik.png"))ms_error(216, "no kursor found", 1);
-                            }else{
-                                if (!kursor.loadFromFile("graphics/rzeczy/kursorDuzy.png"))
-                                    {
-                                    ms_error(26, "no kursor found", 1);
-                                    }
-                            }
-
-
                         }
                     }
                     else if((front_fields[i * board_size_y + j].name != "empty"))
@@ -344,7 +333,7 @@ while(true){
                     }
                 }
             }
-            while(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
                 mouse_position = sf::Mouse::getPosition(window);
                 mouse_pressed = 1;
@@ -442,12 +431,6 @@ while(true){
 
                                                 }
                                             }
-
-
-                                            if (!kursor.loadFromFile("graphics/rzeczy/kursorDuzy.png"))
-                                            {
-                                                ms_error(26, "graphics/rzeczy/kursorDuzy.png", 1);
-                                            }
                                         }
                                     }
                                     else ms_message("to nie twoja tura dzbanie");
@@ -489,8 +472,6 @@ while(true){
                     sound.play();
                     window.close();
                     music.stop();
-                    //system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu
-                    system("ara.exe");  //działa tylko z execa (wraca do menu
                     return 0;
                 }else if(mouse_position.x>=250&mouse_position.x<=500&&mouse_position.y>430&&mouse_position.y<490){
                     sound.play();
@@ -546,42 +527,42 @@ while(true){
 
 
 
-            for (int i = 0; i<17; ++i)
+        for (int i = 0; i<17; ++i)
+        {
+            for (int j = 0; j<33; ++j)
             {
-                for (int j = 0; j<33; ++j)
+                window.draw(background_fields[i][j]);
+                window.draw(front_fields[i * board_size_y + j]);
+            }
+        }
+        sf::Texture winTexture;
+        // !!!!!!!!!!!!!!!!!Napisac ekran wygranej !!!!!!!!!!!!!!!!!!//
+        if(win){
+
+            if((tura==1 && ruch==1) || (tura!=1 && ruch!=1)){
+                if (!winTexture.loadFromFile("graphics/rzeczy/winDolny.png"))
                 {
-                    window.draw(background_fields[i][j]);
-                    window.draw(front_fields[i * board_size_y + j]);
+                    ms_error(230, "main.cpp no file graphics/rzeczy/winDolny.png, 1");
                 }
-            }
-            sf::Texture winTexture;
-            // !!!!!!!!!!!!!!!!!Napisac ekran wygranej !!!!!!!!!!!!!!!!!!//
-            if(win){
-
-                if(tura==1){
-                    if (!winTexture.loadFromFile("img/winDolny.png"))
-                    {
-                    ms_error(230, "main.cpp no file winDolny.png, 1");
-                    }
-                }else{
-                    if (!winTexture.loadFromFile("img/winGorny.png"))
-                    {
-                        ms_error(230, "main.cpp no file winGorny.png", true);
-                    }
-
+            }else{
+                if (!winTexture.loadFromFile("graphics/rzeczy/winGorny.png"))
+                {
+                    ms_error(230, "main.cpp no file graphics/rzeczy/winGorny.png", true);
                 }
-                WinTexture.setTexture(winTexture);
-                WinTexture.setPosition(sf::Vector2f(0,0));
-                WinTexture.setScale(float(sf::VideoMode::getDesktopMode().width)/winTexture.getSize().x, float(sf::VideoMode::getDesktopMode().height)/winTexture.getSize().y);
-            }
 
-            unsigned int time;
-            unsigned int minute;
-
-            if(!isMenu){
-                time = seconds.getElapsedTime().asSeconds();
-                minute = minutes.getElapsedTime().asSeconds()/60;
             }
+            WinTexture.setTexture(winTexture);
+            WinTexture.setPosition(sf::Vector2f(0,0));
+            WinTexture.setScale(float(sf::VideoMode::getDesktopMode().width)/winTexture.getSize().x, float(sf::VideoMode::getDesktopMode().height)/winTexture.getSize().y);
+        }
+
+        unsigned int time;
+        unsigned int minute;
+
+        if(!isMenu){
+            time = seconds.getElapsedTime().asSeconds();
+            minute = minutes.getElapsedTime().asSeconds()/60;
+        }
         std::ostringstream ss;
         ss.clear();
         (time<10)?ss << "Czas: " <<minute<<":0"<<time:ss << "Czas: " <<minute<<":"<<time;
@@ -617,23 +598,21 @@ while(true){
         //window.setView(view);
         if(isMenu)window.draw(Menu);
         if(isSaving)window.draw(Save);
-        Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
-        window.draw(Kursor);
-        //std::cout<<Kursor.getPosition().x<<"x"<<Kursor.getPosition().y<<"\n";
-        window.display();
-        window.clear();
-
         if(win==1){
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Left)||sf::Mouse::isButtonPressed(sf::Mouse::Right)){
-                    music.stop();
-                    window.close();
-                    system("ara.exe");  //działa tylko z execa (wraca do menu
-                    //system("./araMenu/sfml-app.o");  //działa tylko z execa (wraca do menu)
+                    win=0;
+                    firstMenu=1;
+                    mouseButtonFromPrev=1;
                 }
         }
 
 
     }
+    Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
+    window.draw(Kursor);
+
+    window.display();
+    window.clear();
 }
     return 0;
 }
